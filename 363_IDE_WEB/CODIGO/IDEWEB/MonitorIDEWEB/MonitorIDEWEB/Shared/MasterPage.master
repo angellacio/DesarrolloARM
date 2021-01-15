@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Shared_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Monitor IDE WEB</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="../Css/style.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="DefaultMasterScriptManager" runat="server" EnableScriptGlobalization="true"
+        EnableScriptLocalization="true">
+    </asp:ScriptManager>
+    <table border="0" cellpadding="0" width="100%" cellspacing="0">
+        <tr>
+            <td>
+                <div id="header-bottom" class="titulo">
+                    <span class="titulote">Monitor</span>
+                    <br />
+                    Declaraci&oacute;n Informativa del Impuesto a los Dep&oacute;sitos en Efectivo
+                </div>
+            </td>
+            <td align="right">
+                <img src="../Image/header_2.jpg" alt="Encabezado" />
+            </td>
+        </tr>
+    </table>
+    <table id="content" width="100%" style="width: 100%">
+        <tr class="mGrid">
+            <td id="content-left" valign="top">
+                <a href="../IDE/Default.aspx">Declaraciones</a> | <a href="../IDE/Bitacora.aspx">Bitácora</a>
+                | <a href="../IDE/Estadistica.aspx">Estadística</a> |
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Salir" />
+            </td>
+        </tr>
+        <tr>
+            <td id="content-right" colspan="2" align="left" valign="top">
+                <div id="breadcrumb">
+                    <asp:SiteMapPath ID="DefaultBreadCrumb" SiteMapProvider="DefaultSiteMapProvider"
+                        runat="server" Visible="False" />
+                    <asp:ContentPlaceHolder ID="DefaultContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    <p>
+                        &nbsp;</p>
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+    <div id="footer">
+        <table style="width: 100%">
+            <tr>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SAT.DyP.Util.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SAT_SCADE_NET_Common_Web_WebServiceConfiguracion_Configuracion" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/CommonServices/Configuracion.asmx</Value>
+    </Setting>
+    <Setting Name="SAT_SCADE_NET_Common_Web_WebServiceConfiguracionSetting_ConfiguracionSetting" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/CommonServices/ConfiguracionSetting.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

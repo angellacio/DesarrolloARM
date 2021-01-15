@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <ConsultarPagoAnteriorResponse xmlns="Pagos">
+         <ConsultarPagoAnteriorResult xmlns:a="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:Operaciones>
+               <a:OperacionPagoAnterior>
+                  <a:Banco>40002</a:Banco>
+                  <a:FechaOperacion>20201012</a:FechaOperacion>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion>20:05</a:HoraOperacion>
+                  <a:LineaCaptura>04200009985529165271</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco>1208</a:NumOpeBanco>
+                  <a:NumOpeDecla>200000001892</a:NumOpeDecla>
+                  <a:Pagado>1</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+               <a:OperacionPagoAnterior>
+                  <a:Banco/>
+                  <a:FechaOperacion/>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion/>
+                  <a:LineaCaptura>04200009975529162268</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco/>
+                  <a:NumOpeDecla>200000001891</a:NumOpeDecla>
+                  <a:Pagado>1</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+            </a:Operaciones>
+         </ConsultarPagoAnteriorResult>
+      </ConsultarPagoAnteriorResponse>
+   </s:Body>
+</s:Envelope>

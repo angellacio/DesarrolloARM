@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{873EDFC8-0D17-4EB0-B5DB-FC6BE9558D0E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ValidacionIdeWeb</RootNamespace>
+    <AssemblyName>ValidacionIdeWeb</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\Insumos\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Negocio.Comun.Procesos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Negocio.Comun.Procesos\1.0.0.0__460b3be631f4cec9\SAT.DyP.Negocio.Comun.Procesos.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Negocio.Comun.Tipos, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Negocio.Comun.Tipos\1.0.0.0__460b3be631f4cec9\SAT.DyP.Negocio.Comun.Tipos.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util.Data\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Processors, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util.Processors\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Processors.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util.Types\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Esquemas\PlantillaAcuse.xslt" />
+    <Content Include="Validacion.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoDatos\AccesoDatos.cs" />
+    <Compile Include="Comunes\Acuse.cs" />
+    <Compile Include="Comunes\CadenaOriginal.cs" />
+    <Compile Include="Comunes\DatosArchivo.cs" />
+    <Compile Include="Comunes\Constantes.cs" />
+    <Compile Include="Comunes\Exepciones\ecAplicacion.cs" />
+    <Compile Include="Contracts\IValidacion.cs" />
+    <Compile Include="Comunes\Declaracion.cs" />
+    <Compile Include="Comunes\Mensaje.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Comunes\ResultadoValidacion.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Validacion.svc.cs">
+      <DependentUpon>Validacion.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Comunes\ValidacionDeclaracion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Esquemas\Validar.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Esquemas\ide_V2_0.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Esquemas\ide_V3_0.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>1997</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/ValidacionIdeWeb</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

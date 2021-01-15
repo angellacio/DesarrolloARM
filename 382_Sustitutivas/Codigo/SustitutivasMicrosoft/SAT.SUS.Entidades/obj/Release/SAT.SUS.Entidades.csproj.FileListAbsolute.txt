@@ -1,0 +1,2 @@
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Entidades\bin\Release\SAT.SUS.Entidades.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Entidades\obj\Release\SAT.SUS.Entidades.dll

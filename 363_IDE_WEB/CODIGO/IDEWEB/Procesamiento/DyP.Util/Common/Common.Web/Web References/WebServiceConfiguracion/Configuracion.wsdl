@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.sat.gob.mx/scade.net/services/2007_10_07/comun/configuracion" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.sat.gob.mx/scade.net/services/2007_10_07/comun/configuracion" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.sat.gob.mx/scade.net/services/2007_10_07/comun/configuracion">
+      <s:element name="ReadSetting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="settingName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadSettingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadSettingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReadSettingSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadSetting" />
+  </wsdl:message>
+  <wsdl:message name="ReadSettingSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadSettingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConfiguracionSoap">
+    <wsdl:operation name="ReadSetting">
+      <wsdl:input message="tns:ReadSettingSoapIn" />
+      <wsdl:output message="tns:ReadSettingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConfiguracionSoap" type="tns:ConfiguracionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReadSetting">
+      <soap:operation soapAction="http://www.sat.gob.mx/scade.net/services/2007_10_07/comun/configuracion/ReadSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConfiguracionSoap12" type="tns:ConfiguracionSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReadSetting">
+      <soap12:operation soapAction="http://www.sat.gob.mx/scade.net/services/2007_10_07/comun/configuracion/ReadSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Configuracion">
+    <wsdl:port name="ConfiguracionSoap" binding="tns:ConfiguracionSoap">
+      <soap:address location="http://localhost/CommonServices/Configuracion.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConfiguracionSoap12" binding="tns:ConfiguracionSoap12">
+      <soap12:address location="http://localhost/CommonServices/Configuracion.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

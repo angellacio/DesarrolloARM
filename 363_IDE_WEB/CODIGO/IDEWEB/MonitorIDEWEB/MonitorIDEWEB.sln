@@ -1,0 +1,41 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MonitorIDEWEB", "MonitorIDEWEB\", "{486D3748-CD5F-4D58-A248-F4E575F2C23D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		Debug.AspNetCompiler.VirtualPath = "/MonitorIDEWEB"
+		Debug.AspNetCompiler.PhysicalPath = "MonitorIDEWEB\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\MonitorIDEWEB\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/MonitorIDEWEB"
+		Release.AspNetCompiler.PhysicalPath = "MonitorIDEWEB\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\MonitorIDEWEB\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "6476"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IdeMonitorPresentacion", "IdeMonitorPresentacion\IdeMonitorPresentacion.vdproj", "{D0B82EE5-BEF6-4941-A47A-D68B5EC30083}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{486D3748-CD5F-4D58-A248-F4E575F2C23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{486D3748-CD5F-4D58-A248-F4E575F2C23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{486D3748-CD5F-4D58-A248-F4E575F2C23D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{486D3748-CD5F-4D58-A248-F4E575F2C23D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D0B82EE5-BEF6-4941-A47A-D68B5EC30083}.Debug|Any CPU.ActiveCfg = Debug
+		{D0B82EE5-BEF6-4941-A47A-D68B5EC30083}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

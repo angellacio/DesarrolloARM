@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BFC833D-DD96-4EB6-B25F-3DF91D887D53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProDec_ReglaNegocio</RootNamespace>
+    <AssemblyName>ProDec_ReglaNegocio</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\..\Insumos\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\SAT.DyP.Util\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\SAT.DyP.Util.Data\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\SAT.DyP.Util.Web\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SgiCriptoNet">
+      <HintPath>..\..\..\Insumos\SgiCriptoNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConectBD\connectBD.cs" />
+    <Compile Include="ConectBD\Parametros.cs" />
+    <Compile Include="ConectBD\Utilerias.cs" />
+    <Compile Include="Entidades\catConsultaDeclas.cs" />
+    <Compile Include="Entidades\catParametros.cs" />
+    <Compile Include="Entidades\catSencillo.cs" />
+    <Compile Include="ManejoErrores.cs" />
+    <Compile Include="Mensajes.cs" />
+    <Compile Include="Proceso\EncriptDecriptArchivo.cs" />
+    <Compile Include="Proceso\ProcesaDeclaracion.cs" />
+    <Compile Include="Proceso\RC4CryptDecrypt.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\IdeValidacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IdeValidacion\Validacion.wsdl" />
+    <None Include="Service References\IdeValidacion\Validacion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\IdeValidacion\Validacion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\IdeValidacion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IdeValidacion\Validacion.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IdeValidacion\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IdeValidacion\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IdeValidacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

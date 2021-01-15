@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+	<submenu name="Consulta Declaraciones">
+		<item name="Todas     " url="~/IDE/ConsultaDeclaraciones.aspx?estado=Todas"/>
+		<item name="Aceptadas " url="~/IDE/ConsultaDeclaraciones.aspx?estado=Aceptada"/>
+		<item name="Rechazadas" url="~/IDE/ConsultaDeclaraciones.aspx?estado=Rechazada"/>
+	</submenu>
+	<submenu name="Bitácora Declaraciones">
+		<item name="Todas     " url="~/IDE/ConsultaDecBitacora.aspx?estado=Todas"/>
+		<item name="Aceptadas " url="~/IDE/ConsultaDecBitacora.aspx?estado=Aceptada"/>
+		<item name="Rechazadas" url="~/IDE/ConsultaDecBitacora.aspx?estado=Rechazada"/>
+	</submenu>
+	<submenu name="Estadístico Declaraciones">
+		<item name="Todas     " url="~/IDE/EstadisticoDecla.aspx?estado=Todas"/>
+		<item name="Aceptadas " url="~/IDE/EstadisticoDecla.aspx?estado=Aceptada"/>
+		<item name="Rechazadas" url="~/IDE/EstadisticoDecla.aspx?estado=Rechazada"/>
+	</submenu>
+	<item name="Estadístico Recepción" url="~/IDE/EstadisticoRecepcion.aspx"/>
+</menu>

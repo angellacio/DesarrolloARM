@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://m320fogj6071b04.dssat.sat.gob.mx/IdeRecepcion/Recepcion.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RecepcionIDEWEB.Negocio.Contratos" />
+  <xs:element name="RegistrarArchivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RecepcionIDEWEB.Negocio.Contratos" minOccurs="0" name="ObjRecep" nillable="true" type="q1:RecEntrada" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarArchivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RecepcionIDEWEB.Negocio.Contratos" minOccurs="0" name="RegistrarArchivoResult" nillable="true" type="q2:RecSalida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExisteArchivo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="archivo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExisteArchivoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RecepcionIDEWEB.Negocio.Contratos" minOccurs="0" name="ExisteArchivoResult" nillable="true" type="q3:RecVerifica" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMensajes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idTipoMensaje" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMensajesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RecepcionIDEWEB.Negocio.Contratos" minOccurs="0" name="GetMensajesResult" nillable="true" type="q4:ArrayOfMensaje" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SiDesEncripta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rutaArch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="archOrig" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SiDesEncriptaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SiDesEncriptaResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

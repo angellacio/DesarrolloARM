@@ -1,0 +1,220 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:sql="urn:schemas-microsoft-com:mapping-schema">
+
+
+	<xsd:annotation>
+		<xsd:appinfo>
+			<sql:relationship name="GENERAL_DETALLE"
+							  parent="MM_DEC_DGIDEAE1"
+							  parent-key="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1"
+							  child="DD_DEC_DIDEEME1"
+							  child-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1"
+			/>
+
+			<sql:relationship name="DETALLE_Cotitulares"
+							  parent="DD_DEC_DIDEEME1"
+							  parent-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1"
+							  child="Cotitulares"
+							  child-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1"
+			/>
+
+			<sql:relationship name="DETALLE_CuentasMensuales"
+							  parent="DD_DEC_DIDEEME1"
+							  parent-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1"
+							  child="CuentasMensual"
+							  child-key="C_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1 C_DEC_COOPNES1"
+			/>
+
+			<sql:relationship name="DETALLE_CUENTA"
+							  parent="DD_DEC_DIDEEME1"
+							  parent-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1"
+							  child="DD_DEC_CDUEETN1"
+							  child-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1"
+			/>
+
+			<sql:relationship name="CUENTA_Movimiento"
+							  parent="DD_DEC_CDUEETN1"
+							  parent-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1 D_DEC_NCUUMEE1"
+							  child="DD_DEC_MCOUVEI1"
+							  child-key="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1 D_DEC_NCUUMEE1"
+			/>
+
+			<sql:relationship name="GENERAL_EnteroOtrasInstituciones"
+							  parent="MM_DEC_DGIDEAE1"
+							  parent-key="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1"
+							  child="DD_DEC_EIDEOIN1"
+							  child-key="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1"
+			/>
+
+			<sql:relationship name="GENERAL_EnteroPropio"
+							  parent="MM_DEC_DGIDEAE1"
+							  parent-key="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1"
+							  child="DD_DEC_EIDPNME1"
+							  child-key="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1"
+			/>
+		</xsd:appinfo>
+	</xsd:annotation>
+
+
+	<xsd:element name="DatosGenerales" sql:relation="MM_DEC_DGIDEAE1"
+				 sql:key-fields="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Detalle" sql:relation="DD_DEC_DIDEEME1"
+											  sql:key-fields="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1"
+											  sql:relationship="GENERAL_DETALLE">
+					<xsd:complexType>
+						<xsd:sequence>
+
+							<xsd:element name="CuentasMensuales" sql:relation="CuentasMensual"
+											  sql:key-fields="C_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1 C_DEC_COOPNES1 IdConsecutivo"
+											  sql:relationship="DETALLE_CuentasMensuales">
+
+								<xsd:complexType>
+									<xsd:attribute name="numeroCuenta" sql:field="NumeroCuenta" type="xsd:string"/>									
+								</xsd:complexType>
+							</xsd:element>
+							
+							<xsd:element name="Cotitular" sql:relation="Cotitulares"
+											  sql:key-fields="IdConsecutivo"
+											  sql:relationship="DETALLE_Cotitulares">
+							
+								<xsd:complexType>
+									<xsd:attribute name="nombreCompleto" sql:field="NombreCompleto" type="xsd:string"/>
+									<xsd:attribute name="nombres" sql:field="Nombres" type="xsd:string"/>
+									<xsd:attribute name="apPat" sql:field="ApPaterno" type="xsd:string"/>
+									<xsd:attribute name="apMat" sql:field="ApMaterno" type="xsd:string"/>
+									<xsd:attribute name="curp" sql:field="CURP" type="xsd:string"/>
+									<xsd:attribute name="rfc" sql:field="RFC" type="xsd:string"/>
+									<xsd:attribute name="numCuenta" sql:field="NoCta" type="xsd:string"/>
+									<xsd:attribute name="noCotitulares" sql:field="NoCotitulares" type="xsd:integer"/>
+									<xsd:attribute name="proporcion" sql:field="PDI" type="xsd:decimal"/>									
+								</xsd:complexType>
+							</xsd:element>
+
+							<xsd:element name="Cuenta" sql:relation="DD_DEC_CDUEETN1"
+											  sql:key-fields="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1 D_DEC_NCUUMEE1"
+											  sql:relationship="DETALLE_CUENTA">
+
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Movimiento" sql:relation="DD_DEC_MCOUVEI1"
+																	  sql:key-fields="D_DEC_RFCDEEO1 C_IDE_CERLNEA1 C_IDE_LDLEATV1 C_IDE_NFRUOEM1 N_DEC_COOPNES1 D_DEC_NCUUMEE1 C_DEC_CMOONVS1"
+																	  sql:relationship="CUENTA_Movimiento">
+											<xsd:complexType>												
+												<xsd:attribute name="consecutivoMov" sql:field="C_DEC_CMOONVS1" type="xsd:integer"/>
+												<xsd:attribute name="tipoOperacion" sql:field="D_DEC_TOIPPEO1" type="xsd:string"/>
+												<xsd:attribute name="fechaOperacion" sql:field="F_DEC_FOEPCEH1" type="xsd:dateTime"/>
+												<xsd:attribute name="montoOperacion" sql:field="N_DEC_MOOPNET1" type="xsd:decimal"/>
+												<xsd:attribute name="montoOperacionMonedaNacional" sql:field="montoOperacionMonedaNacional" type="xsd:decimal"/>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>									
+									<xsd:attribute name="numeroCuenta" sql:field="D_DEC_NCUUMEE1" type="xsd:string"/>
+									<xsd:attribute name="cotitulares" sql:field="N_DEC_COTITUL1" type="xsd:integer"/>
+									<xsd:attribute name="proporcion" sql:field="N_DEC_PROPORC1" type="xsd:decimal"/>
+									<xsd:attribute name="impuestoRecaudado" sql:field="N_DEC_IRCMEUP1" type="xsd:decimal"/>
+									<xsd:attribute name="tipoCuenta" sql:field="tipoCuenta" type="xsd:string"/>	
+									<xsd:attribute name="tipoMoneda" sql:field="tipoMoneda" type="xsd:string"/>	
+								</xsd:complexType>
+							</xsd:element>
+							
+						</xsd:sequence>
+						<xsd:attribute name="rfcDeclarante" sql:field="D_DEC_RFCDEEO1"  type="xsd:string"/>
+						<xsd:attribute name="cveEntidadReceptora" sql:field="C_IDE_CERLNEA1"  type="xsd:integer"/>
+						<xsd:attribute name="llaveDetalle" sql:field="C_IDE_LDLEATV1" type="xsd:integer"/>
+						<xsd:attribute name="folio" sql:field="C_IDE_NFRUOEM1" type="xsd:integer"/>
+						<xsd:attribute name="consecutivoDet" sql:field="N_DEC_COOPNES1" type="xsd:integer"/>
+						<xsd:attribute name="ejercicio" sql:field="N_DEC_EJERCIC1" type="xsd:integer"/>
+						<xsd:attribute name="cvePeriodo" sql:field="C_DEC_CPLEARV1" type="xsd:integer"/>
+						<xsd:attribute name="fechaRegistro" sql:field="F_DEC_FREECGH1" type="xsd:dateTime"/>
+						<xsd:attribute name="cveTipoPersona" sql:field="C_DEC_CTPLIEA1" type="xsd:string"/>
+						<xsd:attribute name="rfc" sql:field="C_IDE_RFCEEOG1" type="xsd:string"/>
+						<xsd:attribute name="curp" sql:field="D_DEC_CURPLNE1" type="xsd:string"/>
+						<xsd:attribute name="nombreCompleto" sql:field="D_DEC_NCOOMMB1" type="xsd:string"/>
+						<xsd:attribute name="nombres" sql:field="D_DEC_NOMBRE01" type="xsd:string"/>
+						<xsd:attribute name="apPat" sql:field="D_DEC_APPAETL1" type="xsd:string"/>
+						<xsd:attribute name="apMat" sql:field="D_DEC_AMPAETL1" type="xsd:string"/>
+						<xsd:attribute name="denominacion" sql:field="D_DEC_DRSEAON1" type="xsd:string"/>
+						<xsd:attribute name="domicilioCompleto" sql:field="D_DEC_DCOOMMI1" type="xsd:string"/>
+						<xsd:attribute name="calle" sql:field="D_DEC_CALLE001" type="xsd:string"/>
+						<xsd:attribute name="numExterior" sql:field="D_DEC_NEUXMTE1" type="xsd:string"/>
+						<xsd:attribute name="numInterior" sql:field="D_DEC_NIUNMTE1" type="xsd:string"/>
+						<xsd:attribute name="colonia" sql:field="D_DEC_COLONIA1" type="xsd:string"/>
+						<xsd:attribute name="codigoPostal" sql:field="D_DEC_CPOODSI1" type="xsd:string"/>
+						<xsd:attribute name="efectivoOCheque" sql:field="N_DEC_BECAFHN1" type="xsd:short"/>
+						<xsd:attribute name="montoExcedenteDepositos" sql:field="N_DEC_MEDQCIO1" type="xsd:decimal"/>
+						<xsd:attribute name="impuestoDeterminado" sql:field="N_DEC_IDMEPTU1" type="xsd:decimal"/>
+						<xsd:attribute name="impuestoRecaudado" sql:field="N_DEC_IREMEFP1" type="xsd:decimal"/>
+						<xsd:attribute name="impuestoPendienteRecaudar" sql:field="N_DEC_IPRMEEP1" type="xsd:decimal"/>
+						<xsd:attribute name="remanenteRecaudadoPeriodos" sql:field="N_DEC_RRPPAEE1" type="xsd:decimal"/>
+						<xsd:attribute name="montoCheque" sql:field="N_DEC_MCCEOHA1" type="xsd:decimal"/>
+						<xsd:attribute name="montoRecaudado" sql:field="N_DEC_MROENCT1" type="xsd:decimal"/>
+						<xsd:attribute name="numeroCliente" sql:field="numeroCliente" type="xsd:string"/>
+						<xsd:attribute name="correoElectronico" sql:field="correoElectronico" type="xsd:string"/>
+						<xsd:attribute name="telefono1" sql:field="telefono1" type="xsd:string"/>
+						<xsd:attribute name="telefono2" sql:field="telefono2" type="xsd:string"/>
+						<xsd:attribute name="saldoPendienteRecaudar" sql:field="saldoPendienteRecaudar" type="xsd:string"/>
+						<xsd:attribute name="fechaCorte" sql:field="F_DEC_FCREOEC1" type="xsd:dateTime"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="EnteroPropio" sql:relation="DD_DEC_EIDPNME1"
+											  sql:key-fields="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1 N_DEC_CEONNTS1"
+											  sql:relationship="GENERAL_EnteroPropio">
+					<xsd:complexType>						
+						<xsd:attribute name="rfcInstitucion" sql:field="C_DEC_RFCIFEE1" type="xsd:string"/>
+						<xsd:attribute name="consecutivoEntero" sql:field="N_DEC_CEONNTS1"  type="xsd:integer"/>
+						<xsd:attribute name="nombreInstitucion" sql:field="D_DEC_NIFONIM1" type="xsd:string"/>
+						<xsd:attribute name="fechaEntero" sql:field="F_DEC_FEENCTH1" type="xsd:dateTime"/>
+						<xsd:attribute name="impuestoEnterado" sql:field="N_DEC_IEMNPTU1" type="xsd:decimal"/>
+						<xsd:attribute name="noOperacion" sql:field="D_DEC_NORTUPE1" type="xsd:string"/>
+						<xsd:attribute name="fechaRecaudacion" sql:field="F_DEC_FCREOEC1" type="xsd:dateTime"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="EnteroDeOtrasInstituciones" sql:relation="DD_DEC_EIDEOIN1"
+											  sql:key-fields="D_DEC_RFCDEEO1 C_DEC_CERLNEA1 C_DEC_LDLEATV1 C_DEC_NFRUOEM1 C_DEC_RFCIFEE1 N_DEC_CEONNTS1"
+											  sql:relationship="GENERAL_EnteroOtrasInstituciones">
+					<xsd:complexType>						
+						<xsd:attribute name="rfcInstitucion" sql:field="C_DEC_RFCIFEE1" type="xsd:string"/>
+						<xsd:attribute name="consecutivoEnteroOtrasInstituciones" sql:field="N_DEC_CEONNTS1"  type="xsd:integer"/>
+						<xsd:attribute name="nombreInstitucion" sql:field="D_DEC_NIFONIM1" type="xsd:string"/>
+						<xsd:attribute name="fechaRecepcion" sql:field="F_DEC_FREECCH1" type="xsd:dateTime"/>
+						<xsd:attribute name="impuestoEnterado" sql:field="N_DEC_IEMNPTU1" type="xsd:decimal"/>
+						<xsd:attribute name="noOperacion" sql:field="D_DEC_NORTUPE1" type="xsd:string"/>
+						<xsd:attribute name="fechaCorteRecaudacion" sql:field="F_DEC_FCREOEC1" type="xsd:dateTime"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="rfcDeclarante" sql:field="D_DEC_RFCDEEO1"  type="xsd:string"/>
+			<xsd:attribute name="cveEntidadReceptora" sql:field="C_DEC_CERLNEA1"  type="xsd:integer"/>
+			<xsd:attribute name="llaveDetalle" sql:field="C_DEC_LDLEATV1" type="xsd:integer"/>
+			<xsd:attribute name="folio" sql:field="C_DEC_NFRUOEM1" type="xsd:integer"/>
+			<xsd:attribute name="ejercicio" sql:field="N_DEC_EJERCIC1"  type="xsd:integer"/>
+			<xsd:attribute name="cvePeriodo" sql:field="C_DEC_CPLEARV1" type="xsd:integer"/>
+			<xsd:attribute name="cveTipoDeclaracion" sql:field="C_DEC_CTDLIEA1" type="xsd:integer"/>
+			<xsd:attribute name="cveVersion" sql:field="D_DEC_CVLEARV1" type="xsd:string"/>
+			<xsd:attribute name="fechaPresentacionOpAnterior" sql:field="F_DEC_FPERCEH1" type="xsd:dateTime"/>
+			<xsd:attribute name="numeroOpAnterior" sql:field="D_DEC_NOFAUPO1" type="xsd:string"/>
+			<xsd:attribute name="fechaRegistro" sql:field="F_DEC_FREECGH1" type="xsd:dateTime"/>
+			<xsd:attribute name="denominacionDeclarante" sql:field="D_DEC_DDEENCO1" type="xsd:string"/>
+			<xsd:attribute name="cveTipoInstitucion" sql:field="C_DEC_CTILINA1"  type="xsd:integer"/>
+			<xsd:attribute name="rfcRepresentante" sql:field="D_DEC_RFCREEO1" type="xsd:string"/>
+			<xsd:attribute name="curpRepresentante" sql:field="D_DEC_CURPRLN1" type="xsd:string"/>
+			<xsd:attribute name="nombreCompletoRepresentante" sql:field="D_DEC_NCRLOOE1" type="xsd:string"/>
+			<xsd:attribute name="nombreRepresentante" sql:field="D_DEC_NRLOEEM1" type="xsd:string"/>
+			<xsd:attribute name="apPatRepresentante"  sql:field="D_DEC_APRLPAE1" type="xsd:string"/>
+			<xsd:attribute name="apMatRepresentante" sql:field="D_DEC_AMRLPAE1" type="xsd:string"/>
+			<xsd:attribute name="operacionesRelacionadas" sql:field="N_DEC_TOQROPU1"  type="xsd:decimal"/>
+			<xsd:attribute name="depositosCausanImpuesto" sql:field="N_DEC_TDQCIOE1" type="xsd:decimal"/>
+			<xsd:attribute name="impuestoDeterminadoPeriodo" sql:field="N_DEC_TIDPOME1" type="xsd:decimal"/>
+			<xsd:attribute name="impuestoRecaudado" sql:field="N_DEC_TIROMET1" type="xsd:decimal"/>
+			<xsd:attribute name="impuestoPendienteRecaudar" sql:field="N_DEC_TIPROME1" type="xsd:decimal"/>
+			<xsd:attribute name="remanenteRecaudadoPeriodos" sql:field="N_DEC_TRRPPAO1" type="xsd:decimal"/>
+			<xsd:attribute name="impuestoEnteradoPeriodo" sql:field="N_DEC_TIEPOMN1"  type="xsd:decimal"/>
+			<xsd:attribute name="recaudadoChequesCaja" sql:field="N_DEC_TRCCCOE1"  type="xsd:decimal"/>
+			<xsd:attribute name="importeSaldoPendienteRecaudar" sql:field="importeSaldoPendienteRecaudar"  type="xsd:decimal"/>
+			<xsd:attribute name="N_DEC_BCIDWHA1" sql:field="N_DEC_BCIDWHA1"  type="xsd:integer"/>
+		</xsd:complexType>		
+	</xsd:element>
+	
+</xsd:schema>

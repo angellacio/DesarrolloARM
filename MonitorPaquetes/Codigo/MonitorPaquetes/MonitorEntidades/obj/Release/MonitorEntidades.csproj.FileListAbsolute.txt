@@ -1,0 +1,4 @@
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorEntidades\bin\Release\MonitorEntidades.dll
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorEntidades\bin\Release\MonitorEntidades.pdb
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorEntidades\obj\Release\MonitorEntidades.dll
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorEntidades\obj\Release\MonitorEntidades.pdb

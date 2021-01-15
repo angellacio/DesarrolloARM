@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentacion", "Presentacion", "{94F52468-BF24-4BC4-8A17-88D9908AE72F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instaladores", "Instaladores", "{E81024A3-7607-4741-B710-A3CAEFCEE6B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{2E3958F4-BD43-4A04-AA73-7C585173F0C1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupIDEModulo", "SetupIDEModulo\SetupIDEModulo.vdproj", "{7F141653-284D-42C0-AC32-A8A2DC2E88EF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupIDEInternet", "SetupIDEInternet\SetupIDEInternet.vdproj", "{4B5B14B7-557F-40CB-948B-D0588CF3AB2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E3958F4-BD43-4A04-AA73-7C585173F0C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3958F4-BD43-4A04-AA73-7C585173F0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3958F4-BD43-4A04-AA73-7C585173F0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3958F4-BD43-4A04-AA73-7C585173F0C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F141653-284D-42C0-AC32-A8A2DC2E88EF}.Debug|Any CPU.ActiveCfg = Debug
+		{7F141653-284D-42C0-AC32-A8A2DC2E88EF}.Release|Any CPU.ActiveCfg = Release
+		{4B5B14B7-557F-40CB-948B-D0588CF3AB2A}.Debug|Any CPU.ActiveCfg = Debug
+		{4B5B14B7-557F-40CB-948B-D0588CF3AB2A}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2E3958F4-BD43-4A04-AA73-7C585173F0C1} = {94F52468-BF24-4BC4-8A17-88D9908AE72F}
+		{7F141653-284D-42C0-AC32-A8A2DC2E88EF} = {E81024A3-7607-4741-B710-A3CAEFCEE6B4}
+		{4B5B14B7-557F-40CB-948B-D0588CF3AB2A} = {E81024A3-7607-4741-B710-A3CAEFCEE6B4}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

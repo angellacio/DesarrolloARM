@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://m320fogj6071b04.dssat.sat.gob.mx/IdeMonitorServicio/ServicioMonitor.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" />
+  <xs:element name="TraerDeclaraciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" minOccurs="0" name="declaracion" nillable="true" type="q1:DeclaracionEntrada" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerDeclaracionesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" minOccurs="0" name="TraerDeclaracionesResult" nillable="true" type="q2:ArrayOfDeclaracionSalida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerBitacora">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" minOccurs="0" name="declaracion" nillable="true" type="q3:DeclaracionEntrada" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerBitacoraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" minOccurs="0" name="TraerBitacoraResult" nillable="true" type="q4:ArrayOfDeclaracionSalida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerCatalogos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerCatalogosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" minOccurs="0" name="TraerCatalogosResult" nillable="true" type="q5:ArrayOfCatalogoSalida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" minOccurs="0" name="estadistica" nillable="true" type="q6:EstadisticaEntrada" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" minOccurs="0" name="TraerEstadisticaResult" nillable="true" type="q7:ArrayOfEstadisticaSalida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerAcuse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Folio" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraerAcuseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TraerAcuseResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

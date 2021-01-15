@@ -1,0 +1,21 @@
+USE [MonitorPaquetes]
+GO
+/****** Object:  Table [dbo].[Relacion_Paq]    Script Date: 10/18/2017 15:25:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Relacion_Paq](
+	[Paquete] [varchar](12) COLLATE Modern_Spanish_CI_AS NOT NULL,
+	[Paq_Relacionado] [varchar](12) COLLATE Modern_Spanish_CI_AS NOT NULL,
+ CONSTRAINT [PK_Relacion_Paq] PRIMARY KEY CLUSTERED 
+(
+	[Paquete] ASC,
+	[Paq_Relacionado] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF

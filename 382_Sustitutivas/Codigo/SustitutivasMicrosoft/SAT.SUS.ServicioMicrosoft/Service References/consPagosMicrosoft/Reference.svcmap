@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="baf1d211-5a5d-4970-96ac-82a4bcc2d8fb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://pagos.southcentralus.cloudapp.azure.com:9108/ConsultaServicio.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ConsultaServicio.wsdl" MetadataType="Wsdl" ID="1e7a1283-1b27-40da-800b-d2457f462946" SourceId="1" SourceUrl="http://pagos.southcentralus.cloudapp.azure.com:9108/ConsultaServicio.svc?wsdl" />
+    <MetadataFile FileName="ConsultaServicio1.wsdl" MetadataType="Wsdl" ID="de17bc04-3ca1-4f19-a0e7-224b0f529676" SourceId="1" SourceUrl="http://pagos.southcentralus.cloudapp.azure.com:9108/ConsultaServicio.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ConsultaServicio.disco" MetadataType="Disco" ID="18a8d943-706e-42e4-b8d1-3573fe599e5f" SourceId="1" SourceUrl="http://pagos.southcentralus.cloudapp.azure.com:9108/ConsultaServicio.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

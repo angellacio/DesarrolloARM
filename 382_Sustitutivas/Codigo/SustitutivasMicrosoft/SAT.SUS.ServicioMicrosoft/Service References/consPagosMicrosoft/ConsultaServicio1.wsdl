@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Pagos" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Pagos" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="Pagos">
+      <xsd:element name="ConsultarPago">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q1="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Servicios.Request" minOccurs="0" name="request" nillable="true" type="q1:ConsultaFiltroRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultarPagoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q2="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Servicios.Response" minOccurs="0" name="ConsultarPagoResult" nillable="true" type="q2:ConsultaFiltroResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenerListadoArchivosBanco">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="fechaRecepcionIni" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="fechaRecepcionFin" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenerListadoArchivosBancoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q3="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" minOccurs="0" name="ObtenerListadoArchivosBancoResult" nillable="true" type="q3:ArrayOfLoteBancoInfo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenerArchivoBanco">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idProcesoPago" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenerArchivoBancoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q4="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" minOccurs="0" name="ObtenerArchivoBancoResult" nillable="true" type="q4:ArchivoBanco" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultarPagoAnterior">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q5="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Servicios.Request" minOccurs="0" name="request" nillable="true" type="q5:ConsultaAnteriorFiltroRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultarPagoAnteriorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q6="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" minOccurs="0" name="ConsultarPagoAnteriorResult" nillable="true" type="q6:ListaOperaciones" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaClaseDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q7="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="newEntity" nillable="true" type="q7:ClaseDeclaracion" />
+            <xsd:element minOccurs="0" name="usuario" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaClaseDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaClaseDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaClaseDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q8="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="newEntity" nillable="true" type="q8:ClaseDeclaracion" />
+            <xsd:element minOccurs="0" name="usuario" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaClaseDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertaClaseDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaClaseDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idClaseDeclaracion" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaClaseDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaClaseDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertClaseDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q9="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="newEntity" nillable="true" type="q9:ClaseDeclaracion" />
+            <xsd:element minOccurs="0" name="usuario" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertClaseDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertClaseDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenerClaseDeclaracionById">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idClaseDeclaracion" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ObtenerClaseDeclaracionByIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q10="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="ObtenerClaseDeclaracionByIdResult" nillable="true" type="q10:ClaseDeclaracion" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaTipoDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q11="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoDeclaracion" nillable="true" type="q11:TipoDeclaracion" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaTipoDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaTipoDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaTipoDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q12="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoDeclaracion" nillable="true" type="q12:TipoDeclaracion" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaTipoDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertaTipoDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateTipoDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q13="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoDeclaracion" nillable="true" type="q13:TipoDeclaracion" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateTipoDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="UpdateTipoDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaTipoDeclaracion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q14="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoDeclaracion" nillable="true" type="q14:TipoDeclaracion" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaTipoDeclaracionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaTipoDeclaracionResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaTipoComplementaria">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q15="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoComplementaria" nillable="true" type="q15:TipoComplementaria" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaTipoComplementariaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaTipoComplementariaResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaTipoComplementaria">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q16="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoComplementaria" nillable="true" type="q16:TipoComplementaria" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaTipoComplementariaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertaTipoComplementariaResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateTipoComplementaria">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q17="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoComplementaria" nillable="true" type="q17:TipoComplementaria" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateTipoComplementariaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="UpdateTipoComplementariaResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaTipoComplementaria">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q18="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="tipoComplementaria" nillable="true" type="q18:TipoComplementaria" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaTipoComplementariaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaTipoComplementariaResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaEntidadesFederativas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q19="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="entidad" nillable="true" type="q19:EntidadesFederativas" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaEntidadesFederativasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertaEntidadesFederativasResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaEntidadesFederativas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q20="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="entidad" nillable="true" type="q20:EntidadesFederativas" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaEntidadesFederativasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaEntidadesFederativasResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaEntidadesFederativas">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q21="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="entidad" nillable="true" type="q21:EntidadesFederativas" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaEntidadesFederativasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaEntidadesFederativasResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaALSC">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q22="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="entidad" nillable="true" type="q22:Alsc" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaALSCResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaALSCResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaALSC">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q23="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="entidad" nillable="true" type="q23:Alsc" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaALSCResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertaALSCResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaALSC">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q24="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" minOccurs="0" name="entidad" nillable="true" type="q24:Alsc" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaALSCResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaALSCResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaClaseDecTipoDec">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idClaseDeclaracion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="idTipoDeclaracion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="rfcUsuario" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaClaseDecTipoDecResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertaClaseDecTipoDecResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaClaseDecTipoDec">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idClaseDeclaracion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="idTipoDeclaracion" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaClaseDecTipoDecResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaClaseDecTipoDecResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaTipoDecTipoComp">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="pIdTipoDeclaracion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="IdComplementaria" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="IdClaseDeclaracion" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaTipoDecTipoCompResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaTipoDecTipoCompResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaTipoDecTipoComp">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="pIdTipoDeclaracion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pIdTipoComplementaria" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pUsuario" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="pIdClaseDeclaracion" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InsertaTipoDecTipoCompResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="InsertaTipoDecTipoCompResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaConceptoPago">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idObligacion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="descripcion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="aplicaPagosProvisionales" type="xsd:boolean" />
+            <xsd:element minOccurs="0" name="aplicaBloqueoSaldoFavor" type="xsd:boolean" />
+            <xsd:element minOccurs="0" name="aplicaSimplificacion" type="xsd:boolean" />
+            <xsd:element minOccurs="0" name="idImpuesto" type="xsd:int" />
+            <xsd:element minOccurs="0" name="orden" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaConceptoPagoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaConceptoPagoResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaConceptoPago">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idObligacion" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaConceptoPagoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaConceptoPagoResult" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaPeriodicidad">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idPeriodicidad" type="q25:char" />
+            <xsd:element minOccurs="0" name="descripcion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="orden" type="xsd:int" />
+            <xsd:element minOccurs="0" name="estatus" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaPeriodicidadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaPeriodicidadResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaPeriodicidad">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idPeriodicidad" type="q26:char" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaPeriodicidadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaPeriodicidadResult" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaPeriodo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idPeriodo" nillable="true" type="xsd:string" />
+            <xsd:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="idPeriodicidad" type="q27:char" />
+            <xsd:element minOccurs="0" name="orden" type="xsd:int" />
+            <xsd:element minOccurs="0" name="descripcion" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="mesInicial" type="xsd:int" />
+            <xsd:element minOccurs="0" name="mesFinal" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizaPeriodoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="ActualizaPeriodoResult" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaPeriodo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="idPeriodo" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EliminaPeriodoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="EliminaPeriodoResult" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Servicios.Request" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Servicios.Request">
+      <xsd:complexType name="ConsultaFiltroRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q28="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q28:FiltroRequestBaseOfConsultaFiltroXuTDd4pW">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ConsultaFiltroRequest" nillable="true" type="tns:ConsultaFiltroRequest" />
+      <xsd:complexType name="ConsultaAnteriorFiltroRequest">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q29="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q29:FiltroRequestBaseOfConsultaAnteriorPagadaFiltroXuTDd4pW">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ConsultaAnteriorFiltroRequest" nillable="true" type="tns:ConsultaAnteriorFiltroRequest" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base">
+      <xsd:complexType name="FiltroRequestBaseOfConsultaFiltroXuTDd4pW">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="FiltroRequestBaseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ConsultaFiltro" Namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Filtros" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RequestBase">
+            <xsd:sequence>
+              <xsd:element xmlns:q30="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Filtros" minOccurs="0" name="Item" nillable="true" type="q30:ConsultaFiltro" />
+              <xsd:element xmlns:q31="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Shared" minOccurs="0" name="Paginacion" nillable="true" type="q31:Paginacion" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="FiltroRequestBaseOfConsultaFiltroXuTDd4pW" nillable="true" type="tns:FiltroRequestBaseOfConsultaFiltroXuTDd4pW" />
+      <xsd:complexType name="RequestBase">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="Auditable" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="ServidorOrigen" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="UsuarioOperacion" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="RequestBase" nillable="true" type="tns:RequestBase" />
+      <xsd:complexType name="EntidadBase">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:element name="EntidadBase" nillable="true" type="tns:EntidadBase" />
+      <xsd:complexType name="FiltroResponseBaseOfOperacionPagoEg4adphq">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="FiltroResponseBaseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="OperacionPago" Namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:ResponseBase">
+            <xsd:sequence>
+              <xsd:element xmlns:q32="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" minOccurs="0" name="Lista" nillable="true" type="q32:ArrayOfOperacionPago" />
+              <xsd:element xmlns:q33="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Shared" minOccurs="0" name="Paginacion" nillable="true" type="q33:Paginacion" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="FiltroResponseBaseOfOperacionPagoEg4adphq" nillable="true" type="tns:FiltroResponseBaseOfOperacionPagoEg4adphq" />
+      <xsd:complexType name="ResponseBase">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:EntidadBase">
+            <xsd:sequence>
+              <xsd:element xmlns:q34="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Shared" minOccurs="0" name="ListaError" nillable="true" type="q34:ArrayOfError" />
+              <xsd:element minOccurs="0" name="Resultado" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="UsuarioOperacion" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ResponseBase" nillable="true" type="tns:ResponseBase" />
+      <xsd:complexType name="FiltroRequestBaseOfConsultaAnteriorPagadaFiltroXuTDd4pW">
+        <xsd:annotation>
+          <xsd:appinfo>
+            <GenericType Name="FiltroRequestBaseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ConsultaAnteriorPagadaFiltro" Namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Filtros" />
+            </GenericType>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RequestBase">
+            <xsd:sequence>
+              <xsd:element xmlns:q35="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Filtros" minOccurs="0" name="Item" nillable="true" type="q35:ConsultaAnteriorPagadaFiltro" />
+              <xsd:element xmlns:q36="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Shared" minOccurs="0" name="Paginacion" nillable="true" type="q36:Paginacion" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="FiltroRequestBaseOfConsultaAnteriorPagadaFiltroXuTDd4pW" nillable="true" type="tns:FiltroRequestBaseOfConsultaAnteriorPagadaFiltroXuTDd4pW" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Filtros" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Filtros">
+      <xsd:complexType name="ConsultaFiltro">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q37="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q37:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="LineaCaptura" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ConsultaFiltro" nillable="true" type="tns:ConsultaFiltro" />
+      <xsd:complexType name="ConsultaAnteriorPagadaFiltro">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q38="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q38:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="Banco" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Concepto" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Ejercicio" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="FechaRecepcion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Periodo" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="RFC" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ConsultaAnteriorPagadaFiltro" nillable="true" type="tns:ConsultaAnteriorPagadaFiltro" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Shared" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Shared">
+      <xsd:complexType name="Paginacion">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CampoOrden" type="xsd:short" />
+          <xsd:element minOccurs="0" name="PaginaActual" type="xsd:short" />
+          <xsd:element minOccurs="0" name="RegistrosPagina" type="xsd:short" />
+          <xsd:element minOccurs="0" name="RegistrosTotal" type="xsd:int" />
+          <xsd:element minOccurs="0" name="TotalPaginas" type="xsd:int" />
+          <xsd:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TotalesReporte" nillable="true" type="q39:ArrayOflong" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Paginacion" nillable="true" type="tns:Paginacion" />
+      <xsd:complexType name="ArrayOfError">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Error" nillable="true" type="tns:Error" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfError" nillable="true" type="tns:ArrayOfError" />
+      <xsd:complexType name="Error">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Codigo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Descripcion" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Error" nillable="true" type="tns:Error" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <xsd:complexType name="ArrayOflong">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="long" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOflong" nillable="true" type="tns:ArrayOflong" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas">
+      <xsd:complexType name="ArrayOfOperacionPago">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="OperacionPago" nillable="true" type="tns:OperacionPago" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfOperacionPago" nillable="true" type="tns:ArrayOfOperacionPago" />
+      <xsd:complexType name="OperacionPago">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q40="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q40:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="Banco" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="FechaHora" type="xsd:dateTime" />
+              <xsd:element minOccurs="0" name="Importe" type="xsd:long" />
+              <xsd:element minOccurs="0" name="LlavePago" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="MedioPresentacion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="NumeroOperacion" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="OperacionPago" nillable="true" type="tns:OperacionPago" />
+      <xsd:complexType name="ArrayOfLoteBancoInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="LoteBancoInfo" nillable="true" type="tns:LoteBancoInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfLoteBancoInfo" nillable="true" type="tns:ArrayOfLoteBancoInfo" />
+      <xsd:complexType name="LoteBancoInfo">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q41="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q41:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="EnviadoNube" type="xsd:boolean" />
+              <xsd:element minOccurs="0" name="FechaRecepcion" type="xsd:dateTime" />
+              <xsd:element minOccurs="0" name="IdBanco" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="IdProcesoPago" type="xsd:long" />
+              <xsd:element minOccurs="0" name="ImporteTotal" type="xsd:long" />
+              <xsd:element minOccurs="0" name="NombreArchivo" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="NumOperaciones" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="LoteBancoInfo" nillable="true" type="tns:LoteBancoInfo" />
+      <xsd:complexType name="ArchivoBanco">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q42="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q42:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="ArchivoCabecero" nillable="true" type="xsd:base64Binary" />
+              <xsd:element minOccurs="0" name="ArchivoDetalle" nillable="true" type="xsd:base64Binary" />
+              <xsd:element minOccurs="0" name="FechaRecepcion" type="xsd:dateTime" />
+              <xsd:element minOccurs="0" name="IdBanco" type="xsd:int" />
+              <xsd:element minOccurs="0" name="IdProcesoPago" type="xsd:long" />
+              <xsd:element minOccurs="0" name="NombreArchivoCabecero" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="NombreArchivoDetalle" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ArchivoBanco" nillable="true" type="tns:ArchivoBanco" />
+      <xsd:complexType name="ListaOperaciones">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q43="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q43:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="Operaciones" nillable="true" type="tns:ArrayOfOperacionPagoAnterior" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ListaOperaciones" nillable="true" type="tns:ListaOperaciones" />
+      <xsd:complexType name="ArrayOfOperacionPagoAnterior">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="OperacionPagoAnterior" nillable="true" type="tns:OperacionPagoAnterior" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ArrayOfOperacionPagoAnterior" nillable="true" type="tns:ArrayOfOperacionPagoAnterior" />
+      <xsd:complexType name="OperacionPagoAnterior">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q44="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q44:EntidadBase">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" name="Banco" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="FechaOperacion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="FechaPresentacion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="HoraOperacion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="LineaCaptura" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Mensaje" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="NumOpeBanco" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="NumOpeDecla" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="Pagado" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" name="TipoOperacion" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="OperacionPagoAnterior" nillable="true" type="tns:OperacionPagoAnterior" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Servicios.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Servicios.Response">
+      <xsd:complexType name="ConsultaFiltroResponse">
+        <xsd:complexContent mixed="false">
+          <xsd:extension xmlns:q45="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" base="q45:FiltroResponseBaseOfOperacionPagoEg4adphq">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="ConsultaFiltroResponse" nillable="true" type="tns:ConsultaFiltroResponse" />
+    </xsd:schema>
+    <xsd:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.ActualizacionExterna">
+      <xsd:complexType name="ClaseDeclaracion">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Descripcion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Estatus" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IdClaseDeclaracion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdOrigen" type="xsd:unsignedByte" />
+          <xsd:element minOccurs="0" name="Origen" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ClaseDeclaracion" nillable="true" type="tns:ClaseDeclaracion" />
+      <xsd:complexType name="TipoDeclaracion">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Descripcion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Estatus" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IdTipoDeclaracion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UltimaModificacion" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Usuario" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TipoDeclaracion" nillable="true" type="tns:TipoDeclaracion" />
+      <xsd:complexType name="TipoComplementaria">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Descripcion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="Estatus" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="IdClaseDeclaracion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IdComplementaria" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UltimaModificacion" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Usuario" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TipoComplementaria" nillable="true" type="tns:TipoComplementaria" />
+      <xsd:complexType name="EntidadesFederativas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Descripcion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UltimaModificacion" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="idEntidadFederativa" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="idEntidadFederativaNEPE" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EntidadesFederativas" nillable="true" type="tns:EntidadesFederativas" />
+      <xsd:complexType name="Alsc">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Descripcion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="UltimaModificacion" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" name="Usuario" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="idALSC" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="idAlscNepe" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Alsc" nillable="true" type="tns:Alsc" />
+    </xsd:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IConsultaServicio_ConsultarPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPago" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ConsultarPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ObtenerListadoArchivosBanco_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoArchivosBanco" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ObtenerListadoArchivosBanco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerListadoArchivosBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ObtenerArchivoBanco_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerArchivoBanco" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ObtenerArchivoBanco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerArchivoBancoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ConsultarPagoAnterior_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPagoAnterior" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ConsultarPagoAnterior_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPagoAnteriorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaClaseDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaClaseDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaClaseDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaClaseDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaClaseDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaClaseDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaClaseDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaClaseDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaClaseDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaClaseDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaClaseDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaClaseDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertClaseDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClaseDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertClaseDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertClaseDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ObtenerClaseDeclaracionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClaseDeclaracionById" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ObtenerClaseDeclaracionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerClaseDeclaracionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaTipoDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaTipoDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaTipoDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaTipoDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaTipoDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaTipoDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaTipoDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaTipoDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_UpdateTipoDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTipoDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_UpdateTipoDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTipoDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaTipoDeclaracion_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTipoDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaTipoDeclaracion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTipoDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaTipoComplementaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaTipoComplementaria" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaTipoComplementaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaTipoComplementariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaTipoComplementaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaTipoComplementaria" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaTipoComplementaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaTipoComplementariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_UpdateTipoComplementaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTipoComplementaria" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_UpdateTipoComplementaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTipoComplementariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaTipoComplementaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTipoComplementaria" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaTipoComplementaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTipoComplementariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaEntidadesFederativas_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaEntidadesFederativas" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaEntidadesFederativas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaEntidadesFederativasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaEntidadesFederativas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaEntidadesFederativas" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaEntidadesFederativas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaEntidadesFederativasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaEntidadesFederativas_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaEntidadesFederativas" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaEntidadesFederativas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaEntidadesFederativasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaALSC_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaALSC" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaALSC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaALSCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaALSC_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaALSC" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaALSC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaALSCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaALSC_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaALSC" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaALSC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaALSCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaClaseDecTipoDec_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaClaseDecTipoDec" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaClaseDecTipoDec_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaClaseDecTipoDecResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaClaseDecTipoDec_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaClaseDecTipoDec" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaClaseDecTipoDec_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaClaseDecTipoDecResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaTipoDecTipoComp_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTipoDecTipoComp" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaTipoDecTipoComp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaTipoDecTipoCompResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaTipoDecTipoComp_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaTipoDecTipoComp" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_InsertaTipoDecTipoComp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertaTipoDecTipoCompResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaConceptoPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaConceptoPago" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaConceptoPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaConceptoPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaConceptoPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaConceptoPago" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaConceptoPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaConceptoPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaPeriodicidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaPeriodicidad" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaPeriodicidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaPeriodicidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaPeriodicidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPeriodicidad" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaPeriodicidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPeriodicidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaPeriodo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaPeriodo" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_ActualizaPeriodo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaPeriodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaPeriodo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPeriodo" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaServicio_EliminaPeriodo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaPeriodoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IConsultaServicio">
+    <wsdl:operation name="ConsultarPago">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ConsultarPago" message="tns:IConsultaServicio_ConsultarPago_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ConsultarPagoResponse" message="tns:IConsultaServicio_ConsultarPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerListadoArchivosBanco">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ObtenerListadoArchivosBanco" message="tns:IConsultaServicio_ObtenerListadoArchivosBanco_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ObtenerListadoArchivosBancoResponse" message="tns:IConsultaServicio_ObtenerListadoArchivosBanco_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerArchivoBanco">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ObtenerArchivoBanco" message="tns:IConsultaServicio_ObtenerArchivoBanco_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ObtenerArchivoBancoResponse" message="tns:IConsultaServicio_ObtenerArchivoBanco_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPagoAnterior">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ConsultarPagoAnterior" message="tns:IConsultaServicio_ConsultarPagoAnterior_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ConsultarPagoAnteriorResponse" message="tns:IConsultaServicio_ConsultarPagoAnterior_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaClaseDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaClaseDeclaracion" message="tns:IConsultaServicio_ActualizaClaseDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaClaseDeclaracionResponse" message="tns:IConsultaServicio_ActualizaClaseDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaClaseDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertaClaseDeclaracion" message="tns:IConsultaServicio_InsertaClaseDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertaClaseDeclaracionResponse" message="tns:IConsultaServicio_InsertaClaseDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaClaseDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaClaseDeclaracion" message="tns:IConsultaServicio_EliminaClaseDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaClaseDeclaracionResponse" message="tns:IConsultaServicio_EliminaClaseDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertClaseDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertClaseDeclaracion" message="tns:IConsultaServicio_InsertClaseDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertClaseDeclaracionResponse" message="tns:IConsultaServicio_InsertClaseDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClaseDeclaracionById">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ObtenerClaseDeclaracionById" message="tns:IConsultaServicio_ObtenerClaseDeclaracionById_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ObtenerClaseDeclaracionByIdResponse" message="tns:IConsultaServicio_ObtenerClaseDeclaracionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaTipoDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaTipoDeclaracion" message="tns:IConsultaServicio_ActualizaTipoDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaTipoDeclaracionResponse" message="tns:IConsultaServicio_ActualizaTipoDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaTipoDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertaTipoDeclaracion" message="tns:IConsultaServicio_InsertaTipoDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertaTipoDeclaracionResponse" message="tns:IConsultaServicio_InsertaTipoDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTipoDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/UpdateTipoDeclaracion" message="tns:IConsultaServicio_UpdateTipoDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/UpdateTipoDeclaracionResponse" message="tns:IConsultaServicio_UpdateTipoDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaTipoDeclaracion">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaTipoDeclaracion" message="tns:IConsultaServicio_EliminaTipoDeclaracion_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaTipoDeclaracionResponse" message="tns:IConsultaServicio_EliminaTipoDeclaracion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaTipoComplementaria">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaTipoComplementaria" message="tns:IConsultaServicio_ActualizaTipoComplementaria_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaTipoComplementariaResponse" message="tns:IConsultaServicio_ActualizaTipoComplementaria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaTipoComplementaria">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertaTipoComplementaria" message="tns:IConsultaServicio_InsertaTipoComplementaria_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertaTipoComplementariaResponse" message="tns:IConsultaServicio_InsertaTipoComplementaria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTipoComplementaria">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/UpdateTipoComplementaria" message="tns:IConsultaServicio_UpdateTipoComplementaria_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/UpdateTipoComplementariaResponse" message="tns:IConsultaServicio_UpdateTipoComplementaria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaTipoComplementaria">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaTipoComplementaria" message="tns:IConsultaServicio_EliminaTipoComplementaria_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaTipoComplementariaResponse" message="tns:IConsultaServicio_EliminaTipoComplementaria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaEntidadesFederativas">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertaEntidadesFederativas" message="tns:IConsultaServicio_InsertaEntidadesFederativas_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertaEntidadesFederativasResponse" message="tns:IConsultaServicio_InsertaEntidadesFederativas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaEntidadesFederativas">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaEntidadesFederativas" message="tns:IConsultaServicio_ActualizaEntidadesFederativas_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaEntidadesFederativasResponse" message="tns:IConsultaServicio_ActualizaEntidadesFederativas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaEntidadesFederativas">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaEntidadesFederativas" message="tns:IConsultaServicio_EliminaEntidadesFederativas_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaEntidadesFederativasResponse" message="tns:IConsultaServicio_EliminaEntidadesFederativas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaALSC">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaALSC" message="tns:IConsultaServicio_ActualizaALSC_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaALSCResponse" message="tns:IConsultaServicio_ActualizaALSC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaALSC">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertaALSC" message="tns:IConsultaServicio_InsertaALSC_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertaALSCResponse" message="tns:IConsultaServicio_InsertaALSC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaALSC">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaALSC" message="tns:IConsultaServicio_EliminaALSC_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaALSCResponse" message="tns:IConsultaServicio_EliminaALSC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaClaseDecTipoDec">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertaClaseDecTipoDec" message="tns:IConsultaServicio_InsertaClaseDecTipoDec_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertaClaseDecTipoDecResponse" message="tns:IConsultaServicio_InsertaClaseDecTipoDec_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaClaseDecTipoDec">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaClaseDecTipoDec" message="tns:IConsultaServicio_EliminaClaseDecTipoDec_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaClaseDecTipoDecResponse" message="tns:IConsultaServicio_EliminaClaseDecTipoDec_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaTipoDecTipoComp">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaTipoDecTipoComp" message="tns:IConsultaServicio_EliminaTipoDecTipoComp_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaTipoDecTipoCompResponse" message="tns:IConsultaServicio_EliminaTipoDecTipoComp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertaTipoDecTipoComp">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/InsertaTipoDecTipoComp" message="tns:IConsultaServicio_InsertaTipoDecTipoComp_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/InsertaTipoDecTipoCompResponse" message="tns:IConsultaServicio_InsertaTipoDecTipoComp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaConceptoPago">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaConceptoPago" message="tns:IConsultaServicio_ActualizaConceptoPago_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaConceptoPagoResponse" message="tns:IConsultaServicio_ActualizaConceptoPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaConceptoPago">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaConceptoPago" message="tns:IConsultaServicio_EliminaConceptoPago_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaConceptoPagoResponse" message="tns:IConsultaServicio_EliminaConceptoPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaPeriodicidad">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaPeriodicidad" message="tns:IConsultaServicio_ActualizaPeriodicidad_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaPeriodicidadResponse" message="tns:IConsultaServicio_ActualizaPeriodicidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaPeriodicidad">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaPeriodicidad" message="tns:IConsultaServicio_EliminaPeriodicidad_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaPeriodicidadResponse" message="tns:IConsultaServicio_EliminaPeriodicidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaPeriodo">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/ActualizaPeriodo" message="tns:IConsultaServicio_ActualizaPeriodo_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/ActualizaPeriodoResponse" message="tns:IConsultaServicio_ActualizaPeriodo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaPeriodo">
+      <wsdl:input wsaw:Action="Pagos/IConsultaServicio/EliminaPeriodo" message="tns:IConsultaServicio_EliminaPeriodo_InputMessage" />
+      <wsdl:output wsaw:Action="Pagos/IConsultaServicio/EliminaPeriodoResponse" message="tns:IConsultaServicio_EliminaPeriodo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

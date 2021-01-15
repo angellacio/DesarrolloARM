@@ -1,0 +1,31 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pag="Pagos" xmlns:mic="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Base" xmlns:sat="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Filtros" xmlns:mic1="http://schemas.datacontract.org/2004/07/Microsoft.Framework.Template.Modelo.Shared" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <pag:ConsultarPagoAnterior>
+         <!--Optional:-->
+         <pag:request>
+            <!--Optional:-->
+            <mic:Auditable>true</mic:Auditable>
+            <!--Optional:-->
+            <mic:ServidorOrigen>1.1.1.1</mic:ServidorOrigen>
+            <!--Optional:-->
+            <mic:UsuarioOperacion>usrSustitutivas</mic:UsuarioOperacion>
+            <!--Optional:-->
+            <mic:Item>
+               <!--Optional:-->
+               <sat:Banco>40002</sat:Banco>
+               <!--Optional:-->
+               <sat:Concepto>0116</sat:Concepto>
+               <!--Optional:-->
+               <sat:Ejercicio>2019</sat:Ejercicio>
+               <!--Optional:-->
+               <sat:FechaRecepcion>20201012</sat:FechaRecepcion>
+               <!--Optional:-->
+               <sat:Periodo>003</sat:Periodo>
+               <!--Optional:-->
+               <sat:RFC> CVS98021998A</sat:RFC>
+            </mic:Item>
+         </pag:request>
+      </pag:ConsultarPagoAnterior>
+   </soapenv:Body>
+</soapenv:Envelope>

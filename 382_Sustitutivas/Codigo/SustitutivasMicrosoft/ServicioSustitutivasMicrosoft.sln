@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAT.SUS.ServicioMicrosoft", "SAT.SUS.ServicioMicrosoft\SAT.SUS.ServicioMicrosoft.csproj", "{75F93928-96D3-48EC-B6E9-AAD19B9C0228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAT.SUS.Negocio", "SAT.SUS.Negocio\SAT.SUS.Negocio.csproj", "{60333E8B-895C-4C64-A8F1-6D29ACF233E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAT.SUS.Entidades", "SAT.SUS.Entidades\SAT.SUS.Entidades.csproj", "{69F65B42-CDF6-4C26-8AF5-ED8B321A0369}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlaComponentes", "ControlaComponentes\ControlaComponentes.csproj", "{64ACA715-576D-4234-83E6-E0A4574F6776}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConectBaseDatos", "ConectBaseDatos\ConectBaseDatos.csproj", "{54E9B4D0-FB78-4238-AC90-3DF382DE828B}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "SAT.SUS.Setup", "SAT.SUS.Setup\SAT.SUS.Setup.isproj", "{F23E877D-8618-4077-AA4D-DB5ABB5EC5A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75F93928-96D3-48EC-B6E9-AAD19B9C0228} = {75F93928-96D3-48EC-B6E9-AAD19B9C0228}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75F93928-96D3-48EC-B6E9-AAD19B9C0228}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{75F93928-96D3-48EC-B6E9-AAD19B9C0228}.Debug|x86.Build.0 = Debug|Any CPU
+		{75F93928-96D3-48EC-B6E9-AAD19B9C0228}.Release|x86.ActiveCfg = Release|Any CPU
+		{75F93928-96D3-48EC-B6E9-AAD19B9C0228}.Release|x86.Build.0 = Release|Any CPU
+		{60333E8B-895C-4C64-A8F1-6D29ACF233E8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{60333E8B-895C-4C64-A8F1-6D29ACF233E8}.Debug|x86.Build.0 = Debug|Any CPU
+		{60333E8B-895C-4C64-A8F1-6D29ACF233E8}.Release|x86.ActiveCfg = Release|Any CPU
+		{60333E8B-895C-4C64-A8F1-6D29ACF233E8}.Release|x86.Build.0 = Release|Any CPU
+		{69F65B42-CDF6-4C26-8AF5-ED8B321A0369}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{69F65B42-CDF6-4C26-8AF5-ED8B321A0369}.Debug|x86.Build.0 = Debug|Any CPU
+		{69F65B42-CDF6-4C26-8AF5-ED8B321A0369}.Release|x86.ActiveCfg = Release|Any CPU
+		{69F65B42-CDF6-4C26-8AF5-ED8B321A0369}.Release|x86.Build.0 = Release|Any CPU
+		{64ACA715-576D-4234-83E6-E0A4574F6776}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{64ACA715-576D-4234-83E6-E0A4574F6776}.Debug|x86.Build.0 = Debug|Any CPU
+		{64ACA715-576D-4234-83E6-E0A4574F6776}.Release|x86.ActiveCfg = Release|Any CPU
+		{64ACA715-576D-4234-83E6-E0A4574F6776}.Release|x86.Build.0 = Release|Any CPU
+		{54E9B4D0-FB78-4238-AC90-3DF382DE828B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{54E9B4D0-FB78-4238-AC90-3DF382DE828B}.Debug|x86.Build.0 = Debug|Any CPU
+		{54E9B4D0-FB78-4238-AC90-3DF382DE828B}.Release|x86.ActiveCfg = Release|Any CPU
+		{54E9B4D0-FB78-4238-AC90-3DF382DE828B}.Release|x86.Build.0 = Release|Any CPU
+		{F23E877D-8618-4077-AA4D-DB5ABB5EC5A2}.Debug|x86.ActiveCfg = SingleImage
+		{F23E877D-8618-4077-AA4D-DB5ABB5EC5A2}.Release|x86.ActiveCfg = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

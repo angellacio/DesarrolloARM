@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="EsFirmaValida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numeroSerie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cadenaOriginal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selloDigital" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EsFirmaValidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EsFirmaValidaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarSelloDigital">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cadenaOriginal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarSelloDigitalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarSelloDigitalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarFIELContribuyente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rfc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarFIELContribuyenteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificarFIELContribuyenteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCertificado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numeroSerie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCertificadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerCertificadoResult" type="tns:CertificateInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CertificateInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:CertificateType" />
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="tns:CertificateState" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxPayerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxPayerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValidityStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValidityEnd" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CertificateType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Any" />
+          <s:enumeration value="ElectronicSignature" />
+          <s:enumeration value="DigitalCertificate" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CertificateState">
+        <s:restriction base="s:string">
+          <s:enumeration value="Active" />
+          <s:enumeration value="Revoked" />
+          <s:enumeration value="Expired" />
+          <s:enumeration value="All" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="DesencriptarDeclaracion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombreArchivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contenidoDocumento" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="medioPresentacion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="rfcAutenticacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rfc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DesencriptarDeclaracionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DesencriptarDeclaracionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EsFirmaValidaSoapIn">
+    <wsdl:part name="parameters" element="tns:EsFirmaValida" />
+  </wsdl:message>
+  <wsdl:message name="EsFirmaValidaSoapOut">
+    <wsdl:part name="parameters" element="tns:EsFirmaValidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarSelloDigitalSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarSelloDigital" />
+  </wsdl:message>
+  <wsdl:message name="GenerarSelloDigitalSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarSelloDigitalResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarFIELContribuyenteSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarFIELContribuyente" />
+  </wsdl:message>
+  <wsdl:message name="VerificarFIELContribuyenteSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarFIELContribuyenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCertificadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCertificado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCertificadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCertificadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DesencriptarDeclaracionSoapIn">
+    <wsdl:part name="parameters" element="tns:DesencriptarDeclaracion" />
+  </wsdl:message>
+  <wsdl:message name="DesencriptarDeclaracionSoapOut">
+    <wsdl:part name="parameters" element="tns:DesencriptarDeclaracionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsSgiHelperSoap">
+    <wsdl:operation name="EsFirmaValida">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida una firma digital</wsdl:documentation>
+      <wsdl:input message="tns:EsFirmaValidaSoapIn" />
+      <wsdl:output message="tns:EsFirmaValidaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarSelloDigital">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generación de sello digital</wsdl:documentation>
+      <wsdl:input message="tns:GenerarSelloDigitalSoapIn" />
+      <wsdl:output message="tns:GenerarSelloDigitalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarFIELContribuyente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verificar certificados de la FIEL del contribuyente</wsdl:documentation>
+      <wsdl:input message="tns:VerificarFIELContribuyenteSoapIn" />
+      <wsdl:output message="tns:VerificarFIELContribuyenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCertificado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los datos del certificado</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerCertificadoSoapIn" />
+      <wsdl:output message="tns:ObtenerCertificadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DesencriptarDeclaracion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite obtener el texto legible de una declaración</wsdl:documentation>
+      <wsdl:input message="tns:DesencriptarDeclaracionSoapIn" />
+      <wsdl:output message="tns:DesencriptarDeclaracionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsSgiHelperSoap" type="tns:wsSgiHelperSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EsFirmaValida">
+      <soap:operation soapAction="http://tempuri.org/EsFirmaValida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarSelloDigital">
+      <soap:operation soapAction="http://tempuri.org/GenerarSelloDigital" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarFIELContribuyente">
+      <soap:operation soapAction="http://tempuri.org/VerificarFIELContribuyente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCertificado">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCertificado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesencriptarDeclaracion">
+      <soap:operation soapAction="http://tempuri.org/DesencriptarDeclaracion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsSgiHelperSoap12" type="tns:wsSgiHelperSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EsFirmaValida">
+      <soap12:operation soapAction="http://tempuri.org/EsFirmaValida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarSelloDigital">
+      <soap12:operation soapAction="http://tempuri.org/GenerarSelloDigital" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarFIELContribuyente">
+      <soap12:operation soapAction="http://tempuri.org/VerificarFIELContribuyente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCertificado">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCertificado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesencriptarDeclaracion">
+      <soap12:operation soapAction="http://tempuri.org/DesencriptarDeclaracion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsSgiHelper">
+    <wsdl:port name="wsSgiHelperSoap" binding="tns:wsSgiHelperSoap">
+      <soap:address location="http://localhost:2245/SgiHelperServices/wsSgiHelper.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsSgiHelperSoap12" binding="tns:wsSgiHelperSoap12">
+      <soap12:address location="http://localhost:2245/SgiHelperServices/wsSgiHelper.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

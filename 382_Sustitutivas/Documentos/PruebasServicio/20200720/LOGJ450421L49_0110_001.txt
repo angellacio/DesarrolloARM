@@ -1,0 +1,18 @@
+-<ListaOperaciones>
+ <ExtensionData/>
+-<Operaciones>
+-<OperacionPagoAnterior>
+ <ExtensionData/>
+ <Banco>40030</Banco>
+ <FechaOperacion>20200713</FechaOperacion>
+ <FechaPresentacion>20200713</FechaPresentacion>
+ <HoraOperacion>12:49</HoraOperacion>
+ <LineaCaptura>04200007920028097240</LineaCaptura>
+ <Mensaje/>
+ <NumOpeBanco>54</NumOpeBanco>
+ <NumOpeDecla>38125830</NumOpeDecla>
+ <Pagado>1</Pagado>
+ <TipoOperacion>Pago</TipoOperacion>
+ </OperacionPagoAnterior>
+ </Operaciones>
+ </ListaOperaciones>

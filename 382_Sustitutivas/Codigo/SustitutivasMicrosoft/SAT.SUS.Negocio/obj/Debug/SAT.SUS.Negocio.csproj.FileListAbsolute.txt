@@ -1,0 +1,12 @@
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\SAT.SUS.Negocio.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\SAT.SUS.Negocio.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\ConectBaseDatos.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\ControlaComponentes.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\SAT.SUS.Entidades.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\IBM.Data.Informix.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\ConectBaseDatos.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\ControlaComponentes.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\bin\Debug\SAT.SUS.Entidades.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\obj\Debug\SAT.SUS.Negocio.csprojResolveAssemblyReference.cache
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\obj\Debug\SAT.SUS.Negocio.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.Negocio\obj\Debug\SAT.SUS.Negocio.pdb

@@ -1,0 +1,43 @@
+README.md
+*.log
+Paquetes/
+DIOT/Codigo/ServiciosDIOT/.vs/
+DIOT/Codigo/ServiciosDIOT/LanzadorServicios/bin/
+DIOT/Codigo/ServiciosDIOT/LanzadorServicios/obj/
+DIOT/Codigo/ServiciosDIOT/ServicioRecepcion/bin/
+DIOT/Codigo/ServiciosDIOT/ServicioRecepcion/obj/
+DIOT/Codigo/ServiciosDIOT/ServicioRespuesta/bin/
+DIOT/Codigo/ServiciosDIOT/ServicioRespuesta/obj/
+DIOT/Codigo/ServiciosDIOT/ControlMensajes/bin/
+DIOT/Codigo/ServiciosDIOT/ControlMensajes/obj/
+DIOT/Codigo/ServiciosDIOT/RecepcionBD/bin/
+DIOT/Codigo/ServiciosDIOT/RecepcionBD/obj/
+DIOT/Codigo/ServiciosDIOT/RecepcionEnt/bin/
+DIOT/Codigo/ServiciosDIOT/RecepcionEnt/obj/
+DIOT/Codigo/ServiciosDIOT/RespuestaBD/bin/
+DIOT/Codigo/ServiciosDIOT/RespuestaBD/obj/
+DIOT/Codigo/ServiciosDIOT/RespuestaEnt/bin/
+DIOT/Codigo/ServiciosDIOT/RespuestaEnt/obj/
+DIOT/Codigo/ServiciosDIOT/RecepcionRN/bin/
+DIOT/Codigo/ServiciosDIOT/RecepcionRN/obj/
+363_IDE_WEB/Codigo/IDEWeb/MonitorIDEWEB/MonitorIDEWEB.suo
+363_IDE_WEB/Codigo/IDEWeb/MonitorIDEWEB/MonitorIDEWEB/Bin/
+363_IDE_WEB/Codigo/IDEWeb/MonitorIDEWEB/IdeMonitorPresentacion/IdeMonitorPresentacion/Debug/
+363_IDE_WEB/Codigo/IDEWeb/MonitorIDEWEB/IdeMonitorPresentacion/IdeMonitorPresentacion/Release/
+363_IDE_WEB/Codigo/IDEWeb/Presentacion/IDE.suo
+363_IDE_WEB/Codigo/IDEWeb/Presentacion/Web/bin/
+363_IDE_WEB/Codigo/IDEWeb/Presentacion/Web/obj/
+363_IDE_WEB/Codigo/IDEWeb/Presentacion/SetupIDEModulo/Debug/
+363_IDE_WEB/Codigo/IDEWeb/Presentacion/SetupIDEModulo/Release/
+363_IDE_WEB/Codigo/IDEWeb/Presentacion/SetupIDEInternet/Debug/
+363_IDE_WEB/Codigo/IDEWeb/Presentacion/SetupIDEInternet/Release/
+MonitorPaquetes/Codigo/MonitorPaquetes/.vs/
+MonitorPaquetes/Codigo/MonitorPaquetes/Monitor de Paquetes/Release/
+MonitorPaquetes/Codigo/MonitorPaquetes/MonitorEntidades/bin/
+MonitorPaquetes/Codigo/MonitorPaquetes/MonitorPaquetes/bin/
+MonitorPaquetes/Codigo/MonitorPaquetes/MonitorReglaNegocios/bin/
+363_IDE_WEB/Documentacion/Otros/01_Proyecto/RFCs/ConfiguracionEquipos_FrameWork_CRQS/NDP461-KB3102436-x86-x64-AllOS-ENU.exe
+363_IDE_WEB/Documentacion/Otros/01_Proyecto/RFCs/ConfiguracionEquipos_FrameWork_CRQS/ConfiguracionEquipos_FrameWork.zip
+363_IDE_WEB/Documentacion/Otros/01_Proyecto/RFCs/Instalar Cliente Informix/Cliente_Informix_410/Cliente_Informix_410/IBM_Data_Server_Driver_Package/v10.1fp2_ntx64_dsdriver_ALL_LANG.exe
+363_IDE_WEB/Documentacion/Otros/01_Proyecto/RFCs/Instalar Cliente Informix/Cliente_Informix_410/Cliente_Informix_410/installclientsdk.exe
+363_IDE_WEB/Documentacion/Otros/01_Proyecto/RFCs/Instalar Cliente Informix/Cliente_Informix_410.zip

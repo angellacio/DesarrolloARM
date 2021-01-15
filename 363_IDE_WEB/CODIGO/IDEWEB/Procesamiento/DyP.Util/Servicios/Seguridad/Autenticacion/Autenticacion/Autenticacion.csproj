@@ -1,0 +1,125 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBE530E6-1767-4989-94B1-56A09E76EF8C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAT.DyP.Presentacion.Seguridad.Autenticacion</RootNamespace>
+    <AssemblyName>SAT.DyP.Presentacion.Seguridad.Autenticacion</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SAT.SCADE.NET.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.Protocols" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="wsIDCValidate.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Componentes\DbProvider.cs" />
+    <Compile Include="Componentes\FIELCertificateInfo.cs" />
+    <Compile Include="Componentes\IAuthenticationProvider.cs" />
+    <Compile Include="Componentes\LdapManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Componentes\LdapProvider.cs" />
+    <Compile Include="Componentes\UserResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wsIDCValidate.asmx.cs">
+      <DependentUpon>wsIDCValidate.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\Configuration\Util.csproj">
+      <Project>{C93549B8-F08D-4874-BFAD-DCA64EF8A534}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\Monitoring\Monitoring.csproj">
+      <Project>{F6764447-75B0-4589-A038-E586FBB12B3F}</Project>
+      <Name>Monitoring %28Common\Monitoring\Monitoring%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\Security\Security.csproj">
+      <Project>{950E7B9F-28B8-490D-AB4D-224122417A8A}</Project>
+      <Name>Security %28Common\Security\Security%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Common\Types\Types.csproj">
+      <Project>{3D411629-E246-4558-BF2C-F4A46178EB31}</Project>
+      <Name>Types %28Common\Types\Types%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Negocio\Comun\Procesos\Procesos.csproj">
+      <Project>{6A361CB6-BB95-49A1-83A9-8164F25492A0}</Project>
+      <Name>Procesos %28Negocio\Comun\Procesos\Procesos%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Negocio\Comun\Tipos\Tipos.csproj">
+      <Project>{A4F16AD0-E1B5-4ACE-8DBA-321C70E59221}</Project>
+      <Name>Tipos %28Negocio\Comun\Tipos\Tipos%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SAT.SCADE.NET.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>16347</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Autenticacion</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

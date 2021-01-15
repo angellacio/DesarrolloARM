@@ -1,0 +1,31 @@
+-<ListaOperaciones>
+ <ExtensionData/>
+-<Operaciones>
+-<OperacionPagoAnterior>
+ <ExtensionData/>
+ <Banco/>
+ <FechaOperacion/>
+ <FechaPresentacion>20200720</FechaPresentacion>
+ <HoraOperacion/>
+ <LineaCaptura/>
+ <Mensaje/>
+ <NumOpeBanco/>
+ <NumOpeDecla>38126892</NumOpeDecla>
+ <Pagado>1</Pagado>
+ <TipoOperacion>Cero</TipoOperacion>
+ </OperacionPagoAnterior>
+-<OperacionPagoAnterior>
+ <ExtensionData/>
+ <Banco/>
+ <FechaOperacion/>
+ <FechaPresentacion>20200720</FechaPresentacion>
+ <HoraOperacion/>
+ <LineaCaptura/>
+ <Mensaje/>
+ <NumOpeBanco/>
+ <NumOpeDecla>38126905</NumOpeDecla>
+ <Pagado>1</Pagado>
+ <TipoOperacion>Cero</TipoOperacion>
+ </OperacionPagoAnterior>
+ </Operaciones>
+ </ListaOperaciones>

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instaladores", "Instaladores", "{CC810DC3-6240-4714-867F-2DA5094BEA1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servicios", "Servicios", "{928C2C14-BD3F-42A0-A8F4-3126C99A11A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDEWebCargaDeclaracionesDWH", "Servicios\IDEWebCargaDeclaracionesDWH\IDEWebCargaDeclaracionesDWH.csproj", "{695D0217-C389-4938-BEBA-7BA4D6448E99}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupIdeCargaDeclaracionesDWH", "Instaladores\SetupCargaDeclaracionesDWH\SetupCargaDeclaracionesDWH.vdproj", "{2B470F9F-B0E4-40DE-9B68-CD769918C879}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{695D0217-C389-4938-BEBA-7BA4D6448E99}.Debug|x86.ActiveCfg = Debug|x86
+		{695D0217-C389-4938-BEBA-7BA4D6448E99}.Debug|x86.Build.0 = Debug|x86
+		{695D0217-C389-4938-BEBA-7BA4D6448E99}.Release|x86.ActiveCfg = Release|x86
+		{695D0217-C389-4938-BEBA-7BA4D6448E99}.Release|x86.Build.0 = Release|x86
+		{2B470F9F-B0E4-40DE-9B68-CD769918C879}.Debug|x86.ActiveCfg = Debug
+		{2B470F9F-B0E4-40DE-9B68-CD769918C879}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2B470F9F-B0E4-40DE-9B68-CD769918C879} = {CC810DC3-6240-4714-867F-2DA5094BEA1C}
+		{695D0217-C389-4938-BEBA-7BA4D6448E99} = {928C2C14-BD3F-42A0-A8F4-3126C99A11A7}
+	EndGlobalSection
+EndGlobal

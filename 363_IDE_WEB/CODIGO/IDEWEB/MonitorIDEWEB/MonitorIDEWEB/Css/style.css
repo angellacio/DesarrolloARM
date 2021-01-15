@@ -1,0 +1,112 @@
+﻿.adjindex
+{
+    z-index: 1;
+}
+
+body
+{
+    font-family: "Trebuchet MS" , "Lucida Grande" , Arial, Helvetica, sans-serif;
+    font-size: 85%;
+    background-color: #F7F7E9;
+}
+h1
+{
+    font: bold 32px Times;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+}
+
+A:link
+{
+    text-decoration: none;
+    color: Gray;
+    font-size: medium;
+}
+A:visited
+{
+    text-decoration: none;
+    color: Gray;
+    font-size: medium;
+}
+A:active
+{
+    text-decoration: none;
+    color: Gray;
+    font-size: medium;
+}
+A:hover
+{
+    text-decoration: underline overline;
+    color: Black;
+    font-size: medium;
+}
+
+.titulote
+{
+    font-size: 20px;
+    text-align: center;
+}
+.titulo
+{
+    font-size: 14px;
+    text-align: center;
+}
+#container
+{
+    width: 100%;
+    margin: 10px auto;
+}
+
+.mGrid
+{
+    background-color: #e4e4e4;
+    margin: 5px 0 0px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+.mGrid td
+{
+    padding: 2px;
+    border: solid 1px #c1c1c1;
+    color: #717171;
+}
+.mGrid th
+{
+    padding: 4px 2px;
+    color: #fff;
+    background: #172062 url(grd_head.png) repeat-x top;
+    border-left: solid 1px #525252;
+    font-size: 0.9em;
+}
+.mGrid .alt
+{
+    background: #fcfcfc url(grd_alt.png) repeat-x top;
+}
+.mGrid .pgr
+{
+    background: #172062;
+}
+.mGrid .pgr table
+{
+    margin: 5px 0;
+}
+.mGrid .pgr td
+{
+    border-width: 0;
+    padding: 0 6px;
+    border-left: solid 1px #666;
+    font-weight: bold;
+    color: #fff;
+    line-height: 12px;
+}
+.mGrid .pgr a
+{
+    color: #666;
+    text-decoration: none;
+}
+.mGrid .pgr a:hover
+{
+    color: #000;
+    text-decoration: none;
+}

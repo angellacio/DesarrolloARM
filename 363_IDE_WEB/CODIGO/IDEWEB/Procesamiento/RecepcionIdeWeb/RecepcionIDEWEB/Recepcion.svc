@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="RecepcionIDEWEB.ServicioRecepcion" CodeBehind="Recepcion.svc.cs" %>

@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E3958F4-BD43-4A04-AA73-7C585173F0C1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sat.Scade.Net.IDE.Presentacion.Web</RootNamespace>
+    <AssemblyName>Sat.Scade.Net.IDE.Presentacion.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SAT.DyP.Presentacion.Seguridad.Membresia">
+      <HintPath>..\..\Dll_Script\SAT.DyP.Presentacion.Seguridad.Membresia.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Service.WCF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util.Service.WCF\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Service.WCF.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util.Types\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="SAT.DyP.Util.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\SAT.DyP.Util.Web\1.0.0.0__460b3be631f4cec9\SAT.DyP.Util.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="vjslib">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActualizarCorreo.aspx" />
+    <Content Include="App_LocalResources\DeclaracionAceptada.xsl">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\DeclaracionRechazada.xsl">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_LocalResources\Scripts.js" />
+    <Content Include="App_Themes\Default\Images\HeaderHomolagado.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\Default\Images\ImageSat.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\Default\Images\ImageScade.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\NotiEncrip_Impresion.css" />
+    <Content Include="App_Themes\Default\Images\bot_enviar.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\Default\Images\icon_user.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\Default\Images\img_footer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\Default\Images\logoSAT.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\Default\Images\logoSHCP.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\jquery.min.js" />
+    <Content Include="App_Themes\New\images\bot_enviar.jpg" />
+    <Content Include="App_Themes\New\images\icon_user.gif" />
+    <Content Include="App_Themes\New\images\img_footer.jpg" />
+    <EmbeddedResource Include="Controles\ButtonBlocked\DOTUploading.gif" />
+    <EmbeddedResource Include="Controles\ButtonBlocked\RecursosBloqueo.js" />
+    <EmbeddedResource Include="Controles\ButtonBlocked\RecursosValidacion.js" />
+    <EmbeddedResource Include="Controles\Encripta\LoginScade.bmp" />
+    <EmbeddedResource Include="Controles\EjecutaEncripta\ImageNewLogin.jpg" />
+    <EmbeddedResource Include="Controles\EjecutaEncripta\LoginCiec.bmp" />
+    <EmbeddedResource Include="Controles\MuestraEncripta\ImageFiel.jpg" />
+    <EmbeddedResource Include="Controles\MuestraEncripta\LoginFiel.bmp" />
+    <EmbeddedResource Include="Controles\MuestraEncripta\RecursosFiel.js" />
+    <Content Include="AyudaConfigura.html" />
+    <Content Include="CargaApplet.aspx" />
+    <Content Include="App_Themes\EstandarPantallas.css" />
+    <Content Include="Controles\Email\Mail.bmp" />
+    <Content Include="Controles\Header\Header.bmp" />
+    <EmbeddedResource Include="Controles\Header\ImageNewHeader.jpg" />
+    <EmbeddedResource Include="Controles\Header\ImageSat.jpg" />
+    <EmbeddedResource Include="Controles\Header\ImageSatInfo.jpg" />
+    <EmbeddedResource Include="Controles\Header\ImageScade.jpg" />
+    <EmbeddedResource Include="Controles\LoginCiec\ImageNewLogin.jpg" />
+    <EmbeddedResource Include="Controles\LoginCiec\LoginCiec.bmp" />
+    <EmbeddedResource Include="Controles\LoginFiel\ImageFiel.jpg" />
+    <EmbeddedResource Include="Controles\LoginFiel\LoginFiel.bmp" />
+    <EmbeddedResource Include="Controles\LoginFiel\RecursosFiel.js" />
+    <EmbeddedResource Include="Controles\LoginScade\LoginScade.bmp" />
+    <Content Include="Default.aspx" />
+    <Content Include="EncriptorIDE.jar" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura10.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura11.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura12.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura2.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura3.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura4.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura5.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura6.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura7.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura8.PNG" />
+    <Content Include="App_Themes\Default\Images\Configura\Captura9.PNG" />
+    <Content Include="js\FielUtil-1.4.js" />
+    <Content Include="js\jquery-1.6.4.min.js" />
+    <Content Include="js\jsrsasign-4.7.0-all-min_sat-fix.js" />
+    <Content Include="js\ValidacionAccesos.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="LoginFEA.asp" />
+    <Content Include="LoginFEA.aspx" />
+    <Content Include="Notificacion.aspx" />
+    <Content Include="NotificacionEncrip.aspx" />
+    <Content Include="RecepcionDeclaracion.aspx" />
+    <Content Include="LinGobMX.Master" />
+    <None Include="Service References\ServiceRecepcion\Recepcion.disco" />
+    <None Include="Service References\ServiceRecepcion\configuration91.svcinfo" />
+    <None Include="Service References\ServiceRecepcion\configuration.svcinfo" />
+    <None Include="Service References\ServiceRecepcion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServicioNoDisponible.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Service References\ServiceRecepcion\Recepcion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceRecepcion\Recepcion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceRecepcion\Recepcion2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceRecepcion\Sat.Scade.Net.IDE.Presentacion.Web.ServiceRecepcion.Mensaje.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceRecepcion\Sat.Scade.Net.IDE.Presentacion.Web.ServiceRecepcion.RecSalida.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceRecepcion\Sat.Scade.Net.IDE.Presentacion.Web.ServiceRecepcion.RecVerifica.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceRecepcion\ServicioRecepcion.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActualizarCorreo.aspx.cs">
+      <DependentUpon>ActualizarCorreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarCorreo.aspx.designer.cs">
+      <DependentUpon>ActualizarCorreo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargaApplet.aspx.cs">
+      <DependentUpon>CargaApplet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargaApplet.aspx.designer.cs">
+      <DependentUpon>CargaApplet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comun\FielMembershipProvider.cs" />
+    <Compile Include="Comun\ManejoMensajes.cs" />
+    <Compile Include="Comun\MensajeAcuse.cs" />
+    <Compile Include="Comun\Mensajes.cs" />
+    <Compile Include="Comun\PaginaBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comun\Parametros.cs" />
+    <Compile Include="Comun\RC4CryptDecrypt.cs" />
+    <Compile Include="Comun\Recursos.cs" />
+    <Compile Include="Comun\ToolSet.cs" />
+    <Compile Include="Comun\Urls.cs" />
+    <Compile Include="Comun\Utilerias.cs" />
+    <Compile Include="Comun\Zipper.cs" />
+    <Compile Include="Controles\ButtonBlocked\ButtonBlocked.cs" />
+    <Compile Include="Controles\ButtonBlocked\ButtonEncripta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controles\MuestraEncripta\MuestraEncriptal.cs" />
+    <Compile Include="Controles\EjecutaEncripta\EjecutaEncripta.cs" />
+    <Compile Include="Controles\EjecutaEncripta\EncriptaContainer.cs" />
+    <Compile Include="Controles\EjecutaEncripta\EncriptaDefaultTemplate.cs" />
+    <Compile Include="Controles\EjecutaEncripta\EncriptaNewTemplate.cs" />
+    <Compile Include="Controles\Encripta\Encripta.cs" />
+    <Compile Include="Controles\Email\Email.cs" />
+    <Compile Include="Controles\Email\UpdateEventArgs.cs" />
+    <Compile Include="Controles\Header\Header.cs" />
+    <Compile Include="Controles\Header\HeaderContainer.cs" />
+    <Compile Include="Controles\Header\HeaderDefaultTemplate.cs" />
+    <Compile Include="Controles\Header\HeaderNewTemplate.cs" />
+    <Compile Include="Controles\LoginCiec\LoginCiec.cs" />
+    <Compile Include="Controles\LoginCiec\LoginContainer.cs" />
+    <Compile Include="Controles\LoginCiec\LoginDefaultTemplate.cs" />
+    <Compile Include="Controles\LoginCiec\LoginNewTemplate.cs" />
+    <Compile Include="Controles\LoginFiel\LoginFiel.cs" />
+    <Compile Include="Controles\LoginScade\LoginScade.cs" />
+    <Compile Include="Controles\Utilities\AuthenticationConfig.cs" />
+    <Compile Include="Controles\Utilities\GenericContainer.cs" />
+    <Compile Include="Controles\Utilities\LayoutTable.cs" />
+    <Compile Include="Controles\Utilities\LoginMode.cs" />
+    <Compile Include="Controles\Utilities\Utility.cs" />
+    <Compile Include="Declaracion.Master.cs">
+      <DependentUpon>Declaracion.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Declaracion.Master.designer.cs">
+      <DependentUpon>Declaracion.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Instalador\ConfiguracionAmbiente.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Instalador\ConfiguracionAmbiente.Designer.cs">
+      <DependentUpon>ConfiguracionAmbiente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LinGobMX.Master.cs">
+      <DependentUpon>LinGobMX.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinGobMX.Master.designer.cs">
+      <DependentUpon>LinGobMX.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFEA.aspx.cs">
+      <DependentUpon>LoginFEA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginFEA.aspx.designer.cs">
+      <DependentUpon>LoginFEA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacion.aspx.cs">
+      <DependentUpon>Notificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notificacion.aspx.designer.cs">
+      <DependentUpon>Notificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificacionEncrip.aspx.cs">
+      <DependentUpon>NotificacionEncrip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotificacionEncrip.aspx.designer.cs">
+      <DependentUpon>NotificacionEncrip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Proxy\DocumentRequest.cs" />
+    <Compile Include="Proxy\DocumentResponse.cs" />
+    <Compile Include="Proxy\Proxy.cs" />
+    <Compile Include="RecepcionDeclaracion.aspx.cs">
+      <DependentUpon>RecepcionDeclaracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecepcionDeclaracion.aspx.designer.cs">
+      <DependentUpon>RecepcionDeclaracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceRecepcion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioNoDisponible.aspx.cs">
+      <DependentUpon>ServicioNoDisponible.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServicioNoDisponible.aspx.designer.cs">
+      <DependentUpon>ServicioNoDisponible.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuracion\Desarrollo.Internet.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Desarrollo.Modulo.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Laboratorio.Internet.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Laboratorio.Modulo.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Produccion.Internet.config">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Produccion.Modulo.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controles\Utilities\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\Default.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\New\New.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Declaracion.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceRecepcion\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>4234</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

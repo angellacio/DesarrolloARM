@@ -1,0 +1,17 @@
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\SAT.SUS.ServicioMicrosoft.exe.config
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\SAT.SUS.ServicioMicrosoft.exe
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\SAT.SUS.ServicioMicrosoft.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\ControlaComponentes.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\SAT.SUS.Entidades.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\SAT.SUS.Negocio.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\ConectBaseDatos.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\IBM.Data.Informix.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\ControlaComponentes.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\SAT.SUS.Entidades.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\SAT.SUS.Negocio.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Debug\ConectBaseDatos.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Debug\SAT.SUS.ServicioMicrosoft.csprojResolveAssemblyReference.cache
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Debug\SAT.SUS.ServicioMicrosoft.DatosServicio.ConfiguracionProyecto.resources
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Debug\SAT.SUS.ServicioMicrosoft.csproj.GenerateResource.Cache
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Debug\SAT.SUS.ServicioMicrosoft.exe
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Debug\SAT.SUS.ServicioMicrosoft.pdb

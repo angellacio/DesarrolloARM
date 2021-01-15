@@ -1,0 +1,177 @@
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; IE=EmulateEdge; IE=9; IE=EmulateIE9; IE=8; IE=EmulateIE8; IE=7; IE=EmulateIE7;" />
+    <title>Administración de Mantenimiento de Aplicaciones</title>
+    <link href="App_Themes/EstandarPantallas.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="App_Themes/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.zoom').hover(function () {
+                $(this).addClass('transition');
+            }, function () {
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+</head>
+<body>
+
+   <center> 
+   <!--     CABECERAS TITULO,LINEA,INDICE,MENU -->
+    <table cellpadding="4" cellspacing="4" width="90%">
+            <tr>
+                <td  colspan="2">
+                    <h1>
+                       <a href="#" name="Cabecera" style="text-decoration:none; color:Black;"> Configuración del APPLET </a>
+                     </h1>
+                </td>
+            </tr>
+            <tr>
+                <td  colspan="2">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+            <td colspan="2">
+            <center><h1>Indice</h1></center>
+            </td>
+            </tr>
+            <tr> 
+              <td  colspan="2"> 
+            <div align="left">
+		    <ul class="breadcrum">
+			<li><a href="#Memproc" name="menuOpc1">Memoria para mejorar el proceso</a></li> 
+			<li><a href="#Agrsitex" name="menuOpc2">Agregar el Sitio de excepciones del APPLET</a></li>
+		</ul>
+       </div>
+    </td>
+            </tr>
+    </table>
+    <!-- Memoria para mejorar el proceso -->
+    <table cellpadding="4" cellspacing="4" width="90%" style="background-color: steelblue;">
+    <tr>
+    <td width="10%">
+     <a href="#Cabecera" name="Memproc"><font color="white" size="5px">^</font></a>
+    </td>
+    <td width="80%">
+     <h2>Memoria para mejorar el proceso</h2>
+    </td>
+    <td width="10%">
+        <a href="#Cabecera" name="Memproc"><font color="white" size="5px">^</font></a>
+    </td>
+    </tr>
+   </table> 
+    <!-- COLUMNAS DE PASOS -->
+    <table cellpadding="4" cellspacing="4" width="90%" border="0">
+      <tr>
+    <td width="80%"> <b>Paso 1:</b> Dirigirse al menú de inicio y dar doble clic en la consola de configuración
+                                de java "CONFIGURAR JAVA":</td>
+    <td width="30%"><img src="App_Themes/Default/Images/Configura/Captura.png" width="100px" border="0"
+                                    title="Paso 1" alt="Paso01" class="zoom" /></td>
+    </tr>
+      <tr>
+    <td width="80%"><b>Paso 2:</b> Dentro de la pantalla de "Panel de Control de Java" dar clic en la
+                                pestaña donde dice <i>JAVA</i>.</td>
+    <td width="30%"><img src="App_Themes/Default/Images/Configura/Captura2.png" width="100px" border="0"
+                                    title="Paso 2" alt="Paso02" class="zoom" /></td>
+    </tr>
+      <tr>
+    <td width="80%"><b>Paso 3:</b> Dar clic en el boton de <i>Ver</i>.</td>
+    <td width="30%"><img src="App_Themes/Default/Images/Configura/Captura3.png" width="100px" border="0"
+                                    title="Paso 3" alt="Paso03" class="zoom" /></td>
+    </tr>
+      <tr>
+    <td width="80%"><b>Paso 4:</b> En la Sección de donde dice <i>Parámetro de Tiempo de Ejecución</i>
+                                ingresar las linea <i>-Xms1024M -Xmx1024M</i> y dar clic en aceptar.</td>
+    <td width="30%"><img src="App_Themes/Default/Images/Configura/Captura4.png" width="100px" border="0"
+                                    title="Paso 4" alt="Paso04" class="zoom" /></td>
+    </tr>
+      <tr>
+    <td width="80%"><b>Paso 5:</b> Ir a la pestaña donde dice <i>General</i>.</td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura5.png" width="100px" border="0"
+                                    title="Paso 5" alt="Paso05" class="zoom" /> </td>
+    </tr>
+      <tr>
+    <td width="80%">  <b>Paso 6:</b> Dar clic en el boton donde dice <i>Suprimir Archivos..</i>.</td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura6.png" width="100px" border="0"
+                                    title="Paso 6" alt="Paso06" class="zoom" /> </td>
+    </tr>
+      <tr>
+    <td width="80%"> <b>Paso 7:</b> Seleccionar la seccion de <i>Aplicaciones y Applets Instalados</i>
+                                y dar clic en <i>Aceptar</i>.</td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura7.png" width="100px" border="0"
+                                    title="Paso 7" alt="Paso07" class="zoom" /> </td>
+    </tr>
+      <tr>
+    <td width="80%"> <b>Paso 8:</b> Dar clic en <i>Aplicar</i> para que le cambio surta efecto. </td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura8.png" width="100px" border="0"
+                                    title="Paso 8" alt="Paso08" class="zoom" /> </td>
+    </tr>
+    </table>
+    <!-- Agregar el sitio de excepciones -->
+    <table cellpadding="4" cellspacing="4" width="90%" style="background-color: steelblue;">
+    <tr>
+    <td width="10%">
+            <a href="#Cabecera" name="Agrsitex"><font color="white" size="5px">^</font></a>
+    </td>
+    <td width="80%">
+     <h2>Agregar el Sitio de excepciones del APPLET</h2>
+    </td>
+    <td width="10%">
+        <a href="#Cabecera" name="Agrsitex"><font color="white" size="5px">^</font></a>
+    </td>
+    </tr>
+    </table> 
+    <!--COLUMNAS DE PASOS -->
+    <table cellpadding="4" cellspacing="4" width="90%">
+       <tr>
+    <td width="80%"> <b>Paso 1:</b> Dirigirse al menú de inicio y dar doble clic en la consola de configuración
+                                de java "CONFIGURAR JAVA":</td>
+    <td width="30%"><img src="App_Themes/Default/Images/Configura/Captura.png" width="100px" border="0"
+                                    title="Paso 1" alt="Paso01" class="zoom" /></td>
+    </tr>
+       <tr>
+    <td width="80%"> <b>Paso 2:</b> Dentro de la pantalla de "Panel de Control de Java" dar clic en la
+                                pestaña donde dice <i>Seguridad</i>. </td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura9.png" width="100px" border="0"
+                                    title="Paso 2" alt="Paso02" class="zoom" /> </td>
+    </tr>
+       <tr>
+    <td width="80%"> <b>Paso 3:</b> Dar clic en el boton donde dice <i>Editar lista de sitios..</i>. </td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura10.png" width="100px" border="0"
+                                    title="Paso 3" alt="Paso03" class="zoom" /> </td>
+    </tr>
+       <tr>
+    <td width="80%"> <b>Paso 4:</b> Dar clic en el boton donde dice <i>Agregar</i>. Escribir la ruta
+                                donde se cargue el APPLET seguido de dar clic en <i>Agregar</i> y Aceptar. </td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura11.png" width="100px" border="0"
+                                    title="Paso 4" alt="Paso04" class="zoom" />
+                                <br />
+                                <img src="App_Themes/Default/Images/Configura/Captura12.png" width="100px" border="0"
+                                    title="Paso 4" alt="Paso04.1" class="zoom" /> </td>
+    </tr>
+       <tr>
+    <td width="80%"><b>Paso 5:</b> Ir a la pestaña donde dice <i>General</i>.</td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura5.png" width="100px" border="0"
+                                    title="Paso 5" alt="Paso05" class="zoom" /> </td>
+    </tr>
+       <tr>
+    <td width="80%">  <b>Paso 6:</b> Dar clic en el boton donde dice <i>Suprimir Archivos..</i>.</td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura6.png" width="100px" border="0"
+                                    title="Paso 6" alt="Paso06" class="zoom" /> </td>
+    </tr>
+       <tr>
+    <td width="80%"> <b>Paso 7:</b> Seleccionar la seccion de <i>Aplicaciones y Applets Instalados</i>
+                                y dar clic en <i>Aceptar</i>.</td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura7.png" width="100px" border="0"
+                                    title="Paso 7" alt="Paso07" class="zoom" /> </td>
+    </tr>
+       <tr>
+    <td width="80%"> <b>Paso 8:</b> Dar clic en <i>Aplicar</i> para que le cambio surta efecto. </td>
+    <td width="30%"> <img src="App_Themes/Default/Images/Configura/Captura8.png" width="100px" border="0"
+                                    title="Paso 8" alt="Paso08" class="zoom" /> </td>
+    </tr>
+    </table>
+    </center>
+</body>
+</html>

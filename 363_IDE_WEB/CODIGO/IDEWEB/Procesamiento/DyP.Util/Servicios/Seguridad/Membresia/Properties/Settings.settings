@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SAT.DyP.Presentacion.Seguridad.Membresia.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="IDCMembership_AuthenticateUser_idcValidation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost/Autenticacion/wsIDCValidate.asmx</Value>
+    </Setting>
+    <Setting Name="SAT_SCADE_NET_Presentacion_Seguridad_Membresia_wsIDCValidate_idcValidation" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/Autenticacion/wsIDCValidate.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

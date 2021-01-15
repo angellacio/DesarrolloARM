@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IdeMonitorService.Negocio.Contratos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DeclaracionEntrada">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Banco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bloque" type="xs:int" />
+      <xs:element minOccurs="0" name="Ejercicio" type="xs:int" />
+      <xs:element minOccurs="0" name="EstadoDeclaracion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Folio" type="xs:int" />
+      <xs:element minOccurs="0" name="FormaDeclaracion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Formato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inicio" type="xs:int" />
+      <xs:element minOccurs="0" name="MedioRecepcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotivoRechazo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreArchivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operaciones" type="xs:int" />
+      <xs:element minOccurs="0" name="Periodo" type="xs:int" />
+      <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rfc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sector" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoArchivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UltimoEstado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaFin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInicio" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeclaracionEntrada" nillable="true" type="tns:DeclaracionEntrada" />
+  <xs:complexType name="ArrayOfDeclaracionSalida">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeclaracionSalida" nillable="true" type="tns:DeclaracionSalida" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeclaracionSalida" nillable="true" type="tns:ArrayOfDeclaracionSalida" />
+  <xs:complexType name="DeclaracionSalida">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Banco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ejercicio" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EstadoDeclaracion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Folio" type="xs:int" />
+      <xs:element minOccurs="0" name="FormaDeclaracion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Formato" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MedioRecepcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotivoRechazo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreArchivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operaciones" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Periodo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rfc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sector" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoArchivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UltimoEstado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaModificacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaRecepcion" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeclaracionSalida" nillable="true" type="tns:DeclaracionSalida" />
+  <xs:complexType name="ArrayOfCatalogoSalida">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogoSalida" nillable="true" type="tns:CatalogoSalida" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogoSalida" nillable="true" type="tns:ArrayOfCatalogoSalida" />
+  <xs:complexType name="CatalogoSalida">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdCatalogo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogoSalida" nillable="true" type="tns:CatalogoSalida" />
+  <xs:complexType name="EstadisticaEntrada">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MedioRecepcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Periodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rfc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoArchivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaFin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaInicio" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstadisticaEntrada" nillable="true" type="tns:EstadisticaEntrada" />
+  <xs:complexType name="ArrayOfEstadisticaSalida">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EstadisticaSalida" nillable="true" type="tns:EstadisticaSalida" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstadisticaSalida" nillable="true" type="tns:ArrayOfEstadisticaSalida" />
+  <xs:complexType name="EstadisticaSalida">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Valor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EstadisticaSalida" nillable="true" type="tns:EstadisticaSalida" />
+</xs:schema>

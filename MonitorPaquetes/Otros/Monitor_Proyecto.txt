@@ -1,0 +1,17 @@
+-------Numero de Rechazos , Aplica o No y descripcion---------------
+
+SELECT  Mov_cve_fol_fk,mov_fec_ini,mov_cve FROM SMP_Bitacora_Mov WHERE Mov_cve_fol_fk IN
+(SELECT c_rdl FROM mm_lib_rdl WHERE c_paq_folio_fk IN(SELECT paq_cve_fol FROM SMP_Caratula
+WHERE Paq_cve_alfa like '%DDRN12385CW1%')) AND mov_cve IN (400,23)
+ORDER BY mov_fec_ini ASC, Mov_cve_fol_fk DESC
+
+SELECT PRB_CVE_FOL_FK,PRB_RES,PRB_FEC_SIS  FROM SMP_Pruebas WHERE PRB_CVE_FOL_FK IN(SELECT c_rdl FROM mm_lib_rdl WHERE  c_paq_folio_fk IN
+(SELECT paq_cve_fol FROM SMP_Caratula WHERE Paq_cve_alfa LIKE '%DDRN12385CW1%'))
+ order by PRB_FEC_SIS ASC,PRB_CVE_FOL_FK DESC
+ 
+------- Datos de la Caratula ---------------------------
+
+SELECT car.PAQ_CVE_ALFA,car.PAQ_OBJ,car.PAQ_OTR,car.PAQ_OBSADU,car.PAQ_OBSMA,car.PAQ_OBSLOC,car.PAQ_DOCREL,bd.BD_NOM
+FROM SMP_Caratula car JOIN SMP_BASE_DATOS bd ON bd.BD_CVE_FOL_FK = car.PAQ_CVE_FOL
+WHERE car.PAQ_CVE_ALFA like '%DDRN12385CW1%'
+ 

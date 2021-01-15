@@ -1,0 +1,78 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F78F81FB-0F42-4715-9C18-C5EDC5C28B24}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAT.DyP.Routing.Configuration.ServiceImplementation</RootNamespace>
+    <AssemblyName>SAT.DyP.Routing.Configuration.ServiceImplementation</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TranslateBetweenRouteMessageAndSCADERoute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business Logic\Routing.Configuration.BusinessEntities\Routing.Configuration.BusinessEntities.csproj">
+      <Project>{8A2892B4-AE13-409D-B2F5-F61BD661D386}</Project>
+      <Name>Routing.Configuration.BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Business Logic\Routing.Configuration.BusinessLogic\Routing.Configuration.BusinessLogic.csproj">
+      <Project>{4D17DCF7-0911-4C04-8680-497AAEFA5DE7}</Project>
+      <Name>Routing.Configuration.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Routing.Configuration.DataContracts\Routing.Configuration.DataContracts.csproj">
+      <Project>{816EA35D-8AF4-4204-985C-833A9FFEF211}</Project>
+      <Name>Routing.Configuration.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Routing.Configuration.FaultContracts\Routing.Configuration.FaultContracts.csproj">
+      <Project>{1BDD73F4-C832-456C-98EB-2220D6D8435B}</Project>
+      <Name>Routing.Configuration.FaultContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Routing.Configuration.ServiceContracts\Routing.Configuration.ServiceContracts.csproj">
+      <Project>{6652B9A1-8923-47FC-943F-B05E0CA87B26}</Project>
+      <Name>Routing.Configuration.ServiceContracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties IsWCFServiceImplementationProject="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

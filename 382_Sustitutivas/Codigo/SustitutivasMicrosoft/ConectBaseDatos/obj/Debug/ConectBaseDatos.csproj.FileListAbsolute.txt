@@ -1,0 +1,8 @@
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\bin\Debug\ConectBaseDatos.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\bin\Debug\ConectBaseDatos.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\bin\Debug\ControlaComponentes.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\bin\Debug\IBM.Data.Informix.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\bin\Debug\ControlaComponentes.pdb
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\obj\Debug\ConectBaseDatos.csprojResolveAssemblyReference.cache
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\obj\Debug\ConectBaseDatos.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\ConectBaseDatos\obj\Debug\ConectBaseDatos.pdb

@@ -1,0 +1,103 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EFC1621-C4AB-4CCB-91B9-A569AE5ACB69}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAT.DyP.Routing.Configuration.DataAccess</RootNamespace>
+    <AssemblyName>SAT.DyP.Routing.Configuration.DataAccess</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\References\EntLib-3.1\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\References\EntLib-3.1\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Generic\ConcurrencyViolationException.cs" />
+    <Compile Include="Generic\GenericResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenericResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Generic\IDbToBusinessEntityNameMapper.cs" />
+    <Compile Include="Generic\IDeleteFactory.cs" />
+    <Compile Include="Generic\IDomainObjectFactory.cs" />
+    <Compile Include="Generic\IInsertFactory.cs" />
+    <Compile Include="Generic\ISelectionFactory.cs" />
+    <Compile Include="Generic\IUpdateFactory.cs" />
+    <Compile Include="Generic\NullableIdentity.cs" />
+    <Compile Include="Generic\Repository.cs" />
+    <Compile Include="Generic\RepositoryException.cs" />
+    <Compile Include="Generic\RepositoryFailureException.cs" />
+    <Compile Include="Generic\RepositoryValidationException.cs" />
+    <Compile Include="GetAllFromSCADE_RoutingTableFactory.cs" />
+    <Compile Include="GetAllFromSCADE_RoutingTableSelectionFactory.cs" />
+    <Compile Include="GetSCADE_RoutingTableByid_routeFactory.cs" />
+    <Compile Include="GetSCADE_RoutingTableByid_routeSelectionFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SCADE_RoutingTableDeleteFactory.cs" />
+    <Compile Include="SCADE_RoutingTableInsertFactory.cs" />
+    <Compile Include="SCADE_RoutingTableRepository.cs" />
+    <Compile Include="SCADE_RoutingTableUpdateFactory.cs" />
+    <Compile Include="SQLServer\ErrorCodes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business Logic\Routing.Configuration.BusinessEntities\Routing.Configuration.BusinessEntities.csproj">
+      <Project>{8A2892B4-AE13-409D-B2F5-F61BD661D386}</Project>
+      <Name>Routing.Configuration.BusinessEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SCADE_DB_Procs.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Generic\GenericResources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GenericResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties IsDataAccessProject="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

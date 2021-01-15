@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f89ed676-05a7-41d2-a1ff-101fff79f929" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://99.90.24.216/IdeValidacion/Validacion.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Validacion.xsd" MetadataType="Schema" ID="6b2959ce-2eef-4e2a-aa79-dcab87f928ab" SourceId="1" SourceUrl="http://m320fogj6071b04.dssat.sat.gob.mx/IdeValidacion/Validacion.svc?xsd=xsd1" />
+    <MetadataFile FileName="Validacion1.disco" MetadataType="Disco" ID="30f3489e-fe5d-4320-8d7d-13af442ca969" SourceId="1" SourceUrl="http://m320fogj6071b04.dssat.sat.gob.mx/IdeValidacion/Validacion.svc?disco" />
+    <MetadataFile FileName="Validacion.wsdl" MetadataType="Wsdl" ID="e04d4804-de40-44c8-b4b1-38867942f83d" SourceId="1" SourceUrl="http://m320fogj6071b04.dssat.sat.gob.mx/IdeValidacion/Validacion.svc?wsdl" />
+    <MetadataFile FileName="Validacion1.xsd" MetadataType="Schema" ID="72781a0e-bfdd-4954-84ab-842de27d18dd" SourceId="1" SourceUrl="http://m320fogj6071b04.dssat.sat.gob.mx/IdeValidacion/Validacion.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

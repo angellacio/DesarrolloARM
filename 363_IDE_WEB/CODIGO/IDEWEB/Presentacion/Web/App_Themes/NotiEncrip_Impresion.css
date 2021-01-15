@@ -1,0 +1,54 @@
+﻿@page 
+{
+        size:  auto;   /* auto es el valor inicial */
+        margin: 0mm;  /* afecta el margen en la configuración de impresión */
+        display:none;
+}
+header, footer, nav, aside
+{
+    display: none;
+}  
+body  
+{
+   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 18px;
+   line-height: 1.428571429;
+   color: #545454;
+   background-color: #fff; 
+}    
+a:after {content:" <" attr(href) ">";}
+#imprimirAcuseMasHyperLink {
+    display:none;
+}
+#cSesion 
+{
+    display:none;
+}
+.breadcrumb 
+{
+    display:none;
+}
+#LabelRfc 
+{
+     text-align: right;
+}  
+#Titulo {
+    margin: .67em 0;
+    margin-top: 25px;
+    margin-bottom: 12.5px;
+    font-size: 35px;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit  
+}
+#SubTitulo {
+    margin: .67em 0;
+    margin-top: 25px;
+    margin-bottom: 12.5px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1.1;
+    color: inherit
+}

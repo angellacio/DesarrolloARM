@@ -1,0 +1,111 @@
+/************************************************************************************* XX/XX/XXXX *************************************************************************************/
+
+POL-363 :: DLCC19182D11 :: SQL IDEWEB                :: :: 
+POL-363 :: DLCC19182D12 :: DEC_IDE SQL Procesamiento :: :: 
+POL-363 :: DLCC19182D13 :: DEC_IDE SQL Recepcion     :: :: 
+POL-363 :: DLCC19182D21 :: Procesamiento             :: :: 
+POL-363 :: DLCC19182D22 :: DEC_IDE Web Monitor       :: :: 
+POL-363 :: DLCC19182D31 :: Presentacion Empleado     :: :: 
+POL-363 :: DLCC19182D41 :: Presentacion Internet     :: :: 
+
+/************************************************************************************* 09/10/2020 *************************************************************************************/
+
+POL-363 :: DLCC19182D11 :: SQL IDEWEB                :: 107780 :: Pruebas Funcionales SN          :: 
+POL-363 :: DLCC19182D12 :: DEC_IDE SQL Procesamiento :: 108202 :: Pruebas Funcionales SN          :: 
+POL-363 :: DLCC19182D13 :: DEC_IDE SQL Recepcion     :: 108204 :: Pruebas Funcionales SN          :: 
+POL-363 :: DLCC19182D21 :: Procesamiento             :: 108212 :: Rechazo a Rape                  :: [SIN SEMAFORO] Error en Ruta de Instalación Falta manual de instalación o Error en el manual de instalación 
+POL-363 :: DLCC19182D22 :: DEC_IDE Web Monitor       :: 108294 :: Pruebas Funcionales SN          :: 
+POL-363 :: DLCC19182D31 :: Presentacion Empleado     :: 108529 :: Rechazo a Rape                  :: [SIN SEMAFORO] Se recha para que se atiendan las observaciones del manual de instalación, 
+POL-363 :: DLCC19182D41 :: Presentacion Internet     :: 108214 :: Rechazo a Rape                  :: [SIN SEMAFORO] Se rechaza paquete ya que en el manual se tiene que indicar específicamente los parámetros a configurar en el archivo web.config , adicional a esto para el ambiente de UAT de preferencia enviar vía correo a la línea de soporte (torre.legadosSAT@sat.gob.mx) el archivo ya configurado para dicho ambiente 
+
+/************************************************************************************* 05/10/2020 *************************************************************************************/
+
+POL-363 :: DLCC19182D11 :: SQL IDEWEB                :: 107780 :: Pruebas Funcionales SN          :: 
+POL-363 :: DLCC19182D12 :: DEC_IDE SQL Procesamiento :: 108202 :: Validación Rechazo (FSW)        :: [SIN SEMAFORO] Se rechazo paquete debido a que existen dudas sobre la versión del SQL para mayor detalle favor de revisar documento de instalación anexo a la herramienta. 
+POL-363 :: DLCC19182D13 :: DEC_IDE SQL Recepcion     :: 108204 :: Programado(SAT) (Sin Fecha Prg) :: 
+POL-363 :: DLCC19182D22 :: DEC_IDE Web Monitor       :: 108294 :: Rechazo a Rape                  :: 
+POL-363 :: DLCC19182D21 :: Procesamiento             :: 108212 :: Rechazo a Rape                  :: 
+POL-363 :: DLCC19182D31 :: Presentacion Empleado     :: 108297 :: Rechazo a Rape                  :: 
+POL-363 :: DLCC19182D41 :: Presentacion Internet     :: 108214 :: Rechazo a Rape                  :: 
+
+/*********************************************************************************** Validar datos ***********************************************************************************/
+
+Hola Paty, buenas tardes. 2 favores
+*1* Me puedes mandar el paquete DLCC19182D21 para realizar unas modificaciones a los manuales. El día de hoy quedaría para enviar al AVL, Te aviso.
+*2* Para el usuario de IDE WEB de BD tengo que es el RFC CRQS94028 y está Cerrado. Pero en la base de datos no existe. Aun así, necesitamos crear un nuevo usuario de base de datos para que se puedan configurar los aplicativos. De la misma forma en un rato más te mando el RFC.
+
+Base de Datos
+SAT.DyP.IDE::BaseDatos
+AVL -- Server=10.229.132.12\10.229.132.13;Database=IDEWEB;User Id=usrIDEWebBD;password=/*PaswordCorrecto*/;
+PRO -- Server=10.237.130.138\10.237.130.142;Database=IDEWEB;User Id=usrIDEWebBD;password=/*PaswordCorrecto*/;
+SAT.DyP.Negocio.Common.EnvioAMA::TransmitControl
+AVL -- Server=10.229.132.12\10.229.132.13;Database=DyPUtil;User Id=usrIDEWebBD;password=/*PaswordCorrecto*/;
+PRO -- Server=10.237.130.138\10.237.130.142;Database=DyPUtil;User Id=usrIDEWebBD;password=/*PaswordCorrecto*/;
+SAT.DyP.Negocio.Comun::BD_SPED
+AVL -- Server=10.229.136.217\TQIDCUATSQLI02,1433;Database=sped;User Id=admscade;password=/*PaswordCorrecto*/;
+PRO -- Server=10.53.77.144\TQIDCUATSQLI02,1433;Database=sped;User Id=admscade;password=/*PaswordCorrecto*/;
+SAT.DyP.Util::SCADE_NET
+AVL -- Server=10.229.132.12\10.229.132.13;Database=DyPUtil;User Id=usrIDEWebBD;password=/*PaswordCorrecto*/;
+PRO -- Server=10.237.130.138\10.237.130.142;Database=DyPUtil;User Id=usrIDEWebBD;password=/*PaswordCorrecto*/;
+
+SAT.DyP.IDE::RutaLocal
+P:\DELCARACIONES\IDE\Envio
+Sat.DyP.Ide::Validar.directorioArchivosUnZip
+P:\DELCARACIONES\IDE\UnZip
+Sat.DyP.Ide::Validar.pathAcuses
+P:\DELCARACIONES\IDE\Acuses
+
+SELLO_DIGITAL_HOSTNAME
+
+
+SAT.DyP.Negocio.Comun::DIGITALSEAL_HOSTNAME	
+AVL -- 10.60.152.15
+PRO -- 10.229.126.1
+SAT.DyP.Negocio.Comun::DIGITALSEAL_SERVICENAME	
+SgiSelloDigital
+
+SAT.DyP.Util.Security.Interop.SgiHelpers::ARAConfigurationPath	
+AVL -- 10.60.152.16
+PRO -- 10.229.126.2
+
+SAT.DyP.Negocio.Declaraciones.DeclaraSAT.Tradicional::SATCertificateAuthority
+C:\SAT\Certificados\Tradicional\SAT_AUT_CERT\AC_SAT_DESA.cer
+
+SAT.SCADE.NET.Negocio.Declaraciones.DeclaraSAT.Tradicional::DecryptionCertificatePath
+C:\SAT\Certificados\Tradicional\De_srv.key
+
+
+SAT.DyP.Util::MAIL_DEBUG_LOG_SENT_MESSAGES	
+true
+SAT.DyP.Util::MAIL_DEBUG_LOG_SENT_MESSAGES_PATH	
+C:\Windows\Temp\DyP\SentMail
+SAT.DyP.Util::MAIL_FROM	
+scade@azedevidc2.aze
+SAT.DyP.Util::MAIL_SERVER	
+AVL -- 10.228.254.4
+PRO -- 10.228.254.4
+
+
+
+
+Portales
+http://10.237.126.47:4009/iisstart.htm
+http://10.237.126.48:4009/iisstart.htm
+
+http://localhost/iisstart.htm
+
+Mensaje a Ana
+Mensaje a Operaciones
+Mensaje a Paty
+
+
+
+Hola Anita buenas tardes.
+
+Me puedes ayudar en validar la coneccion a los sitios de internent 
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorReglaNegocios\bin\Release\MonitorReglaNegocios.dll
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorReglaNegocios\bin\Release\MonitorReglaNegocios.pdb
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorReglaNegocios\bin\Release\MonitorEntidades.dll
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorReglaNegocios\bin\Release\MonitorEntidades.pdb
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorReglaNegocios\obj\Release\MonitorReglaNegocios.csprojResolveAssemblyReference.cache
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorReglaNegocios\obj\Release\MonitorReglaNegocios.dll
+D:\Documentacion\Desarrollo\MyRepository\MonitorPaquetes\Codigo\MonitorPaquetes\MonitorReglaNegocios\obj\Release\MonitorReglaNegocios.pdb

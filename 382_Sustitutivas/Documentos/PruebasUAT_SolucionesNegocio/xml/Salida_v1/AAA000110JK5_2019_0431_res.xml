@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <ConsultarPagoAnteriorResponse xmlns="Pagos">
+         <ConsultarPagoAnteriorResult xmlns:a="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:Operaciones>
+               <a:OperacionPagoAnterior>
+                  <a:Banco>40002</a:Banco>
+                  <a:FechaOperacion>20201012</a:FechaOperacion>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion>14:44</a:HoraOperacion>
+                  <a:LineaCaptura>0420000I070029080423</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco>1202</a:NumOpeBanco>
+                  <a:NumOpeDecla>5767468</a:NumOpeDecla>
+                  <a:Pagado>1</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+               <a:OperacionPagoAnterior>
+                  <a:Banco/>
+                  <a:FechaOperacion/>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion/>
+                  <a:LineaCaptura>0420000I050029089476</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco/>
+                  <a:NumOpeDecla>5767466</a:NumOpeDecla>
+                  <a:Pagado>0</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+               <a:OperacionPagoAnterior>
+                  <a:Banco/>
+                  <a:FechaOperacion/>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion/>
+                  <a:LineaCaptura>0420000I060029086490</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco/>
+                  <a:NumOpeDecla>5767467</a:NumOpeDecla>
+                  <a:Pagado>0</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+            </a:Operaciones>
+         </ConsultarPagoAnteriorResult>
+      </ConsultarPagoAnteriorResponse>
+   </s:Body>
+</s:Envelope>

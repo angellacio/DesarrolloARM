@@ -1,0 +1,145 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6A361CB6-BB95-49A1-83A9-8164F25492A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAT.DyP.Negocio.Comun.Procesos</RootNamespace>
+    <AssemblyName>SAT.DyP.Negocio.Comun.Procesos</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SAT.SCADE.NET.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SAT.DyP.Util.Security.Interop.CryptDecrypt, Version=2.0.0.0, Culture=neutral, PublicKeyToken=460b3be631f4cec9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\References\SCADECryptDecrypt\SAT.DyP.Util.Security.Interop.CryptDecrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="SgiCriptoNet, Version=1.0.3656.22494, Culture=neutral, PublicKeyToken=d55a03392903cfb2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+      <HintPath>..\..\..\References\SgiCripto3\SgiCriptoNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActualizaMailContribuyente.cs" />
+    <Compile Include="AlmacenarBitacora.cs" />
+    <Compile Include="AlmacenarDocumentoExcepcion.cs" />
+    <Compile Include="Autenticacion\VerificarUsuario.cs" />
+    <Compile Include="Constantes.cs" />
+    <Compile Include="Datos\DALContribuyente.cs" />
+    <Compile Include="Datos\DALDatosAcceso.cs" />
+    <Compile Include="Datos\DALError.cs" />
+    <Compile Include="Datos\DALMensaje.cs" />
+    <Compile Include="Datos\DALNotificacion.cs" />
+    <Compile Include="DesencriptarHelper.cs" />
+    <Compile Include="EliminarFolioExcepcion.cs" />
+    <Compile Include="Helper\ErroresNegocioHelper.cs" />
+    <Compile Include="MensajesGenerales.cs" />
+    <Compile Include="Datos\DALDocumento.cs" />
+    <Compile Include="GeneradorException.cs" />
+    <Compile Include="GeneradorNumeroOperacion.cs" />
+    <Compile Include="Helper\ArithmeticHelper.cs" />
+    <Compile Include="ObtenerDatosCertificadoFIEL.cs" />
+    <Compile Include="ObtenerDatosContribuyente.cs" />
+    <Compile Include="ObtenerMensajeComun.cs" />
+    <Compile Include="ObtenerMensajeError.cs" />
+    <Compile Include="ObtenerNotificacion.cs" />
+    <Compile Include="ObtenerSelloDigital.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Retroalimentacion\ConsolidarRegistros.cs" />
+    <Compile Include="Seguridad\FirmaDigital.cs" />
+    <Compile Include="Seguridad\SelloDigital.cs" />
+    <Compile Include="Seguridad\ValidadorCertificado.cs" />
+    <Compile Include="SgiHelper\CustomSgiHelper.cs" />
+    <Compile Include="SgiHelper\NetSgiHelper.cs" />
+    <Compile Include="SgiHelper\SgiFactory.cs" />
+    <Compile Include="ValidarCertificado.cs" />
+    <Compile Include="ValidarRFCFisicas.cs" />
+    <Compile Include="ValidarRFCMorales.cs" />
+    <Compile Include="VerificarFIELContribuyente.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SAT.SCADE.NET.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Configuration\Util.csproj">
+      <Project>{C93549B8-F08D-4874-BFAD-DCA64EF8A534}</Project>
+      <Name>Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Data\Data.csproj">
+      <Project>{F8DBFC57-4391-4061-9269-F45B709DCD87}</Project>
+      <Name>Data %28Common\Core\Data\Data%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Security\Security.csproj">
+      <Project>{950E7B9F-28B8-490D-AB4D-224122417A8A}</Project>
+      <Name>Security %28Common\Security\Security%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Security\SgiHelpers\SgiHelpers.vcproj">
+      <Project>{392F27FA-140F-4F2F-B67B-36FB8D3BD4C2}</Project>
+      <Name>SgiHelpers %28Common\Security\SgiHelpers%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Types\Types.csproj">
+      <Project>{3D411629-E246-4558-BF2C-F4A46178EB31}</Project>
+      <Name>Types %28Common\Types\Types%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tipos\Tipos.csproj">
+      <Project>{A4F16AD0-E1B5-4ACE-8DBA-321C70E59221}</Project>
+      <Name>Tipos %28Negocio\Comun\Tipos\Tipos%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

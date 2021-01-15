@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="Shared_MasterPage2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta content="IE=EDGE; IE=9; IE=EmulateIE9; IE=8; IE=EmulateIE8; chrome=1;' http-equiv='X-UA-Compatible" />
+    <title>Servicio de Administración Tributaria (México)</title>
+    <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+    <link href="../Css/Acuse_Impresion.css" type="text/css" rel="Stylesheet" media="print"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container">
+        <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="bottom-buffer">
+        </div>
+        </form>
+    </div>
+</body>
+</html>

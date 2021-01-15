@@ -1,0 +1,34 @@
+<%@ Register Assembly="Sat.Scade.Net.IDE.Presentacion.Web" Namespace="Sat.Scade.Net.IDE.Presentacion.Web"  TagPrefix="Sat" %>
+<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+<asp:Label SkinID="LabelVerdana13" runat="server" Font-Names="Verdana" Font-Size="13px" />
+<asp:Label SkinID="LabelVerdana13Bold" runat="server" Font-Names="Verdana" Font-Size="13px" Font-Bold="true" />
+
+<asp:LoginStatus SkinID="LoginStatusScade2" runat="server" LogoutText="Terminar Sesion" />
+
+<Sat:Header SkinID="HeaderScade2"  runat="server" Theme="Default" />
+<Sat:LoginScade SkinID="LoginScade2" runat="server" Tema="Default" />
+<Sat:Encripta SkinID="Encripta2" runat="server" Tema="Default" />
+
+<asp:Image SkinID= "UserImage" runat="server" ImageUrl="~/App_Themes/Default/Images/icon_user.gif" width="5%"/>
+<asp:Image SkinID="FooterScade2" runat="server" ImageUrl="~/App_Themes/Default/Images/img_footer.jpg" />
+
+<asp:FileUpload SkinID="CargaFileUploadSkin" runat="server" Width="350px" BorderStyle="solid" Font-Size="13px" Font-Names="Arial,helvetica,sans-serif" ForeColor="black" Font-Bold="true" BorderColor="#7A8A99" />
+
+<asp:Label SkinID="lblPOST" runat="server" Width="472px"></asp:Label>
+
+<Sat:ButtonBlocked SkinID="EnviarButton" runat="server" Text="Enviar" style="color:Black;font-family:Arial,helvetica,sans-serif;font-size:13px;font-weight:bold;background-color:#D4E2EF;border:1px solid;border-top-color:#7A8A99;border-left-color:#7A8A99;border-right-color:#7A8A99;border-bottom-color:#7A8A99;" />
+<Sat:ButtonEncripta SkinID="EnviarEncriptaButton" runat="server" Text="Enviar" style="color:Black;font-family:Arial,helvetica,sans-serif;font-size:13px;font-weight:bold;background-color:#D4E2EF;border:1px solid;border-top-color:#7A8A99;border-left-color:#7A8A99;border-right-color:#7A8A99;border-bottom-color:#7A8A99;" />

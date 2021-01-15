@@ -1,0 +1,11 @@
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Release\SAT.SUS.ServicioMicrosoft.exe.config
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Release\SAT.SUS.ServicioMicrosoft.exe
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Release\ControlaComponentes.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Release\SAT.SUS.Entidades.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Release\SAT.SUS.Negocio.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Release\ConectBaseDatos.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\bin\Release\IBM.Data.Informix.dll
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Release\SAT.SUS.ServicioMicrosoft.csprojResolveAssemblyReference.cache
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Release\SAT.SUS.ServicioMicrosoft.DatosServicio.ConfiguracionProyecto.resources
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Release\SAT.SUS.ServicioMicrosoft.csproj.GenerateResource.Cache
+D:\Documentacion\Desarrollo\MyRepository\382_Sustitutivas\Codigo\SustitutivasMicrosoft\SAT.SUS.ServicioMicrosoft\obj\Release\SAT.SUS.ServicioMicrosoft.exe

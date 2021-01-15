@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+   <s:Body>
+      <ConsultarPagoAnteriorResponse xmlns="Pagos">
+         <ConsultarPagoAnteriorResult xmlns:a="http://schemas.datacontract.org/2004/07/Sat.Scade.Pagos.Modelo.Dominio.Entidades.Consultas" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+            <a:Operaciones>
+               <a:OperacionPagoAnterior>
+                  <a:Banco>40002</a:Banco>
+                  <a:FechaOperacion>20201014</a:FechaOperacion>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion>13:44</a:HoraOperacion>
+                  <a:LineaCaptura>0420000I040029108440</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco>1401</a:NumOpeBanco>
+                  <a:NumOpeDecla>5767465</a:NumOpeDecla>
+                  <a:Pagado>1</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+               <a:OperacionPagoAnterior>
+                  <a:Banco>40002</a:Banco>
+                  <a:FechaOperacion>20201013</a:FechaOperacion>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion>13:34</a:HoraOperacion>
+                  <a:LineaCaptura>0420000I030029101467</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco>1301</a:NumOpeBanco>
+                  <a:NumOpeDecla>5767464</a:NumOpeDecla>
+                  <a:Pagado>1</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+               <a:OperacionPagoAnterior>
+                  <a:Banco>40002</a:Banco>
+                  <a:FechaOperacion>20201012</a:FechaOperacion>
+                  <a:FechaPresentacion>20201012</a:FechaPresentacion>
+                  <a:HoraOperacion>11:14</a:HoraOperacion>
+                  <a:LineaCaptura>0420000I020029100498</a:LineaCaptura>
+                  <a:Mensaje/>
+                  <a:NumOpeBanco>1201</a:NumOpeBanco>
+                  <a:NumOpeDecla>5767463</a:NumOpeDecla>
+                  <a:Pagado>1</a:Pagado>
+                  <a:TipoOperacion>2</a:TipoOperacion>
+               </a:OperacionPagoAnterior>
+            </a:Operaciones>
+         </ConsultarPagoAnteriorResult>
+      </ConsultarPagoAnteriorResponse>
+   </s:Body>
+</s:Envelope>

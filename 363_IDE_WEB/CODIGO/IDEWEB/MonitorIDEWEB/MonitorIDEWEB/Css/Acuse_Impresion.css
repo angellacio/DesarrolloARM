@@ -1,0 +1,94 @@
+﻿@page 
+{
+        margin: 5mm;  /* afecta el margen en la configuración de impresión */
+        display:none;
+}
+header, footer, nav, aside
+{
+    display: none;
+}  
+body  
+{
+    margin: 5mm;
+   font-family: Sans-Serif;
+   font-size: 17px;
+   line-height: 1.428571429; 
+   color: #545454;
+   background-color: #fff; 
+}    
+#imprimirAcuseMasHyperLink { display:none;}
+#cSesion{display:none;}
+hr.red{display:none}
+hr
+{
+    border-top-width:2px;
+    border-bottom-style:solid;
+    border-top-color:Black;
+}
+.panel-default
+{
+    border:0px;
+}
+.breadcrumb 
+{
+    display:none;
+}
+#LabelRfc 
+{
+     text-align: right;
+}  
+#Titulo 
+{
+   /*margin: .67em 0;
+    margin-top: 25px;
+    margin-bottom: 12.5px; */
+    margin-top: -40px;
+    font-size: 17px; 
+    font-weight: 600;
+   /* font-family: inherit;*/
+    line-height: 1.1;
+    color: inherit;
+    text-align:center;
+}
+#SubTitulo 
+{
+    /*margin: .67em 0;
+    margin-top: 5px;
+    margin-bottom: 12.5px;*/
+    margin-top: -10px;
+    font-size: 17px; 
+    font-weight: 600;
+    font-family: inherit;
+    /*line-height: 1.1;*/
+    color: inherit;
+    text-align:center;
+}
+Table,tbody,tr
+{
+    text-align: center;
+    margin: .67em 0;
+    margin-top: 5px; 
+    margin-bottom: 12.5px;
+    /*font-size: 20px;*/
+}
+strong,th
+{
+    font-weight: 600;
+}
+h3
+{
+    font-size: 35px; 
+  /*font-weight: 600;*/
+}
+#grande
+{
+       width:1200px;
+       height:40px;  
+}
+.col-sm-9{ display:none;}
+b{font-size: 17px; }
+#TableMsjSat,td
+{
+    font-size: 17px;
+    text-align:left;
+}

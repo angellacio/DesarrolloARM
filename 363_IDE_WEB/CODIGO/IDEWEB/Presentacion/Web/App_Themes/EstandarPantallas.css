@@ -1,0 +1,49 @@
+﻿body
+{
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+h1, .h1
+{
+    font-size: 24px;
+    font-weight:bold;   
+}
+h2, .h2
+{
+    color: White;
+    font-size: 22px;
+    font-weight:bold;
+    background-color: steelblue;
+}
+hr
+{
+    background-color: midnightblue;
+    height: 5px;
+    width: 100%;
+}
+tables
+{
+    border-bottom-style: none;
+    width: 100%;
+} 
+td
+{
+    text-align:center;
+    vertical-align:middle;
+}
+img.zoom {
+    /*width: 350px;
+    height: 200px;*/
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+}
+ 
+.transition {
+    -webkit-transform: scale(3); 
+    -moz-transform: scale(3);
+    -o-transform: scale(3);
+    transform: scale(3);
+}
