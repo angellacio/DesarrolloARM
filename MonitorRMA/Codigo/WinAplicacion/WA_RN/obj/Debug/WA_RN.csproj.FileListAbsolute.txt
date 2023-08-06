@@ -1,0 +1,13 @@
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\WA_RN.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\WA_RN.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\UtileriasBaseDatos.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\UtileriasComunes.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\WA_Entidades.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\UtileriasComunes.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\UtileriasBaseDatos.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\bin\Debug\WA_Entidades.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\obj\Debug\WA_RN.csproj.AssemblyReference.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\obj\Debug\WA_RN.csproj.CoreCompileInputs.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\obj\Debug\WA_RN.csproj.CopyComplete
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\obj\Debug\WA_RN.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_RN\obj\Debug\WA_RN.pdb

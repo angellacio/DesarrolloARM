@@ -1,0 +1,17 @@
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\WA_Formas.exe.config
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\WA_Formas.exe
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\WA_Formas.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\UtileriasComunes.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\WA_Entidades.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\WA_RN.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\UtileriasComunes.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\WA_Entidades.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\bin\Debug\WA_RN.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.csproj.AssemblyReference.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.csproj.SuggestedBindingRedirects.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.Properties.Resources.resources
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.csproj.GenerateResource.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.csproj.CoreCompileInputs.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.csproj.CopyComplete
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.exe
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Formas\obj\Debug\WA_Formas.pdb

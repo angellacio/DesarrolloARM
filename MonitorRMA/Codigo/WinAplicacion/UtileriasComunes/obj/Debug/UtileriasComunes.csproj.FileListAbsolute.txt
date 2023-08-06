@@ -1,0 +1,6 @@
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\UtileriasComunes\bin\Debug\UtileriasComunes.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\UtileriasComunes\bin\Debug\UtileriasComunes.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\UtileriasComunes\obj\Debug\UtileriasComunes.csproj.AssemblyReference.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\UtileriasComunes\obj\Debug\UtileriasComunes.csproj.CoreCompileInputs.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\UtileriasComunes\obj\Debug\UtileriasComunes.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\UtileriasComunes\obj\Debug\UtileriasComunes.pdb

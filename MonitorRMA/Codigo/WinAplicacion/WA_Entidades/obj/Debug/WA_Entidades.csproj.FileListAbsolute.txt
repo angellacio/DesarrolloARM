@@ -1,0 +1,6 @@
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\bin\Debug\WA_Entidades.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\bin\Debug\WA_Entidades.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.csproj.AssemblyReference.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.csproj.CoreCompileInputs.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.pdb
