@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-//using mExc = UtileriasComunes.ManejoExcepciones;
+using mTextEnum = UtileriasComunes.ManejoEnumTextos;
+using mExc = UtileriasComunes.ManejoErrores;
 using mLog = UtileriasComunes.ManejoLog;
-
+using mCrip = UtileriasComunes.UtileriasEncripta;
 
 namespace UtileriasBaseDatos
 {
@@ -17,7 +18,7 @@ namespace UtileriasBaseDatos
 
         public Conect_BD_SQL(string sConection)
         {
-            if (sqlCon == null) sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings[sConection].ConnectionString.Trim());
+            if (sqlCon == null) sqlCon = new SqlConnection(mCrip.EncriptDecript.Desencriptar(ConfigurationManager.ConnectionStrings[sConection].ConnectionString.Trim(), mTextEnum.Encriptador.TipoLlave.CadenaConexion));
 
             if (sqlCon.State != ConnectionState.Open) sqlCon.Open();
         }
@@ -161,23 +162,17 @@ namespace UtileriasBaseDatos
                 sqlDatA = new SqlDataAdapter(sqlCom);
                 sqlDatA.Fill(dsResult);
             }
-            catch (SqlException ex)
-            {
-                mLog.ActualizaLog.mensajeError(ex.ToString().Trim());
-                Finally();
-                throw ex;
-            }
             catch (ApplicationException ex)
             {
-                mLog.ActualizaLog.mensajeAlerta(ex.Message);
-                Finally();
-                throw ex;
+                throw new mExc.ErroresAplicacion(mExc.ErroresAplicacion.TipoError.ErrorAplicacion, 0, ex.Message, ex);
+            }
+            catch (SqlException ex)
+            {
+                throw new mExc.ErroresAplicacion(mExc.ErroresAplicacion.TipoError.ErrorSQL, ex.Number, "Error al procesar información en la Base de Datos", ex);
             }
             catch (Exception ex)
             {
-                mLog.ActualizaLog.mensajeError(ex.ToString().Trim());
-                Finally();
-                throw ex;
+                throw new mExc.ErroresAplicacion(mExc.ErroresAplicacion.TipoError.ErrorGenerico, -1, "Error al procesar información en la Base de Datos", ex);
             }
             finally
             { }
@@ -252,20 +247,17 @@ namespace UtileriasBaseDatos
 
                 nRenglonesAectados = sqlCom.ExecuteNonQuery();
             }
-            catch (SqlException ex)
-            {
-                mLog.ActualizaLog.mensajeError(ex.ToString().Trim());
-                throw ex;
-            }
             catch (ApplicationException ex)
             {
-                mLog.ActualizaLog.mensajeAlerta(ex.Message);
-                throw ex;
+                throw new mExc.ErroresAplicacion(mExc.ErroresAplicacion.TipoError.ErrorAplicacion, 0, ex.Message, ex);
+            }
+            catch (SqlException ex)
+            {
+                throw new mExc.ErroresAplicacion(mExc.ErroresAplicacion.TipoError.ErrorSQL, ex.Number, "Error al procesar información en la Base de Datos", ex);
             }
             catch (Exception ex)
             {
-                mLog.ActualizaLog.mensajeError(ex.ToString().Trim());
-                throw ex;
+                throw new mExc.ErroresAplicacion(mExc.ErroresAplicacion.TipoError.ErrorGenerico, -1, "Error al procesar información en la Base de Datos", ex);
             }
             finally
             { }

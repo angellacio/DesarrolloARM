@@ -9,9 +9,11 @@ namespace UtileriasComunes.ManejoLog
         // ** TXT ** Log_ArchivoNombre               // Nombre del Archivo. Si no se coloca se mandara con el nombre LogAuditoria.log
         // ** TXT ** Log_ArchivoUbicacion            // Ubicacion del Archivo. Si no se coloca se mandara con la ruta "Aplicativo"\Logs\
         // ** TXT ** Log_EscribeAuditoria            // Muestra todos los movimientos del aplicativo. SI, NO
-        // ** TXT ** Log_ArchivoTamanio               // Tamaño del Archivo se maneje en Megas. Si se coloca 0 se toman como 10 MB
+        // ** TXT ** Log_ArchivoTamanio              // Tamaño del Archivo se maneje en Megas. Si se coloca 0 se toman como 10 MB
 
-        public enum AccionProceso { InicioServicio, FinalServicio, InicioProceso, FinalProceso };
+        // ** EventViwer ** Log_RegLogWE             // Nombre para crear en el Window Event
+
+        //public enum AccionProceso { InicioServicio, FinalServicio, InicioProceso, FinalProceso };
 
         private static int nTipoLog
         {
@@ -33,22 +35,22 @@ namespace UtileriasComunes.ManejoLog
             }
             else
             {
-                if (LogEW == null) LogEW = new ActualizaLog_EW("", 0);
+                if (LogEW == null) LogEW = new ActualizaLog_EW("AplicativoRMA", 0);
             }
         }
 
-        public static void mensajeStarFin(AccionProceso aProceso)
-        {
-            InicializaComponente();
-            if (nTipoLog == 1)
-            {
-                LogTXT.txt_mensajeStarFin(aProceso);
-            }
-            else
-            {
-                LogEW.EW_mensajeStarFin(aProceso);
-            }
-        }
+        //public static void mensajeStarFin(AccionProceso aProceso)
+        //{
+        //    InicializaComponente();
+        //    if (nTipoLog == 1)
+        //    {
+        //        LogTXT.txt_mensajeStarFin(aProceso);
+        //    }
+        //    else
+        //    {
+        //        LogEW.EW_mensajeStarFin(aProceso);
+        //    }
+        //}
         public static void mensajeAuditoria(string sMensaje)
         {
             InicializaComponente();

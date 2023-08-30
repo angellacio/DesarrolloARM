@@ -47,15 +47,30 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConectBD\PruebaConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PruebaUtileriasComunes\PruebaUtileriasEncripta.cs" />
+    <Compile Include="UtileriasComunesP\Logs.cs" />
+    <Compile Include="UtileriasComunesP\UtileriasEncripta.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UtileriasComunes\UtileriasComunes.csproj">
       <Project>{e598da37-3b69-409b-abbf-70b604b2d86f}</Project>
       <Name>UtileriasComunes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WA_BaseDatos\UtileriasBaseDatos.csproj">
+      <Project>{503cb360-495c-47b2-a00d-8617a9dd1abd}</Project>
+      <Name>UtileriasBaseDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WA_Formas\WA_Formas.csproj">
+      <Project>{692e8a0b-7631-4819-bcb3-560b8e0a3d1c}</Project>
+      <Name>WA_Formas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WA_RN\WA_RN.csproj">
+      <Project>{1db438fd-aa4a-4bdc-a3d5-9ce1547379a2}</Project>
+      <Name>WA_RN</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

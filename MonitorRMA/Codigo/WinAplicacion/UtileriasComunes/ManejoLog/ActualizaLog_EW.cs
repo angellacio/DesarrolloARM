@@ -6,7 +6,7 @@ namespace UtileriasComunes.ManejoLog
 {
     public class ActualizaLog_EW
     {
-        private string sLog { get { return ConfigurationManager.AppSettings["RegLog"].ToString().ToUpper().Trim(); } }
+        private string sLog { get { return ConfigurationManager.AppSettings["Log_RegLogWE"].ToString().ToUpper().Trim(); } }
         private string sSource { get; set; }
         private int nEvento { get; set; }
         private Boolean bolAuditoria
@@ -35,29 +35,29 @@ namespace UtileriasComunes.ManejoLog
             ((System.ComponentModel.ISupportInitialize)(escribeLog)).BeginInit();
         }
 
-        public void EW_mensajeStarFin(ActualizaLog.AccionProceso aProceso)
-        {
-            string sMensaje = "";
+        //public void EW_mensajeStarFin(ActualizaLog.AccionProceso aProceso)
+        //{
+        //    string sMensaje = "";
 
-            switch (aProceso)
-            {
-                case ActualizaLog.AccionProceso.InicioServicio:
-                    sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Inicio Servicio.");
-                    break;
-                case ActualizaLog.AccionProceso.FinalServicio:
-                    sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Fin Servicio.");
-                    break;
-                case ActualizaLog.AccionProceso.InicioProceso:
-                    sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Inicio proceso.");
-                    break;
-                case ActualizaLog.AccionProceso.FinalProceso:
-                    sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Fin proceso..");
-                    break;
-            }
+        //    switch (aProceso)
+        //    {
+        //        case ActualizaLog.AccionProceso.InicioServicio:
+        //            sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Inicio Servicio.");
+        //            break;
+        //        case ActualizaLog.AccionProceso.FinalServicio:
+        //            sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Fin Servicio.");
+        //            break;
+        //        case ActualizaLog.AccionProceso.InicioProceso:
+        //            sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Inicio proceso.");
+        //            break;
+        //        case ActualizaLog.AccionProceso.FinalProceso:
+        //            sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Fin proceso..");
+        //            break;
+        //    }
 
-            if (bolAuditoria)
-                EscribeMensaje(sMensaje, EventLogEntryType.SuccessAudit);
-        }
+        //    if (bolAuditoria)
+        //        EscribeMensaje(sMensaje, EventLogEntryType.SuccessAudit);
+        //}
 
         public void EW_mensajeAuditoria(string sMensaje)
         {

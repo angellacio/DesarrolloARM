@@ -56,28 +56,28 @@ namespace UtileriasComunes.ManejoLog
             }
         }
 
-        public void txt_mensajeStarFin(ActualizaLog.AccionProceso aProceso)
-        {
-            string sMensaje = "";
+        //public void txt_mensajeStarFin(ActualizaLog.AccionProceso aProceso)
+        //{
+        //    string sMensaje = "";
 
-            switch (aProceso)
-            {
-                case ActualizaLog.AccionProceso.InicioServicio:
-                    sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Inicio Servicio.");
-                    break;
-                case ActualizaLog.AccionProceso.FinalServicio:
-                    sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Fin Servicio.");
-                    break;
-                case ActualizaLog.AccionProceso.InicioProceso:
-                    sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Inicio proceso.");
-                    break;
-                case ActualizaLog.AccionProceso.FinalProceso:
-                    sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Fin proceso..");
-                    break;
-            }
+        //    switch (aProceso)
+        //    {
+        //        case ActualizaLog.AccionProceso.InicioServicio:
+        //            sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Inicio Servicio.");
+        //            break;
+        //        case ActualizaLog.AccionProceso.FinalServicio:
+        //            sMensaje = string.Format("****************************** {0:dd/MM/yyyy HH:mm:ss} * {1}", DateTime.Now, "Fin Servicio.");
+        //            break;
+        //        case ActualizaLog.AccionProceso.InicioProceso:
+        //            sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Inicio proceso.");
+        //            break;
+        //        case ActualizaLog.AccionProceso.FinalProceso:
+        //            sMensaje = string.Format("------------ {0:dd/MM/yyyy HH:mm:ss} - {1}", DateTime.Now, "Fin proceso..");
+        //            break;
+        //    }
 
-            EscribeLog(sMensaje);
-        }
+        //    EscribeLog(sMensaje);
+        //}
 
         public void txt_mensajeAuditoria(string sMensaje)
         {

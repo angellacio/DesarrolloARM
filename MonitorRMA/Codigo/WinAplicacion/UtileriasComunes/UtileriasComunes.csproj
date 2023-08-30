@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManejoEnumTextos\Encriptador.cs" />
+    <Compile Include="ManejoErrores\ErroresAplicacion.cs" />
     <Compile Include="ManejoLog\ActualizaLog.cs" />
     <Compile Include="ManejoLog\ActualizaLog_EW.cs" />
     <Compile Include="ManejoLog\ActualizaLog_txt.cs" />
