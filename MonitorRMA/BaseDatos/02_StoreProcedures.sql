@@ -15,7 +15,7 @@ AS
 	IF @nTipoConsulta = 1
 	 BEGIN
 		DECLARE @sQuery nVarChar(MAX)
-		SET @sQuery = 'SELECT nIdEmpleado, sNombre, sApellido1, sApellido2, sUsuario, sContra, Orden, Root, Estado FROM Empleados WHERE'
+		SET @sQuery = 'SELECT nIdEmpleado, nIdArea, nIdAplicativo, sNombre, sApellido1, sApellido2, sUsuario, sContra, Orden, Root, Estado FROM Empleados WHERE'
 		IF @nIdEmpleado IS NOT NULL SET @sQuery = @sQuery + ' nIdEmpleado = ' + CONVERT(nVarChar, @nIdEmpleado) + ' AND1'
 		IF @sNombre IS NOT NULL SET @sQuery = @sQuery + ' sNombre LIKE ''%' + @sNombre + '%'' AND1'
 		IF @sApellido1 IS NOT NULL SET @sQuery = @sQuery + ' sApellido1 LIKE ''%' + @sApellido1 + '%'' AND1'
@@ -35,14 +35,14 @@ AS
 
 		SELECT @nRoot = Root FROM Empleados WHERE nIdEmpleado = @nIdEmpleado
 
-		SELECT nIdEmpleado, sNombre, sApellido1, sApellido2, sUsuario, sContra, Orden, Root, Estado
+		SELECT nIdEmpleado, nIdArea, nIdAplicativo, sNombre, sApellido1, sApellido2, sUsuario, sContra, Orden, Root, Estado
 		FROM Empleados
 		WHERE nIdEmpleado = @nIdEmpleado
 		ORDER BY Orden
 
 		IF (@nRoot = 1)
 		 BEGIN
-			SELECT nIdTabla, Tabla, Est_Tabla, nIdTablaDetalle, Acronimo, Orden, Observaciones, TablaDetalle, Est_Detalle
+			SELECT null AS 'nIdArea', nIdTabla, Tabla, Est_Tabla, nIdTablaDetalle, Acronimo, Orden, Observaciones, TablaDetalle, Est_Detalle
 			FROM catSensillo
 			WHERE nIdTabla = 3
 			ORDER BY Orden
@@ -54,7 +54,7 @@ AS
 		 END
 		ELSE
 		 BEGIN
-			SELECT cS.nIdTabla, cS.Tabla, cS.Est_Tabla, eA.nIdArea AS nIdTablaDetalle, cS.Acronimo, cS.Orden, cS.Observaciones, cS.TablaDetalle, cS.Est_Detalle
+			SELECT null AS 'nIdArea', cS.nIdTabla, cS.Tabla, cS.Est_Tabla, eA.nIdArea AS nIdTablaDetalle, cS.Acronimo, cS.Orden, cS.Observaciones, cS.TablaDetalle, cS.Est_Detalle
 			FROM EmpleadoArea AS eA INNER JOIN
 				 catSensillo AS cS ON eA.nIdArea = cS.nIdTablaDetalle
 			WHERE eA.nIdEmpleado = @nIdEmpleado

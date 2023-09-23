@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WA_Entidades
 {
-    public class EntCatalogoSensillo
+    public class EntCatalogo : EntTabla
     {
-        public EntCatalogoSensillo() {
+        public EntCatalogo() {
             IdTabla = null;
             Tabla = null;
             EstadoTabla = null;
@@ -19,9 +19,7 @@ namespace WA_Entidades
             Catalogo = null;
             EstadaCatalogo = null;
         } 
-        public int? IdTabla { get; set; }
-        public string Tabla { get; set; }
-        public Boolean? EstadoTabla { get; set; }
+       
         public int? IdCatalogo { get; set; }
         public string Acronimo { get; set; }
         public int? Orden { get; set; }

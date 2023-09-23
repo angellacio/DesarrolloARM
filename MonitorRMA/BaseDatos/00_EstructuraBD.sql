@@ -36,6 +36,8 @@ CREATE TABLE TablasDetalles(
 GO
 CREATE TABLE Empleados(
 	nIdEmpleado INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
+	nIdArea INT NULL, 
+	nIdAplicativo INT NULL, 
 	sNombre nVarChar(150) NOT NULL, 
 	sApellido1 nVarChar(100) NOT NULL, 
 	sApellido2 nVarChar(100) NULL, 
@@ -43,17 +45,17 @@ CREATE TABLE Empleados(
 	sContra nVarChar(150) NOT NULL, 
 	Orden INT NULL, 
 	Root Bit NOT NULL, 
-	Estado Bit NOT NULL, 
-	CONSTRAINT AK_Empleados_NombreEmpleado  UNIQUE (sNombre, sApellido1, sApellido2),
+	Estado Bit NOT NULL,
+	CONSTRAINT AK_Empleados_NombreEmpleado  UNIQUE (sNombre, sApellido1, sApellido2), 
 	CONSTRAINT AK_Empleados_Usuario  UNIQUE (sUsuario))
 GO
 CREATE TABLE EmpleadoArea(
-	nIdEmpleado INT NOT NULL REFERENCES Empleados(nIdEmpleado), 
+	nIdEmpleado INT NOT NULL REFERENCES Empleados(nIdEmpleado),
 	nIdArea INT NOT NULL REFERENCES TablasDetalles(nIdTablaDetalle), 
 	CONSTRAINT AK_EmpleadoArea  UNIQUE (nIdEmpleado, nIdArea))
 GO
 CREATE TABLE AreaAplicativo(
-	nIdArea INT NOT NULL REFERENCES TablasDetalles(nIdTablaDetalle), 
+	nIdArea INT NOT NULL REFERENCES TablasDetalles(nIdTablaDetalle),
 	nIdAplicativo INT NOT NULL REFERENCES TablasDetalles(nIdTablaDetalle), 
 	CONSTRAINT AK_AreaAplicativo  UNIQUE (nIdArea, nIdAplicativo))
 GO
@@ -70,7 +72,7 @@ CREATE TABLE DatosReqs(
 	RFC nChar(15) NULL, 
 	IdentificadorReq nVarChar(350) NULL, 
 	FechaRecepcion DateTime NULL, 
-	FechaEntrega DateTime NULL, 
+	FechaEntrega DateTime NULL,
 	ObservacionReq nVarChar(350) NULL, 
 	CONSTRAINT AK_DatosReqs  UNIQUE (Requerimiento))
 GO
@@ -82,7 +84,7 @@ CREATE TABLE DatosPaquete(
 	Repositorio nVarChar(50) NULL, 
 	Version nVarChar(50) NULL, 
 	Resumen nVarChar(350) NULL, 
-	IdentificadorPaq nVarChar(350) NULL, 
+	IdentificadorPaq nVarChar(350) NULL,
 	ObservacionPaq nVarChar(350) NULL, 
 	CONSTRAINT AK_DatosPaquete  UNIQUE (Paquete))
 GO
@@ -92,14 +94,14 @@ CREATE TABLE DatosRDL(
 	RDL INT NOT NULL, 
 	Paquete nVarChar(12) NULL, 
 	FechaInicio DateTime NULL, 
-	FechaFin DateTime NULL, 
+	FechaFin DateTime NULL,
 	Id_Estado Int NULL, 
 	Id_Responsable Int NULL)
 GO
 CREATE TABLE Observacioines(
 	nIdObservaciones INT NOT NULL IDENTITY(1,1) PRIMARY KEY, 
-	nIdRequerimiento INT NULL REFERENCES DatosReqs(nIdRequerimiento), 
-	nIdPaquete INT NULL REFERENCES DatosPaquete(nIdPaquete), 
+	nIdRequerimiento INT NULL REFERENCES DatosReqs(nIdRequerimiento),
+	nIdPaquete INT NULL REFERENCES DatosPaquete(nIdPaquete),
 	Observacion nVarChar(350) NULL)
 GO
 CREATE VIEW catSensillo

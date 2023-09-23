@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ConectBD\PruebaConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\AccesoUsuario.cs" />
     <Compile Include="UtileriasComunesP\Logs.cs" />
     <Compile Include="UtileriasComunesP\UtileriasEncripta.cs" />
   </ItemGroup>
@@ -63,6 +64,10 @@
     <ProjectReference Include="..\WA_BaseDatos\UtileriasBaseDatos.csproj">
       <Project>{503cb360-495c-47b2-a00d-8617a9dd1abd}</Project>
       <Name>UtileriasBaseDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WA_Entidades\WA_Entidades.csproj">
+      <Project>{1B7B5FFE-E828-4089-B636-B5B8DDABA5E7}</Project>
+      <Name>WA_Entidades</Name>
     </ProjectReference>
     <ProjectReference Include="..\WA_Formas\WA_Formas.csproj">
       <Project>{692e8a0b-7631-4819-bcb3-560b8e0a3d1c}</Project>

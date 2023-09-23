@@ -41,10 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntCatalogoSensillo.cs" />
-    <Compile Include="EntEmpleado.cs" />
+    <Compile Include="Empleados\EntUbicacion.cs" />
+    <Compile Include="EntCatalogo.cs" />
+    <Compile Include="Empleados\EntEmpleado.cs" />
+    <Compile Include="EntTabla.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\EntDatosAutentificacion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UtileriasComunes\UtileriasComunes.csproj">
+      <Project>{e598da37-3b69-409b-abbf-70b604b2d86f}</Project>
+      <Name>UtileriasComunes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

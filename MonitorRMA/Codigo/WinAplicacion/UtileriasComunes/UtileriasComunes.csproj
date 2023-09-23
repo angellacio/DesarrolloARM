@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManejoEnumTextos\Empelados.cs" />
     <Compile Include="ManejoEnumTextos\Encriptador.cs" />
     <Compile Include="ManejoErrores\ErroresAplicacion.cs" />
     <Compile Include="ManejoLog\ActualizaLog.cs" />

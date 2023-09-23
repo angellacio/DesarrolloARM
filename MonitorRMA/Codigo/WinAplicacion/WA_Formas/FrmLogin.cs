@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using rnSeg = WA_RN.Seguridad;
@@ -9,29 +13,31 @@ using exM = UtileriasComunes.ManejoErrores;
 
 namespace WA_Formas
 {
-    internal static class Program
+    public partial class FrmLogin : Form
     {
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        public FrmLogin()
+        {
+            InitializeComponent();
+        }
+
+        private void BtnEntrar_Click(object sender, EventArgs e)
         {
             entSeg.EntDatosAutentificacion datSeguridad;
             try
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
 
                 rnSeg.IManejoSeguridad ManejoSeg = new rnSeg.ManejoSeguridad();
 
-                datSeguridad = ManejoSeg.ValidaUsuario();
-                Application.Run(new FrmInicio(datSeguridad));
+                datSeguridad = ManejoSeg.ValidaUsuario(TxtUsuario.Text.Trim(), TxtContraseña.Text.Trim(), true);
+
+                FrmInicio frmInicia = new FrmInicio(datSeguridad);
+                frmInicia.Show();
+
+                this.Close();
             }
             catch (exM.ErroresAplicacion ex)
             {
-                if (ex.IdError == -999) Application.Run(new FrmLogin());
-                else MessageBox.Show(ex.MensajeUsuario);
+                MessageBox.Show(ex.MensajeUsuario);
             }
             catch (Exception ex)
             {

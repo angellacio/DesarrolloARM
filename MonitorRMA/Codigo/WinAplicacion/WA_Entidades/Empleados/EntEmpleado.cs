@@ -4,13 +4,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WA_Entidades.Empleados;
 
-namespace WA_Entidades.Seguridad
+namespace WA_Entidades.Empleados
 {
-    public class EntDatosAutentificacion : EntEmpleado
+    public class EntEmpleado
     {
-        public EntDatosAutentificacion()
+        public EntEmpleado() 
         {
             IdEmpleado = null;
             IdArea = null;
@@ -22,11 +21,8 @@ namespace WA_Entidades.Seguridad
             Orden = null;
             Root = null;
             Estado = null;
-            Areas = new List<EntUbicacion>();
-            Aplicativos = new List<EntUbicacion>();
         }
-
-        public EntDatosAutentificacion(DataRow DRow)
+        public EntEmpleado(DataRow DRow) 
         {
             IdEmpleado = null;
             IdArea = null;
@@ -49,12 +45,16 @@ namespace WA_Entidades.Seguridad
             if (DRow["Orden"] != DBNull.Value) Orden = int.Parse(DRow["Orden"].ToString());
             if (DRow["Root"] != DBNull.Value) Root = Boolean.Parse(DRow["Root"].ToString());
             if (DRow["Estado"] != DBNull.Value) Estado = Boolean.Parse(DRow["Estado"].ToString());
-
-            Areas = new List<EntUbicacion>();
-            Aplicativos = new List<EntUbicacion>();
         }
-
-        public List<EntUbicacion> Areas { get; set; }
-        public List<EntUbicacion> Aplicativos { get; set; }
+        public int? IdEmpleado { get; set; }
+        public int? IdArea { get; set; }
+        public int? IdAplicativo { get; set; }
+        public string Empelado { get; set; }
+        public string Apellido_Uno { get; set; }
+        public string Apellido_Dos { get; set; }
+        public string Usuario { get; set; }
+        public int? Orden { get; set; }
+        public Boolean? Root { get; set; }
+        public Boolean? Estado { get; set; }
     }
 }
