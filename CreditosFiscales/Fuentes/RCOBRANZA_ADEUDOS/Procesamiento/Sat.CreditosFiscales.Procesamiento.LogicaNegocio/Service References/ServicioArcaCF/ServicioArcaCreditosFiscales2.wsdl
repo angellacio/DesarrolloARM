@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://cubo837u497a001.dssat.sat.gob.mx/ServicioArcaCreditosFiscales.svc?xsd=xsd0" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyente_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyente" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyente_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentes_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyentes" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentes_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyentesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentePuro_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyentePuro" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentePuro_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyentePuroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmeza_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmeza" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmeza_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmezaAGSC" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmezaAGSCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC32D_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmezaAGSC32D" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC32D_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmezaAGSC32DResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGC_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGC" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGC_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentesConFirmezaAGSC_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyentesConFirmezaAGSC" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentesConFirmezaAGSC_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyentesConFirmezaAGSCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteDoctosActualizadosDyC_InputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteDoctosActualizadosDyC" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteDoctosActualizadosDyC_OutputMessage">
+    <wsdl:part name="parameters" element="ObtenerInformacionContribuyenteDoctosActualizadosDyCResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_obtenerInformacionContribuyentesDoctosActualizadosDyC_InputMessage">
+    <wsdl:part name="parameters" element="obtenerInformacionContribuyentesDoctosActualizadosDyC" />
+  </wsdl:message>
+  <wsdl:message name="IServicioArcaCreditosFiscales_obtenerInformacionContribuyentesDoctosActualizadosDyC_OutputMessage">
+    <wsdl:part name="parameters" element="obtenerInformacionContribuyentesDoctosActualizadosDyCResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioArcaCreditosFiscales">
+    <wsdl:operation name="ObtenerInformacionContribuyente">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyente" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyente_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyentes">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyentes" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyentesResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyentePuro">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyentePuro" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentePuro_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyentePuroResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentePuro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyenteConFirmeza">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmeza" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmeza_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmezaResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmeza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyenteConFirmezaAGSC">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmezaAGSC" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmezaAGSCResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyenteConFirmezaAGSC32D">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmezaAGSC32D" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC32D_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmezaAGSC32DResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGSC32D_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGC">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGC" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGC_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGCResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteConFirmezaAGAFF_AGGC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyentesConFirmezaAGSC">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyentesConFirmezaAGSC" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentesConFirmezaAGSC_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyentesConFirmezaAGSCResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyentesConFirmezaAGSC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerInformacionContribuyenteDoctosActualizadosDyC">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteDoctosActualizadosDyC" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteDoctosActualizadosDyC_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/ObtenerInformacionContribuyenteDoctosActualizadosDyCResponse" message="IServicioArcaCreditosFiscales_ObtenerInformacionContribuyenteDoctosActualizadosDyC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerInformacionContribuyentesDoctosActualizadosDyC">
+      <wsdl:input wsaw:Action="urn:IServicioArcaCreditosFiscales/obtenerInformacionContribuyentesDoctosActualizadosDyC" message="IServicioArcaCreditosFiscales_obtenerInformacionContribuyentesDoctosActualizadosDyC_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IServicioArcaCreditosFiscales/obtenerInformacionContribuyentesDoctosActualizadosDyCResponse" message="IServicioArcaCreditosFiscales_obtenerInformacionContribuyentesDoctosActualizadosDyC_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

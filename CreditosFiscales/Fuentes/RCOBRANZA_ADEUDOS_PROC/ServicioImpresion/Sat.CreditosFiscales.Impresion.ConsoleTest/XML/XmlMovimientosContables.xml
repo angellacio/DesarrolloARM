@@ -1,0 +1,46 @@
+﻿<Documentos template="LineaCapturaConfiguracion">
+	<LC template="MovimientosContables">
+		<ALR>15</ALR>
+		<RFC>OAND831118</RFC>
+		<FolioLC>70-45656546756702</FolioLC>
+		<Secuencia>1</Secuencia>
+		<Nombre>Diego Ocampo Negrete</Nombre>
+		<FechaYHora>18/Nov/2013 14:56 hrs</FechaYHora>
+		<Referencia>AAAA54645654-02</Referencia>
+		<Importe>$ 10,034</Importe>
+		<Abonos template="Abonos">
+			<ClaveA>820006</ClaveA>
+			<DescripcionA>Excedente derivado de la aplicación del Producto de la Adjudicación</DescripcionA>
+			<ImporteA>$50,000</ImporteA>
+		</Abonos>
+		<Cargos template="Cargos">
+			<ClaveC>820006</ClaveC>
+			<DescripcionC>Excedente derivado de la aplicación del Producto de la Adjudicación</DescripcionC>
+			<ImporteC>$50,000</ImporteC>
+		</Cargos>
+		<TotalA>$10,000</TotalA>
+		<TotalC>$1,000</TotalC>
+		<Observaciones>El excedente derivado de a aplicación del producto de la adjudicación de fecha 15 de enero de 2012, con motivo de almoneda desierta número 35550 del 28 de febrero de 2012.</Observaciones>
+
+	</LC>
+	<LC template="MovimientosContables">
+		<ALR>16</ALR>
+		<RFC>FESG810105</RFC>
+		<FolioLC>71-45656546756702</FolioLC>
+		<Secuencia>2</Secuencia>
+		<Nombre>Gilberto Feria Serrano</Nombre>
+		<FechaYHora>19/Nov/2013 14:56 hrs</FechaYHora>
+		<Referencia>AAAA54645654-03</Referencia>
+		<Importe>$ 11,134</Importe>
+		<Abonos template="Abonos">
+			<ClaveA>820006</ClaveA>
+			<DescripcionA>Excedente derivado de la aplicación del Producto de la Adjudicación</DescripcionA>
+			<ImporteA>$50,000</ImporteA>
+		</Abonos>
+		<Cargos template="Cargos">
+			<ClaveC>820006</ClaveC>
+			<DescripcionC>Excedente derivado de la aplicación del Producto de la Adjudicación</DescripcionC>
+			<ImporteC>$50,000</ImporteC>
+		</Cargos>
+	</LC>
+</Documentos>

@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F61A1FC-9ACC-4300-AD47-231796CDECA5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sat.CreditosFiscales.Procesamiento.LogicaNegocio</RootNamespace>
+    <AssemblyName>Sat.CreditosFiscales.Procesamiento.LogicaNegocio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoLogEventos\LogEventos.cs" />
+    <Compile Include="Catalogos\ApplicationSettings.cs" />
+    <Compile Include="Catalogos\Catalogo.cs" />
+    <Compile Include="Catalogos\CatReglas.cs" />
+    <Compile Include="Catalogos\ClaveComputo.cs" />
+    <Compile Include="Catalogos\CatEsquemas.cs" />
+    <Compile Include="ConsultaEventos\LogEventos.cs" />
+    <Compile Include="GeneraFormato\GeneraFormato.cs" />
+    <Compile Include="GeneraLineasCaptura\LineasCaptura.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReglasEquivalencia\LogicaReglas.cs" />
+    <Compile Include="Seguridad\AccesoIdc.cs" />
+    <Compile Include="Seguridad\AutenticacionEmpleados.cs" />
+    <Compile Include="Service References\ServicioArcaCF\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicioGeneraFormatoImpresion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicioTraductorLC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WsIdcInterno\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WSIdentity\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Peticiones.cs" />
+    <Compile Include="Servicios\ProxyManagerArca.cs" />
+    <Compile Include="Servicios\ProxyManagerImpresion.cs" />
+    <Compile Include="Servicios\ProxyManagerTraductor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Comunes\Sat.CreditosFiscales.Comunes.Entidades\Sat.CreditosFiscales.Comunes.Entidades.csproj">
+      <Project>{aa6b2eb9-6225-4327-abba-e26a0a2481fc}</Project>
+      <Name>Sat.CreditosFiscales.Comunes.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Comunes\Sat.CreditosFiscales.Comunes.Herramientas\Sat.CreditosFiscales.Comunes.Herramientas.csproj">
+      <Project>{5a2cdc8b-f92c-4c1e-bbb6-fb7a511aced9}</Project>
+      <Name>Sat.CreditosFiscales.Comunes.Herramientas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Datos\Sat.CreditosFiscales.Datos.AccesoDatos\Sat.CreditosFiscales.Datos.AccesoDatos.csproj">
+      <Project>{aae4a451-6237-457f-b8c0-87cc67c5dc78}</Project>
+      <Name>Sat.CreditosFiscales.Datos.AccesoDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioArcaCF\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ServicioArcaCF.ObtenerInformacionContribuyenteConFirmezaAGSC32DResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioArcaCF\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ServicioArcaCF.ObtenerInformacionContribuyenteConFirmezaAGSCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioArcaCF\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ServicioArcaCF.ObtenerInformacionContribuyenteConFirmezaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioArcaCF\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ServicioArcaCF.ObtenerInformacionContribuyentePuroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioArcaCF\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ServicioArcaCF.ObtenerInformacionContribuyenteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioArcaCF\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ServicioArcaCF.ObtenerInformacionContribuyentesConFirmezaAGSCResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioArcaCF\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ServicioArcaCF.ObtenerInformacionContribuyentesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioArcaCF\ServicioArcaCreditosFiscales.wsdl" />
+    <None Include="Service References\ServicioArcaCF\ServicioArcaCreditosFiscales1.wsdl" />
+    <None Include="Service References\ServicioArcaCF\ServicioArcaCreditosFiscales1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioArcaCF\ServicioArcaCreditosFiscales2.wsdl" />
+    <None Include="Service References\ServicioArcaCF\ServicioArcaCreditosFiscales43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioGeneraFormatoImpresion\ServicioGeneraFormatoImpresion.wsdl" />
+    <None Include="Service References\ServicioGeneraFormatoImpresion\ServicioGeneraFormatoImpresion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioGeneraFormatoImpresion\ServicioGeneraFormatoImpresion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioGeneraFormatoImpresion\ServicioGeneraFormatoImpresion2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioGeneraFormatoImpresion\ServicioGeneraFormatoImpresion3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioSeguridadContribuyente\ServicioSeguridadContribuyente.wsdl" />
+    <None Include="Service References\ServicioTraductorLC\CreditosFiscales1.wsdl" />
+    <None Include="Service References\ServicioTraductorLC\CreditosFiscales2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioTraductorLC\CreditosFiscales21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WsIdcInterno\IdCInterno.wsdl" />
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.actividad.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.grupoEmpresa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.identificacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.mensajes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.obligacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.patente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.regimen.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.relacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.rep_legal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.rfcHistorico.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.rol.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.sector.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.sucursal.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsIdcInterno\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WsIdcInterno.ubicacion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSIdentity\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WSIdentity.AppInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSIdentity\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WSIdentity.AppRolesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSIdentity\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WSIdentity.FullDeliveryDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSIdentity\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.WSIdentity.SimpleAuthResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSIdentity\WSAA.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicioArcaCF\" />
+    <WCFMetadataStorage Include="Service References\ServicioGeneraFormatoImpresion\" />
+    <WCFMetadataStorage Include="Service References\ServicioSeguridadContribuyente\" />
+    <WCFMetadataStorage Include="Service References\ServicioTraductorLC\" />
+    <WCFMetadataStorage Include="Service References\WSIdentity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioArcaCF\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioArcaCF\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioArcaCF\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioTraductorLC\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioTraductorLC\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioTraductorLC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSIdentity\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSIdentity\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSIdentity\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioGeneraFormatoImpresion\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioGeneraFormatoImpresion\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioGeneraFormatoImpresion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioSeguridadContribuyente\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioSeguridadContribuyente\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioSeguridadContribuyente\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioTraductorLC\CreditosFiscales1.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

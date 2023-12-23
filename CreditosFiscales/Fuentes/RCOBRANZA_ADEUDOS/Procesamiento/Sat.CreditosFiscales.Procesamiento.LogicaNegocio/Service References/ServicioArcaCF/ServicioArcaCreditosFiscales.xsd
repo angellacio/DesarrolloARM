@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ObtenerInformacionContribuyente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="rfc" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="fechaConsulta" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerInformacionContribuyenteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ObtenerInformacionContribuyenteResult" type="ArrayOfDocumentosDeterminantes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfDocumentosDeterminantes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentosDeterminantes" nillable="true" type="DocumentosDeterminantes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentosDeterminantes">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IdDocumento" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RFC" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NombreRazon" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ApellidoPaterno" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ApellidoMaterno" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AdministracionLocal" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NumeroDoumento" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FechaDeterminante" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IdAutoridad" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FechaCreacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MarcasPorDocumento" type="ArrayOfObservacion" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MedioDePago" type="MedioDePago" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TipoDeDocumento" type="TipoDeDocumento" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FormaPago" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SaldoInformativo" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ListaConceptos" type="ArrayOfConcepto" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FechaNotificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfObservacion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Observacion" nillable="true" type="Observacion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Observacion">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Descripcion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Observaciones" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MuestraImportes" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GeneraFormato" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Entidades" type="EntidadesFederativas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EntidadesFederativas">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Portal" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Telefonos" type="ArrayOfTelefonoEntidad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTelefonoEntidad">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TelefonoEntidad" nillable="true" type="TelefonoEntidad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TelefonoEntidad">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Telefono" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Tipo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MedioDePago">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Identificador" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Descripcion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TipoDeDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Identificador" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Descripcion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfConcepto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Concepto" nillable="true" type="Concepto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Concepto">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IdDocumento" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Ejercicio" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IdPeriodo" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Periodicidad" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IdTipoAdeudo" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FechaCausacion" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="IdMotivo" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Descuento" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FechaObligacion" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EsCreditoPadre" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ImporteHistorico" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="xs:double" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Actualizacion" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Descuentos" type="ArrayOfDescuento" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ConceptoLey" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CreditoSir" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CreditoArca" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Marcas" type="ArrayOfMarca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDescuento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Descuento" nillable="true" type="Descuento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Descuento">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Porcentaje" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Importe" type="xs:double" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Identificador" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Descripcion" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ConceptoLey" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfMarca">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Marca" nillable="true" type="Marca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Marca">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="TipoMarca" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="ObtenerInformacionContribuyentes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="rfcs" type="ArrayOfString" />
+        <xs:element minOccurs="1" maxOccurs="1" name="fechaConsulta" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObtenerInformacionContribuyentesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ObtenerInformacionContribuyentesResult" type="ArrayOfDocumentosDeterminantes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerInformacionContribuyentePuro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="rfc" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="documentoDeterminante" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="idAutoridad" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="claveAlr" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="fechaDocumento" type="xs:dateTime" />
+        <xs:element minOccurs="1" maxOccurs="1" name="fechaConsulta" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerInformacionContribuyentePuroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ObtenerInformacionContribuyentePuroResult" type="ArrayOfDocumentosDeterminantes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerInformacionContribuyenteConFirmeza">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="rfc" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerInformacionContribuyenteConFirmezaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ObtenerInformacionContribuyenteConFirmezaResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

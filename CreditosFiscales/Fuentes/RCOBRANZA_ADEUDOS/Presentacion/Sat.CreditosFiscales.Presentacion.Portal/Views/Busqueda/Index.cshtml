@@ -1,0 +1,93 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GenerarBusquedaViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .tabla_Busqueda {
+        text-align: left;
+        width: 80%;
+    }
+
+        .tabla_Busqueda input {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+
+        .tabla_Busqueda select {
+            font-family: Arial;
+            font-size: 8pt;
+            width: 300px;
+        }
+</style>
+
+
+@section encabezado
+{
+    <h1>Búsqueda</h1>
+}
+
+Para generar el formato para pago de una resolución determinante a su cargo, favor de ingresar los siguientes datos, tal y como aparecen en los documentos proporcionados por el SAT.
+
+
+@using (Ajax.BeginForm("Index", "Busqueda", new AjaxOptions { UpdateTargetId = "result" }))
+{
+    
+    <table class="tabla_Busqueda">
+        <tr>
+            <td>Registro federal de contribuyentes</td>
+            <td>@Html.TextBoxFor(m => m.Rfc, new { tabindex = 1 })
+                @Html.ValidationMessageFor(m => m.Rfc, "(* Requerido)")</td>
+
+        </tr>
+        <tr>
+            <td>Documento determinante</td>
+            <td>@Html.TextBoxFor(m => m.DocumentoDeterminante, new { tabindex = 2 })
+                @Html.ValidationMessageFor(m => m.DocumentoDeterminante, "(* Requerido)")</td>
+
+        </tr>
+        <tr>
+            <td>Fecha del documento</td>
+            <td>
+                @Html.TextBoxFor(m => m.FechaDocumento, new { tabindex = 3, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                @Html.ValidationMessageFor(m => m.FechaDocumento, "(* Es necesario capturar una fecha válida)")
+
+            </td>
+
+        </tr>
+        <tr>
+            <td>Autoridad</td>
+            <td>
+                @Html.DropDownListFor(m => m.IdAutoridad, new SelectList(Model.listaAutoridad, "IdAutoridad", "Descripcion"), new { tabindex = 4, id = "cmbAutoridades" })
+            </td>
+        </tr>
+        <tr>
+            <td>ALR que controla el adeudo</td>
+            <td>
+                @Html.DropDownListFor(m => m.IdALR, new SelectList(Model.listaALR, "IdAlr", "Descripcion"), new { tabindex = 5, id = "cmbALRs" })
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Buscar documento" id="btnBuscar" />
+            </td>
+            <td>
+                <input type="reset" value="Limpiar campos" id="btnReset" />
+            </td>
+        </tr>
+    </table>
+}
+
+
+@section botonera
+{
+
+}
+
+@section mensajeContribuyente
+{
+
+}
+

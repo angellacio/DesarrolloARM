@@ -1,0 +1,95 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraLineaCapturaViewModel
+@using Sat.CreditosFiscales.Presentacion.Herramientas
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+
+<table id="gridLineaCaptura" class="tabla">
+    <tr>
+        <th>
+            <input type="checkbox" id="chkSeleccionaTodos" name="chkSeleccionaTodos" /></th>
+        <th>Línea de captura</th>
+        <th></th>
+    </tr>
+    @if (Model == null || Model.lstLineaCaptura == null)
+    {
+        <tr>
+            <td colspan="3">&nbsp;
+            </td>
+        </tr>
+    }
+    else
+    {
+        if (Model.lstLineaCaptura.Count == 0)
+        {
+        <tr>
+            <td colspan="3">No hay líneas de captura.
+            </td>
+        </tr>
+        }
+        else
+        {
+            using (Html.BeginForm("GenerarArchivos", "LineaCaptura", FormMethod.Post, new { id = "frmLineaCaptura" }))
+            {
+
+                for (int i = 0; i < Model.lstLineaCaptura.Count; i++)
+                {
+        <tr>
+            <td>
+                <input type="checkbox" value="@Model.lstLineaCaptura[i].Linea" name="chkLineaCaptura" onchange="Valida();"  />
+            </td>
+            <td>@Model.lstLineaCaptura[i].Linea</td>
+            <td><img src="~/Images/doc.gif" alt="Generar pdf" style="cursor:pointer" onclick="GenerarPdf('@Model.lstLineaCaptura[i].Linea')" /></td>
+        </tr>
+                }
+            }
+        <tr>
+            <td colspan="3">
+                <input type="submit" id="btnGenerarDocumentos" value="Generar documentos" /></td>
+
+        </tr>
+            
+        }
+    }
+</table>
+
+
+<script>
+
+    $('#btnGenerarDocumentos').click(function () {
+        try {
+            var totalSeleccionados = $('#gridLineaCaptura :input:checkbox[name="chkLineaCaptura"]:checked').length;
+            if (totalSeleccionados < 1) {
+                @Alertas.Errror("Debe seleccionar al menos una línea de captura.", "Aceptar")
+            } else {
+                $('#frmLineaCaptura').submit();
+            }
+        } catch (err) {
+            alert(err);
+        }
+    });
+
+    $('#chkSeleccionaTodos').change(function () {
+        var seleccion = this.checked;
+        $('#gridLineaCaptura :input[type="checkbox"]').each(function () {
+            this.checked = seleccion;
+        });
+    });
+
+    function Valida() {
+        var seleccionados = 0;
+        var totalCheckBox = $('#gridLineaCaptura :input:checkbox[name="chkLineaCaptura"]').length;
+        var totalSeleccionados = $('#gridLineaCaptura :input:checkbox[name="chkLineaCaptura"]:checked').length;
+        $('#chkSeleccionaTodos').attr("checked", totalCheckBox == totalSeleccionados)
+    }
+    function GenerarPdf(lineaCaptura)
+    {
+        $('#gridLineaCaptura :input:checkbox[name="chkLineaCaptura"]').each(function () {
+            var valorCheckBox = this.value;
+            if (valorCheckBox == lineaCaptura) {
+                this.checked = true;
+            }
+        });
+    }
+
+</script>

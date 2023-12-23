@@ -1,0 +1,55 @@
+﻿<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="Documentos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="LC">
+					<xs:complexType mixed="true">
+						<xs:sequence>
+							<xs:element name="ALR" type="NonEmptyString" />
+							<xs:element name="RFC" type="NonEmptyString" />
+							<xs:element name="FolioLC" type="NonEmptyString" />
+							<xs:element name="Nombre" type="NonEmptyString" />
+							<xs:element maxOccurs="unbounded" name="Documento">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="NumDocumento" type="NonEmptyString" />
+										<xs:element name="ImporteActualizado" type="NonEmptyString" />
+										<xs:element name="ImporteAPagar" type="NonEmptyString" />
+									</xs:sequence>
+									<xs:attribute name="template" type="xs:string" use="required" />
+									<xs:attribute name="version" type="xs:unsignedInt" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ImporteActualizadoT" type="NonEmptyString" />
+							<xs:element name="ImporteAPagarT" type="NonEmptyString" />
+							<xs:element name="FechaYHora" type="NonEmptyString" />
+							<xs:element name="Fecha" type="NonEmptyString" />
+							<xs:element name="Observaciones" type="xs:string" />
+							<xs:element name="NumLC" type="NonEmptyString" />
+							<xs:element name="CodigoBarras">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="CodigoBarras" type="NonEmptyString" />
+										<xs:element name="ImagenCB" type="xs:string" />
+										<xs:element name="ImagenQR" type="xs:string" />
+									</xs:sequence>
+									<xs:attribute name="template" type="xs:string" use="required" />
+									<xs:attribute name="version" type="xs:unsignedInt" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="FechaVigencia" type="NonEmptyString" />
+						</xs:sequence>
+						<xs:attribute name="template" type="xs:string" use="required" />
+						<xs:attribute name="version" type="xs:unsignedInt" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="template" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="NonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

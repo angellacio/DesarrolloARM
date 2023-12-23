@@ -1,0 +1,14 @@
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Sat.CreditosFiscales.Impresion.AccesoDatos.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Sat.CreditosFiscales.Impresion.AccesoDatos.pdb
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Sat.CreditosFiscales.Impresion.Entidades.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Sat.CreditosFiscales.Impresion.Herramientas.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Microsoft.Practices.Unity.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Sat.CreditosFiscales.Impresion.Entidades.pdb
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\bin\Debug\Sat.CreditosFiscales.Impresion.Herramientas.pdb
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\obj\Debug\Sat.CreditosFiscales.Impresion.AccesoDatos.csprojResolveAssemblyReference.cache
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\obj\Debug\Sat.CreditosFiscales.Impresion.AccesoDatos.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.AccesoDatos\obj\Debug\Sat.CreditosFiscales.Impresion.AccesoDatos.pdb

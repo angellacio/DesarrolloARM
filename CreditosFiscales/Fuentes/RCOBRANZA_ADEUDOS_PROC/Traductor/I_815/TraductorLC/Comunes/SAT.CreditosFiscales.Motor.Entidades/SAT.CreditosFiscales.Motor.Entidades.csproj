@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E397A920-2FA0-4A94-81AC-AC5C46978DC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAT.CreditosFiscales.Motor.Entidades</RootNamespace>
+    <AssemblyName>SAT.CreditosFiscales.Motor.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SAT.CreditosFiscales.Motor.Entidades.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SAT.CreditosFiscales.Motor.Entidades.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Catalogos\Aplicacion.cs" />
+    <Compile Include="Catalogos\CatFormatoImpresionEquivalencia.cs" />
+    <Compile Include="Catalogos\CatMensajes.cs" />
+    <Compile Include="Catalogos\CatOrdenamientoTransacciones.cs" />
+    <Compile Include="Catalogos\CatPeriodicidadEquivalencia.cs" />
+    <Compile Include="AccesoLogEventos\EnumLogEventos.cs" />
+    <Compile Include="AccesoLogEventos\ExcepcionTipificada.cs" />
+    <Compile Include="AccesoLogEventos\LogEvento.cs" />
+    <Compile Include="Catalogos\CatPeriodoEquivalencia.cs" />
+    <Compile Include="Catalogos\CatReglasEquivalencia.cs" />
+    <Compile Include="Catalogos\CatTipoDocumento.cs" />
+    <Compile Include="Catalogos\CatTransaccion.cs" />
+    <Compile Include="Catalogos\CatConceptoPersonaPeriodicidad.cs" />
+    <Compile Include="CodigosError\EnumError.cs" />
+    <Compile Include="CodigosError\EnumInfo.cs" />
+    <Compile Include="DatosProcesamiento\AgrupadorDB.cs" />
+    <Compile Include="DatosProcesamiento\Bitacora.cs" />
+    <Compile Include="DatosProcesamiento\CanonicoProceso.cs" />
+    <Compile Include="DatosProcesamiento\CanonicoSIAT.cs" />
+    <Compile Include="DatosProcesamiento\ConceptoOriginalDB.cs" />
+    <Compile Include="DatosProcesamiento\ConceptoOriginalHijo.cs" />
+    <Compile Include="DatosProcesamiento\DescuentoOriginalHijo.cs" />
+    <Compile Include="DatosProcesamiento\DescuentosOriginal.cs" />
+    <Compile Include="Enumeraciones.cs" />
+    <Compile Include="Enumeradores\EnumTipoObjeto.cs" />
+    <Compile Include="Enumeradores\EnumTransacciones.cs" />
+    <Compile Include="Herramientas\MetodosComunes.cs" />
+    <Compile Include="ManejoErrores\Error.cs" />
+    <Compile Include="Esquemas\Contrato.cs" />
+    <Compile Include="AdmonReglas\Regla.cs" />
+    <Compile Include="Peticiones\CF_ConsultaLineasCaptura.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Procesamiento\Respuesta.cs" />
+    <Compile Include="Procesamiento\RespuestaXslt.cs" />
+    <Compile Include="Procesamiento\ResultadoReglas.cs" />
+    <Compile Include="ReglasNet\ConfiguracionXpath.cs" />
+    <Compile Include="Respuestas\RespuestaListaFolios.cs" />
+    <Compile Include="Respuestas\RespuestaLineaCaptura.cs" />
+    <Compile Include="Respuestas\RespuestaLineasCapturaExistentes.cs" />
+    <Compile Include="Respuestas\RespuestaListaFormatos.cs" />
+    <Compile Include="Respuestas\RespuestaResolucionesEnLineaCaptura.cs" />
+    <Compile Include="Respuestas\RespuestaSolicitudOriginal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SAT.CreditosFiscales.Motor.Utilidades\SAT.CreditosFiscales.Motor.Utilidades.csproj">
+      <Project>{81784cdf-d6a8-4f96-93a6-615179a7f8c7}</Project>
+      <Name>SAT.CreditosFiscales.Motor.Utilidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

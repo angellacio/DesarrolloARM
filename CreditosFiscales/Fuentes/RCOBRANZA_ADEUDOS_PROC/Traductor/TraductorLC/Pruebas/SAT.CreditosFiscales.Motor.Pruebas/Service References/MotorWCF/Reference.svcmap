@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="34972ac4-9f57-4cea-8794-046d610f7099" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4178/CreditosFiscales.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CreditosFiscales.xsd" MetadataType="Schema" ID="cfc4134e-661c-4209-afbb-60c0b8aa2383" SourceId="1" SourceUrl="http://localhost:4178/CreditosFiscales.svc?xsd=xsd1" />
+    <MetadataFile FileName="CreditosFiscales.wsdl" MetadataType="Wsdl" ID="58583d2b-408c-44a4-a0bc-ccc9de44817a" SourceId="1" SourceUrl="http://localhost:4178/CreditosFiscales.svc?wsdl" />
+    <MetadataFile FileName="CreditosFiscales.disco" MetadataType="Disco" ID="0508b76e-3223-475a-b1af-87ad923c8210" SourceId="1" SourceUrl="http://localhost:4178/CreditosFiscales.svc?disco" />
+    <MetadataFile FileName="CreditosFiscales1.xsd" MetadataType="Schema" ID="25813be1-d190-4932-96b8-d6bf0b592126" SourceId="1" SourceUrl="http://localhost:4178/CreditosFiscales.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

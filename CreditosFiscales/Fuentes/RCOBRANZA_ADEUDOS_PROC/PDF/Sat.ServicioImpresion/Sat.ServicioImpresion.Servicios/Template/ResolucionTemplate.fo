@@ -1,0 +1,722 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+	<fo:layout-master-set>
+		<fo:simple-page-master master-name="simple" page-height="29.7cm" page-width="21cm"
+							   margin-top="1cm" margin-bottom="2cm" margin-left="2cm" margin-right="1.5cm">
+			<fo:region-body margin-top="4cm" margin-bottom="1cm"/>
+			<fo:region-before extent="4cm"/>
+			<fo:region-after extent="3cm"/>
+		</fo:simple-page-master>
+	</fo:layout-master-set>
+	<fo:page-sequence master-reference="simple">
+		<fo:static-content flow-name="xsl-region-before">
+			<fo:block>
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="4.5cm" />
+					<fo:table-column column-width="8cm" />
+					<fo:table-column column-width="5cm" />
+					<fo:table-body>
+						<fo:table-row>
+							<!--Logo izquierda-->
+							<fo:table-cell>
+								<fo:block>
+									<fo:external-graphic src="$RutaLogos/topLeft.png" vertical-align="middle"  content-height="66px" />
+								</fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<fo:block>
+								</fo:block>
+							</fo:table-cell>
+							<!--Logo derecha-->
+							<fo:table-cell>
+								<fo:block>
+									<fo:external-graphic src="$RutaLogos/topRight.png" vertical-align="middle"  content-height="40px" />
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+			</fo:block>
+
+			<fo:block>
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block  font-family="Constantia" font-size="10pt" color="black" text-align="right">
+									Administración General de Recaudación
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block  font-family="Constantia" font-size="8pt" color="black" font-weight="bold" text-align="right">
+									Administración Local de Recaudación $Prefijo $NombreALR
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block  font-family="Constantia" font-size="8pt" color="black" font-weight="bold" text-align="right">
+									con sede en $SedeALR
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+			</fo:block>
+
+			<fo:block>
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row height="0.8cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block  font-family="Cambria" font-size="10pt" color="black" text-align="left">
+									Folio: $Folio
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+			</fo:block>
+		</fo:static-content>
+
+		<fo:flow flow-name="xsl-region-body" font-family="Constantia" font-size="10pt" color="black">
+			<fo:block background-repeat="no-repeat"
+					  background-position-horizontal="center"
+					  background-position-vertical="center"
+					  background-image="$RutaLogos/center2.png">
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Asunto: Se emite resolución.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block  text-align="right" font-weight="bold">
+									$Localidad, $FechaResolucion
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block  text-align="right" font-family="Constantia" font-size="9pt" color="black" font-style="italic">
+									"2013, Año de la Lealtad Institucional y Centenario del Ejército Mexicano"
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.8cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									$NombreContribuyente
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									$RfcContribuyente
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify">
+									En atención a su trámite mediante el cual solicitó los beneficios de condonación establecidos en el Transitorio
+									Tercero de la Ley de Ingresos de la Federación para el Ejercicio Fiscal de 2013, publicada en el Diario Oficial de la
+									Federación el 17 de diciembre de 2012, así como en términos de las Reglas de la Resolución Miscelánea Fiscal para
+									2013,  correspondientes al Capítulo II.12.4., denominado "De la condonación prevista en el Transitorio Tercero de
+									la LIF" contenido en la PRIMERA Resolución de Modificaciones a la Resolución Miscelánea Fiscal para 2013,
+									publicada en el mismo órgano oficial el 19 de febrero de 2013.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify">
+									Esta Administración emite la  resolución  cuyos términos más adelante se precisan, de acuerdo con los siguientes:
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="center" font-weight="bold">
+									Fundamentos
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.3cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify" font-style="italic" font-size="7pt">
+									Artículos 14, párrafo segundo, 16, párrafo primero y 31, fracción IV de la Constitución Política de los Estados Unidos Mexicanos, así como en los artículos 1, 2, 3, 4, 7
+									párrafo primero, fracciones I, IV, VII, XIII y XVIII, 8 párrafo primero, fracción III, Primero, Segundo, Tercero y Cuarto Transitorios de la Ley del Servicio de
+									Administración Tributaria, publicada en el Diario Oficial de la Federación el 15 de diciembre de 1995, vigente a partir del 1 de julio de 1997 y modificada mediante
+									decretos publicados en el mismo órgano oficial de difusión el 4 de enero de 1999, 12 de junio de 2003, 6 de mayo de 2009 y 9 de abril de 2012, vigentes a partir del día
+									siguiente al de su publicación; artículos 1, 2 párrafo primero, apartado C, fracción II, 10 párrafo primero, fracción I, en relación con el artículo 9, párrafo primero
+									fracción XXXVII, y último párrafo, artículo 27, párrafos primero y segundo, en relación con el 25, párrafo primero, fracciones III y XVIII, segundo párrafo y tercer
+									párrafo, numeral 7 y último párrafo, artículo 37, párrafo primero, Apartado A, fracción <fo:inline font-weight="bold">$Fraccion</fo:inline>, en lo relativo a la Administración Local de
+									Recaudación <fo:inline font-weight="bold">$Prefijo $NombreALR</fo:inline>, con sede en <fo:inline font-weight="bold">$SedeALR</fo:inline> y último párrafo, Primero y Segundo Transitorios todos del Reglamento Interior del Servicio
+									de Administración Tributaria, emitido mediante “Decreto por el que se expide el Reglamento Interior del Servicio de Administración Tributaria y se modifica el
+									Reglamento Interior de la Secretaría de Hacienda y Crédito Público”, publicado en el Diario Oficial de la Federación el 22 de octubre de 2007, que inició su vigencia en
+									un plazo de dos meses, contados a partir del día siguiente al de su publicación en el Diario Oficial de la Federación, esto es, el 23 de diciembre de 2007 y modificado
+									mediante "Decreto por el que se reforman, adicionan y derogan diversas disposiciones del Reglamento Interior del Servicio de Administración Tributaria", publicado en
+									el Diario Oficial de la Federación el 29 de abril de 2010, en vigor a partir del día siguiente al de su publicación, esto es, el 30 de abril de 2010 y 15 de diciembre de 2011, de
+									conformidad con lo dispuesto por los artículos Primero y Segundo Transitorios del citado Decreto y "Decreto por el que se reforman, adicionan y derogan diversas
+									disposiciones del Reglamento Interior del Servicio de Administración Tributaria" publicado en el Diario Oficial de la Federación el 13 de julio de 2012, en vigor en un
+									plazo de un mes contado a partir del día siguiente al de su publicación en el Diario Oficial de la Federación, esto es, el 14 de agosto de 2012 y 16 de enero de 2013, de
+									conformidad con lo dispuesto por los artículos Primero y Segundo Transitorios de dicho Decreto; así como el artículo Primero, párrafo primero, fracción
+									<fo:inline font-weight="bold">$Fraccion</fo:inline>, correspondiente a la Administración Local de Recaudación <fo:inline font-weight="bold">$Prefijo $NombreALR</fo:inline>, en <fo:inline font-weight="bold">$Circunscripcion</fo:inline>, cuya
+									circunscripción comprende la que señala el propio "Acuerdo por el que se establece la circunscripción territorial de las Unidades Administrativas Regionales del
+									Servicio de Administración Tributaria", publicado en el Diario Oficial de la Federación el 15 de enero de 2013, en vigor el día siguiente al de su publicación, esto es, el 16
+									de enero de 2013, de conformidad con lo dispuesto por el artículo Primero Transitorio de dicho acuerdo; y de conformidad con los artículos 5, 38 y 134 del Código Fiscal
+									de la Federación; Transitorio Tercero, de la Ley de Ingresos de la Federación para el Ejercicio Fiscal de 2013, publicada en el Diario Oficial de la Federación el 17 de
+									diciembre de 2012, en relación con las Reglas de la Resolución Miscelánea Fiscal para 2013,  correspondientes al Capítulo II.12.4., denominado "De la condonación
+									prevista en el Transitorio Tercero de la LIF" contenido en la PRIMERA Resolución de Modificaciones a la Resolución Miscelánea Fiscal para 2013, publicada en el
+									mismo órgano oficial el 19 de febrero de 2013.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.7cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="center" font-weight="bold">
+									Motivo de la Resolución
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.3cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify">
+									Que resultó procedente la condonación solicitada por el (la) contribuyente, en virtud de que los adeudos
+									identificados en su trámite, se ubican en los supuestos mencionados en el Transitorio Tercero de la Ley de
+									Ingresos de la Federación para el Ejercicio Fiscal de 2013, publicada en el Diario Oficial de la Federación el 17 de
+									diciembre de 2012, en relación con las Reglas de la Resolución Miscelánea Fiscal para 2013,  correspondientes al
+									Capítulo II.12.4., denominado "De la condonación prevista en el Transitorio Tercero de la LIF" contenido en la
+									PRIMERA Resolución de Modificaciones a la Resolución Miscelánea Fiscal para 2013, publicada en el mismo
+									órgano oficial el 19 de febrero de 2013.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+			</fo:block>
+
+			<fo:block break-before="page" background-repeat="no-repeat"
+					  background-position-horizontal="center"
+					  background-position-vertical="center"
+					  background-image="$RutaLogos/center2.png">
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left">
+									En virtud de lo anteriormente expresado, esta Administración emite la siguiente:
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.8cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="center" font-weight="bold">
+									Resolución
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.2cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Primero.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify">
+									Se condonan los créditos fiscales a cargo del contribuyente $NombreContribuyente, los cuales aceptó al
+									realizar su pago, en términos del Transitorio Tercero de la Ley de Ingresos de la Federación para el Ejercicio Fiscal
+									de 2013, publicada en el Diario Oficial de la Federación el 17 de diciembre de 2012, en vigor a partir del 1 de enero
+									de 2013, en los términos siguientes:
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.3cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+				<!--inicio tabla principal-->
+
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Documentos Determinantes:
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.2cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+				<fo:table width="17.5cm" vertical-align="bottom" text-align="right" border-collapse="separate" font-size="7pt" border-width="thin" border-style="solid" border-color="#000000">
+					<fo:table-column column-width="2.5cm" />
+					<fo:table-column column-width="1.6cm" />
+					<fo:table-column column-width="1.7cm" />
+					<fo:table-column column-width="1.7cm" />
+					<fo:table-column column-width="1.5cm" />
+					<fo:table-column column-width="1.5cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-header>
+						<fo:table-row>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Documento Determinante</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Fecha de Documento Determinante</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Contribución Actualizada</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Multa Actualizada</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Recargos</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Gastos de Ejecución</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Honorarios por Notificación</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total del Adeudo</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total Condonado</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total Pagado</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-header>
+					<fo:table-body>
+						$DocumentosDeterminantes
+					</fo:table-body>
+
+				</fo:table>
+				<!--fin de tabla principal-->
+				<!--tabla de adeudos autodeclarados-->
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Adeudos declarados por el contribuyente:
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.2cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+
+				<fo:table width="17.5cm" vertical-align="bottom" text-align="right" border-collapse="separate" font-size="7pt" border-width="thin" border-style="solid" border-color="#000000">
+					<fo:table-column column-width="3.5cm" />
+					<fo:table-column column-width="1cm" />
+					<fo:table-column column-width="1.5cm" />
+					<fo:table-column column-width="1.5cm" />
+					<fo:table-column column-width="1.5cm" />
+					<fo:table-column column-width="1.5cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-column column-width="1.75cm" />
+					<fo:table-header>
+						<fo:table-row>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Concepto</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Ejercicio</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Periodicidad</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Periodo</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Contribución Actualizada</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Recargos</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Multa</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total del Adeudo</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total Condonado</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total Pagado</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-header>
+					<fo:table-body>
+						$AdeudosDeclarados
+					</fo:table-body>
+
+				</fo:table>
+				<!--fin de tabla de adeudos autodeclarados-->
+
+				<!--Tabla de totales-->
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Importes totales:
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.2cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+				<fo:table width="4cm" vertical-align="bottom" text-align="right" border-collapse="separate" font-size="7pt" border-width="thin" border-style="solid" border-color="#000000">
+					<fo:table-column column-width="2cm" />
+					<fo:table-column column-width="2cm" />
+					<fo:table-header>
+						<fo:table-row>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total Condonado</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid" background-color="#D9D9D9">
+								<fo:block text-align="center">Total Pagado</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-header>
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell border-width="thin" border-style="solid">
+								<fo:block font-weight="bold">
+									$TotalCondonar
+								</fo:block>
+							</fo:table-cell>
+							<fo:table-cell border-width="thin" border-style="solid">
+								<fo:block font-weight="bold">
+									$TotalPagar
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+				<!--fin de tabla de totales-->
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row height="0.3cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Segundo.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify">
+									La presente resolución se emite con base en la información proporcionada por el contribuyente, misma que esta
+									autoridad no prejuzga sobre la veracidad y alcances de su contenido, quedando a salvo el ejercicio de las
+									facultades de comprobación fiscal.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Tercero.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify">
+									Con fundamento en la fracción VII del Transitorio Tercero de la Ley de Ingresos de la Federación para el Ejercicio
+									Fiscal de 2013, su solicitud de condonación no constituye instancia, por lo que la presente resolución no podrá ser
+									impugnada por los medios de defensa.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Cuarto.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="justify">
+									La aplicación de los beneficios que se establecen en la presente resolución, en términos del Transitorio Tercero
+									fracción IV, de la Ley de Ingresos de la Federación para el Ejercicio Fiscal de 2013, en ningún caso, dará lugar a
+									devolución, compensación, acreditamiento o saldo a favor alguno.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.7cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									Atentamente.
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left" font-weight="bold">
+									$NombreResponsableALR
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="left">
+									Administrador(a) Local de Recaudación $Prefijo $NombreALR
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+
+						<fo:table-row height="0.4cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+
+
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="2cm" />
+					<fo:table-column column-width="15.5cm" />
+					<fo:table-body>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="center" font-size="8pt" font-weight="bold">
+									Sello digital:
+								</fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<fo:block font-size="8pt" text-align="left">
+									<fo:wrapper>
+										$SelloDigital1
+									</fo:wrapper>
+								</fo:block>
+								<fo:block font-size="8pt" text-align="left">
+									<fo:wrapper>
+										$SelloDigital2
+									</fo:wrapper>
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row height="0.2cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+						<fo:table-row>
+							<fo:table-cell>
+								<fo:block text-align="center" font-size="8pt" font-weight="bold">
+									Firma electrónica:
+								</fo:block>
+							</fo:table-cell>
+							<fo:table-cell>
+								<fo:block font-size="8pt" text-align="left">
+									<fo:wrapper>
+										$FirmaElectronica1
+									</fo:wrapper>
+								</fo:block>
+								<fo:block font-size="8pt" text-align="left">
+									<fo:wrapper>
+										$FirmaElectronica2
+									</fo:wrapper>
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+
+				<fo:table width="17.5cm" border-collapse="separate">
+					<fo:table-column column-width="17.5cm" />
+					<fo:table-body>
+						<fo:table-row height="29.7cm">
+							<fo:table-cell>
+								<fo:block />
+							</fo:table-cell>
+						</fo:table-row>
+					</fo:table-body>
+				</fo:table>
+			</fo:block>
+		</fo:flow>
+	</fo:page-sequence>
+</fo:root>

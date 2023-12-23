@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun.Request" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun.Request" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://99.90.41.65:9093/RecepcionSispr/Recepcion.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun" />
+  <xs:complexType name="SolicitudGeneracionLC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Conceptos" nillable="true" type="tns:ArrayOfConcepto" />
+      <xs:element minOccurs="0" name="DatosGenerales" nillable="true" type="tns:DatosGenerales" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SolicitudGeneracionLC" nillable="true" type="tns:SolicitudGeneracionLC" />
+  <xs:complexType name="ArrayOfConcepto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Concepto" nillable="true" type="tns:Concepto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConcepto" nillable="true" type="tns:ArrayOfConcepto" />
+  <xs:complexType name="Concepto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CantidadPagar" nillable="true" type="xs:decimal">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaveGenerica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatosIcep" nillable="true" type="tns:DatosIcep" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun" minOccurs="0" name="DatosLineaCaptura" nillable="true" type="q1:DatosLineaCaptura" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImporteTotalAbonos" nillable="true" type="xs:decimal">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ImporteTotalCargos" nillable="true" type="xs:decimal">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="NumeroSecuencia" type="xs:int" />
+      <xs:element minOccurs="0" name="Transacciones" nillable="true" type="tns:ArrayOfTransaccion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Concepto" nillable="true" type="tns:Concepto" />
+  <xs:complexType name="DatosIcep">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClavePeriodicidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClavePeriodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescripcionPeriodicidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescripcionPeriodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ejercicio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaCausacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IcepCorrecto" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatosIcep" nillable="true" type="tns:DatosIcep" />
+  <xs:complexType name="ArrayOfTransaccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Transaccion" nillable="true" type="tns:Transaccion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransaccion" nillable="true" type="tns:ArrayOfTransaccion" />
+  <xs:complexType name="Transaccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Transaccion" nillable="true" type="tns:Transaccion" />
+  <xs:complexType name="DatosGenerales">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApellidoMaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApellidoPaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClaveAlr" type="xs:int" />
+      <xs:element minOccurs="0" name="ClaveGenerica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatosIcep" nillable="true" type="tns:DatosIcep" />
+      <xs:element minOccurs="0" name="DescripcionTipoDocumento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaEmision" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaRecepcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdContribuyente" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDocumento" type="xs:int" />
+      <xs:element minOccurs="0" name="ImporteTotal" type="xs:decimal" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun" minOccurs="0" name="LineasCaptura" nillable="true" type="q2:ArrayOfDatosLineaCaptura" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroConceptos" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroParcialidad" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="OrigenInformacion" type="xs:int" />
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RazonSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solicitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDocumento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatosGenerales" nillable="true" type="tns:DatosGenerales" />
+</xs:schema>

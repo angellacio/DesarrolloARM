@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://identity.sat.gob.mx/" targetNamespace="http://identity.sat.gob.mx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="Security" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:AsymmetricBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <wsp:Policy>
+            <sp:InitiatorToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:InitiatorToken>
+            <sp:RecipientToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:RecipientToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:TripleDesRsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:AsymmetricBinding>
+        <sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <sp:Body />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://identity.sat.gob.mx/">
+      <xsd:element name="SimpleAuthRequest">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element minOccurs="1" maxOccurs="1" name="RFCEmpleado" type="tns:RFCFormat" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="claveEmpleado" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="contextoEmpleado" type="tns:ContextType" />
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SimpleAuthResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="empleado" type="tns:EmployeeResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Status">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatus" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="razon" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeResponse">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusAutenticacion" type="tns:Status" />
+        </xsd:sequence>
+        <xsd:attribute name="rfcEmpleado" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:element name="AppInfoRequest">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element minOccurs="1" maxOccurs="1" name="nombreUsuario" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="claveUsuario" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="contextoBusqueda" type="tns:ContextType" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="listaEmpleados" type="tns:RFCList" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="listaCategorias" type="tns:CategoryList" />
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AppInfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="aplicacion" type="tns:ApplicationInfoResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:simpleType name="ContextType">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="empleados" />
+          <xsd:enumeration value="externos" />
+          <xsd:enumeration value="ambos" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="RFCFormat">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[A-ZÑ&amp;amp;]{4}[0-9]{2}[A-Z0-9]{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="RFCList">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="rfcEmpleado" type="tns:RFCFormat" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ApplicationInfoResponse">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusAutenticacion" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaEmpleados" type="tns:EmployeeInfoList" />
+        </xsd:sequence>
+        <xsd:attribute name="usuarioAplicativo" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeFullDataList">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="empleado" type="tns:EmployeeFullData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeFullData">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="atributos" type="tns:Attributes" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="autorizacion" type="tns:Authorization" />
+        </xsd:sequence>
+        <xsd:attribute name="rfcEmpleado" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeInfoList">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="empleado" type="tns:EmployeeInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeInfo">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusBusqueda" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="identificacion" type="tns:Identification" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="personal" type="tns:Personal" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="puesto" type="tns:Title" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="responsable" type="tns:Responsable" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="ubicacion" type="tns:Location" />
+        </xsd:sequence>
+        <xsd:attribute name="rfcEmpleado" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="Attributes">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusAtributos" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaAtributos" type="tns:AttributeList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Identification">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusIdentificacion" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaAtributos" type="tns:IdentificationList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Personal">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusPersonal" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaAtributos" type="tns:PersonalList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Title">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusPuesto" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaAtributos" type="tns:TitleList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Responsable">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusResponsable" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaAtributos" type="tns:ResponsableList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Location">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusUbicacion" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaAtributos" type="tns:LocationList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CategoryList">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="5" name="categoria" type="tns:CategoryType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="CategoryType">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="identificacion" />
+          <xsd:enumeration value="personal" />
+          <xsd:enumeration value="puesto" />
+          <xsd:enumeration value="responsable" />
+          <xsd:enumeration value="ubicacion" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="AppRolesRequest">
+        <xsd:complexType>
+          <xsd:all>
+            <xsd:element minOccurs="1" maxOccurs="1" name="nombreUsuario" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="claveUsuario" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="contextoBusqueda" type="tns:ContextType" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="listaEmpleados" type="tns:RFCList" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="listaTipoRoles" type="tns:RoleTypeList" />
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AppRolesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="aplicacion" type="tns:ApplicationRolesResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ApplicationRolesResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusAutenticacion" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaEmpleados" type="tns:EmployeeRolesList" />
+        </xsd:sequence>
+        <xsd:attribute name="usuarioAplicativo" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeRoles">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusBusqueda" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rolesTecnicos" type="tns:TechnicalRole" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="accesos" type="tns:Access" />
+        </xsd:sequence>
+        <xsd:attribute name="rfcEmpleado" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="EmployeeRolesList">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="empleado" type="tns:EmployeeRoles" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AccessList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="acceso" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PersonalList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="nombreCompleto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nombre" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="apellidoPaterno" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="apellidoMaterno" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fechaNacimiento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="genero" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="correoElectronico" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="curp" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TitleList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="actividad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="posicion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descPosicion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoEmpleado" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoPersona" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="categoria" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descCategoria" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="subCategoria_1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descSubCategoria_1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="subCategoria_2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descSubCategoria_2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorPuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="clavePuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoPuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descPuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nivelDireccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descNivelDireccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorCargo" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponsableList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="unidadResponsable" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descUnidadResponsable" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="identificadorJefe" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="unidadNegocio" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descUnidadNegocio" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="administrador" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="empresa" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="regionReguladora" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LocationList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="claveDepartamento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorDepartamento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descDepartamento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="localidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorLocalidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descLocalidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="entFederativaCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descEntFederativaCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="localidadCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descLocalidadCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="adminCentral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descAdminCentral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="adminGeneral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descAdminGeneral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="paisExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codPostalExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="coloniaExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="delegacionExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numExteriorExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numInteriorExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="referenciaExt_01" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="referenciaExt_02" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="referenciaExt_03" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="estadoExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="calleExt" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IdentificationList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="rfcSolicitado" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rfcCorto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rfcLargo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroEmpleado" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AttributeList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="nombreCompleto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nombre" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="apellidoPaterno" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="apellidoMaterno" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="fechaNacimiento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="genero" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="correoElectronico" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="curp" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="claveAduana" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="actividad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="posicion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descPosicion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoEmpleado" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoPersona" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="categoria" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descCategoria" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="subCategoria_1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descSubCategoria_1" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="subCategoria_2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descSubCategoria_2" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorPuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="clavePuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="tipoPuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descPuesto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nivelDireccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descNivelDireccion" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorCargo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="unidadResponsable" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descUnidadResponsable" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="identificadorJefe" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="unidadNegocio" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descUnidadNegocio" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="administrador" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="empresa" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="regionReguladora" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="claveDepartamento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorDepartamento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descDepartamento" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="localidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="indicadorLocalidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descLocalidad" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="entFederativaCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descEntFederativaCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="localidadCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descLocalidadCRM" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="adminCentral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descAdminCentral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="adminGeneral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="descAdminGeneral" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="paisExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="codPostalExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="coloniaExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="delegacionExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numExteriorExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numInteriorExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="referenciaExt_01" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="referenciaExt_02" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="referenciaExt_03" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="estadoExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="calleExt" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rfcSolicitado" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rfcCorto" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rfcLargo" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="numeroEmpleado" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="RoleType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="tecnico" />
+          <xsd:enumeration value="accesos" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="RoleTypeList">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="2" name="seccionRol" type="tns:RoleType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TechnicalRoleList">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="rolTecnico" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TechnicalRole">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusRolesTecnicos" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaRolesTecnicos" type="tns:TechnicalRoleList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Access">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusAccesos" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaAccesos" type="tns:AccessList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="FullDeliveryDataRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="RFCEmpleado" type="tns:RFCFormat" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="claveEmpleado" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="contextoEmpleado" type="tns:ContextType" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="nombreUsuario" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="claveUsuario" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="FullDeliveryDataResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="aplicacion" type="tns:ApplicationFullResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ApplicationFullResponse">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusAutenticacion" type="tns:FullStatus" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="listaEmpleados" type="tns:EmployeeFullDataList" />
+        </xsd:sequence>
+        <xsd:attribute name="usuarioAplicativo" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="FullStatus">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="1" name="estatusEmpleado" type="tns:Status" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="estatusAplicativo" type="tns:Status" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Authorization">
+        <xsd:annotation>
+          <xsd:documentation />
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="rolesTecnicos" type="tns:TechnicalRole" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="accesos" type="tns:Access" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SimpleAuthRequest">
+    <wsdl:part name="body" element="tns:SimpleAuthRequest" />
+  </wsdl:message>
+  <wsdl:message name="AppInfoRequest">
+    <wsdl:part name="body" element="tns:AppInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="SimpleAuthResponse">
+    <wsdl:part name="body" element="tns:SimpleAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesRequest">
+    <wsdl:part name="body" element="tns:AppRolesRequest" />
+  </wsdl:message>
+  <wsdl:message name="FullDeliveryDataRequest">
+    <wsdl:part name="body" element="tns:FullDeliveryDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="AppRolesResponse">
+    <wsdl:part name="body" element="tns:AppRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppInfoResponse">
+    <wsdl:part name="body" element="tns:AppInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="FullDeliveryDataResponse">
+    <wsdl:part name="body" element="tns:FullDeliveryDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WSIdentity">
+    <wsdl:operation name="SimpleAuth">
+      <wsdl:input message="tns:SimpleAuthRequest" />
+      <wsdl:output message="tns:SimpleAuthResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AppInfo">
+      <wsdl:input message="tns:AppInfoRequest" />
+      <wsdl:output message="tns:AppInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <wsdl:input message="tns:AppRolesRequest" />
+      <wsdl:output message="tns:AppRolesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="FullDeliveryData">
+      <wsdl:input message="tns:FullDeliveryDataRequest" />
+      <wsdl:output message="tns:FullDeliveryDataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSIdentityBinding" type="tns:WSIdentity">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsp:PolicyReference URI="#Security" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" />
+    <wsdl:operation name="SimpleAuth">
+      <soap:operation soapAction="http://identity.sat.gob.mx/SimpleAuth" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppInfo">
+      <soap:operation soapAction="http://identity.sat.gob.mx/AppInfo" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppRoles">
+      <soap:operation soapAction="http://identity.sat.gob.mx/AppRoles" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FullDeliveryData">
+      <soap:operation soapAction="http://identity.sat.gob.mx/FullDeliveryData" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSIdentityService">
+    <wsdl:port name="WSIdentityPort" binding="tns:WSIdentityBinding">
+      <soap:address location="http://172.20.14.14/WSIdentity/WSAA" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

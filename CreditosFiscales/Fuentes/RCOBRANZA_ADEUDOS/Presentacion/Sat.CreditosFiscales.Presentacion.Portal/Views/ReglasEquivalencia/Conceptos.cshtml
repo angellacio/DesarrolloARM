@@ -1,0 +1,219 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.ConceptoEquivalenciaViewModel
+@using Sat.CreditosFiscales.Presentacion.Herramientas.ExtensionsMethods
+@{
+    ViewBag.Title = "Conceptos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section encabezado
+{
+    <h1>Conceptos Equivalencia</h1>
+
+    <div style="text-align: right">
+        <a href="@Url.Action("Consulta", "ReglasEquivalencia")">Reglas de equivalencia</a>
+        &nbsp;|&nbsp;
+        <a href="@Url.Action("ClaveComputo","ClaveComputo")">Claves de cómputo</a>
+         &nbsp;|&nbsp;
+        <a href="@Url.Action("CatReglas","CatReglas")">Catalogo de reglas</a>
+        &nbsp;|&nbsp;
+        <a href="@Url.Action("CatEsquemas","CatEsquemas")">Catalogo de esquemas</a>
+
+    </div>
+}
+
+<style>
+    .dyp {
+        width: 200px;
+    }
+
+    .textArea {
+        width: 80%;
+    }
+
+    .celdaNormal {
+        display: inline-block;
+        width: 100px;
+    }
+
+    .celdaMediana {
+        display: inline-block;
+        width: 150px;
+    }
+
+    .celdaGrande {
+        display: inline-block;
+        width: 200px;
+    }
+
+    #tituloEdicion {
+        font-size: 16pt;
+        font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#nuevoConcepto").click(function () {
+            limpiaCamposEdicion();
+            $("#tituloEdicion").text("Nueva Concepto");
+            $("#divEdicion").show();
+            $("#guarda").hide();
+        });
+        $("#cancelar").click(function () {
+            $("#divEdicion").hide();
+        });
+    });
+
+    function aplicaAccion(accion) {
+        $("#hAccion").val(accion);
+        $("#divEdicion").hide();
+        $("form:first").submit();
+    }
+
+    function limpiaCamposEdicion() {
+        $("#eId").val('');
+        $('#eIdAplicacion  option:eq(0)').attr('selected', 'selected');
+        $('#eIdTipoDocumento option:eq(0)').attr('selected', 'selected');
+        $('#eIdTipoObjeto option:eq(0)').attr('selected', 'selected')
+        $("#eValorObjeto").val('');
+        $("#eDescripcion").val('');
+        $("#eXpath").val('');
+        $("#eValorRetorno").val('');
+        $("#eValorEvaluacion").val('');
+        $("#eSecuencia").val('');
+        $('#eActivo').attr('checked', false);
+    }
+
+    function habilitaEdicion(idConcepto) {
+        limpiaCamposEdicion();
+        $("#tituloEdicion").text("Editar Concepto:" + idConcepto);
+        $("#divEdicion").show();
+        $("#guarda").show();
+        $("#agrega").hide();
+
+        var valorAplicacion = $("#" + idConcepto + "Aplicacion").text();
+        var valorDyP = $("#" + idConcepto + "ConceptoDyP").text();
+        $("#eId").val(idConcepto);
+        $('#eIdAplicacion  option:contains("' + valorAplicacion + '")').attr('selected', 'selected');
+        $('#eIdConceptoDyP option:contains("' + valorDyP + '")').attr('selected', 'selected');
+        $("#eConceptoOrigen").val($("#" + idConcepto + "ConceptoOrigen").text());
+        $("#eDescripcion").val($("#" + idConcepto + "Descripcion").text());
+
+
+        if ($("#" + idConcepto + "Activo").text() == "Sí") {
+            $('#eActivo').attr('checked', true);
+        }
+        else {
+            $('#eActivo').attr('checked', false);
+        }
+
+
+        $("#oActivo").val($("#eActivo").val());
+        $("#oConceptoDyP").val($("#eIdConceptoDyP").val());
+        $("#oConceptoOrigen").val($("#eConceptoOrigen").val());
+        $("#oDescripcion").val($("#eDescripcion").val());
+        $("#oIdAplicacion").val($("#eIdAplicacion").val());
+
+    }
+</script>
+@using (Html.BeginForm("Conceptos", "ReglasEquivalencia", FormMethod.Post))
+{
+    
+    @Html.HiddenFor(m => m.Accion, new { id = "hAccion" })
+
+    <table id="tblParametros">
+        <tbody>
+            <tr>
+                <td>Id Aplicación:</td>
+                <td>@Html.DropDownListFor(m => m.Parametros.IdAplicacion, new SelectList(Model.CatAplicacion, "Id", "Descripcion", "--IdAplicacion--"))</td>
+                <td>Concepto DyP:</td>
+                <td>@Html.DropDownListFor(m => m.Parametros.ConceptoDyP, new SelectList(Model.CatConceptoDyP, "Id", "Descripcion", "--Concepto DyP--"), new { @class = "dyp" })</td>
+                <td>Concepto Origen:</td>
+                <td>@Html.TextBoxFor(m => m.Parametros.ConceptoOrigen)</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <div style="text-align: right">
+        <input type="button" value="Buscar" onclick="aplicaAccion('1');" />
+        <input type="button" value="Nuevo Concepto" id="nuevoConcepto" />
+
+    </div>
+    <br />
+    <div id="divEdicion" style="border: solid 1px black; width: 700px; margin-left: auto; margin-right: auto; display: none">
+        <span id="tituloEdicion">Nuevo Concepto</span>
+        <table style="text-align: left;">
+            <tr>
+                <td>Id Aplicación:</td>
+                <td>@Html.DropDownListFor(m => m.Concepto.IdAplicacion, new SelectList(Model.CatAplicacion, "Id", "Descripcion", "--IdAplicacion--"), new { id = "eIdAplicacion" })</td>
+                <td>Concepto DyP</td>
+                <td>@Html.DropDownListFor(m => m.Concepto.ConceptoDyP, new SelectList(Model.CatConceptoDyP, "Id", "Descripcion", "--Concepto DyP--"), new { id = "eIdConceptoDyP", @class = "dyp" })</td>
+
+            </tr>
+            <tr>
+                <td>Concepto Origen:</td>
+                <td>@Html.TextBoxFor(m => m.Concepto.ConceptoOrigen, new { id = "eConceptoOrigen" })</td>
+                <td>Descripcion Origen</td>
+                <td>@Html.TextAreaFor(m => m.Concepto.DescripcionOrigen, new { id = "eDescripcion" })</td>
+            </tr>
+
+            <tr>
+                <td>Activo</td>
+                <td>@Html.CheckBoxFor(m => m.Concepto.Activo, new { id = "eActivo" })</td>
+            </tr>
+
+        </table>
+        <div style="text-align: right;">
+            <input type="button" value="Cancelar" id="cancelar" />
+            <input type="button" value="Agregar" onclick="aplicaAccion('2');" id="agrega" />
+            <input type="button" value="Guardar cambios" id="guarda" onclick="aplicaAccion('3');" />
+
+        </div>
+        <br />
+        @Html.HiddenFor(m => m.ConceptoOriginal.Activo, new { id = "oActivo" })
+        @Html.HiddenFor(m => m.ConceptoOriginal.ConceptoDyP, new { id = "oConceptoDyP" })
+        @Html.HiddenFor(m => m.ConceptoOriginal.ConceptoOrigen, new { id = "oConceptoOrigen" })
+        @Html.HiddenFor(m => m.ConceptoOriginal.DescripcionOrigen, new { id = "oDescripcion" })
+        @Html.HiddenFor(m => m.ConceptoOriginal.IdAplicacion, new { id = "oIdAplicacion" })
+    </div>
+    <br />
+    if (Model != null && Model.Conceptos != null)
+    {
+        if (Model.Conceptos.Count > 0)
+        {
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th><span class="celdaNormal">Id</span> </th>
+                <th><span class="celdaNormal">Aplicacion</span></th>
+                <th><span class="celdaNormal">Concepto Origen</span></th>
+                <th><span class="celdaGrande">Descripcion Origen</span></th>
+                <th><span class="celdaMediana">Concepto DyP</span></th>
+                <th><span class="celdaNormal">Activo</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var concepto in Model.Conceptos)
+            {
+                <tr>
+                    @{string id = string.Format("{0}_{1}_{2}", concepto.IdAplicacion, concepto.ConceptoDyP, concepto.ConceptoOrigen);}
+                    <td><span class="celdaNormal" style="color:blue;cursor:pointer" onclick="habilitaEdicion('@id')" id="@id">@id</span></td>
+                    <td><span class="celdaNormal" id="@string.Format("{0}Aplicacion", id)">@concepto.DescripcionAplicacion</span></td>
+                    <td><span class="celdaMediana" id="@string.Format("{0}ConceptoOrigen", id)">@concepto.ConceptoOrigen</span></td>
+                    <td><span class="celdaGrande" id="@string.Format("{0}Descripcion", id)">@concepto.DescripcionOrigen</span></td>
+                    <td><span class="celdaMediana" id="@string.Format("{0}ConceptoDyP", id)">@concepto.DescripcionDyP</span></td>
+                    <td><span class="celdaNormal" id="@string.Format("{0}Activo", id)">@concepto.Activo.BoolToWord()</span></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        }
+        else
+        {
+    <h2>No hay conceptos con los parametros proporcionados.</h2>
+        }
+    }
+}
+
+

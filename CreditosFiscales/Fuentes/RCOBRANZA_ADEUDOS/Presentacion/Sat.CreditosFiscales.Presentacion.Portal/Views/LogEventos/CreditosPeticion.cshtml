@@ -1,0 +1,198 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraPeticionesViewModel
+@{
+    ViewBag.Title = "Peticiones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/jquerydt")
+@Scripts.Render("~/Scripts/Creditos/jsEventos.js")
+
+
+@section encabezado
+{
+    <h1>Búsqueda en créditos fiscales peticiones</h1>
+    <div style="text-align: right">
+        Créditos Fiscales:
+        &nbsp;@Html.ActionLink("Log de eventos", "CreditosLogEvento")
+        &nbsp;|&nbsp;Traductor:
+        &nbsp;@Html.ActionLink("Log de eventos", "TraductorLogEvento")
+        &nbsp;@Html.ActionLink("Bitácora", "TraductorBitacora")
+        &nbsp;|&nbsp;Template:
+        &nbsp;@Html.ActionLink("Log de eventos", "TemplateLogEvento")
+        &nbsp;|&nbsp;
+        @Html.ActionLink("Salir", "LogOff")
+    </div>
+}
+
+<style>
+    .tablaEvento {
+        text-align: left;
+    }
+
+        .tablaEvento tr {
+            height: 40px !important;
+            border: solid 1px #D8D8D8;
+            vertical-align: top;
+        }
+
+        .tablaEvento input, select {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+</style>
+
+@using (Ajax.BeginForm("CreditosBuscarPeticiones", "LogEventos", new AjaxOptions { UpdateTargetId = "tblResultado" }))
+{
+    <table class="tablaEvento" style="width: 80%">
+        <tbody>
+            <tr style="vertical-align: top">
+                <td colspan="2">Rfc:&nbsp;
+                    @Html.TextBoxFor(m => m.Rfc, new { tabindex = 1, maxlength = 25 })
+                    &nbsp;
+                    Filtrar por:&nbsp;
+                    @Html.DropDownListFor(m => m.conError, new SelectList(Model.listaFiltrarPor, "key", "value"))
+                </td>
+                <td style="text-align: right; vertical-align: text-top" rowspan="2">
+                    <input type="submit" value="Buscar" />
+                </td>
+            </tr>
+            <tr style="vertical-align: top">
+                <td>
+                    <table>
+                        <tr>
+                            <td>Fecha inicio:&nbsp;@Html.TextBoxFor(m => m.FechaInicio, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                <br />@Html.ValidationMessageFor(m => m.FechaInicio, "")
+
+                            </td>
+                            <td>Fecha fin:&nbsp;@Html.TextBoxFor(m => m.FechaFin, new { tabindex = 3, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+}
+
+
+@if (Model != null && Model.listaPeticiones != null)
+{
+    if (Model.listaPeticiones.Count > 0)
+    {
+    <div id="divResultado" style="overflow-x: scroll;">
+        <table id="tblResultado" class="tabla">
+            <thead>
+                <tr>
+                    <th>RFC</th>
+                    <th>Origen</th>
+                    <th>Accion</th>
+                    <th>XML Petición</th>
+                    <th>XML Respuesta</th>
+                    <th>Fecha</th>
+                    <th>Hubo error</th>
+                    <th>Observaciones</th>
+                    <th>Duración</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.listaPeticiones.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.listaPeticiones[i].RFC</td>
+                        <td>@Model.listaPeticiones[i].TipoOrigenDescripcion</td>
+                        <td>@Model.listaPeticiones[i].AccionDescripcion</td>
+                        <td>@if (Model.listaPeticiones[i].XmlPeticion != string.Empty)
+                            { 
+                            <a href="javascript:ocultarReloj();" onclick="VerXML(this, 'XML Petición')">Ver XML...
+                                <div style="display: none">@Model.listaPeticiones[i].XmlPeticion.Replace("&lt;", "<").Replace("&gt;", ">")</div>
+                            </a>
+                            }
+                        </td>
+                        <td>
+                            @if (Model.listaPeticiones[i].XmlRespuesta != string.Empty)
+                            { 
+                                <a href="javascript:ocultarReloj();" onclick="VerXML(this, 'XML Respuesta')">Ver XML...
+                                <div style="display: none">@Model.listaPeticiones[i].XmlRespuesta.Replace("&lt;", "<").Replace("&gt;", ">")</div>
+                                </a>
+                            }
+                        </td>
+                        <td>@Model.listaPeticiones[i].Fecha</td>
+                        <td>@Model.listaPeticiones[i].HuboError</td>
+                        <td>@Model.listaPeticiones[i].Observaciones</td>
+                        <td>@Model.listaPeticiones[i].Duracion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="modalPeticion" style="display: none">
+        <div id="modalPeticionContenido" style="overflow: auto"></div>
+    </div>
+    
+    <script>
+
+
+
+        function VerXML(elemento, titulo) {
+            $('#modalPeticionContenido').empty();
+            var xmlString = $(elemento).find('div').html();
+            $('#modalPeticionContenido').html(xmlString);
+            try {
+                $('#modalPeticion').dialog({
+                    autoOpen: true,
+                    modal: true,
+                    width: 920,
+                    height: 400,
+                    title: titulo,
+                    resizable: false,
+                    buttons: [{
+                        text: 'Seleccionar texto',
+                        click: function () {
+                            $('#modalPeticionContenido').selText();
+                        }
+                    }]
+                });
+
+            } catch (err) {
+                openDialog(err, 1, "Aceptar");
+            }
+        }
+
+
+        $(function () {
+            $('#tblResultado').dataTable({
+                "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+                "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+                "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+                "oLanguage": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+
+                }
+            });
+        });
+
+    </script>
+    }
+}

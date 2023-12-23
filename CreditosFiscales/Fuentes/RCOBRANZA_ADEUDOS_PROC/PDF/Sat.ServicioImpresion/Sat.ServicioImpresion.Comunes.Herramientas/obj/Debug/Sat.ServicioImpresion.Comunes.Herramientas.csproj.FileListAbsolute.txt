@@ -1,0 +1,4 @@
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Comunes.Herramientas\bin\Debug\Sat.ServicioImpresion.Comunes.Herramientas.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Comunes.Herramientas\bin\Debug\Sat.ServicioImpresion.Comunes.Herramientas.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Comunes.Herramientas\obj\Debug\Sat.ServicioImpresion.Comunes.Herramientas.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Comunes.Herramientas\obj\Debug\Sat.ServicioImpresion.Comunes.Herramientas.pdb

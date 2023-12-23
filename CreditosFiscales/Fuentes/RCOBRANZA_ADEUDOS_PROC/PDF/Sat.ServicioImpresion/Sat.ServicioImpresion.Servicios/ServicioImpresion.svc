@@ -1,0 +1,7 @@
+﻿<%@ 
+	ServiceHost 
+		Language="C#" 
+		Debug="true" 
+		Service="Sat.ServicioImpresion.Servicios.ServicioImpresion" 
+		CodeBehind="ServicioImpresion.svc.cs" 
+%>

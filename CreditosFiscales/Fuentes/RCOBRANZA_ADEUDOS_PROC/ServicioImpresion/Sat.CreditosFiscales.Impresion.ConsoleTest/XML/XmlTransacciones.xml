@@ -1,0 +1,37 @@
+﻿<Documentos template="LineaCapturaConfiguracion">
+	<LC template="Transacciones" version="1">
+		<ALR>15</ALR>
+		<RFC>OAND831118</RFC>
+		<FolioLC>70-45656546756702</FolioLC>
+		<Nombre>Diego Ocampo Negrete</Nombre>
+		<FechaYHora>18/Nov/2013 14:56 hrs</FechaYHora>
+		<Referencias template="Referencias" version="1">
+			<Referencia>AAAAAAAAAAAAA</Referencia>
+			<Actualizado>10000</Actualizado>
+			<Aplicado>10000</Aplicado>
+		</Referencias>
+		<ReferenciaDetalles template="ReferenciaDetalle" version="1">
+			<Referencia>AAAAAAAAAAAAA</Referencia>
+			<TransacCargos template="TransacCargos"  version="1">
+				<Clave>a</Clave>
+				<Credito>100</Credito>
+				<Descripcion>algo</Descripcion>
+				<Importe>10000</Importe>
+			</TransacCargos>
+			<TransacCargos template="TransacCargosHijo" version="1">
+				<Clave>a</Clave>
+				<Credito>100</Credito>
+				<Descripcion>algo</Descripcion>
+				<Importe>10000</Importe>
+			</TransacCargos>
+			<TransacAbonos template="TransacAbonos"  version="1">
+				<Clave>a</Clave>
+				<Descripcion>algo</Descripcion>
+				<Importe>10000</Importe>
+			</TransacAbonos>
+			<TotalCargos>1000</TotalCargos>
+			<TotalAbonos>1000</TotalAbonos>
+		</ReferenciaDetalles>
+		<Observaciones>El excedente derivado de a aplicación del producto de la adjudicación de fecha 15 de enero de 2012, con motivo de almoneda desierta número 35550 del 28 de febrero de 2012.</Observaciones>
+	</LC>
+</Documentos>

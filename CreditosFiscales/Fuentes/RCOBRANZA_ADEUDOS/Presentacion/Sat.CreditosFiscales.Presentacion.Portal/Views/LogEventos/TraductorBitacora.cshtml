@@ -1,0 +1,220 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraTraductorBitacoraViewModel
+@{
+    ViewBag.Title = "Log de eventos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/jquerydt")
+@Scripts.Render("~/Scripts/Creditos/jsEventos.js")
+
+
+@section encabezado
+{
+    <h1>Búsqueda en traductor bitácora</h1>
+
+    <div style="text-align: right">
+        Créditos Fiscales:
+        &nbsp;@Html.ActionLink("Log de eventos", "CreditosLogEvento")
+        &nbsp;@Html.ActionLink("Peticiones", "CreditosPeticion")
+        &nbsp;|&nbsp;Traductor:
+        &nbsp;@Html.ActionLink("Log de eventos", "TraductorLogEvento")
+        &nbsp;|&nbsp;Template:
+        &nbsp;@Html.ActionLink("Log de eventos", "TemplateLogEvento")
+        &nbsp;|&nbsp;
+        @Html.ActionLink("Salir", "LogOff")
+    </div>
+
+}
+
+<style>
+    .tablaEvento {
+        text-align: left;
+    }
+
+        .tablaEvento tr {
+            height: 40px !important;
+            border: solid 1px #D8D8D8;
+            vertical-align: top;
+        }
+
+        .tablaEvento input, select {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+</style>
+
+
+
+@using (Ajax.BeginForm("TraductorBitacoraBuscar", "LogEventos", new AjaxOptions { UpdateTargetId = "tblResultado" }))
+{
+    <table class="tablaEvento" style="width: 95%">
+        <tbody>
+            <tr style="vertical-align: top">
+                <td>Id. del Evento:&nbsp;
+                    @Html.TextBoxFor(m => m.IdProcesamiento, new { tabindex = 1, maxlength = 36, style = "width:200px;" })
+                    <br />@Html.ValidationMessageFor(m => m.IdProcesamiento, "")
+                </td>
+                <td>Rfc:&nbsp;
+                    @Html.TextBoxFor(m => m.Rfc, new { tabindex = 1, maxlength = 25 })
+                </td>
+                <td style="text-align: right; vertical-align: text-top" rowspan="3">
+                    <input type="submit" value="Buscar" />
+                </td>
+            </tr>
+            <tr style="vertical-align: top">
+                <td>Aplicación:&nbsp;
+                    @Html.DropDownListFor(m => m.IdAplicacion, new SelectList(Model.listaAplicacion, "key", "value"))
+                </td>
+                <td>Tipo de documento:&nbsp;
+                    @Html.DropDownListFor(m => m.IdTipoDocumento, new SelectList(Model.listaTipoDocumento, "key", "value"))
+                </td>
+
+            </tr>
+            <tr style="vertical-align: top">
+                <td>Filtrar por:&nbsp;
+                    @Html.DropDownListFor(m => m.conError, new SelectList(Model.listaFiltrarPor, "key", "value"))
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Fecha:&nbsp;@Html.TextBoxFor(m => m.FechaInicio, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                <br />@Html.ValidationMessageFor(m => m.FechaInicio, "")
+
+                            </td>
+                            <td>
+                                @*Fecha fin:&nbsp;@Html.TextBoxFor(m => m.FechaFin, new { tabindex = 3, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })*@
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="vertical-align: top">
+                <td>Paso:&nbsp;
+                    @Html.DropDownListFor(m => m.IdPaso, new SelectList(Model.listaPasos, "key", "value"))
+                </td>
+                <td>
+                    Hora:&nbsp;
+                    @Html.DropDownListFor(m => m.Horario, new SelectList(Model.listaHorario, "key", "value"))
+                    Minutos:&nbsp;
+                    @Html.DropDownListFor(m => m.Minutos, new SelectList(Model.listaMinutos, "key", "value"))
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+}
+
+
+@if (Model != null && Model.listaBitacora != null)
+{
+    if (Model.listaBitacora.Count > 0)
+    {
+    <div id="divResultado" style="overflow-x: scroll;">
+        <table id="tblResultado" class="tabla">
+            <thead>
+                <tr>
+                    <th>Aplicación</th>
+                    <th>Tipo de documento</th>
+                    <th>Id procesamiento</th>
+                    <th>Fecha registro</th>
+                    <th>Paso</th>
+                    <th>Observaciones</th>
+                    <th>Mensaje XML</th>
+                    <th>Error</th>
+                    <th>Duración</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.listaBitacora.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.listaBitacora[i].Aplicacion</td>
+                        <td>@Model.listaBitacora[i].TipoDocumento</td>
+                        <td>@Model.listaBitacora[i].IdProcesamiento</td>
+                        <td>@Model.listaBitacora[i].FechaRegistro</td>
+                        <td>@Model.listaBitacora[i].IdPasoProceso</td>
+                        <td>@Model.listaBitacora[i].Observaciones</td>
+                        <td>@if (Model.listaBitacora[i].Mensaje != string.Empty)
+                            { 
+                            <a href="javascript:ocultarReloj();" onclick="VerXML(this, 'XML Petición')">Ver XML...
+                                <div style="display: none">@Model.listaBitacora[i].Mensaje</div>
+                            </a>
+                            }
+                        </td>
+                        <td>@Model.listaBitacora[i].Errores</td>
+                        <td>@Model.listaBitacora[i].Duracion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <div id="modalBitacora" style="display: none">
+        <div id="modalBitacoraContenido" style="overflow: auto"></div>
+    </div>
+    
+    <script>
+        function VerXML(elemento, titulo) {
+            $('#modalBitacoraContenido').empty();
+            var xmlString = $(elemento).find('div').html();
+            $('#modalBitacoraContenido').html(xmlString);
+            try {
+                $('#modalBitacora').dialog({
+                    autoOpen: true,
+                    modal: true,
+                    width: 920,
+                    height: 400,
+                    title: titulo,
+                    resizable: false,
+                    buttons: [{
+                        text: 'Seleccionar texto',
+                        click: function () {
+                            $('#modalBitacoraContenido').selText();
+                        }
+                    }]
+                });
+
+            } catch (err) {
+                openDialog(err, 1, "Aceptar");
+            }
+        }
+
+
+        $(function () {
+            $('#tblResultado').dataTable({
+                "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+                "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+                "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+                "oLanguage": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+
+                }
+            });
+        });
+
+    </script>
+    }
+}
+

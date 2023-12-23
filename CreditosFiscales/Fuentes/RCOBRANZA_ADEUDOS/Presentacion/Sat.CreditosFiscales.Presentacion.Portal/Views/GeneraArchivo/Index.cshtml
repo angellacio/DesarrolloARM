@@ -1,0 +1,29 @@
+﻿<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section encabezado
+{
+    <h1>Formato para pago</h1>
+}
+
+@{
+    var listaDeFolios = Request.QueryString["folios"];
+    var vieneDePaginaDeudorPuro = string.IsNullOrEmpty(Request.QueryString["deudorPuro"]) ? true : Convert.ToBoolean(Request.QueryString["deudorPuro"]);   
+}
+
+<iframe id="iframePdf" src="@Url.Action("GeneraArchivoPdf", "GeneraArchivo", new { folios = listaDeFolios })" width="650" height="650" style="border:none"></iframe>
+
+<div id="botonera">
+    @if (vieneDePaginaDeudorPuro)
+    {
+        <input type="button" value="Regresar a consulta" onclick="reloj();window.location.href='@Url.Action("DeudoresPuros", "GeneracionPrivada")    ';" />
+    }
+    else
+    {
+        <input type="button" value="Regresar a pago total" onclick="reloj();window.location.href='@Url.Action("Index", "GeneracionPrivada", new { accion = Sat.CreditosFiscales.Comunes.Entidades.AccionesPantalla.EnumAccionGeneraFormato.PagoTotal })    ';" />
+    }
+</div>

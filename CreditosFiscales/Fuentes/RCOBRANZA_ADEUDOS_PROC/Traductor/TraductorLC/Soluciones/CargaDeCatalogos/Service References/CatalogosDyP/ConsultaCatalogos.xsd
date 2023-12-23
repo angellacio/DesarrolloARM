@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://99.90.41.65:9095/ConsultaCatalogos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" />
+  <xs:import schemaLocation="http://99.90.41.65:9095/ConsultaCatalogos.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" />
+  <xs:element name="ConsultarPeriodos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q1:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarPeriodosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" minOccurs="0" name="ConsultarPeriodosResult" nillable="true" type="q2:ArrayOfPeriodo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarPeriodicidades">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q3:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarPeriodicidadesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" minOccurs="0" name="ConsultarPeriodicidadesResult" nillable="true" type="q4:ArrayOfPeriodicidad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTiposDocumentos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q5:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTiposDocumentosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" minOccurs="0" name="ConsultarTiposDocumentosResult" nillable="true" type="q6:ArrayOfTipoDocumento" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTransacciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q7:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTransaccionesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" minOccurs="0" name="ConsultarTransaccionesResult" nillable="true" type="q8:ArrayOfTransaccion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTransaccionesXTipoDocumento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q9:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTransaccionesXTipoDocumentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" minOccurs="0" name="ConsultarTransaccionesXTipoDocumentoResult" nillable="true" type="q10:ArrayOfTransaccion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarConceptosPagos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q11:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarConceptosPagosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" minOccurs="0" name="ConsultarConceptosPagosResult" nillable="true" type="q12:ArrayOfConceptoPago" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarAlrs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q13:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarAlrsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" minOccurs="0" name="ConsultarAlrsResult" nillable="true" type="q14:ArrayOfAlr" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarOrigen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" minOccurs="0" name="filtro" nillable="true" type="q15:CatalogoFiltro" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarOrigenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultarOrigenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

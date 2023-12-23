@@ -1,0 +1,6 @@
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.ConsoleTest\bin\Debug\Sat.CreditosFiscales.Impresion.ConsoleTest.exe.config
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.ConsoleTest\bin\Debug\Sat.CreditosFiscales.Impresion.ConsoleTest.exe
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.ConsoleTest\bin\Debug\Sat.CreditosFiscales.Impresion.ConsoleTest.pdb
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.ConsoleTest\obj\Debug\Sat.CreditosFiscales.Impresion.ConsoleTest.exe
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.ConsoleTest\obj\Debug\Sat.CreditosFiscales.Impresion.ConsoleTest.pdb
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.ConsoleTest\obj\Debug\Sat.CreditosFiscales.Impresion.ConsoleTest.csprojResolveAssemblyReference.cache

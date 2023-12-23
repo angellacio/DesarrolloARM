@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/Scripts/jquery-1.9.1.js")
+    @Scripts.Render("~/Scripts/jquery-ui-1.10.3.custom.js")
+    @Scripts.Render("~/Scripts/Impresion/jsCalendario.js")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/smoothness/jquery-ui-1.10.3.custom.css")
+    @Styles.Render("~/Content/Calendario.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @RenderSection("scripts", required: false)
+
+    <div id="encabezado">
+        @RenderSection("encabezado", required: false)
+    </div>
+
+    <div id="contenido">
+        @RenderBody()
+    </div>
+
+    <div id="mensajesContribuyente" style="background-color: #DCE6F2">
+        @RenderSection("mensajeContribuyente", required: false)
+    </div>
+    <div id="mensajeFijo">
+        <span>Para cualquier aclaración con gusto le atenderemos en el télefono 01-800-INFOSAT(01-800-463-6728),opción 9, 1 en toda la República.</span>
+    </div>
+
+
+
+    <style>
+        .claseDialog {
+            text-align: center;
+        }
+
+            .claseDialog ul {
+                text-align: center;
+                font-size: x-small;
+            }
+
+            .claseDialog #imagenError {
+                width: 36px;
+                height: 36px;
+                float: left;
+                background-image: url(../images/alerts/icon_alertError.jpg);
+                background-repeat: no-repeat;
+                background-size: 34px;
+                background-position: bottom;
+            }
+
+            .claseDialog #imagenInfo {
+                width: 36px;
+                height: 36px;
+                float: left;
+                background-image: url(../images/alerts/icon_alertInfo.jpg);
+                background-repeat: no-repeat;
+                background-size: 34px;
+                background-position: bottom;
+            }
+
+            .claseDialog #imagenWarning {
+                width: 36px;
+                height: 36px;
+                float: left;
+                background-image: url(../images/alerts/icon_alertWarning.jpg);
+                background-repeat: no-repeat;
+                background-size: 34px;
+                background-position: bottom;
+            }
+    </style>
+    <div id="modalDialog" class="claseDialog" title="Motor Traductor"></div>
+
+
+    <script>
+        function openDialog(textoMensaje, tipoMensaje, textoBoton) {
+            try {
+                var imagen;
+                switch (tipoMensaje) {
+                    case 1:
+                        imagen = 'imagenError';
+                        break;
+                    case 2:
+                        imagen = 'imagenInfo';
+                        break;
+                    default:
+                        imagen = 'imagenWarning';
+                        break;
+                }
+
+                $('#modalDialog').empty();
+                $('#modalDialog').append('<p><span id="' + imagen + '"></span><ul>' + textoMensaje + '</ul></p>');
+                $('#modalDialog').dialog(
+                {
+                    autoOpen: true,
+                    modal: true,
+                    buttons: [
+                        {
+                            text: textoBoton,
+                            click: function () { $('#modalDialog').dialog("close"); }
+                        }]
+                });
+
+
+
+            } catch (err) {
+                alert(err);
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        @ViewBag.OnLoadCompleteMessage
+    </script>
+</body>
+</html>

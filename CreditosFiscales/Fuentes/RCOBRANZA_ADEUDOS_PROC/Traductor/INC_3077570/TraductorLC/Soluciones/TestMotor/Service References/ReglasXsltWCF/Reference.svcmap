@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e46f5e20-1a4d-427b-ae85-a217e1e02bea" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:38450/ServicioReglasXslt.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioReglasXslt2.xsd" MetadataType="Schema" ID="b920d769-be0e-476e-9bac-a1eaf89694d3" SourceId="1" SourceUrl="http://localhost:38450/ServicioReglasXslt.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioReglasXslt3.xsd" MetadataType="Schema" ID="c88c70cf-3107-4a01-8bf8-3abc4a164e3d" SourceId="1" SourceUrl="http://localhost:38450/ServicioReglasXslt.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioReglasXslt.xsd" MetadataType="Schema" ID="4dbce740-bdfc-4ef3-85c9-5781836002bd" SourceId="1" SourceUrl="http://localhost:38450/ServicioReglasXslt.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioReglasXslt.wsdl" MetadataType="Wsdl" ID="9874e7e4-ccc3-4550-aef5-166b3348727d" SourceId="1" SourceUrl="http://localhost:38450/ServicioReglasXslt.svc?wsdl" />
+    <MetadataFile FileName="ServicioReglasXslt.disco" MetadataType="Disco" ID="6f8531e1-19fc-49ce-a9f4-deae2c23f2e9" SourceId="1" SourceUrl="http://localhost:38450/ServicioReglasXslt.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

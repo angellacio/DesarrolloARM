@@ -1,0 +1,255 @@
+﻿@model Tuple<Sat.CreditosFiscales.Presentacion.Portal.ViewModels.CatReglasViewModel, Sat.CreditosFiscales.Presentacion.Portal.ViewModels.CatReglasCatalogoViewModel>
+
+@{
+    ViewBag.Title = "Clave de cómputo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/jquerydt")
+@Scripts.Render("~/Scripts/Creditos/jsEventos.js")
+
+@section encabezado
+{
+    <h1>Catalogo de reglas</h1>
+    <div style="text-align: right">
+        <a href="@Url.Action("Consulta", "ReglasEquivalencia")">Reglas de equivalencia</a>
+        &nbsp;|&nbsp;
+        <a href="@Url.Action("Conceptos", "ReglasEquivalencia")">Conceptos Equivalencia</a>
+        &nbsp;|&nbsp;
+        <a href="@Url.Action("ClaveComputo", "ClaveComputo")">Claves de cómputo</a>
+        &nbsp;|&nbsp;
+        <a href="@Url.Action("CatEsquemas","CatEsquemas")">Catalogo de esquemas</a>
+    </div>
+}
+
+<style>
+    .tablaEvento {
+        text-align: left;
+    }
+
+        .tablaEvento tr {
+            height: 40px !important;
+            border: solid 1px #D8D8D8;
+            vertical-align: top;
+        }
+
+        .tablaEvento input, select, textarea {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+</style>
+
+
+@using (Ajax.BeginForm("Buscar", "CatReglas", new AjaxOptions { UpdateTargetId = "tblResultado" }))
+{
+    <table class="tablaEvento" style="width: 50%">
+        <tr>
+            <td>Id. de regla:&nbsp;
+                    @Html.TextBoxFor(tuple => tuple.Item1.IdRegla, new { tabindex = 1, size = 36, maxlength = 36, Name = "IdRegla" })
+                    @Html.ValidationMessage("IdRegla")
+            </td>
+            <td>Descripción:&nbsp;
+                    @Html.TextBoxFor(tuple => tuple.Item1.Descripcion, new { tabindex = 2, size = 30, maxlength = 30, Name = "Descripcion" })
+            </td>
+            <td style="text-align: right; vertical-align: bottom">
+                <input type="submit" id="btnBuscar" value="Buscar" />
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+<p>&nbsp;</p>
+
+
+@if (Model != null && Model.Item1.Lista != null)
+{
+    if (Model.Item1.Lista.Count > 0)
+    {
+    <div id="divResultado" style="overflow-x: scroll;">
+        <table id="tblResultado" class="tabla" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Id Regla</th>
+                    <th>Descripción</th>
+                    <th>Regla</th>
+                    <th>Es validación</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (int i = 0; i < Model.Item1.Lista.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(Model.Item1.Lista[i].IdRegla.ToString(), "Editar", "CatReglas", new { idRegla = Model.Item1.Lista[i].IdRegla.ToString() }, null)
+                        </td>
+                        <td>@Model.Item1.Lista[i].Descripcion</td>
+                        <td><a href="javascript:ocultarReloj();" onclick="VerRegla(this, 'Regla')">Ver ...
+                                <div style="display: none">@Model.Item1.Lista[i].Regla</div>
+                        </a></td>
+                        <td>@Model.Item1.Lista[i].EsValidacion</td>
+                        <td>@Html.ActionLink("Eliminar", "Eliminar", "CatReglas", new { idRegla = Model.Item1.Lista[i].IdRegla.ToString() }, null)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <table style="width: 100%">
+            <tr>
+                <td style="text-align: right; vertical-align: bottom">
+                    <input type="button" value="Nueva regla" onclick="location.href = 'CatReglas'" />
+                </td>
+            </tr>
+        </table>
+        <script>
+            function VerRegla(elemento, titulo) {
+                $('#modalReglaContenido').empty();
+                var xmlString = $(elemento).find('div').html();
+                $('#modalReglaContenido').html(xmlString);
+                try {
+                    $('#modalRegla').dialog({
+                        autoOpen: true,
+                        modal: true,
+                        width: 920,
+                        height: 400,
+                        title: titulo,
+                        resizable: false,
+                        buttons: [{
+                            text: 'Seleccionar texto',
+                            click: function () {
+                                $('#modalReglaContenido').selText();
+                            }
+                        }]
+                    });
+
+                } catch (err) {
+                    openDialog(err, 1, "Aceptar");
+                }
+            }
+            $(function () {
+                $('#tblResultado').dataTable({
+                    "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+                    "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+                    "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+                    "oLanguage": {
+                        "sProcessing": "Procesando...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Buscar:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        }
+
+                    }
+                });
+            });
+
+        </script>
+    </div>
+    
+    <div id="modalRegla" style="display: none">
+        <div id="modalReglaContenido" style="overflow: auto"></div>
+    </div>
+    }
+}
+else
+{
+
+
+    using (Html.BeginForm("Guardar", "CatReglas", FormMethod.Post, new { id = "frmGuardar" }))
+    {
+        if (Model != null && Model.Item2.IdRegla != null && Model.Item2.IdRegla != Guid.Empty)
+        {
+    <table class="tablaEvento" style="width: 100%">
+        <tr>
+            <td>Id Regla:</td>
+            <td>
+                @Html.HiddenFor(tuple => tuple.Item2.Accion, new { id = "Accion", Value = 2 })
+                @Html.HiddenFor(tuple => tuple.Item2.IdRegla, new { id = "IdRegla" })
+                @Model.Item2.IdRegla<br />
+                @Html.ValidationMessage("IdRegla")
+            </td>
+        </tr>
+        <tr>
+            <td>Descripción:</td>
+            <td>
+                @Html.TextAreaFor(tuple => tuple.Item2.Descripcion, new { tabindex = 1, maxlength = 150, cols = 80, rows = 3, id = "Descripcion" })<br />
+                @Html.ValidationMessageFor(tuple => tuple.Item2.Descripcion, "(* Requerido)")
+
+            </td>
+        </tr>
+        <tr>
+            <td>Regla:</td>
+            <td>
+                @Html.TextAreaFor(tuple => tuple.Item2.Regla, new { tabindex = 2, cols = 100, rows = 15, id = "Regla" })<br />
+                @Html.ValidationMessageFor(tuple => tuple.Item2.Regla, "(* Requerido)")
+                @Html.ValidationMessage("Regla")
+
+            </td>
+        </tr>
+        <tr>
+            <td>Validación:</td>
+            <td>
+                @Html.CheckBoxFor(tuple => tuple.Item2.EsValidacion, new { tabindex = 3, id = "EsValidacion" })<br />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <input type="submit" value="Actualizar" />
+                <input type="button" value="Cancelar" onclick="location.href = 'CatReglas'" />
+            </td>
+        </tr>
+    </table>
+        }
+        else
+        {
+    <table class="tablaEvento">
+        <tr>
+            <td>Descripción:</td>
+            <td>
+                @Html.HiddenFor(tuple => tuple.Item2.Accion, new { id = "Accion", Value = 1 })
+                @Html.TextAreaFor(tuple => tuple.Item2.Descripcion, new { tabindex = 1, maxlength = 150, cols = 80, rows = 3, id = "Descripcion" })<br />
+                @Html.ValidationMessageFor(tuple => tuple.Item2.Descripcion, "(* Requerido)")
+
+            </td>
+        </tr>
+        <tr>
+            <td>Regla:</td>
+            <td>
+                @Html.TextAreaFor(tuple => tuple.Item2.Regla, new { tabindex = 2, cols = 100, rows = 15, id = "Regla" })<br />
+                @Html.ValidationMessageFor(tuple => tuple.Item2.Regla, "(* Requerido)")
+                @Html.ValidationMessage("Regla")
+            </td>
+        </tr>
+        <tr>
+            <td>Validación:</td>
+            <td>
+                @Html.CheckBoxFor(tuple => tuple.Item2.EsValidacion, new { tabindex = 3, id = "EsValidacion" })<br />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <input type="submit" value="Guardar" />
+                <input type="button" value="Cancelar" onclick="location.href = 'CatReglas'" />
+            </td>
+        </tr>
+    </table>
+        }
+    }
+}

@@ -1,0 +1,7 @@
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Entidades\bin\Debug\Sat.ServicioImpresion.Entidades.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Entidades\bin\Debug\Sat.ServicioImpresion.Entidades.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Entidades\bin\Debug\Sat.ServicioImpresion.Comunes.Herramientas.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Entidades\bin\Debug\Sat.ServicioImpresion.Comunes.Herramientas.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Entidades\obj\Debug\Sat.ServicioImpresion.Entidades.csprojResolveAssemblyReference.cache
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Entidades\obj\Debug\Sat.ServicioImpresion.Entidades.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Entidades\obj\Debug\Sat.ServicioImpresion.Entidades.pdb

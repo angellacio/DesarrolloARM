@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://99.90.41.65:9093/RecepcionSispr/Recepcion.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun" />
+  <xs:complexType name="RespuestaGeneracionLC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RespuestaConceptos" nillable="true" type="tns:ArrayOfRespuestaConcepto" />
+      <xs:element minOccurs="0" name="RespuestaDatosGenerales" nillable="true" type="tns:RespuestaDatosGenerales" />
+      <xs:element minOccurs="0" name="RespuestaErrores" nillable="true" type="tns:ArrayOfRespuestaError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaGeneracionLC" nillable="true" type="tns:RespuestaGeneracionLC" />
+  <xs:complexType name="ArrayOfRespuestaConcepto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RespuestaConcepto" nillable="true" type="tns:RespuestaConcepto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRespuestaConcepto" nillable="true" type="tns:ArrayOfRespuestaConcepto" />
+  <xs:complexType name="RespuestaConcepto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun" minOccurs="0" name="DatosLineaCaptura" nillable="true" type="q1:DatosLineaCaptura" />
+      <xs:element minOccurs="0" name="NumeroSecuencia" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaConcepto" nillable="true" type="tns:RespuestaConcepto" />
+  <xs:complexType name="RespuestaDatosGenerales">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Modelo.Comun" minOccurs="0" name="LineasCaptura" nillable="true" type="q2:ArrayOfDatosLineaCaptura" />
+      <xs:element minOccurs="0" name="Resultado" type="tns:RespuestaResultado" />
+      <xs:element minOccurs="0" name="Solicitud" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaDatosGenerales" nillable="true" type="tns:RespuestaDatosGenerales" />
+  <xs:simpleType name="RespuestaResultado">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Aceptado" />
+      <xs:enumeration value="Rechazado" />
+      <xs:enumeration value="Cancelado" />
+      <xs:enumeration value="ErrorPlataforma" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RespuestaResultado" nillable="true" type="tns:RespuestaResultado" />
+  <xs:complexType name="ArrayOfRespuestaError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RespuestaError" nillable="true" type="tns:RespuestaError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRespuestaError" nillable="true" type="tns:ArrayOfRespuestaError" />
+  <xs:complexType name="RespuestaError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Codigo" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RespuestaError" nillable="true" type="tns:RespuestaError" />
+</xs:schema>

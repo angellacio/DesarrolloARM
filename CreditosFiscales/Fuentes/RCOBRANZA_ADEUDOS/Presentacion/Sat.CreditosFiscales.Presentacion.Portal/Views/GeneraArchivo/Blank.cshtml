@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Blank";
+    Layout = null;
+}
+
+
+
+<script type="text/javascript">
+    var mensaje = '@MvcHtmlString.Create(ViewBag.OnLoadCompleteMessage)'
+    var iframe = parent.document.getElementById('iframePdf');
+    iframe.width = 0;
+    iframe.height = 0;
+    parent.openDialog(mensaje,1,"Aceptar");
+</script>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+		<LastUsedPlatform>Any CPU</LastUsedPlatform>
+		<TimeStampOfAssociatedLegacyPublishXmlFile />
+	</PropertyGroup>
+	<ItemGroup>
+		<File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+			<publishTime>08/22/2013 18:25:06</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+			<publishTime>08/22/2013 18:25:06</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+			<publishTime>08/22/2013 18:25:07</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.Unity.dll">
+			<publishTime>08/22/2013 18:25:07</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+			<publishTime>08/22/2013 18:25:07</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.AccesoDatos.dll">
+			<publishTime>08/22/2013 18:31:25</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.AccesoDatos.pdb">
+			<publishTime>08/22/2013 18:31:25</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.Entidades.dll">
+			<publishTime>08/22/2013 18:31:25</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.Entidades.pdb">
+			<publishTime>08/22/2013 18:31:25</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.Herramientas.dll">
+			<publishTime>08/22/2013 18:31:25</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.Herramientas.pdb">
+			<publishTime>08/22/2013 18:31:25</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.LogicaNegocio.dll">
+			<publishTime>08/22/2013 18:31:26</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.LogicaNegocio.pdb">
+			<publishTime>08/22/2013 18:31:26</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.Servicios.dll">
+			<publishTime>08/22/2013 18:31:26</publishTime>
+		</File>
+		<File Include="bin/Sat.CreditosFiscales.Impresion.Servicios.pdb">
+			<publishTime>08/22/2013 18:31:26</publishTime>
+		</File>
+		<File Include="ServicioGeneraFormatoImpresion.svc">
+			<publishTime>08/22/2013 18:25:21</publishTime>
+		</File>
+		<File Include="Web.config">
+			<publishTime>08/22/2013 18:31:27</publishTime>
+		</File>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Logs>
+  <Log name="Sat.CreditosFiscales">
+    <Source>Sat.CreditosFiscales.Presentacion</Source>
+    <Source>Sat.CreditosFiscales.Procesamiento</Source>
+    <Source>Sat.CreditosFiscales.Seguridad</Source>
+    <Source>Sat.CreditosFiscales.Motor.Servicios</Source>
+    <Source>Sat.CreditosFiscales.Pagos</Source>
+    <Source>Sat.ServicioImpresion.Impresion</Source>
+    <Source>Sat.CreditosFiscales.Impresion</Source>
+  </Log>
+</Logs>

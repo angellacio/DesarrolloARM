@@ -1,0 +1,63 @@
+<MovimientoRectificacion>
+	<Encabezado>
+		<TipoDocumento>40</TipoDocumento>
+		<DescripcionTipoDocumento>Movimientos de rectificación</DescripcionTipoDocumento>
+		<Aplicacion>3</Aplicacion>
+	</Encabezado>
+	<Mensaje>
+		<DatosGenerales>
+			<RFC>IPO820215LH8</RFC>
+			<Nombre />
+			<ApellidoPaterno />
+			<ApellidoMaterno />
+			<RazonSocial>INDUSTRIAS POLOTITLAN SA DE CV</RazonSocial>
+			<ALR>16</ALR>
+			<BOID>927729726654832014691668109101</BOID>
+			<DeudorPuro>0</DeudorPuro>
+			<Observaciones>prueba desarrollo</Observaciones>
+		</DatosGenerales>
+		<ResolucionesDeterminante>
+			<ResolucionDeterminante>
+				<NumeroResolucion>LIBERACIÓN DE LAS GARANTÍAS</NumeroResolucion>
+				<Fecha>01/01/1900</Fecha>
+				<AutoridadId>9</AutoridadId>
+				<ALR>16</ALR>
+				<RFC>IPO820215LH8</RFC>
+				<FormaPago>960025-4742</FormaPago>
+				<Conceptos>
+					<SolicitudARectificar>44161300003008</SolicitudARectificar>
+					<Rectificaciones>
+						<Correcto>
+							<Clave>860008</Clave>
+							<PeriodicidadId>9</PeriodicidadId>
+							<PeriodoId>1</PeriodoId>
+							<MotivoId>0</MotivoId>
+							<FechaCausacion>14/08/2013</FechaCausacion>
+							<CreditoSir>0</CreditoSir>
+							<CredicoARCA>0</CredicoARCA>
+							<ImporteHistorico>15000</ImporteHistorico>
+							<ImporteParteActualizada>0</ImporteParteActualizada>
+							<ImportePagar>15000</ImportePagar>
+							<FechaNotificacion>01/01/1900</FechaNotificacion>
+							<Liquidar>false</Liquidar>
+						</Correcto>
+						<Erroneo>
+							<Clave>860022</Clave>
+							<PeriodicidadId>9</PeriodicidadId>
+							<PeriodoId>1</PeriodoId>
+							<MotivoId>0</MotivoId>
+							<FechaCausacion>14/08/2013</FechaCausacion>
+							<CreditoSir>0</CreditoSir>
+							<CredicoARCA>0</CredicoARCA>
+							<ImporteHistorico>15000</ImporteHistorico>
+							<ImporteParteActualizada>0</ImporteParteActualizada>
+							<ImportePagar>15000</ImportePagar>
+							<FechaNotificacion>01/01/1900</FechaNotificacion>
+							<Liquidar>false</Liquidar>
+						</Erroneo>
+					</Rectificaciones>
+				</Conceptos>
+			</ResolucionDeterminante>
+		</ResolucionesDeterminante>
+	</Mensaje>
+</MovimientoRectificacion>

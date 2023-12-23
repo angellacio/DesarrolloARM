@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:b="http://schemas.microsoft.com/BizTalk/2003" xmlns:ns0="http://SAT.CreditosFiscales.Traductor" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SolicitudCreditosFiscales">
+    <xs:annotation>
+      <xs:appinfo>
+        <b:recordInfo rootTypeName="SolicitudCreditosFiscales" xmlns:b="http://schemas.microsoft.com/BizTalk/2003" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="Encabezado">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="TipoDocumento">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <b:fieldInfo notes="Identificador del Tipo de Documento, posibles valores (10-Pago en una sola exhibición. 21-Pagos en parcialidades o diferido (pago inicial). 22-Pagos en parcialidades o diferido (autorización). 23-Pagos a cuenta (abonos o intervenciones). 30-Movimientos Contables. 40-Movimientos de rectificación)" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:int">
+                    <xs:pattern value="^\d{1,2}$" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="1" name="DescripcionTipoDocumento">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <b:fieldInfo notes="La descripción del tipo de documento a procesar." />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="1" name="Aplicacion" type="xs:int">
+                <xs:annotation>
+                  <xs:appinfo>
+                    <b:fieldInfo notes="Identificador de la aplicación que solicita el proceso. (1. SIR, 2. ARCA)" />
+                  </xs:appinfo>
+                </xs:annotation>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="1" name="TipoOperacion" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="1" maxOccurs="1" name="Mensaje">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="DatosGenerales">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="RFC">
+                      <xs:annotation>
+                        <xs:appinfo>
+                          <b:fieldInfo notes="RFC Actualizado del contribuyente" />
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string" />
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Nombre">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="60" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ApellidoPaterno">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="60" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="ApellidoMaterno">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="60" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="1" name="RazonSocial">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="250" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="1" maxOccurs="1" name="ALR">
+                      <xs:annotation>
+                        <xs:appinfo>
+                          <b:fieldInfo notes="ALR del contribuyente" />
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                          <xs:maxInclusive value="255" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="1" maxOccurs="1" name="BOID">
+                      <xs:annotation>
+                        <xs:appinfo>
+                          <b:fieldInfo notes="Indentificador único del contribuyente en IDC" />
+                        </xs:appinfo>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="50" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element minOccurs="1" maxOccurs="1" name="LineaCaptura">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="1" maxOccurs="1" name="Importe">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="Monto por el cual se generará la línea de captura" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:long">
+                                <xs:pattern value="^\d{1,14}$" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="FechaVigencia">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="Fecha que indica el término de la vigencia de la línea" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:pattern value="(0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="PagoObligadoInternet">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="2- No Obligado (Personas Físicas), 4-Obligado (Personas Morales)" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:int">
+                                <xs:pattern value="(^(2)$)|(^(4)$)" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="1" maxOccurs="1" name="NumeroParcialidad" type="xs:int" />
+                    <xs:element minOccurs="0" maxOccurs="1" name="Observaciones">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="255" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element default="0" name="DeudorPuro">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                          <xs:enumeration value="0" />
+                          <xs:enumeration value="1" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="1" name="ResolucionesDeterminante">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="unbounded" name="ResolucionDeterminante">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="1" maxOccurs="1" name="NumeroResolucion">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="Resolución determinante" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="50" />
+                                <xs:minLength value="1" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="Fecha">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="Fecha de la resolución" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:pattern value="(0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="AutoridadId">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="Autoridad que impone la resolución" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:int" />
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="ALR">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="ALR donde se generó la resolución" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:int">
+                                <xs:maxInclusive value="255" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="RFC">
+                            <xs:annotation>
+                              <xs:appinfo>
+                                <b:fieldInfo notes="RFC asociado a la resolución" />
+                              </xs:appinfo>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string" />
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="SaldoInformativo">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:decimal" />
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="FormaPago">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:pattern value="^\d{6}-\d{4}" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element minOccurs="1" maxOccurs="1" name="Conceptos">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element minOccurs="1" maxOccurs="unbounded" name="Concepto">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="Clave">
+                                        <xs:annotation>
+                                          <xs:appinfo>
+                                            <b:fieldInfo notes="Clave del concepto ley" />
+                                          </xs:appinfo>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:maxLength value="6" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="Ejercicio">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:int">
+                                            <xs:minInclusive value="1900" />
+                                            <xs:maxInclusive value="2100" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PeriodicidadId">
+                                        <xs:annotation>
+                                          <xs:appinfo>
+                                            <b:fieldInfo notes="1-Mensual. 2-Bimestral. 3-Cuatrimestral. 4-Trimestral. 5-Semestral. 9. Sin Periodo" />
+                                          </xs:appinfo>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:int">
+                                            <xs:maxInclusive value="255" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="PeriodoId">
+                                        <xs:annotation>
+                                          <xs:appinfo>
+                                            <b:fieldInfo notes="1 Enero&#xD;&#xA;2 Febrero&#xD;&#xA;3 Marzo&#xD;&#xA;4 Abril&#xD;&#xA;5 Mayo&#xD;&#xA;6 Junio&#xD;&#xA;7 Julio&#xD;&#xA;8 Agosto&#xD;&#xA;9 Septiembre&#xD;&#xA;10 Octubre&#xD;&#xA;11 Noviembre&#xD;&#xA;12 Diciembre&#xD;&#xA;13 Enero-Febrero&#xD;&#xA;14 Marzo-Abril&#xD;&#xA;15 Mayo-Junio&#xD;&#xA;16 Julio-Agosto&#xD;&#xA;17 Septiembre-Octubre&#xD;&#xA;18 Noviembre-Diciembre&#xD;&#xA;19 Enero-Marzo&#xD;&#xA;20 Abril-Junio&#xD;&#xA;21 Julio-Septiembre&#xD;&#xA;22 Octubre-Diciembre&#xD;&#xA;23 Enero-Abril&#xD;&#xA;24 Mayo-Agosto&#xD;&#xA;25 Septiembre-Diciembre&#xD;&#xA;26 Enero-Junio&#xD;&#xA;27 Julio-Diciembre" />
+                                          </xs:appinfo>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:int">
+                                            <xs:maxInclusive value="255" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="MotivoId">
+                                        <xs:annotation>
+                                          <xs:appinfo>
+                                            <b:fieldInfo notes="Motivo del concepto, posibles valores. F, J, I" />
+                                          </xs:appinfo>
+                                        </xs:annotation>
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:minLength value="1" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FechaCausacion">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:pattern value="(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)\d\d|" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="CreditoSir" type="xs:int" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="CredicoARCA" type="xs:string" />
+                                      <xs:element minOccurs="1" maxOccurs="1" name="ImporteHistorico">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:decimal">
+                                            <xs:pattern value="^\d{1,14}$" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="ImporteParteActualizada">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:decimal">
+                                            <xs:pattern value="^\d{1,14}$" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="ImportePagar">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:decimal">
+                                            <xs:pattern value="^\d{1,14}$" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="PagosAnteriores" type="xs:decimal" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="FechaNotificacion">
+                                        <xs:simpleType>
+                                          <xs:restriction base="xs:string">
+                                            <xs:pattern value="(0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d" />
+                                          </xs:restriction>
+                                        </xs:simpleType>
+                                      </xs:element>
+                                      <xs:element minOccurs="1" maxOccurs="1" name="Liquidar" type="xs:boolean" />
+                                      <xs:element minOccurs="0" maxOccurs="1" name="Marcas">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="1" maxOccurs="unbounded" name="Marca">
+                                              <xs:complexType>
+                                                <xs:simpleContent>
+                                                  <xs:extension base="xs:string">
+                                                    <xs:attribute name="TipoMarca" type="xs:string" />
+                                                  </xs:extension>
+                                                </xs:simpleContent>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                      <xs:element minOccurs="0" maxOccurs="1" name="Hijos">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:element minOccurs="1" maxOccurs="unbounded" name="Hijo">
+                                              <xs:complexType>
+                                                <xs:sequence>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="Clave">
+                                                    <xs:annotation>
+                                                      <xs:appinfo>
+                                                        <b:fieldInfo notes="Clave del concepto ley" />
+                                                      </xs:appinfo>
+                                                    </xs:annotation>
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:string">
+                                                        <xs:maxLength value="6" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="MotivoId">
+                                                    <xs:annotation>
+                                                      <xs:appinfo>
+                                                        <b:fieldInfo notes="Motivo del concepto, posibles valores. F, J, I" />
+                                                      </xs:appinfo>
+                                                    </xs:annotation>
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:string">
+                                                        <xs:minLength value="1" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="FechaCausacion">
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:string">
+                                                        <xs:pattern value="(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)\d\d|" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="CreditoSir" type="xs:int" />
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="ImporteHistorico">
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:decimal">
+                                                        <xs:pattern value="^\d{1,14}$" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="ImporteParteActualizada">
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:decimal">
+                                                        <xs:pattern value="^\d{1,14}$" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="ImportePagar">
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:decimal">
+                                                        <xs:pattern value="^\d{1,14}$" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="PagosAnteriores" type="xs:decimal" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="FechaNotificacion">
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:string">
+                                                        <xs:pattern value="(0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="Ejercicio">
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:int">
+                                                        <xs:minInclusive value="1900" />
+                                                        <xs:maxInclusive value="2100" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="PeriodicidadId">
+                                                    <xs:annotation>
+                                                      <xs:appinfo>
+                                                        <b:fieldInfo notes="1-Mensual. 2-Bimestral. 3-Cuatrimestral. 4-Trimestral. 5-Semestral. 9. Sin Periodo" />
+                                                      </xs:appinfo>
+                                                    </xs:annotation>
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:int">
+                                                        <xs:maxInclusive value="255" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="PeriodoId">
+                                                    <xs:annotation>
+                                                      <xs:appinfo>
+                                                        <b:fieldInfo notes="1 Enero&#xD;&#xA;2 Febrero&#xD;&#xA;3 Marzo&#xD;&#xA;4 Abril&#xD;&#xA;5 Mayo&#xD;&#xA;6 Junio&#xD;&#xA;7 Julio&#xD;&#xA;8 Agosto&#xD;&#xA;9 Septiembre&#xD;&#xA;10 Octubre&#xD;&#xA;11 Noviembre&#xD;&#xA;12 Diciembre&#xD;&#xA;13 Enero-Febrero&#xD;&#xA;14 Marzo-Abril&#xD;&#xA;15 Mayo-Junio&#xD;&#xA;16 Julio-Agosto&#xD;&#xA;17 Septiembre-Octubre&#xD;&#xA;18 Noviembre-Diciembre&#xD;&#xA;19 Enero-Marzo&#xD;&#xA;20 Abril-Junio&#xD;&#xA;21 Julio-Septiembre&#xD;&#xA;22 Octubre-Diciembre&#xD;&#xA;23 Enero-Abril&#xD;&#xA;24 Mayo-Agosto&#xD;&#xA;25 Septiembre-Diciembre&#xD;&#xA;26 Enero-Junio&#xD;&#xA;27 Julio-Diciembre" />
+                                                      </xs:appinfo>
+                                                    </xs:annotation>
+                                                    <xs:simpleType>
+                                                      <xs:restriction base="xs:int">
+                                                        <xs:maxInclusive value="255" />
+                                                      </xs:restriction>
+                                                    </xs:simpleType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="1" maxOccurs="1" name="Liquidar" type="xs:boolean" />
+                                                  <xs:element minOccurs="0" maxOccurs="1" name="Marcas">
+                                                    <xs:complexType>
+                                                      <xs:sequence>
+                                                        <xs:element minOccurs="1" maxOccurs="unbounded" name="Marca">
+                                                          <xs:complexType>
+                                                            <xs:simpleContent>
+                                                              <xs:extension base="xs:string">
+                                                                <xs:attribute name="TipoMarca">
+                                                                  <xs:simpleType>
+                                                                    <xs:restriction base="xs:string" />
+                                                                  </xs:simpleType>
+                                                                </xs:attribute>
+                                                              </xs:extension>
+                                                            </xs:simpleContent>
+                                                          </xs:complexType>
+                                                        </xs:element>
+                                                      </xs:sequence>
+                                                    </xs:complexType>
+                                                  </xs:element>
+                                                </xs:sequence>
+                                              </xs:complexType>
+                                            </xs:element>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+
+
+
+
+
+

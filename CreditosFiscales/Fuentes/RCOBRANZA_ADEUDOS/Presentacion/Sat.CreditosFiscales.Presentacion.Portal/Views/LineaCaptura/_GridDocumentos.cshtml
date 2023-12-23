@@ -1,0 +1,41 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GenerarDocumentosDeterminanteViewModel
+<div id="divContenido" style="font-size: x-small; text-align: center; overflow: auto">
+    <script>
+        ocultarReloj();
+    </script>
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th style="width:295px; height:35px;">Resolución o referencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model == null || Model.listaDocumentosAsociados == null)
+            {
+                <tr>
+                    <td colspan="8">&nbsp;
+                    </td>
+                </tr>
+            }
+            else
+            {
+                if (Model.listaDocumentosAsociados.Count == 0)
+                {
+                <tr>
+                    <td colspan="8">No hay documentos asociados a esta línea de captura.
+                    </td>
+                </tr>
+                }
+                else
+                {
+                    for (int i = 0; i < Model.listaDocumentosAsociados.Count; i++)
+                    {                  
+                <tr>
+                    <td>@Model.listaDocumentosAsociados[i]</td>
+                </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>

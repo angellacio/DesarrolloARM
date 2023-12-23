@@ -1,0 +1,14 @@
+﻿@model byte[]
+@{
+    Layout = null;
+}
+@{
+    var archivopdf = "LC" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".pdf";
+    Response.AddHeader("content-length", Model.Length.ToString());
+    Response.AddHeader("content-disposition", "attachment; filename=" + archivopdf);
+    Response.ContentType = "Application/pdf";
+    Response.WriteBinary(Model);
+    
+}
+
+

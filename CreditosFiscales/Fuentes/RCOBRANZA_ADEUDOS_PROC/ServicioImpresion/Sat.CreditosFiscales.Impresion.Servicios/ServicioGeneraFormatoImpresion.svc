@@ -1,0 +1,7 @@
+<%@ 
+	ServiceHost 
+		Language="C#" 
+		Debug="true" 
+		Service="Sat.CreditosFiscales.Impresion.Servicios.ServicioGeneraFormatoImpresion" 
+		CodeBehind="ServicioGeneraFormatoImpresion.svc.cs" 
+%>

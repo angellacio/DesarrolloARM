@@ -1,0 +1,147 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraLogEventosViewModel
+@{
+    ViewBag.Title = "Log de eventos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/jquerydt")
+
+
+@section encabezado
+{
+    <h1>Búsqueda en créditos fiscales log de eventos</h1>
+
+    <div style="text-align: right">
+        Créditos Fiscales:
+        &nbsp;@Html.ActionLink("Peticiones", "CreditosPeticion")
+        &nbsp;|&nbsp;Traductor:
+        &nbsp;@Html.ActionLink("Log de eventos", "TraductorLogEvento")
+        &nbsp;@Html.ActionLink("Bitácora", "TraductorBitacora")
+        &nbsp;|&nbsp;Template:
+        &nbsp;@Html.ActionLink("Log de eventos", "TemplateLogEvento")
+        &nbsp;|&nbsp;
+        @Html.ActionLink("Salir", "LogOff")
+    </div>
+
+}
+
+<style>
+    .tablaEvento {
+        text-align: left;
+    }
+
+        .tablaEvento tr {
+            height: 40px !important;
+            border: solid 1px #D8D8D8;
+            vertical-align: top;
+        }
+
+        .tablaEvento input, select {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+</style>
+
+@using (Ajax.BeginForm("CreditosBuscarEventos", "LogEventos", new AjaxOptions { UpdateTargetId = "tblResultado" }))
+{
+    <table class="tablaEvento" style="width: 80%">
+        <tbody>
+            <tr>
+                <td>Id. del Evento:&nbsp;
+                    @Html.TextBoxFor(m => m.Ticket, new { tabindex = 1, maxlength = 36 })
+                </td>
+                <td style="text-align: right; vertical-align: text-top" rowspan="2">
+                    <input type="submit" value="Buscar" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>Fecha inicio:&nbsp;@Html.TextBoxFor(m => m.FechaInicio, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                <br />@Html.ValidationMessageFor(m => m.FechaInicio, "")
+
+                            </td>
+                            <td>Fecha fin:&nbsp;@Html.TextBoxFor(m => m.FechaFin, new { tabindex = 3, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+}
+
+
+@if (Model != null && Model.listaEventos != null)
+{
+    if (Model.listaEventos.Count > 0)
+    {
+    <div id="divResultado" style="overflow-x: scroll;">
+        <table id="tblResultado" class="tabla">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Aplicación</th>
+                    <th>Evento</th>
+                    <th>Mensaje</th>
+                    <th>Tipo de Evento</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.listaEventos.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.listaEventos[i].Id</td>
+                        <td>@Model.listaEventos[i].Aplicacion</td>
+                        <td>@Model.listaEventos[i].Evento</td>
+                        <td>@Model.listaEventos[i].Mensaje</td>
+                        <td>@Model.listaEventos[i].TipoEvento</td>
+                        <td>@Model.listaEventos[i].FechaOrigen</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        $(function () {
+            $('#tblResultado').dataTable({
+                "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+                "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+                "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+                "oLanguage": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+
+                }
+            });
+
+
+        });
+
+    </script>
+    }
+}
+

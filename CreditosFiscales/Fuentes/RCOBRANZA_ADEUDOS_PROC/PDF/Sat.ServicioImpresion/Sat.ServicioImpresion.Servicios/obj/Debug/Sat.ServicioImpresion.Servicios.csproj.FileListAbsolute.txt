@@ -1,0 +1,36 @@
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\obj\Debug\Sat.ServicioImpresion.Servicios.csprojResolveAssemblyReference.cache
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Servicios.dll
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Servicios.pdb
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.LogicaNegocio.dll
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Fonet.dll
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.LogicaNegocio.pdb
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\obj\Debug\Sat.ServicioImpresion.Servicios.dll
+c:\users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\obj\Debug\Sat.ServicioImpresion.Servicios.pdb
+C:\Users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.AccesoDatos.dll
+C:\Users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.Unity.dll
+C:\Users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.Unity.Interception.dll
+C:\Users\teia-don\documents\visual studio 2012\Projects\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.AccesoDatos.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Servicios.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Servicios.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Entidades.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.LogicaNegocio.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Comunes.Herramientas.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.AccesoDatos.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Fonet.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.ServiceLocation.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.Unity.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Microsoft.Practices.Unity.Interception.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Entidades.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.LogicaNegocio.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.Comunes.Herramientas.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Sat.ServicioImpresion.AccesoDatos.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\obj\Debug\Sat.ServicioImpresion.Servicios.csprojResolveAssemblyReference.cache
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\obj\Debug\Sat.ServicioImpresion.Servicios.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\obj\Debug\Sat.ServicioImpresion.Servicios.pdb
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\itextsharp.dll
+C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\bin\Gma.QrCodeNet.Encoding.Net35.dll

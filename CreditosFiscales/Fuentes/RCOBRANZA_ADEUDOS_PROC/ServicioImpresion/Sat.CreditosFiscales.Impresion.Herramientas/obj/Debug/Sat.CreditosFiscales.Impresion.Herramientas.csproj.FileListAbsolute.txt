@@ -1,0 +1,5 @@
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.Herramientas\bin\Debug\Sat.CreditosFiscales.Impresion.Herramientas.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.Herramientas\bin\Debug\Sat.CreditosFiscales.Impresion.Herramientas.pdb
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.Herramientas\obj\Debug\Sat.CreditosFiscales.Impresion.Herramientas.csprojResolveAssemblyReference.cache
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.Herramientas\obj\Debug\Sat.CreditosFiscales.Impresion.Herramientas.dll
+C:\TFS\LCCreditosFiscales\ServicioImpresion\Sat.CreditosFiscales.Impresion.Herramientas\obj\Debug\Sat.CreditosFiscales.Impresion.Herramientas.pdb

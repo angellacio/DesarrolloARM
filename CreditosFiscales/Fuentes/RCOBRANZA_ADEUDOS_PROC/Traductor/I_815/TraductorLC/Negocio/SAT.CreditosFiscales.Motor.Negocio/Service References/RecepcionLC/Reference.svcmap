@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e43c8613-6b53-4f70-b64e-b35a0a903abe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://wu1-sis-dev-cls-net-recepcion.cloudapp.net/Recepcion.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Recepcion1.disco" MetadataType="Disco" ID="1a2cc5ff-639b-4a75-8554-2989ad34c417" SourceId="1" SourceUrl="http://wu1-sis-dev-cls-net-recepcion.cloudapp.net/Recepcion.svc?disco" />
+    <MetadataFile FileName="Recepcion2.wsdl" MetadataType="Wsdl" ID="884aae04-cd04-4b0d-ad9e-d114750aaba6" SourceId="1" SourceUrl="http://wu1-sis-dev-cls-net-recepcion.cloudapp.net/Recepcion.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Recepcion21.wsdl" MetadataType="Wsdl" ID="b8f55dd4-c6a4-49e1-ba8a-80c3cd344fec" SourceId="1" SourceUrl="http://wu1-sis-dev-cls-net-recepcion.cloudapp.net/Recepcion.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,530 @@
+﻿@using Sat.CreditosFiscales.Presentacion.Herramientas.ExtensionsMethods
+@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.DeudoresPurosViewModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".linkDetalleConcepto").click(function () {
+            var x = $(this).attr('idDetalleConcepto');
+            $(".detalleConcepto").hide();
+            $("#" + x).show("fast");
+            var posicion = $("#" + x).position();
+            jQuery('body,html').animate({ scrollTop: posicion.top }, 800);
+            $("#numeroDetalle").text($(this).text());
+        });
+
+        $(".linkObservaciones").click(function () {
+            muestraDatosEstado($(this).attr('cveCorta'))
+        });
+       
+        $(function($){
+            $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '<Ant',
+                nextText: 'Sig>',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+                dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+        });
+
+        $("#txtFecha").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showOn: "button",
+            dateFormat:"dd/mm/yy",
+            buttonImage: '@Url.Content("~/Images/Calendar/cal.gif")',
+            buttonImageOnly: true,
+            showAnim:"slide",
+            altField:"#hFecha",
+            altFormat: "dd/mm/yy",
+            yearRange:"1950:+0"
+
+        });
+    });
+
+   
+    function muestraDatosEstado(rutaInternet, entidad, telefonos, prefijo) {
+        $("#entidadFederativa").text(entidad);
+        $("#telefonos").text(telefonos);
+        //$("#prefijo").text(prefijo);
+        $("#ligaEntidad").text(rutaInternet);
+        $("#ligaEntidad").attr('href', rutaInternet);
+
+        $("#modalEntidad").dialog(
+            {
+                modal: true,
+                buttons:
+                    {
+                        Ok: function () { $(this).dialog("close"); }
+                    }
+            });
+        @*$.ajax({
+            type: 'GET',
+            dataType: "json",
+            data: { CveCortaAlr: cveCorta },
+            url: '@Url.Content("~/GeneracionPrivada/ObtieneEmergente")',
+            success: function (data) {
+                var rutaInternet = data['rutainternet'];
+                $("#entidadFederativa").text(data['estado']);
+                $("#telefonos").text(data['telefono']);
+                $("#prefijo").text(data['prefijo'])
+                $("#ligaEntidad").text(rutaInternet);
+                $("#ligaEntidad").attr('href', rutaInternet);
+
+                $("#modalEntidad").dialog(
+                    {
+                        modal: true,
+                        buttons:
+                            {
+                                Ok: function () { $(this).dialog("close"); }
+                            }
+                    });
+            },
+
+        })*@
+    }
+
+    function ocultaDetalle(id) {
+        $("#" + id).hide("fast");
+    }
+
+    function limpiaCampos()
+    {
+        $("select option:contains('--')").attr("selected","selected");
+        $(":text.parametroDeudor").val('');
+        $("#hFecha").val('');
+    }
+
+    function aplicaAccion(idAccion)
+    {
+        var idCaptcha = '@Html.IdFor(m=>m.Parametros.Captcha)';
+        if (idAccion == "2") {
+            $("select").attr("disabled", "disabled");
+            $(":text.parametroDeudor").attr("disabled", "disabled");
+            //$("#" + idCaptcha).attr("disabled", "disabled")
+        }
+        $("#txtAccion").val(idAccion);
+        $("form:first").submit();
+        if($("form:first").valid())
+        {
+            reloj();
+        }
+
+     
+        
+        
+    }
+</script>
+
+@Html.HiddenFor(m => m.Accion, new { id = "txtAccion" })
+<div id="parametrosConsulta" style="text-align: left; margin: auto; border: solid 1px silver; width: 940px; height: 230px; padding: 5px;">
+    <table>
+        <tr>
+            <td style="width: 790px;">
+                <table>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Parametros.Rfc, new { @class = "parametroDeudor" })
+                            @Html.TextBoxFor(m => m.Parametros.Rfc, new { @class = "parametroDeudor" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Parametros.NumeroDocumento, new { @class = "parametroDeudor" })
+                            @Html.TextBoxFor(m => m.Parametros.NumeroDocumento, new { @class = "parametroDeudor" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Parametros.IdAlr, new { @class = "parametroDeudor" })
+                            @Html.DropDownListFor(m => m.Parametros.IdAlr, new SelectList(Model.ListaAlr, "IdAlr", "Descripcion"), "--Seleccione una ADR--", new { @class = "parametroDeudor", style = "width:500px" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Parametros.IdAutoridad, new { @class = "parametroDeudor" })
+                            <select class="parametroDeudor" style="width:500px" name="@Html.NameFor(m=>m.Parametros.IdAutoridad)" id="@Html.IdFor(m=>m.Parametros.IdAutoridad)">
+                                <option value="-1" selected="selected">--Seleccione una autoridad--</option>
+                                @foreach (var autoridad in Model.ListaAutoridad)
+                                {
+                                    if (Model.Parametros != null && Model.Parametros.IdAutoridad != null && Model.Parametros.IdAutoridad.Equals(autoridad.IdAutoridad.ToString()))
+                                    {
+                                        <option value="@autoridad.IdAutoridad" title="@autoridad.Descripcion" selected="selected">@autoridad.Descripcion</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@autoridad.IdAutoridad" title="@autoridad.Descripcion" >@autoridad.Descripcion</option>
+                                    }
+                                }
+                            </select>
+                            @*@Html.DropDownListFor(m => m.Parametros.IdAutoridad, new SelectList(Model.ListaAutoridad, "IdAutoridad", "Descripcion"), "--Seleccione una Autoridad--", new { @class = "parametroDeudor", style = "width:260px" })*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Parametros.Fecha, new { @class = "parametroDeudor" })
+                            @Html.TextBoxFor(m => m.Parametros.Fecha, new { @class = "parametroDeudor", id = "txtFecha", style = "width:180px", disabled = "disabled" })
+                            @Html.HiddenFor(m => m.Parametros.Fecha, new { id = "hFecha" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.LabelFor(m => m.Parametros.Captcha, new { @class = "parametroDeudor" })
+                            @Html.TextBoxFor(m => m.Parametros.Captcha, new { @class = "parametroDeudor" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 150px">
+                @{string ruta = Url.Action("Captcha", "GeneracionPrivada", new { n = this.ViewBag.n });}
+                <img id="captcha" src="@ruta"/>
+            </td>
+        </tr>
+    </table>
+</div>
+<br />
+<br />
+@if (Model != null && Model.Determinantes != null && Model.Determinantes.Count.Equals(1))
+{
+    <div id="grid">
+        @{string marcaImporte = string.Empty;
+          string idDetalle = string.Empty;}
+        <table class="tabla">
+            <tr>
+                <th style="color: #006FBF; cursor: pointer" title="Al dar clic al número de la resolución, se desplegará los conceptos que componen su adeudo.">Núm. resolución determinante</th>
+                <th>Fecha de resolución determinante</th>
+                <th>Unidad administrativa determinante</th>
+                <th style="color: #006FBF; cursor: pointer" title="Saldo calculado a la fecha del último pago o abono efectuado.">Saldo histórico</th>
+                <th>Actualización</th>
+                <th>Recargos</th>
+                <th>Descuentos o reducciones</th>
+                <th>Saldo actualizado</th>
+                <th>Observaciones</th>
+            </tr>
+
+            @for (int i = 0; i < Model.Determinantes.Count(); i++)
+            {
+                var determinante = Model.Determinantes[i];
+                decimal saldoActualizado = determinante.ImporteHistorico + determinante.ImporteActualizacion + determinante.ImporteRecargos - determinante.ImporteDescuentos;
+                
+                @Html.HiddenFor(m => m.Determinantes[i].NumeroConceptos)
+                
+                @Html.HiddenFor(m => m.Determinantes[i].IdAutoridad)
+                @Html.HiddenFor(m => m.Determinantes[i].IdALR)
+                @Html.HiddenFor(m => m.Determinantes[i].ImporteActualizacion)
+                @Html.HiddenFor(m => m.Determinantes[i].ImporteDescuentos)
+                @Html.HiddenFor(m => m.Determinantes[i].ImporteHistorico)
+                @Html.HiddenFor(m => m.Determinantes[i].NumDocumento)
+                @Html.HiddenFor(m => m.Determinantes[i].Rfc)
+                @Html.HiddenFor(m => m.Determinantes[i].FechaDocumento)
+
+                marcaImporte = Model.Determinantes[i].MostrarImportes ? "ConImporte" : "SinImporte";
+                idDetalle = "detalleConcepto" + i; 
+                <tr>
+                    <td><span class="linkDetalleConcepto" idDetalleConcepto="@idDetalle">@Model.Determinantes[i].NumDocumento</span></td>
+                    <td>
+                        <div style="width: 65px">@Model.Determinantes[i].FechaDocumento.ToStringCustom()</td>
+                    <td>
+                        <div style="width: 150px">@Model.Determinantes[i].DescripcionAutoridad</td>
+                    <td>
+                        <div class="ConImporte">@Model.Determinantes[i].ImporteHistorico.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" >@Model.Determinantes[i].ImporteActualizacion.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" >@Model.Determinantes[i].ImporteRecargos.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" >@Model.Determinantes[i].ImporteDescuentos.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" >@saldoActualizado.ToCurrency()</div>
+                    </td>
+                    <td>
+                        @if (Model.Determinantes[i].MarcasModel != null)
+                        {
+                            foreach (var marca in Model.Determinantes[i].MarcasModel)
+                            {
+                                if (marca.CveMarca.Equals(1))
+                                {
+                            <span class="linkObservaciones" onClick="muestraDatosEstado('@marca.Portal', '@marca.Entidad', '@marca.Telefonos', '@marca.Prefijo')" >@marca.Observacion</span>
+                            <br />
+                            <br />
+                                }
+                                else
+                                {
+                            <span>@marca.Observacion</span>
+                            <br />
+                            <br />
+                                }
+                            }
+                        }
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+        @for (int i = 0; i < Model.Determinantes.Count(); i++)
+        {
+            if (Model.Determinantes[i].ConceptosPadre != null)
+            {
+                idDetalle = "detalleConcepto" + i; 
+            <div id="@idDetalle" style="display: none;" class="detalleConcepto">
+                <div style="background-color: silver; width: 900px; text-align: right; margin-bottom: 3px; margin-top: 10px">
+                    <span style="text-align: left; float: left">Detalle - Conceptos -  Resolución <b id="numeroDetalle">@Model.Determinantes[i].NumDocumento</b></span>
+                    <span style="text-align: right; color: blue; text-decoration: underline; cursor: pointer" onclick="ocultaDetalle('@idDetalle');">Cerrar</span>
+                </div>
+                <div id="ventanaTabla">
+                    <div class="ventanaGrid">
+                        <table class="tabla">
+                            <tr>
+                                <th style="display: none;">
+                                    <div style="width: 50px;">Crédito</div>
+                                </th>
+                                <th>
+                                    <div style="width: 300px;">Concepto</div>
+                                </th>
+                                <th>
+                                    <div style="width: 50px;">Periodo</div>
+                                </th>
+                                <th>
+                                    <div style="width: 50px;">Ejercicio</div>
+                                </th>
+                                <th>
+                                    <div style="width: 75px;">Saldo histórico</div>
+                                </th>
+                                <th>
+                                    <div style="width: 75px;">Actualización</div>
+                                </th>
+                                <th>
+                                    <div style="width: 75px;">Recargos</div>
+                                </th>
+                                <th>
+                                    <div style="width: 75px;">Descuentos o reducciones</div>
+                                </th>
+                                <th>
+                                    <div style="width: 75px;">Saldo actualizado</div>
+                                </th>
+                            </tr>
+                            @for (int indice = 0; indice < Model.Determinantes[i].ConceptosPadre.Count; indice++)
+                            {
+                                var concepto = Model.Determinantes[i].ConceptosPadre[indice];
+                                bool mostrarComoHijo = false;
+                                if (indice > 0)
+                                {
+                                    string creditoArcaAnterior = string.Format("{0}-", Model.Determinantes[i].ConceptosPadre[indice - 1].CreditoARCA);
+                                    mostrarComoHijo = concepto.CreditoARCA.ToLowerInvariant().Contains(creditoArcaAnterior);
+                                }
+                                <tr>
+                                    <td style="display: none;">
+                                        <div style="width: 70px;">@concepto.CreditoSIR</div>
+                                    </td>
+                                    <td>
+                                        @if (mostrarComoHijo)
+                                        {
+                                            <div style="width: 308px; text-align: left; padding-left: 20px">@concepto.Descripcion</div>
+                                        }
+                                        else
+                                        {
+                                            <div style="width: 328px; text-align: left;">@concepto.Descripcion</div>
+                                        }
+                                    </td>
+                                    <td>
+                                        @{string descripcion = concepto.DescripcionPerido.ToLower() != "sin periodo" ? concepto.DescripcionPerido.ToLower() : string.Empty; }
+                                        <div style="width: 50px;">@descripcion</div>
+                                    </td>
+                                    <td>
+                                        @{string ejercicio = concepto.Ejercicio > 0 ? concepto.Ejercicio.ToString() : string.Empty;}
+                                        <div style="width: 50px;">@ejercicio</div>
+                                    </td>
+                                    <td>
+                                        <div class="ConImporte">@concepto.ImporteHistorico.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        <div class="@marcaImporte">@concepto.ImporteParteActualizada.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        <div class="@marcaImporte">@concepto.ImporteRecargos.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        <div class="@marcaImporte">@concepto.ImporteDescuentos.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        @{decimal saldoactualizado = concepto.ImporteHistorico + concepto.ImporteParteActualizada + concepto.ImporteRecargos - concepto.ImporteDescuentos;}
+                                        <div class="@marcaImporte">@saldoactualizado.ToCurrency()</div>
+                                    </td>
+                                </tr>
+                                          foreach (var conceptoHijo in concepto.ConceptosHijo)
+                                          {
+                                              if (!Model.IdsRecargos.Contains(conceptoHijo.IdConcepto.ToString()))
+                                              {
+                                <tr>
+                                    <td>
+                                        <div style="width: 70px;">@conceptoHijo.CreditoSIR</div>
+                                    </td>
+                                    <td>
+                                        <div style="width: 308px; text-align: left; padding-left: 20px">@conceptoHijo.Descripcion</div>
+                                    </td>
+                                    <td>
+                                        <div style="width: 50px;">&nbsp;</div>
+                                    </td>
+                                    <td>
+                                        <div style="width: 50px;">&nbsp;</div>
+                                    </td>
+                                    <td>
+                                        <div class="ConImporte">@conceptoHijo.ImporteHistorico.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        <div class="@marcaImporte">@conceptoHijo.ImporteParteActualizada.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        <div class="@marcaImporte">@conceptoHijo.ImporteRecargos.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        <div class="@marcaImporte">@conceptoHijo.ImporteDescuentos.ToCurrency()</div>
+                                    </td>
+                                    <td>
+                                        @{decimal saldoactualizadohijo = conceptoHijo.ImporteHistorico + conceptoHijo.ImporteParteActualizada + conceptoHijo.ImporteRecargos - conceptoHijo.ImporteDescuentos;}
+                                        <div class="@marcaImporte">@saldoactualizadohijo.ToCurrency()</div>
+                                    </td>
+                                </tr>
+                                              }
+                                          }
+
+                            }
+                        </table>
+                    </div>
+                    <table class="tabla" style="position: relative; top: -300px; left: 0px">
+                        <tr>
+                            <th style="display: none;">
+                                <div style="width: 70px;">Crédito</div>
+                            </th>
+                            <th>
+                                <div style="width: 328px;">Concepto</div>
+                            </th>
+                            <th>
+                                <div style="width: 50px;">Periodo</div>
+                            </th>
+                            <th>
+                                <div style="width: 50px;">Ejercicio</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Saldo histórico</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Actualización</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Recargos</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Descuentos o reducciones</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Saldo actualizado</div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            }
+        }
+
+
+    </div>
+}
+else if (Model != null && Model.Determinantes != null && Model.Determinantes.Count > 1)
+{
+    <div id="mensajeDuplicidad">
+        <!-- SARR 25/mar/2015
+        <h2 style="text-align: justify">Se detectaron inconsistencias que impiden mostrar la información de su adeudo.
+            Le sugerimos acudir al módulo de atención de la Administración Local de Servicios al Contribuyente 
+            que corresponda a su domicilio fiscal o bien a llamar a INFOSAT.</h2>
+            -->
+        <h2 style="text-align: justify">Hay más de una resolución con los valores capturados, lo que impide mostrar
+            la información. Acuda a la Administración Local de Servicios al Contribuyente
+            que corresponda a su domicilio fiscal, o llame a INFOSAT.</h2>
+    </div>
+}
+else if (Model != null && Model.Determinantes != null && Model.Determinantes.Count == 0)
+{ 
+    <h2>No existen adeudos registrados con los datos proporcionados; verifique.</h2>
+}
+
+<div id="botonera">
+    <!--<input type="button" value="Regresar al menú" onclick="reloj();window.location.href='@Url.Action("Index", "Home")    ';" />-->
+    <input type="button" value="Limpiar Campos" id="btnLimpia" onclick="limpiaCampos();"/> 
+    <input type="button" value="Consultar" id="btnConsulta" onclick="aplicaAccion('1')" />    
+    <input type="button" value="Pago Total" id="btnPago" onclick="aplicaAccion('2')" style="display: none" />
+</div>
+<div id="modalEntidad" title="Entidad Federativa" style="display: none">
+    <p>
+        <span id="entidadFederativa"></span>
+    </p>
+    <p>
+        Teléfonos de atención: <span id="telefonos"></span>
+    </p>
+    <p>
+        Página de internet:<br />
+        <a id="ligaEntidad" target="_blank"></a>
+    </p>
+</div>
+
+<div id="mensajesValidacion" style="width: 450px; margin: auto; text-align: left">
+    @Html.ValidationSummary(false)
+    @if (this.ViewBag.ErrorCaptcha != null)
+    {
+        <script>            //ocultarReloj();</script>
+        <ul>
+            <li style="color: red; font-weight: bold">@this.ViewBag.ErrorCaptcha </li>
+        </ul>
+    }
+
+</div>
+@Html.HiddenFor(m => m.Accion, new { id="mAccion"})
+@if (Model != null && Model.Determinantes != null && Model.Determinantes.Count.Equals(1))
+{
+    <script>$("#btnPago").show();</script>
+}
+@if (!string.IsNullOrEmpty(Model.MensajeError))
+{
+    @Html.Raw(Model.MensajeError)
+}
+@if (Model != null && Model.Accion == -1)
+{
+    <script type="text/javascript">
+        reloj();
+        window.location.href = '@Url.Action("Index", "LineaCaptura", new { idSolicitud = this.ViewBag.IdSolicitud, deudorPuro = true })';
+    </script>
+}
+<script>
+ 
+    $(".SinImporte").text('-');
+</script>
+
+@section mensajeContribuyente
+{
+
+    @if (!string.IsNullOrEmpty(Model.MensajeError))
+    {
+        @Html.Raw(Model.MensajeError)
+    }
+
+    @if (this.ViewBag.CambioOrigen != null)
+    {
+        @Html.Raw(this.ViewBag.CambioOrigen)
+    }
+}

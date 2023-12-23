@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace" elementFormDefault="qualified">
+	<xs:element name="SolicitudGeneracionLC">
+		<xs:annotation>
+			<xs:documentation>Solicitud de generación de LC para pagos a cuenta (abonos o intervenciones).</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DatosGenerales">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IdDocumento" type="xs:int"/>
+							<xs:element name="Solicitud">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="^(44\d{12})$"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="IdContribuyente" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="0"/>
+										<xs:maxLength value="50"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="OrigenInformacion">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="^(5)$"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ClaveGenerica" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="0"/>
+										<xs:maxLength value="50"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="NumeroConceptos">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="^\d{1,4}$"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ImporteTotal" type="TImporte"/>
+							<xs:element name="FechaEmision">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="(0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d ([0-1]\d|2[0-3]):[0-5]\d"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="FechaRecepcion">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="(0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d ([0-1]\d|2[0-3]):[0-5]\d:[0-5]\d"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="RFC">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[A-ZÑ&amp;]{3,4}\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2]\d|3[0-1])[A-Z\d]{2}[A\d]"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Nombre" type="TNombre" minOccurs="0"/>
+							<xs:element name="ApellidoPaterno" type="TNombre" minOccurs="0"/>
+							<xs:element name="ApellidoMaterno" type="TNombre" minOccurs="0"/>
+							<xs:element name="RazonSocial" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="0"/>
+										<xs:maxLength value="120"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ClaveAlr">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="^\d{1,2}$"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="TipoDocumento">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:pattern value="^\d{1,2}$"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="DescripcionTipoDocumento">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="0"/>
+										<xs:maxLength value="50"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="NumeroParcialidad" nillable="true" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="0"/>
+										<xs:maxLength value="0"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="LineasCaptura" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DatosLineaCaptura" type="TLineaCaptura"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Conceptos">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="Concepto" type="TConcepto"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="NumeroSecuenciaKey">
+			<xs:selector xpath=".//NumeroSecuencia"/>
+			<xs:field xpath="."/>
+		</xs:key>
+	</xs:element>
+	<xs:complexType name="TConcepto">
+		<xs:sequence>
+			<xs:element name="NumeroSecuencia">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:pattern value="^[1-9]+[0-9]*$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Clave">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Descripcion">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ClaveGenerica" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ImporteTotalCargos" type="TImporte"/>
+			<xs:element name="ImporteTotalAbonos" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CantidadPagar" type="TImporte"/>
+			<xs:element name="DatosIcep" type="TIcep"/>
+			<xs:element name="Transacciones">
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="Transaccion" type="TTransaccion"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TIcep">
+		<xs:sequence>
+			<xs:element name="IcepCorrecto" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="0"/>
+						<xs:maxLength value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Ejercicio" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="^\d{4}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ClavePeriodicidad">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DescripcionPeriodicidad">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ClavePeriodo">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="^\d{1,3}$"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DescripcionPeriodo">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FechaCausacion" minOccurs="0">
+				<xs:simpleType xml:base="xs:string">
+					<xs:restriction base="xs:string">
+						<xs:pattern value="((0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d)|"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TTransaccion">
+		<xs:sequence>
+			<xs:element name="Clave">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Descripcion">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="150"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Valor" type="TImporte"/>
+			<xs:element name="Tipo" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TLineaCaptura">
+		<xs:sequence>
+			<xs:element name="Secuencia" type="xs:string" minOccurs="0"/>
+			<xs:element name="LineaCaptura" type="xs:string"/>
+			<xs:element name="Importe" type="TImporte"/>
+			<xs:element name="FechaVigencia">
+				<xs:simpleType xml:base="xs:string">
+					<xs:restriction base="xs:string">
+						<xs:pattern value="(0[1-9]|[12][0-9]|3[01])[/.](0[1-9]|1[012])[/.](19|20)\d\d"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PagoObligadoInternet">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:pattern value="(^(2)$)|(^(4)$)"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TImporte">
+		<xs:restriction base="xs:decimal">
+			<xs:pattern value="^\d{1,14}$"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TNombre">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

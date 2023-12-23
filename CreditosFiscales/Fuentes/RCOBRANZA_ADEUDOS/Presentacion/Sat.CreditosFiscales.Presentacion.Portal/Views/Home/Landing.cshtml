@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Landing";
+}
+
+<h2>Landing</h2>
+
+@if(this.ViewBag.Rfc != null)
+{
+    <h1>this.ViewBag.RutaAcceso</h1>
+  <script>
+      window.location.href = '@this.ViewBag.RutaAcceso';
+  </script>
+}
+else
+{
+    <h3>No existe el header</h3>
+}

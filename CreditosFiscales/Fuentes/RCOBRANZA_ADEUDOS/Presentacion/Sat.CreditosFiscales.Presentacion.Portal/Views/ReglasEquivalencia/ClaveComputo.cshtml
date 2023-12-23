@@ -1,0 +1,184 @@
+﻿@model Tuple<Sat.CreditosFiscales.Presentacion.Portal.ViewModels.ClaveComputoViewModel, Sat.CreditosFiscales.Presentacion.Portal.ViewModels.ClaveComputoCatalogoViewModel>
+
+
+@{
+    ViewBag.Title = "Clave de cómputo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/jquerydt")
+
+@section encabezado
+{
+    <h1>Clave de cómputo</h1>
+    <div style="text-align: right">
+        <a href="@Url.Action("Consulta", "ReglasEquivalencia")">Reglas de equivalencia</a>
+        &nbsp;|&nbsp;
+        <a href="@Url.Action("Conceptos", "ReglasEquivalencia")">Conceptos Equivalencia</a>
+         &nbsp;|&nbsp;
+        <a href="@Url.Action("CatReglas","CatReglas")">Catalogo de reglas</a>
+        &nbsp;|&nbsp;
+        <a href="@Url.Action("CatEsquemas","CatEsquemas")">Catalogo de esquemas</a>
+    </div>
+}
+
+<style>
+    .tablaEvento {
+        text-align: left;
+    }
+
+        .tablaEvento tr {
+            height: 40px !important;
+            border: solid 1px #D8D8D8;
+            vertical-align: top;
+        }
+
+        .tablaEvento input, select, textarea {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+</style>
+
+@using (Ajax.BeginForm("BuscarClaveComputo", "Catalogos", new AjaxOptions { UpdateTargetId = "tblResultado" }, new { claveComputo = "claveComputo" }))
+{
+    <table class="tablaEvento" style="width: 50%">
+        <tr>
+            <td>Id. del Evento:&nbsp;
+                    @Html.TextBoxFor(tuple => tuple.Item1.claveComputo, new { tabindex = 1, maxlength = 20, Name = "claveComputo" })
+            </td>
+            <td style="text-align: right; vertical-align: text-top">
+                <input type="submit" id="btnBuscar" value="Buscar" />
+            </td>
+        </tr>
+    </table>
+}
+
+
+
+
+@using (Html.BeginForm("GuardarClaveComputo", "ClaveComputo", FormMethod.Post, new { id = "frmGuardar" }))
+{
+    <table class="tabla" style="width: 100%">
+        <thead>
+            <tr>
+                <th>Clave de cómputo</th>
+                <th>Descripción</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        @if (Model != null && Model.Item2.ClaveComputo != null)
+        {
+            <tr style="vertical-align: top">
+                <td>
+                    @Html.HiddenFor(tuple => tuple.Item2.Accion, new { id = "Accion", Value = 2 })
+                    @Html.HiddenFor(tuple => tuple.Item2.ClaveComputo, new { id = "ClaveComputo" })
+                    @Model.Item2.ClaveComputo
+                </td>
+                <td>@Html.TextAreaFor(tuple => tuple.Item2.Descripcion, new { tabindex = 1, maxlength = 150, cols = 80, id = "Descripcion" })<br />
+                    @Html.ValidationMessageFor(tuple => tuple.Item2.Descripcion, "(* Requerido)")
+                </td>
+                <td>
+                    <input type="submit" value="Actualizar" /></td>
+                <td>
+                    <input type="button" value="Cancelar" onclick="location.href = 'ClaveComputo'" />
+                </td>
+            </tr>
+        }
+        else
+        {
+            
+            <tr style="vertical-align: top">
+                <td>
+                    @Html.HiddenFor(tuple => tuple.Item2.Accion, new { id = "Accion", Value = 1 })
+                    @Html.TextBoxFor(tuple => tuple.Item2.ClaveComputo, new { tabindex = 1, maxlength = 20, id = "ClaveComputo" })
+                    <br />
+                    @Html.ValidationMessageFor(tuple => tuple.Item2.ClaveComputo, "(* Requerido)")
+                </td>
+                <td>@Html.TextAreaFor(tuple => tuple.Item2.Descripcion, new { tabindex = 1, maxlength = 150, cols = 80, id = "Descripcion" })<br />
+                    @Html.ValidationMessageFor(tuple => tuple.Item2.Descripcion, "(* Requerido)")
+                </td>
+                <td>
+                    <input type="submit" value="Guardar" /></td>
+                <td>
+                    <input type="button" value="Cancelar" onclick="location.href = 'ClaveComputo'" />
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+<p>&nbsp;</p>
+
+
+@if (Model != null && Model.Item1.Lista != null)
+{
+    if (Model.Item1.Lista.Count > 0)
+    {
+    <div id="divResultado" style="overflow-x: scroll;">
+        <table id="tblResultado" class="tabla" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Clave de cómputo</th>
+                    <th>Descripción</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (int i = 0; i < Model.Item1.Lista.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(Model.Item1.Lista[i].ClaveComputo, "EditarClaveComputo", "ClaveComputo", new { claveComputo = Model.Item1.Lista[i].ClaveComputo }, null)
+                        </td>
+                        <td>@Model.Item1.Lista[i].Descripcion</td>
+                        <td>@Html.ActionLink("Eliminar", "EliminarClaveComputo", "ClaveComputo", new { claveComputo = Model.Item1.Lista[i].ClaveComputo }, null)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <script>
+
+            $(function () {
+                $('#tblResultado').dataTable({
+                    "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+                    "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+                    "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+                    "oLanguage": {
+                        "sProcessing": "Procesando...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sSearch": "Buscar:",
+                        "sUrl": "",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        }
+
+                    }
+                });
+            });
+
+        </script>
+    </div>
+    }
+}
+
+
+
+
+
+

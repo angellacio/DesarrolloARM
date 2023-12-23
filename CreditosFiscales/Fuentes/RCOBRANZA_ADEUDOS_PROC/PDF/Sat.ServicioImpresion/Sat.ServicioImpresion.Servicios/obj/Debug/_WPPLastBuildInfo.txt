@@ -1,0 +1,4 @@
+PlatformName=AnyCPU
+Configuration=Debug
+WPPAllFilesInSingleFolder=C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\obj\Debug\Package\PackageTmp
+WebPublishProfileFile=C:\TFS\LCCreditosFiscales\GeneraPDF\Sat.ServicioImpresion\Sat.ServicioImpresion.Servicios\Properties\PublishProfiles\WsGeneraPDF.pubxml

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="651101de-2d1c-4f40-8aa8-24c0d80fcf1b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://satcpnasfpro25:8092/WsTraductorProcesamiento/CreditosFiscales.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CreditosFiscales1.disco" MetadataType="Disco" ID="45319f7f-dbcd-4f6b-abd8-243dc8d4ab30" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsTraductorProcesamiento/CreditosFiscales.svc?disco" />
+    <MetadataFile FileName="CreditosFiscales2.xsd" MetadataType="Schema" ID="d24b6348-9a80-4470-9f8f-0804ee57f7b7" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsTraductorProcesamiento/CreditosFiscales.svc?xsd=xsd0" />
+    <MetadataFile FileName="CreditosFiscales1.wsdl" MetadataType="Wsdl" ID="10ff2535-20f9-4fbe-ada1-5789d93f0d7a" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsTraductorProcesamiento/CreditosFiscales.svc?wsdl" />
+    <MetadataFile FileName="CreditosFiscales21.xsd" MetadataType="Schema" ID="e1822648-f9fc-4243-9190-15621b6bb2a5" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsTraductorProcesamiento/CreditosFiscales.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

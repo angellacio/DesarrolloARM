@@ -1,0 +1,62 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraAccesoLogViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .tablaEvento {
+        text-align: left;
+    }
+
+        .tablaEvento tr {
+            height: 40px !important;
+            border: solid 1px #D8D8D8;
+        }
+
+        .tablaEvento input, select {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+</style>
+
+@section encabezado
+{
+    <h1>Acceso</h1>
+}
+
+
+@using (Html.BeginForm("ValidaAcceso", "LogEventos", FormMethod.Post))
+{
+    
+    <table class="tablaEvento" align="center">
+        <tr>
+            <td>Usuario:</td>
+            <td>@Html.TextBoxFor(m => m.Usuario, new { tabindex = 1, maxlength = 15 })
+                @Html.ValidationMessageFor(m => m.Usuario, "(*) Requerido")
+            </td>
+        </tr>
+        <tr>
+            <td>Contraseña:</td>
+            <td>@Html.PasswordFor(m => m.Contraseña, new { tabindex = 2, maxlength = 15 })
+                @Html.ValidationMessageFor(m => m.Contraseña, "(*) Requerido")
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <input type="submit" id="btnEntrar" value="Entrar" />
+            </td>
+        </tr>
+        <tr>
+            &nbsp;
+        </tr>
+        <tr>
+            <td colspan ="2" style="text-align:right">
+                @Html.ActionLink("Camnbiar contraseña", "CambiarPassword", "LogEventos")
+            </td>
+        </tr>
+    </table>
+   
+}
+

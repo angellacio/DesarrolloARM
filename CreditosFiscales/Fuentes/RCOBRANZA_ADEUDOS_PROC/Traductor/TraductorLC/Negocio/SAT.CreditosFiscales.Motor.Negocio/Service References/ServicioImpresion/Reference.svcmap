@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4d77712f-1c48-46aa-a4bf-74b6d2a653fa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://satcpnasfpro25:8092/WsImpresionLC/ServicioGeneraFormatoImpresion.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion.xsd" MetadataType="Schema" ID="c8a30fec-7c4f-420a-9a9b-3ac40e7a673b" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsImpresionLC/ServicioGeneraFormatoImpresion.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion.wsdl" MetadataType="Wsdl" ID="1b8132a1-8986-41a4-ab19-29a18f6c40f1" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsImpresionLC/ServicioGeneraFormatoImpresion.svc?wsdl" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion1.xsd" MetadataType="Schema" ID="50c250e1-04d7-4aae-9e0b-7840a68f5083" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsImpresionLC/ServicioGeneraFormatoImpresion.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion.disco" MetadataType="Disco" ID="a4964370-7d8c-4066-a6ff-debf5370d243" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsImpresionLC/ServicioGeneraFormatoImpresion.svc?disco" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion2.xsd" MetadataType="Schema" ID="b84c5bad-8fa5-43f2-bb3e-98e1f4f6ca12" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsImpresionLC/ServicioGeneraFormatoImpresion.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion3.xsd" MetadataType="Schema" ID="c64e0c6c-50ad-448d-b587-4390629e2ad8" SourceId="1" SourceUrl="http://satcpnasfpro25:8092/WsImpresionLC/ServicioGeneraFormatoImpresion.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

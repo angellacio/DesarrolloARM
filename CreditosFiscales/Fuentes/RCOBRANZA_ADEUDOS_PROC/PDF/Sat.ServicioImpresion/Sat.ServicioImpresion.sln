@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.ServicioImpresion.AccesoDatos", "Sat.ServicioImpresion.AccesoDatos\Sat.ServicioImpresion.AccesoDatos.csproj", "{AB1EE237-7855-44DA-AF21-6CDCB0572006}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.ServicioImpresion.LogicaNegocio", "Sat.ServicioImpresion.LogicaNegocio\Sat.ServicioImpresion.LogicaNegocio.csproj", "{A32343BB-8E97-4378-93E2-74FDDF8BCD39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.ServicioImpresion.Servicios", "Sat.ServicioImpresion.Servicios\Sat.ServicioImpresion.Servicios.csproj", "{24CDEE4D-3C73-4992-AE56-1C9D7997DDA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Externos", "Externos", "{90A8CA71-834D-4F60-92F2-D49BDD20BC55}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Condonaciones\Externos\Fonet.dll = ..\..\..\..\Condonaciones\Externos\Fonet.dll
+		..\..\..\..\..\Users\juan.antonio\Downloads\QrCode.Net 0.4 Pre-Release\QrCode.Net 0.4 Pre-Release\Gma.QrCodeNet.Encoding.Net35\Gma.QrCodeNet.Encoding.Net35.dll = ..\..\..\..\..\Users\juan.antonio\Downloads\QrCode.Net 0.4 Pre-Release\QrCode.Net 0.4 Pre-Release\Gma.QrCodeNet.Encoding.Net35\Gma.QrCodeNet.Encoding.Net35.dll
+		..\..\Desarrollo\Externos\itextsharp.dll = ..\..\Desarrollo\Externos\itextsharp.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.ServicioImpresion.Entidades", "Sat.ServicioImpresion.Entidades\Sat.ServicioImpresion.Entidades.csproj", "{2A41A937-9097-4123-805C-2498099B0FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.ServicioImpresion.Comunes.Herramientas", "Sat.ServicioImpresion.Comunes.Herramientas\Sat.ServicioImpresion.Comunes.Herramientas.csproj", "{29AF52A6-019A-4D27-BE55-138AF42405C0}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://99.90.52.210:8080/tfs/sat
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sat.ServicioImpresion.AccesoDatos\\Sat.ServicioImpresion.AccesoDatos.csproj
+		SccProjectName1 = Sat.ServicioImpresion.AccesoDatos
+		SccLocalPath1 = Sat.ServicioImpresion.AccesoDatos
+		SccProjectUniqueName2 = Sat.ServicioImpresion.LogicaNegocio\\Sat.ServicioImpresion.LogicaNegocio.csproj
+		SccProjectName2 = Sat.ServicioImpresion.LogicaNegocio
+		SccLocalPath2 = Sat.ServicioImpresion.LogicaNegocio
+		SccProjectUniqueName3 = Sat.ServicioImpresion.Servicios\\Sat.ServicioImpresion.Servicios.csproj
+		SccProjectName3 = Sat.ServicioImpresion.Servicios
+		SccLocalPath3 = Sat.ServicioImpresion.Servicios
+		SccProjectUniqueName4 = Sat.ServicioImpresion.Entidades\\Sat.ServicioImpresion.Entidades.csproj
+		SccProjectName4 = Sat.ServicioImpresion.Entidades
+		SccLocalPath4 = Sat.ServicioImpresion.Entidades
+		SccProjectUniqueName5 = Sat.ServicioImpresion.Comunes.Herramientas\\Sat.ServicioImpresion.Comunes.Herramientas.csproj
+		SccProjectName5 = Sat.ServicioImpresion.Comunes.Herramientas
+		SccLocalPath5 = Sat.ServicioImpresion.Comunes.Herramientas
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB1EE237-7855-44DA-AF21-6CDCB0572006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB1EE237-7855-44DA-AF21-6CDCB0572006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB1EE237-7855-44DA-AF21-6CDCB0572006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB1EE237-7855-44DA-AF21-6CDCB0572006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32343BB-8E97-4378-93E2-74FDDF8BCD39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32343BB-8E97-4378-93E2-74FDDF8BCD39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32343BB-8E97-4378-93E2-74FDDF8BCD39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32343BB-8E97-4378-93E2-74FDDF8BCD39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24CDEE4D-3C73-4992-AE56-1C9D7997DDA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24CDEE4D-3C73-4992-AE56-1C9D7997DDA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24CDEE4D-3C73-4992-AE56-1C9D7997DDA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24CDEE4D-3C73-4992-AE56-1C9D7997DDA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A41A937-9097-4123-805C-2498099B0FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A41A937-9097-4123-805C-2498099B0FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A41A937-9097-4123-805C-2498099B0FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A41A937-9097-4123-805C-2498099B0FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AF52A6-019A-4D27-BE55-138AF42405C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29AF52A6-019A-4D27-BE55-138AF42405C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29AF52A6-019A-4D27-BE55-138AF42405C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29AF52A6-019A-4D27-BE55-138AF42405C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

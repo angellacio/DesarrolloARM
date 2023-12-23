@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA6B2EB9-6225-4327-ABBA-E26A0A2481FC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sat.CreditosFiscales.Comunes.Entidades</RootNamespace>
+    <AssemblyName>Sat.CreditosFiscales.Comunes.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoLogEventos\ExcepcionMesajesUsuario.cs" />
+    <Compile Include="AccesoLogEventos\EnumLogEventos.cs" />
+    <Compile Include="AccesoLogEventos\ExcepcionGeneracionLineaCaptura.cs" />
+    <Compile Include="AccesoLogEventos\LogEvento.cs" />
+    <Compile Include="AccesoLogEventos\Excepcion.cs" />
+    <Compile Include="AccesoLogEventos\ExcepcionGeneracionFormato.cs" />
+    <Compile Include="AccesoLogEventos\ReporteErrorWcf.cs" />
+    <Compile Include="AccionesPantalla\EnumAccionGeneraFormato.cs" />
+    <Compile Include="Catalogos\ALR.cs" />
+    <Compile Include="Catalogos\ApplicationSetting.cs" />
+    <Compile Include="Catalogos\Autoridad.cs" />
+    <Compile Include="Catalogos\CatalogoGenerico.cs" />
+    <Compile Include="Catalogos\CatBanco.cs" />
+    <Compile Include="Catalogos\CatClaveComputo.cs" />
+    <Compile Include="Catalogos\CatMarca.cs" />
+    <Compile Include="Catalogos\CatReglas.cs" />
+    <Compile Include="Catalogos\ConceptoEquivalencia.cs" />
+    <Compile Include="Catalogos\CatEsquemas.cs" />
+    <Compile Include="Catalogos\FechaINPC.cs" />
+    <Compile Include="Catalogos\DescripcionConceptoPeriodicidad.cs" />
+    <Compile Include="Catalogos\DiaInhabil.cs" />
+    <Compile Include="Catalogos\ReglaEquivalencia.cs" />
+    <Compile Include="CodigosError\EnumError.cs" />
+    <Compile Include="GeneraFormato\DescuentoConcepto.cs" />
+    <Compile Include="GeneraFormato\DescuentoConceptoHijo.cs" />
+    <Compile Include="GeneraFormato\DocumentoDeterminante.cs" />
+    <Compile Include="GeneraFormato\DocumentoDeterminanteConceptoHijo.cs" />
+    <Compile Include="GeneraFormato\DocumentosContribuyentePuro.cs" />
+    <Compile Include="GeneraFormato\LineaCaptura.cs" />
+    <Compile Include="Pagos\Agrupadores.cs" />
+    <Compile Include="Pagos\ArchivoSalida.cs" />
+    <Compile Include="Pagos\ConceptoOriginal.cs" />
+    <Compile Include="Pagos\ConceptoOriginalHijo.cs" />
+    <Compile Include="Pagos\EnumTipoAplicacion.cs" />
+    <Compile Include="Pagos\EnumTipoPersona.cs" />
+    <Compile Include="Pagos\InfoArchivoSIAT.cs" />
+    <Compile Include="Pagos\InfoArchivoSIR.cs" />
+    <Compile Include="Pagos\ReporteDiferencias.cs" />
+    <Compile Include="Pagos\RutaArchivos.cs" />
+    <Compile Include="Pagos\SIATPagos.cs" />
+    <Compile Include="Pagos\TblLineaCaptura.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GeneraFormato\DocumentoDeterminanteConcepto.cs" />
+    <Compile Include="Seguridad\EmpleadoLdap.cs" />
+    <Compile Include="Seguridad\InfoContribuyente.cs" />
+    <Compile Include="SeleccionUsuario.cs" />
+    <Compile Include="Servicios\EnumServicios.cs" />
+    <Compile Include="Servicios\Peticion.cs" />
+    <Compile Include="GeneraFormato\Solicitud.cs" />
+    <Compile Include="Servicios\Traductor\CF_ConsultaLineasCaptura.cs" />
+    <Compile Include="Servicios\Traductor\CF_PagosUnaSolaExhibicion.cs" />
+    <Compile Include="Servicios\Traductor\RespuestaLineaCaptura.cs" />
+    <Compile Include="Servicios\Traductor\RespuestaLineasCapturaExistentes.cs" />
+    <Compile Include="Servicios\Traductor\RespuestaResolucionesEnLineaCaptura.cs" />
+    <Compile Include="Servicios\Traductor\TraductorBitacora.cs" />
+    <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sat.CreditosFiscales.Comunes.Herramientas\Sat.CreditosFiscales.Comunes.Herramientas.csproj">
+      <Project>{5a2cdc8b-f92c-4c1e-bbb6-fb7a511aced9}</Project>
+      <Name>Sat.CreditosFiscales.Comunes.Herramientas</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

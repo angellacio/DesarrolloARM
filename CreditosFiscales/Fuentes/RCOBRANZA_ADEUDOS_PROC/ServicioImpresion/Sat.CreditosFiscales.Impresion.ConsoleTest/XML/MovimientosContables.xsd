@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Documentos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="LC">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ALR" type="xs:unsignedByte" />
+              <xs:element name="RFC" type="xs:string" />
+              <xs:element name="FolioLC" type="xs:string" />
+              <xs:element name="Secuencia" type="xs:unsignedByte" />
+              <xs:element name="Nombre" type="xs:string" />
+              <xs:element name="FechaYHora" type="xs:string" />
+              <xs:element name="Referencia" type="xs:string" />
+              <xs:element name="Importe" type="xs:string" />
+              <xs:element name="Abonos">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ClaveA" type="xs:unsignedInt" />
+                    <xs:element name="DescripcionA" type="xs:string" />
+                    <xs:element name="ImporteA" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="template" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Cargos">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ClaveC" type="xs:unsignedInt" />
+                    <xs:element name="DescripcionC" type="xs:string" />
+                    <xs:element name="ImporteC" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="template" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="TotalA" type="xs:string" />
+              <xs:element minOccurs="0" name="TotalC" type="xs:string" />
+              <xs:element minOccurs="0" name="Observaciones" type="xs:string" />
+            </xs:sequence>
+            <xs:attribute name="template" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="template" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

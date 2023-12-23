@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05E6ED87-53E4-4235-951A-775A740EFD47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SAT.CreditosFiscales.Motor.Negocio</RootNamespace>
+    <AssemblyName>SAT.CreditosFiscales.Motor.Negocio</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccesoLogEventos\LogEventos.cs" />
+    <Compile Include="AdmonReglas\Ejecucion.cs" />
+    <Compile Include="Catalogos\AplicationSettings.cs" />
+    <Compile Include="DatosCache\CacheRepository.cs" />
+    <Compile Include="Esquemas\Validacion.cs" />
+    <Compile Include="Mensajes\ObtieneMensajes.cs" />
+    <Compile Include="Procesamiento\BitacoraProcesamiento.cs" />
+    <Compile Include="Procesamiento\BusquedaLineas.cs" />
+    <Compile Include="Procesamiento\GeneracionEquivalenciaConceptos.cs" />
+    <Compile Include="Procesamiento\GeneracionEquivalenciaFormato.cs" />
+    <Compile Include="Procesamiento\GeneradorTransaccion.cs" />
+    <Compile Include="Procesamiento\HerramientasReglasEquivalencia.cs" />
+    <Compile Include="Procesamiento\InvocaServicios.cs" />
+    <Compile Include="Procesamiento\LogicaAlmacena.cs" />
+    <Compile Include="Procesamiento\Traductor.cs" />
+    <Compile Include="Procesamiento\ValidaXSD.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReglasNet\CatalogoReglas.cs" />
+    <Compile Include="ReglasNet\ReglaBaseNet.cs" />
+    <Compile Include="Service References\RecepcionLC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicioImpresion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Comunes\SAT.CreditosFiscales.Motor.Entidades\SAT.CreditosFiscales.Motor.Entidades.csproj">
+      <Project>{e397a920-2fa0-4a94-81ac-ac5c46978dc2}</Project>
+      <Name>SAT.CreditosFiscales.Motor.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Comunes\SAT.CreditosFiscales.Motor.Utilidades\SAT.CreditosFiscales.Motor.Utilidades.csproj">
+      <Project>{81784cdf-d6a8-4f96-93a6-615179a7f8c7}</Project>
+      <Name>SAT.CreditosFiscales.Motor.Utilidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Datos\SAT.CreditosFiscales.Motor.AccesoDatos\SAT.CreditosFiscales.Motor.AccesoDatos.csproj">
+      <Project>{01b6e701-0491-4ce6-a782-d753eb1f8b04}</Project>
+      <Name>SAT.CreditosFiscales.Motor.AccesoDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RecepcionLC\Recepcion2.wsdl" />
+    <None Include="Service References\RecepcionLC\Recepcion21.wsdl" />
+    <None Include="Service References\RecepcionLC\SAT.CreditosFiscales.Motor.Negocio.RecepcionLC.RespuestaGeneracionLC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicioImpresion\ServicioGeneraFormatoImpresion.wsdl" />
+    <None Include="Service References\ServicioImpresion\ServicioGeneraFormatoImpresion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioImpresion\ServicioGeneraFormatoImpresion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioImpresion\ServicioGeneraFormatoImpresion2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioImpresion\ServicioGeneraFormatoImpresion3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SolicitudLineaCaptura\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\RecepcionLC\" />
+    <WCFMetadataStorage Include="Service References\ServicioImpresion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecepcionLC\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecepcionLC\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecepcionLC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioImpresion\ServicioGeneraFormatoImpresion.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioImpresion\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioImpresion\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicioImpresion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RecepcionLC\Recepcion1.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+
+
+
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2ee4f724-0678-4060-9be9-663d7ef990ce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:34071/ServicioGeneraFormato.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioGeneraFormato.xsd" MetadataType="Schema" ID="b5f1e167-6f33-4f1d-be48-496e52c84949" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormato.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioGeneraFormato1.xsd" MetadataType="Schema" ID="30468a8b-212c-4551-8044-97a485fe5cc4" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormato.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioGeneraFormato2.xsd" MetadataType="Schema" ID="de2ce0a2-1181-4304-a0bc-52547b10d49a" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormato.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioGeneraFormato3.xsd" MetadataType="Schema" ID="9e94c7e7-91e5-4733-b0b1-723a74b64549" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormato.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioGeneraFormato.wsdl" MetadataType="Wsdl" ID="85314c1d-2be6-43d6-905a-99a97db02804" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormato.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

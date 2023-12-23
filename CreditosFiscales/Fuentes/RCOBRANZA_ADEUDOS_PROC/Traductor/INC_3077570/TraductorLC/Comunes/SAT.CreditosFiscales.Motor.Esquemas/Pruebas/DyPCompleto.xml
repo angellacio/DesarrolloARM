@@ -1,0 +1,309 @@
+﻿<?xml version="1.0"?>
+<CreditosFiscales xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DatosGenerales>
+    <Folio>0</Folio>
+    <RFC>SPL060119SY7</RFC>
+    <RazonSocial>SEÑAL PLUS SA DE CV</RazonSocial>
+    <ALR>1</ALR>
+    <NoConceptos>0</NoConceptos>
+    <IdDocumento>0</IdDocumento>
+    <TipoDocumento>10</TipoDocumento>
+    <DescripcionDocumento>Pagos en una sola exhibición</DescripcionDocumento>
+    <ImporteTotal>0</ImporteTotal>
+    <FechaEmision>0</FechaEmision>
+    <IdContribuyente>SPL060119SY7</IdContribuyente>
+    <IdAplicacion>3</IdAplicacion>
+    <LineasCaptura>
+      <DatosLineaCaptura>
+        <LineaCaptura>0</LineaCaptura>
+        <Importe>6710</Importe>
+        <FechaVigencia>09/07/2013</FechaVigencia>
+        <PagoObligadoInternet>4</PagoObligadoInternet>
+      </DatosLineaCaptura>
+    </LineasCaptura>
+    <NumeroParcialidad>0</NumeroParcialidad>
+    <DeudorPuro>0</DeudorPuro>
+  </DatosGenerales>
+  <Agrupadores>
+    <Agrupador>
+      <NumeroAgrupador>160392AA90603A</NumeroAgrupador>
+      <Fecha>30/10/2012</Fecha>
+      <AutoridadId>93</AutoridadId>
+      <ALR>1</ALR>
+      <RFC>SPL060119SY7</RFC>
+      <SaldoInformativo>4872</SaldoInformativo>
+      <FormaPago>920048</FormaPago>
+      <Marcas />
+      <ConceptosOriginal>
+        <Conceptos>
+          <AutoridadId>93</AutoridadId>
+          <Clave>100014</Clave>
+          <PeriodicidadId>9</PeriodicidadId>
+          <PeriodoId>41</PeriodoId>
+          <MotivoId>I</MotivoId>
+          <FechaCausacion>30/10/2012</FechaCausacion>
+          <CreditoSir>325993</CreditoSir>
+          <CredicoARCA>3499032</CredicoARCA>
+          <ImporteHistorico>4400</ImporteHistorico>
+          <ImporteParteActualizada>42</ImporteParteActualizada>
+          <ImportePagar>4442</ImportePagar>
+          <Liquidar>false</Liquidar>
+          <ImporteTotalCargos>4442</ImporteTotalCargos>
+          <ImporteTotalAbonos>0</ImporteTotalAbonos>
+          <DiferenciaTotales>4442</DiferenciaTotales>
+          <FormaPago>920048</FormaPago>
+          <Marcas />
+          <Descuentos />
+          <Hijos>
+            <Hijo>
+              <AutoridadId>93</AutoridadId>
+              <Clave>820004</Clave>
+              <MotivoId>I</MotivoId>
+              <FechaCausacion>30/10/2012</FechaCausacion>
+              <CreditoSir>325993</CreditoSir>
+              <ImporteHistorico>430</ImporteHistorico>
+              <ImporteParteActualizada>0</ImporteParteActualizada>
+              <ImportePagar>430</ImportePagar>
+              <PeriodicidadId>0</PeriodicidadId>
+              <PeriodoId>0</PeriodoId>
+              <Liquidar>false</Liquidar>
+              <ImporteTotalCargos>430</ImporteTotalCargos>
+              <ImporteTotalAbonos>0</ImporteTotalAbonos>
+              <DiferenciaTotales>430</DiferenciaTotales>
+              <FormaPago>920048</FormaPago>
+              <Marcas />
+              <Descuentos />
+            </Hijo>
+          </Hijos>
+        </Conceptos>
+      </ConceptosOriginal>
+    </Agrupador>
+    <Agrupador>
+      <NumeroAgrupador>160393A4927975</NumeroAgrupador>
+      <Fecha>26/04/2013</Fecha>
+      <AutoridadId>93</AutoridadId>
+      <ALR>1</ALR>
+      <RFC>SPL060119SY7</RFC>
+      <SaldoInformativo>1838</SaldoInformativo>
+      <FormaPago>920048</FormaPago>
+      <Marcas />
+      <ConceptosOriginal>
+        <Conceptos>
+          <AutoridadId>93</AutoridadId>
+          <Clave>100014</Clave>
+          <PeriodicidadId>9</PeriodicidadId>
+          <PeriodoId>41</PeriodoId>
+          <MotivoId>I</MotivoId>
+          <FechaCausacion>26/04/2013</FechaCausacion>
+          <CreditoSir>330396</CreditoSir>
+          <CredicoARCA>5676074</CredicoARCA>
+          <ImporteHistorico>4400</ImporteHistorico>
+          <ImporteParteActualizada>0</ImporteParteActualizada>
+          <ImportePagar>1408</ImportePagar>
+          <Liquidar>false</Liquidar>
+          <ImporteTotalCargos>4400</ImporteTotalCargos>
+          <ImporteTotalAbonos>0</ImporteTotalAbonos>
+          <DiferenciaTotales>4400</DiferenciaTotales>
+          <FormaPago>920048</FormaPago>
+          <Marcas />
+          <Descuentos />
+          <Hijos>
+            <Hijo>
+              <AutoridadId>93</AutoridadId>
+              <Clave>820004</Clave>
+              <MotivoId>I</MotivoId>
+              <FechaCausacion>26/04/2013</FechaCausacion>
+              <CreditoSir>330396</CreditoSir>
+              <ImporteHistorico>430</ImporteHistorico>
+              <ImporteParteActualizada>0</ImporteParteActualizada>
+              <ImportePagar>430</ImportePagar>
+              <PeriodicidadId>0</PeriodicidadId>
+              <PeriodoId>0</PeriodoId>
+              <Liquidar>false</Liquidar>
+              <ImporteTotalCargos>430</ImporteTotalCargos>
+              <ImporteTotalAbonos>0</ImporteTotalAbonos>
+              <DiferenciaTotales>430</DiferenciaTotales>
+              <FormaPago>920048</FormaPago>
+              <Marcas />
+              <Descuentos />
+            </Hijo>
+          </Hijos>
+        </Conceptos>
+      </ConceptosOriginal>
+    </Agrupador>
+  </Agrupadores>
+  <Conceptos>
+    <Concepto>
+      <IdAgrupador>0</IdAgrupador>
+      <NoSecuencia>1</NoSecuencia>
+      <Clave>10909</Clave>
+      <Descripcion>MTA /  MULTA POR EXTEMPORANEIDAD  A REQUERIMIENTOS DEL R.F.C., CONTROL DE OBLIGACIONES.</Descripcion>
+      <Ejercicio>0</Ejercicio>
+      <ClaveOrigen>100014</ClaveOrigen>
+      <TipoPeriodicidad>N</TipoPeriodicidad>
+      <Periodicidad>9-Sin período</Periodicidad>
+      <ClavePeriodo>099</ClavePeriodo>
+      <NumeroCredito>0</NumeroCredito>
+      <Periodo>Sin Periodo</Periodo>
+      <ImportePagar>4872</ImportePagar>
+      <FechaCausacion>30/10/2012</FechaCausacion>
+      <Transacciones>
+        <Transaccion>
+          <Clave>4011</Clave>
+          <Descripcion>MONTO A CARGO</Descripcion>
+          <Importe>4400</Importe>
+          <Tipo>Cargo</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4423</Clave>
+          <Descripcion>CANTIDAD A PAGAR</Descripcion>
+          <Importe>4442</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4021</Clave>
+          <Descripcion>ACTUALIZACIÓN</Descripcion>
+          <Importe>42</Importe>
+          <Tipo>Cargo</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4243</Clave>
+          <Descripcion>TOTAL DE CONTRIBUCIONES</Descripcion>
+          <Importe>4442</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4273</Clave>
+          <Descripcion>TOTAL DE APLICACIONES</Descripcion>
+          <Importe>0</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4283</Clave>
+          <Descripcion>TOTAL A CARGO</Descripcion>
+          <Importe>4442</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4423</Clave>
+          <Descripcion>CANTIDAD A PAGAR</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4243</Clave>
+          <Descripcion>TOTAL DE CONTRIBUCIONES</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4273</Clave>
+          <Descripcion>TOTAL DE APLICACIONES</Descripcion>
+          <Importe>0</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4283</Clave>
+          <Descripcion>TOTAL A CARGO</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4051</Clave>
+          <Descripcion>HONORARIOS DE NOTIFICACIÓN</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Cargo</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4263</Clave>
+          <Descripcion>PAGOS HECHOS CON ANTERIORIDAD</Descripcion>
+          <Importe>0</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+      </Transacciones>
+    </Concepto>
+    <Concepto>
+      <IdAgrupador>0</IdAgrupador>
+      <NoSecuencia>1</NoSecuencia>
+      <Clave>10909</Clave>
+      <Descripcion>MTA /  MULTA POR EXTEMPORANEIDAD  A REQUERIMIENTOS DEL R.F.C., CONTROL DE OBLIGACIONES.</Descripcion>
+      <Ejercicio>0</Ejercicio>
+      <ClaveOrigen>100014</ClaveOrigen>
+      <TipoPeriodicidad>N</TipoPeriodicidad>
+      <Periodicidad>9-Sin período</Periodicidad>
+      <ClavePeriodo>099</ClavePeriodo>
+      <NumeroCredito>0</NumeroCredito>
+      <Periodo>Sin Periodo</Periodo>
+      <ImportePagar>1838</ImportePagar>
+      <FechaCausacion>26/04/2013</FechaCausacion>
+      <Transacciones>
+        <Transaccion>
+          <Clave>4011</Clave>
+          <Descripcion>MONTO A CARGO</Descripcion>
+          <Importe>4400</Importe>
+          <Tipo>Cargo</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4423</Clave>
+          <Descripcion>CANTIDAD A PAGAR</Descripcion>
+          <Importe>1408</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4243</Clave>
+          <Descripcion>TOTAL DE CONTRIBUCIONES</Descripcion>
+          <Importe>4400</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4273</Clave>
+          <Descripcion>TOTAL DE APLICACIONES</Descripcion>
+          <Importe>0</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4283</Clave>
+          <Descripcion>TOTAL A CARGO</Descripcion>
+          <Importe>4400</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4423</Clave>
+          <Descripcion>CANTIDAD A PAGAR</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4243</Clave>
+          <Descripcion>TOTAL DE CONTRIBUCIONES</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4273</Clave>
+          <Descripcion>TOTAL DE APLICACIONES</Descripcion>
+          <Importe>0</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4283</Clave>
+          <Descripcion>TOTAL A CARGO</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4051</Clave>
+          <Descripcion>HONORARIOS DE NOTIFICACIÓN</Descripcion>
+          <Importe>430</Importe>
+          <Tipo>Cargo</Tipo>
+        </Transaccion>
+        <Transaccion>
+          <Clave>4263</Clave>
+          <Descripcion>PAGOS HECHOS CON ANTERIORIDAD</Descripcion>
+          <Importe>0</Importe>
+          <Tipo>Informativa</Tipo>
+        </Transaccion>
+      </Transacciones>
+    </Concepto>
+  </Conceptos>
+</CreditosFiscales>

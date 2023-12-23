@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+		<LastUsedPlatform>Any CPU</LastUsedPlatform>
+		<TimeStampOfAssociatedLegacyPublishXmlFile />
+	</PropertyGroup>
+	<ItemGroup>
+		<File Include="bin/Fonet.dll">
+			<publishTime>02/12/2016 16:04:34</publishTime>
+		</File>
+		<File Include="bin/Gma.QrCodeNet.Encoding.Net35.dll">
+			<publishTime>02/12/2016 16:04:34</publishTime>
+		</File>
+		<File Include="bin/itextsharp.dll">
+			<publishTime>02/12/2016 16:04:57</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+			<publishTime>08/22/2013 18:25:06</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+			<publishTime>02/12/2016 16:04:39</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+			<publishTime>08/22/2013 18:25:07</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.Unity.dll">
+			<publishTime>08/22/2013 18:25:07</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+			<publishTime>08/22/2013 18:25:07</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.AccesoDatos.dll">
+			<publishTime>02/12/2016 16:14:37</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.AccesoDatos.pdb">
+			<publishTime>08/22/2013 18:31:40</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.Comunes.Herramientas.dll">
+			<publishTime>02/12/2016 16:09:06</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.Comunes.Herramientas.pdb">
+			<publishTime>08/22/2013 18:31:39</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.Entidades.dll">
+			<publishTime>02/12/2016 16:09:07</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.Entidades.pdb">
+			<publishTime>08/22/2013 18:31:40</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.LogicaNegocio.dll">
+			<publishTime>02/12/2016 16:17:50</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.LogicaNegocio.pdb">
+			<publishTime>08/22/2013 18:31:41</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.Servicios.dll">
+			<publishTime>02/12/2016 16:17:51</publishTime>
+		</File>
+		<File Include="bin/Sat.ServicioImpresion.Servicios.pdb">
+			<publishTime>08/22/2013 18:31:41</publishTime>
+		</File>
+		<File Include="Images/Configuracion/center2.png">
+			<publishTime>02/12/2016 16:04:51</publishTime>
+		</File>
+		<File Include="Images/Configuracion/topLeft.png">
+			<publishTime>02/12/2016 16:04:59</publishTime>
+		</File>
+		<File Include="Images/Configuracion/topRight.jpg">
+			<publishTime>01/01/0001 00:00:00</publishTime>
+		</File>
+		<File Include="Images/LineaCapturaConfiguracion/center2.png">
+			<publishTime>07/12/2013 20:54:29</publishTime>
+		</File>
+		<File Include="Images/LineaCapturaConfiguracion/topLeft.png">
+			<publishTime>07/12/2013 20:54:29</publishTime>
+		</File>
+		<File Include="Images/LineaCapturaConfiguracion/topRight.jpg">
+			<publishTime>07/12/2013 20:54:29</publishTime>
+		</File>
+		<File Include="ServicioImpresion.svc">
+			<publishTime>02/12/2016 16:04:43</publishTime>
+		</File>
+		<File Include="Template/center2.png">
+			<publishTime>02/12/2016 16:04:51</publishTime>
+		</File>
+		<File Include="Template/logoV_C2l.jpg">
+			<publishTime>02/12/2016 16:04:59</publishTime>
+		</File>
+		<File Include="Template/ResolucionSuplenteTemplate.fo">
+			<publishTime>02/12/2016 16:04:42</publishTime>
+		</File>
+		<File Include="Template/ResolucionTemplate.fo">
+			<publishTime>02/12/2016 16:04:42</publishTime>
+		</File>
+		<File Include="Template/topLeft.png">
+			<publishTime>02/12/2016 16:04:59</publishTime>
+		</File>
+		<File Include="Template/topLeftB.png">
+			<publishTime>02/12/2016 16:04:59</publishTime>
+		</File>
+		<File Include="Template/topRight.png">
+			<publishTime>01/01/0001 00:00:00</publishTime>
+		</File>
+		<File Include="Template/topRightB.png">
+			<publishTime>02/12/2016 16:05:01</publishTime>
+		</File>
+		<File Include="Web.config">
+			<publishTime>02/12/2016 16:17:52</publishTime>
+		</File>
+	</ItemGroup>
+</Project>

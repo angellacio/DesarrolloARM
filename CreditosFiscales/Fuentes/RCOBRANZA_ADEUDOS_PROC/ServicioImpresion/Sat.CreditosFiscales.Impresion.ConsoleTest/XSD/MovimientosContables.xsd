@@ -1,0 +1,54 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Documentos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="LC">
+					<xs:complexType mixed="true">
+						<xs:sequence>
+							<xs:element name="ALR" type="NonEmptyString" />
+							<xs:element name="RFC" type="NonEmptyString" />
+							<xs:element name="FolioLC" type="NonEmptyString" />
+							<xs:element name="Nombre" type="NonEmptyString" />
+							<xs:element name="FechaYHora" type="NonEmptyString" />
+							<xs:element name="Referencia" type="NonEmptyString" />
+							<xs:element name="Importe" type="NonEmptyString" />
+							<xs:element name="Abonos">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ClaveA" type="NonEmptyString" />
+										<xs:element name="DescripcionA" type="NonEmptyString" />
+										<xs:element name="ImporteA" type="NonEmptyString" />
+									</xs:sequence>
+									<xs:attribute name="template" type="xs:string" use="required" />
+									<xs:attribute name="version" type="xs:unsignedInt" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Cargos">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ClaveC" type="NonEmptyString" />
+										<xs:element name="DescripcionC" type="NonEmptyString" />
+										<xs:element name="ImporteC" type="NonEmptyString" />
+									</xs:sequence>
+									<xs:attribute name="template" type="xs:string" use="required" />
+									<xs:attribute name="version" type="xs:unsignedInt" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="TotalA" type="NonEmptyString" />
+							<xs:element name="TotalC" type="NonEmptyString" />
+							<xs:element name="Observaciones" type="xs:string" />
+						</xs:sequence>
+						<xs:attribute name="template" type="xs:string" use="required" />
+						<xs:attribute name="version" type="xs:unsignedInt" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="template" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="NonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

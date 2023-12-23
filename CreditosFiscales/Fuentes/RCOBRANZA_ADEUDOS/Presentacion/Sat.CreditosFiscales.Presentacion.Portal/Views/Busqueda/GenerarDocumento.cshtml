@@ -1,0 +1,103 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GenerarDocumentosDeterminanteViewModel
+@using Sat.CreditosFiscales.Presentacion.Herramientas
+
+@{
+    ViewBag.Title = "Solicitud de generación de formatos de pag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section encabezado
+{
+    <h1>Solicitud de genaración de formatos de pago</h1>
+}
+
+
+<table id="gridDocumentos" class="tabla">
+    <tr>
+        <th style="width: 50px;">Selección de adeudos</th>
+        <th style="width: 130px;">Número de resolución determinante</th>
+        <th style="width: 100px;">Fecha resolución determinante</th>
+        <th style="width: 200px;">Unidad administrativa determinante</th>
+        <th style="width: 50px;">Importe histórico</th>
+        <th style="width: 50px;">Importe actualizado</th>
+        <th style="width: 200px;">Observaciones</th>
+    </tr>
+    @if (Model == null || Model.listaDocumentos == null)
+    {
+        <tr>
+            <td colspan="8">&nbsp;
+            </td>
+        </tr>
+    }
+    else
+    {
+        if (Model.listaDocumentos.Count == 0)
+        {
+        <tr>
+            <td colspan="8" style="font-size: small">No hay adeudos.
+            </td>
+        </tr>
+        }
+        else
+        {
+            using (Html.BeginForm("GuardarDocumento", "Busqueda", FormMethod.Post, new { id = "frmDocumento" }))
+            {
+
+                for (int i = 0; i < Model.listaDocumentos.Count; i++)
+                {
+                    @Html.Hidden("NumDocumento", Model.listaDocumentos[i].NumDocumento);
+                    @Html.Hidden("FechaDocumento", Model.listaDocumentos[i].FechaDocumento);
+                    @Html.Hidden("Autoridad", Model.listaDocumentos[i].Autoridad);
+                    @Html.Hidden("ImporteHistorico", Model.listaDocumentos[i].ImporteHistorico);
+                    @Html.Hidden("ImporteActualizacion", Model.listaDocumentos[i].ImporteActualizacion);
+                    @Html.Hidden("Observaciones", Model.listaDocumentos[i].Observaciones);
+        <tr>
+            <td>
+                <input type="checkbox" value="@Model.listaDocumentos[i].NumDocumento" name="chkDocumento" />
+            </td>
+            <td>@Model.listaDocumentos[i].NumDocumento</td>
+            <td>@Model.listaDocumentos[i].FechaDocumento</td>
+            <td>@Model.listaDocumentos[i].Autoridad</td>
+            <td>@Model.listaDocumentos[i].ImporteHistorico</td>
+            <td>@Model.listaDocumentos[i].ImporteActualizacion</td>
+            <td>@Model.listaDocumentos[i].Observaciones</td>
+        </tr>
+                }
+
+
+            }
+        }
+
+    }
+
+
+</table>
+
+@section botonera
+{
+    <input type="submit" id="btnSiguiente" value="Siguiente" />
+}
+
+
+@section mensajeContribuyente
+{
+
+}
+
+<script>
+    $(document).ready(function () {
+        $('#btnSiguiente').click(function () {
+            try {
+                var totalSeleccionados = $('#gridDocumentos :input:checkbox[name="chkDocumento"]:checked').length;
+                if (totalSeleccionados < 1) {
+                    @Alertas.Errror("Debe seleccionar al menos un documento.", "Aceptar")
+                    return false;
+                } else {
+                    //$('#frmLineaCaptura').submit();
+                }
+            } catch (err) {
+                alert(err);
+            }
+        });
+    });
+</script>
