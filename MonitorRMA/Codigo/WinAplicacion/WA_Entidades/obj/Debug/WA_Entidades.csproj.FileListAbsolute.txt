@@ -4,3 +4,6 @@ C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo
 C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.csproj.CoreCompileInputs.cache
 C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.dll
 C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\bin\Debug\UtileriasComunes.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\bin\Debug\UtileriasComunes.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\WA_Entidades\obj\Debug\WA_Entidades.csproj.CopyComplete

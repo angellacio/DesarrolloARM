@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WA_Formas", "WA_Formas\WA_F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtileriasBaseDatos", "WA_BaseDatos\UtileriasBaseDatos.csproj", "{503CB360-495C-47B2-A00D-8617A9DD1ABD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuncionesExtras", "FuncionesExtras\FuncionesExtras.csproj", "{4D8603C8-2442-4411-81D4-C2611E627C9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{503CB360-495C-47B2-A00D-8617A9DD1ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{503CB360-495C-47B2-A00D-8617A9DD1ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{503CB360-495C-47B2-A00D-8617A9DD1ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D8603C8-2442-4411-81D4-C2611E627C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D8603C8-2442-4411-81D4-C2611E627C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D8603C8-2442-4411-81D4-C2611E627C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D8603C8-2442-4411-81D4-C2611E627C9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

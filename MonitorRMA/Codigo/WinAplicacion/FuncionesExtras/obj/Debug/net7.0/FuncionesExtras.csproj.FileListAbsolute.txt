@@ -1,0 +1,14 @@
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\bin\Debug\net7.0\FuncionesExtras.exe
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\bin\Debug\net7.0\FuncionesExtras.deps.json
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\bin\Debug\net7.0\FuncionesExtras.runtimeconfig.json
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\bin\Debug\net7.0\FuncionesExtras.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\bin\Debug\net7.0\FuncionesExtras.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\FuncionesExtras.GeneratedMSBuildEditorConfig.editorconfig
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\FuncionesExtras.AssemblyInfoInputs.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\FuncionesExtras.AssemblyInfo.cs
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\FuncionesExtras.csproj.CoreCompileInputs.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\FuncionesExtras.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\refint\FuncionesExtras.dll
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\FuncionesExtras.pdb
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\FuncionesExtras.genruntimeconfig.cache
+C:\DatosPersonales\Personales\Repositorio\GitHub\DesarrolloARM\MonitorRMA\Codigo\WinAplicacion\FuncionesExtras\obj\Debug\net7.0\ref\FuncionesExtras.dll

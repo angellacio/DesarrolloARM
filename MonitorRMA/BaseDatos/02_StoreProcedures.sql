@@ -156,7 +156,7 @@ AS
 		IF @sTablaDetalle IS NOT NULL SET @sQuery = @sQuery + ' TablaDetalle LIKE ''%' + @sTablaDetalle + '%'' AND1'
 
 		SET @sQuery = LEFT(@sQuery, LEN(@sQuery) - 5)
-		SET @sQuery = REPLACE(@sQuery, 'AND1', 'AND') + ' ORDER BY nIdTabla'
+		SET @sQuery = REPLACE(@sQuery, 'AND1', 'AND') + ' ORDER BY nIdTabla, Orden'
 
 		--select @sQuery
 		EXEC sp_executesql @sQuery
@@ -231,6 +231,52 @@ AS
 	 END
  END
 GO
+DROP PROCEDURE IF EXISTS manRequerimiento
+GO
+CREATE PROCEDURE manRequerimiento(
+	@nTipoConsulta INT,
+	@nIdRequerimiento INT,
+	@nIdTipoRequerimiento INT,
+	@nIdEstado INT,
+	@nIdResponsable INT,
+	@nIdAplicativo INT,
+	@nRequerimiento nVarChar(20),
+	@sREQS nVarChar(20),
+	@sTitulo nVarChar(250),
+	@sResumen nVarChar(350),
+	@sRFC nChar(15),
+	@sIdentificadorReq nVarChar(350),
+	@FechaRecepcion DateTime,
+	@FechaEntrega DateTime,
+	@sObservacionReq nVarChar(350))
+AS
+ BEGIN
+	IF @nTipoConsulta = 1 -- Inserta Dato de Requerimiento
+	 BEGIN
+		INSERT INTO DatosReqs(nIdTipoRequerimiento, nIdEstado, nIdResponsable, nIdAplicativo, 
+							  Requerimiento, REQS, Titulo, Resumen, RFC, IdentificadorReq, 
+							  FechaRecepcion, FechaEntrega, ObservacionReq) 
+		VALUES (@nIdTipoRequerimiento, @nIdEstado, @nIdResponsable, @nIdAplicativo,
+				@nRequerimiento, @sREQS, @sTitulo, @sResumen, @sRFC, @sIdentificadorReq,
+				@FechaRecepcion, @FechaEntrega, @sObservacionReq)
+
+		SELECT @nIdRequerimiento = SCOPE_IDENTITY();
+	  END
+	 ELSE IF @nTipoConsulta = 2
+	  BEGIN
+		UPDATE DatosReqs
+		   SET nIdTipoRequerimiento = @nIdTipoRequerimiento, nIdEstado = @nIdEstado, 
+			   nIdResponsable = @nIdResponsable, nIdAplicativo = @nIdAplicativo, 
+			   Requerimiento = @nRequerimiento,REQS = @sREQS, Titulo = @sTitulo, 
+			   Resumen = @sResumen, RFC = @sRFC, IdentificadorReq = @sIdentificadorReq, 
+			   FechaRecepcion = @FechaRecepcion, FechaEntrega = @FechaEntrega, 
+			   ObservacionReq = @sObservacionReq
+		WHERE nIdRequerimiento = @nIdRequerimiento
+	  END
+
+ END
+GO
+
 /*
 EXEC catEmpleadoConsulta 1, null, null, 'a', 'c', 'r', 1
 EXEC catEmpleadoConsulta 2, 1, null, null, null, null, null
@@ -250,4 +296,6 @@ EXEC catSensilloConsulta @nTipoConsulta, @nIdTbla, @sTabla, @bEstadoT, @nIdDetal
 EXEC catSeguridadUsuario 1, NULL, 'aramirez', 'oEFPCa1Z1k+qV2t65a98yA=='
 EXEC catSeguridadUsuario 1, NULL, 'idias', 'oEFPCa1Z1k+qV2t65a98yA=='
 EXEC catSeguridadUsuario 2, 5, NULL, 'oEFPCa1Z1k+qV2t65a98yA=='
+
+
 */

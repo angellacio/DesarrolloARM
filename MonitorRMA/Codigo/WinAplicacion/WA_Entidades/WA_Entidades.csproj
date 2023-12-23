@@ -45,6 +45,7 @@
     <Compile Include="EntCatalogo.cs" />
     <Compile Include="Empleados\EntEmpleado.cs" />
     <Compile Include="EntTabla.cs" />
+    <Compile Include="ManejoProblemas\EntProblematica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\EntDatosAutentificacion.cs" />
   </ItemGroup>

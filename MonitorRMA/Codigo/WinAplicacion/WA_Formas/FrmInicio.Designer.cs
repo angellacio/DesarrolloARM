@@ -41,6 +41,10 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.TtlUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.TsmiCatEmpleados = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmiCatTablas = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmiCatCatalogo = new System.Windows.Forms.ToolStripMenuItem();
+            this.TsmiCatAreaAplicacion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +97,11 @@
             // 
             // TsmiCatalogos
             // 
+            this.TsmiCatalogos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmiCatEmpleados,
+            this.TsmiCatTablas,
+            this.TsmiCatCatalogo,
+            this.TsmiCatAreaAplicacion});
             this.TsmiCatalogos.Name = "TsmiCatalogos";
             this.TsmiCatalogos.Size = new System.Drawing.Size(72, 20);
             this.TsmiCatalogos.Text = "&Catalogos";
@@ -135,6 +144,30 @@
             this.TtlUsuario.Size = new System.Drawing.Size(72, 17);
             this.TtlUsuario.Text = "DatoUsuario";
             // 
+            // TsmiCatEmpleados
+            // 
+            this.TsmiCatEmpleados.Name = "TsmiCatEmpleados";
+            this.TsmiCatEmpleados.Size = new System.Drawing.Size(180, 22);
+            this.TsmiCatEmpleados.Text = "&Empleados";
+            // 
+            // TsmiCatTablas
+            // 
+            this.TsmiCatTablas.Name = "TsmiCatTablas";
+            this.TsmiCatTablas.Size = new System.Drawing.Size(180, 22);
+            this.TsmiCatTablas.Text = "&Tablas";
+            // 
+            // TsmiCatCatalogo
+            // 
+            this.TsmiCatCatalogo.Name = "TsmiCatCatalogo";
+            this.TsmiCatCatalogo.Size = new System.Drawing.Size(180, 22);
+            this.TsmiCatCatalogo.Text = "Ca&talogos";
+            // 
+            // TsmiCatAreaAplicacion
+            // 
+            this.TsmiCatAreaAplicacion.Name = "TsmiCatAreaAplicacion";
+            this.TsmiCatAreaAplicacion.Size = new System.Drawing.Size(180, 22);
+            this.TsmiCatAreaAplicacion.Text = "Areas/Aplicacion";
+            // 
             // FrmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +203,10 @@
         private System.Windows.Forms.ToolStripMenuItem TsmiManIncidentes;
         private System.Windows.Forms.ToolStripMenuItem TsmiManPaquetes;
         private System.Windows.Forms.ToolStripMenuItem TsmiManMasiva;
+        private System.Windows.Forms.ToolStripMenuItem TsmiCatEmpleados;
+        private System.Windows.Forms.ToolStripMenuItem TsmiCatTablas;
+        private System.Windows.Forms.ToolStripMenuItem TsmiCatCatalogo;
+        private System.Windows.Forms.ToolStripMenuItem TsmiCatAreaAplicacion;
     }
 }
 

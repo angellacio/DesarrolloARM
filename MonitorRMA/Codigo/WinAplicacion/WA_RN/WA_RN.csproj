@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalogos\IManejoCatalogo.cs" />
+    <Compile Include="Catalogos\ManejoCatalogo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\IManejoSeguridad.cs" />
     <Compile Include="Seguridad\ManejoSeguridad.cs" />

@@ -9,7 +9,7 @@ INSERT INTO Tablas (Tabla, Estado) VALUES('Aplicativos', 1)
 INSERT INTO Tablas (Tabla, Estado) VALUES('Repositorio', 1)
 GO
 INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(1, 'RMA', 0, 'RMA', '', 1)
-INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(1, 'POL', 0, 'POL', '', 1)
+INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(1, 'MMe', 0, 'Mantenimiento Menor', '', 1)
 INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(2, 'Reg', 0, 'Registrado', '', 1)
 INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(2, 'Cur', 0, 'Curso', '', 1)
 INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(2, 'Paq', 0, 'Paquete', '', 1)
@@ -86,6 +86,8 @@ INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observacion
 INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(7, '', 417, 'dyp_lda_validador_de_intereses', 'https://gitlab.sat.gob.mx/avl/[REP]|https://gitlab.sat.gob.mx/avl/[REP]|http://18.144.132.20/proyectos/sat/sdma6/ape1/dyp/[REP]/-/tree/main/Continuidad%20Operativa/Incidencias/RMA-[RMA]/[PAQ]', 1)
 INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(7, '', 416, 'dyp_lda_validador_de_fideicomisos', 'https://gitlab.sat.gob.mx/avl/[REP]|https://gitlab.sat.gob.mx/avl/[REP]|http://18.144.132.20/proyectos/sat/sdma6/ape1/dyp/[REP]/-/tree/main/Continuidad%20Operativa/Incidencias/RMA-[RMA]/[PAQ]', 1)
 INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(7, '', 125, 'dyp_pp_forma_35', 'https://gitlab.sat.gob.mx/avl/[REP]|https://gitlab.sat.gob.mx/avl/[REP]|http://18.144.132.20/proyectos/sat/sdma6/ape1/dyp/[REP]/-/tree/main/Continuidad%20Operativa/Incidencias/RMA-[RMA]/[PAQ]', 1)
+INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(1, 'MMa', 0, 'Mantenimiento Mayor', '', 1)
+INSERT INTO TablasDetalles (nIdTabla, Acronimo, Orden, TablaDetalle, Observaciones, Estado) VALUES(1, 'Ser', 0, 'Servicio', '', 1)
 GO
 INSERT INTO Empleados (nIdArea, nIdAplicativo, sNombre, sApellido1, sApellido2, sUsuario, sContra, Orden, Root, Estado) VALUES(8, null, 'ISAAC', 'DIAS', 'VARGAS', 'idias', 'oEFPCa1Z1k+qV2t65a98yA==', 3, 0, 1)
 INSERT INTO Empleados (nIdArea, nIdAplicativo, sNombre, sApellido1, sApellido2, sUsuario, sContra, Orden, Root, Estado) VALUES(8, null, 'JOSE ANTONIO', 'MENDOSA', 'SALASAR', 'jmendosa', 'oEFPCa1Z1k+qV2t65a98yA==', 4, 0, 1)
