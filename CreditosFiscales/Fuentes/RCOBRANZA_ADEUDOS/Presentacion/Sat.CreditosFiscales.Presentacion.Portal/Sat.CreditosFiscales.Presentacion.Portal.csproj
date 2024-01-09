@@ -24,6 +24,8 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -174,6 +176,7 @@
     <Compile Include="ViewModels\GenerarBusquedaViewModel.cs" />
     <Compile Include="ViewModels\GeneraSolicitudViewModel.cs" />
     <Compile Include="ViewModels\GeneraTraductorBitacoraViewModel.cs" />
+    <Compile Include="ViewModels\GeneraTraductorMonitorPagosViewModel.cs" />
     <Compile Include="ViewModels\ReglaEquivalenciaParametroViewModel.cs" />
     <Compile Include="ViewModels\ReglasEquivalenciaViewModel.cs" />
   </ItemGroup>
@@ -381,6 +384,7 @@
     <Content Include="Views\ReglasEquivalencia\CatReglas.cshtml" />
     <Content Include="Views\ReglasEquivalencia\CatEsquemas.cshtml" />
     <Content Include="Views\LogEventos\CambiarPassword.cshtml" />
+    <Content Include="Views\LogEventos\TraductorMonitorPagos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -451,4 +455,3 @@
   <Target Name="AfterBuild">
   </Target> -->
 </Project>
-
