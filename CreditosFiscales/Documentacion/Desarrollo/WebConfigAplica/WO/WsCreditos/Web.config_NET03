@@ -1,0 +1,60 @@
+﻿<?xml version="1.0"?>
+<configuration>
+	<connectionStrings>
+		<!--ARCA Pruebas-->
+		<!--Produccion-->
+		<add name="SACDBConnection" connectionString="xidl6NpGweoYfUBcQfzTRCC2LuWM0Bzfy6EYoMPdh2c77nDLaz6q77Dj2ME4rT9w5v3toQKbhCkWQQGNdQpB2MUY48dATCrRVWroVqopiq0xB38KulWooPc3KiCGkSTQFBpU8O+mCQJ3aBQ51joMFOn+NeZvOm4xt2D8lZAvTbt6vOUdMtemhDDH94HaEkHv" providerName="System.Data.SqlClient"/>
+		<!--UAT-->
+		<add name="SACDBConnectionUAT" connectionString="xidl6NpGweoYfUBcQfzTRNjRKlv4RyZ3Wcjbyycpz21GU30Vck8zoRDi84brat6jEAM44yNLnpdyY5a0LDLuV1mvFLa90nUR2DVgzrq/gc1P7HeIgsmqTl2I9CHBKpgei3cyL9429pohfGTwPAXmJQ==" providerName="System.Data.SqlClient"/>
+	</connectionStrings>
+	<appSettings>
+		<add key="aspnet:UseTaskFriendlySynchronizationContext" value="true"/>
+	</appSettings>
+	<system.web>
+		<compilation debug="true" targetFramework="4.0"/>
+		<!--httpRuntime targetFramework="3.5"/-->
+		<!--compilation debug="true" targetFramework="3.5" />
+    <httpRuntime targetFramework="3.5"/-->
+		<pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID"/></system.web>
+	<system.serviceModel>
+		<behaviors>
+			<serviceBehaviors>
+				<behavior name="Sat.ARCA.Procesamiento.Servicios.Behavior">
+					<dataContractSerializer maxItemsInObjectGraph="2147483647"/>
+					<serviceMetadata httpGetEnabled="true"/>
+					<serviceDebug includeExceptionDetailInFaults="true"/>
+					<serviceThrottling maxConcurrentCalls="500" maxConcurrentSessions="500" maxConcurrentInstances="500"/>
+				</behavior>
+				<behavior name="localh">
+					<serviceMetadata httpGetEnabled="true"/>
+					<serviceDebug includeExceptionDetailInFaults="false"/>
+				</behavior>
+			</serviceBehaviors>
+		</behaviors>
+		<services>
+			<service behaviorConfiguration="Sat.ARCA.Procesamiento.Servicios.Behavior" name="ServicioArcaCreditosFiscales.ServicioArcaCreditosFiscales">
+				<endpoint address="" binding="basicHttpBinding" bindingConfiguration="basicHttpBindingConfiguration" contract="ServicioArcaCreditosFiscales.IServicioArcaCreditosFiscales"/>
+			</service>
+		</services>
+		<bindings>
+			<basicHttpBinding>
+				<binding name="basicHttpBindingConfiguration" closeTimeout="00:10:00" openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647" transferMode="Streamed" useDefaultWebProxy="true">
+					<readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647"/>
+				</binding>
+			</basicHttpBinding>
+		</bindings>
+		<!--protocolMapping>
+        <add binding="basicHttpsBinding" scheme="https" />
+    </protocolMapping-->
+		<!--serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true" /-->
+		<serviceHostingEnvironment aspNetCompatibilityEnabled="false"/>
+	</system.serviceModel>
+	<system.webServer>
+		<modules runAllManagedModulesForAllRequests="true"/>
+		<!--
+        To browse web app root directory during debugging, set the value below to true.
+        Set to false before deployment to avoid disclosing web app folder information.
+      -->
+		<directoryBrowse enabled="true"/>
+	</system.webServer>
+</configuration>
