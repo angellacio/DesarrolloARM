@@ -26,7 +26,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -44,7 +44,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -62,7 +62,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -81,7 +81,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -100,7 +100,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -120,7 +120,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -139,7 +139,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -158,7 +158,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
@@ -177,7 +177,7 @@ SELECT TipoPago,
 	   HoraPago, D.Importe, NumOperacion, LineaCaptura, MedioRecepcion, 
 	   Case when MedioRecepcion=1 then ' Ventanilla bancaria'  when MedioRecepcion=3 then 'Internet' Else 'No Definido'  End as DescMedio, 
 	   D.IdEstado, Es.Descripcion DescEstado , 
-	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError 
+	   FechaProceso, NombreXML, D.IdZip, NombreZip, D.IdError, E.Descripcion DescError, IdBanco 
   FROM tblControlPagosHead H inner join tblControlPagosDet D
        on H.idArchivo=D.IdArchivo
 	   left outer join CatErrorProceso E 
