@@ -64,18 +64,18 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
                         accesoValido = log.CreateChannel().VerificaAcceso(model.Usuario, model.Contraseña);
                     }
 
-                    //if (!accesoValido)
-                    //{
-                    //    ViewBag.OnLoadCompleteMessage = Alertas.Alerta("Acceso no autorizado", "Aceptar");
-                    //}
-                    //else
-                    //{
-                    HttpCookie cookie = new HttpCookie(nombreCookie, model.Contraseña);
-                    cookie.Expires = DateTime.Now.AddMinutes(20);
-                    Response.Cookies.Add(cookie);
+                    if (!accesoValido)
+                    {
+                        ViewBag.OnLoadCompleteMessage = Alertas.Alerta("Acceso no autorizado", "Aceptar");
+                    }
+                    else
+                    {
+                        HttpCookie cookie = new HttpCookie(nombreCookie, model.Contraseña);
+                        cookie.Expires = DateTime.Now.AddMinutes(20);
+                        Response.Cookies.Add(cookie);
 
-                    return RedirectToAction("CreditosLogEvento", "LogEventos");
-                    //}
+                        return RedirectToAction("CreditosLogEvento", "LogEventos");
+                    }
                 }
 
             }
@@ -540,7 +540,7 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
                             bolBuscar = false;
                         }
                     }
-                    
+
                     if (bolBuscar)
                     {
                         if (model.MonitorArchivoZIP.IdTipoPago != -1) porIdTipoPago = model.MonitorArchivoZIP.IdTipoPago;
