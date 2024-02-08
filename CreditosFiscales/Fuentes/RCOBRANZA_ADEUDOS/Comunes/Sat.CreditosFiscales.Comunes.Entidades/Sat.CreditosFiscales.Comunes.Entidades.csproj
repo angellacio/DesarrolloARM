@@ -100,12 +100,12 @@
     <Compile Include="Servicios\Traductor\RespuestaLineasCapturaExistentes.cs" />
     <Compile Include="Servicios\Traductor\RespuestaResolucionesEnLineaCaptura.cs" />
     <Compile Include="Servicios\Traductor\TraductorBitacora.cs" />
-    <Compile Include="Servicios\Traductor\TraductorMonitorTareaProgramada.cs" />
     <Compile Include="Servicios\Traductor\TraductorMonitorArchivoZIP.cs" />
-    <Compile Include="Servicios\Traductor\TraductorMonitorTareaProgramadaBusqueda.cs" />
     <Compile Include="Servicios\Traductor\TraductorMonitorArchivoZIPBusqueda.cs" />
-    <Compile Include="Servicios\Traductor\TraductorMonitorPagoDetalleBusqueda.cs" />
     <Compile Include="Servicios\Traductor\TraductorMonitorPagoDetalle.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorPagoDetalleBusqueda.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorTareaProgramada.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorTareaProgramadaBusqueda.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.34301.259
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.CreditosFiscales.Procesamiento.Servicios", "..\Procesamiento\Sat.CreditosFiscales.Procesamiento.Servicios\Sat.CreditosFiscales.Procesamiento.Servicios.csproj", "{A4578D1E-32A4-415C-BE7C-772E59332692}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.CreditosFiscales.Datos.AccesoDatos", "..\Datos\Sat.CreditosFiscales.Datos.AccesoDatos\Sat.CreditosFiscales.Datos.AccesoDatos.csproj", "{AAE4A451-6237-457F-B8C0-87CC67C5DC78}"
@@ -24,11 +22,40 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolaDePruebas", "..\Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.CreditosFiscales.Presentacion.Temporales", "..\Presentacion\Sat.CreditosFiscales.Presentacion.Temporales\Sat.CreditosFiscales.Presentacion.Temporales.csproj", "{99F799C7-A0C8-4257-B834-2782E32D26D2}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SAT.Setup.Presentacion.Portal", "..\Setup\SAT.Setup.Presentacion.Portal\SAT.Setup.Presentacion.Portal.vdproj", "{C6752601-F036-46D8-8E75-42859A63DB4C}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SAT.Setup.Presentacion.Servicios", "..\Setup\SAT.Setup.Presentacion.Servicios\SAT.Setup.Presentacion.Servicios.vdproj", "{D422C324-2911-4A6F-B0A8-8469DBAC8F07}"
-EndProject
 Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://99.90.52.210:8080/tfs/sat
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Entidades\\Sat.CreditosFiscales.Comunes.Entidades.csproj
+		SccProjectName1 = ../Comunes/Sat.CreditosFiscales.Comunes.Entidades
+		SccLocalPath1 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Entidades
+		SccProjectUniqueName2 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Herramientas\\Sat.CreditosFiscales.Comunes.Herramientas.csproj
+		SccProjectName2 = ../Comunes/Sat.CreditosFiscales.Comunes.Herramientas
+		SccLocalPath2 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Herramientas
+		SccProjectUniqueName3 = ..\\Datos\\Sat.CreditosFiscales.Datos.AccesoDatos\\Sat.CreditosFiscales.Datos.AccesoDatos.csproj
+		SccProjectName3 = ../Datos/Sat.CreditosFiscales.Datos.AccesoDatos
+		SccLocalPath3 = ..\\Datos\\Sat.CreditosFiscales.Datos.AccesoDatos
+		SccProjectUniqueName4 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Herramientas\\Sat.CreditosFiscales.Presentacion.Herramientas.csproj
+		SccProjectName4 = ../Presentacion/Sat.CreditosFiscales.Presentacion.Herramientas
+		SccLocalPath4 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Herramientas
+		SccProjectUniqueName5 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.LogicaNegocio\\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.csproj
+		SccProjectName5 = ../Procesamiento/Sat.CreditosFiscales.Procesamiento.LogicaNegocio
+		SccLocalPath5 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.LogicaNegocio
+		SccProjectUniqueName6 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.Servicios\\Sat.CreditosFiscales.Procesamiento.Servicios.csproj
+		SccProjectName6 = ../Procesamiento/Sat.CreditosFiscales.Procesamiento.Servicios
+		SccLocalPath6 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.Servicios
+		SccProjectUniqueName7 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Portal\\Sat.CreditosFiscales.Presentacion.Portal.csproj
+		SccProjectName7 = ../Presentacion/Sat.CreditosFiscales.Presentacion.Portal
+		SccLocalPath7 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Portal
+		SccProjectUniqueName8 = ..\\Test\\ConsolaDePruebas\\ConsolaDePruebas.csproj
+		SccProjectName8 = ../Test/ConsolaDePruebas
+		SccLocalPath8 = ..\\Test\\ConsolaDePruebas
+		SccProjectUniqueName9 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Temporales\\Sat.CreditosFiscales.Presentacion.Temporales.csproj
+		SccProjectName9 = ../Presentacion/Sat.CreditosFiscales.Presentacion.Temporales
+		SccLocalPath9 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Temporales
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -63,20 +90,16 @@ Global
 		{E20FDF3F-9C86-4D65-8625-3F567D93A56F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E20FDF3F-9C86-4D65-8625-3F567D93A56F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57798508-98FF-4A14-8384-E3FC216214CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57798508-98FF-4A14-8384-E3FC216214CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57798508-98FF-4A14-8384-E3FC216214CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57798508-98FF-4A14-8384-E3FC216214CC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99F799C7-A0C8-4257-B834-2782E32D26D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99F799C7-A0C8-4257-B834-2782E32D26D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F799C7-A0C8-4257-B834-2782E32D26D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F799C7-A0C8-4257-B834-2782E32D26D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6752601-F036-46D8-8E75-42859A63DB4C}.Debug|Any CPU.ActiveCfg = Debug
-		{C6752601-F036-46D8-8E75-42859A63DB4C}.Release|Any CPU.ActiveCfg = Release
-		{D422C324-2911-4A6F-B0A8-8469DBAC8F07}.Debug|Any CPU.ActiveCfg = Debug
-		{D422C324-2911-4A6F-B0A8-8469DBAC8F07}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {68A9E628-0F92-4030-AD31-DB95858C524A}
-	EndGlobalSection
 EndGlobal
+

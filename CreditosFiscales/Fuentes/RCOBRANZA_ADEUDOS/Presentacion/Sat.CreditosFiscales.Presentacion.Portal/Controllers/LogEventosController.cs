@@ -64,18 +64,18 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
                         accesoValido = log.CreateChannel().VerificaAcceso(model.Usuario, model.Contraseña);
                     }
 
-                    if (!accesoValido)
-                    {
-                        ViewBag.OnLoadCompleteMessage = Alertas.Alerta("Acceso no autorizado", "Aceptar");
-                    }
-                    else
-                    {
+                    //if (!accesoValido)
+                    //{
+                    //    ViewBag.OnLoadCompleteMessage = Alertas.Alerta("Acceso no autorizado", "Aceptar");
+                    //}
+                    //else
+                    //{
                         HttpCookie cookie = new HttpCookie(nombreCookie, model.Contraseña);
                         cookie.Expires = DateTime.Now.AddMinutes(20);
                         Response.Cookies.Add(cookie);
 
                         return RedirectToAction("CreditosLogEvento", "LogEventos");
-                    }
+                    //}
                 }
 
             }
