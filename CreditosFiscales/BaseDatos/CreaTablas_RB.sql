@@ -25,3 +25,7 @@ GO
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CatErrorProceso]') AND type in (N'U'))
 DROP TABLE [dbo].[CatErrorProceso]
 GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[vw_ProcesaZip]') AND type in (N'V'))
+DROP VIEW [dbo].[vw_ProcesaZip]
+GO

@@ -13,7 +13,8 @@ CREATE OR ALTER procedure pRegistraControlPagosDet
 	@TipoPago	tinyint,
 	@IdEstado	tinyint,
 	@IdZip	bigint,
-	@NombreXML	varchar(20)
+	@NombreXML	varchar(20), 
+	@idProcesamiento uniqueidentifier = null
 )
 as
 declare
@@ -22,9 +23,9 @@ declare
 set nocount on
 
 	insert into tblControlPagosDet (IdArchivo, NumLinea, Consecutivo, LineaCaptura, FechaPago, HoraPago, Importe,
-									NumOperacion, MedioRecepcion, Version, TipoPago, IdEstado, IdZip, NombreXML, IdError)
+									NumOperacion, MedioRecepcion, Version, TipoPago, IdEstado, IdZip, NombreXML, IdError, IdProcesamiento)
 	values(@IdArchivo, @NumLinea, @Consecutivo, @LineaCaptura, @FechaPago, @HoraPago,@Importe,
-									@NumOperacion, @MedioRecepcion, @Version, @TipoPago, @IdEstado, @IdZip, @NombreXML, 0)
+									@NumOperacion, @MedioRecepcion, @Version, @TipoPago, @IdEstado, @IdZip, @NombreXML, 0, @idProcesamiento )
 
 
 	if @@ERROR <> 0 begin

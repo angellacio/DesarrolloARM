@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Sat.CreditosFiscales.Procesamiento.Pagos.NegocioPagos
+namespace Sat.CreditosFiscales.Procesamiento.PagosV.NegocioPagos
 {
     public class NombreSIAT
     {

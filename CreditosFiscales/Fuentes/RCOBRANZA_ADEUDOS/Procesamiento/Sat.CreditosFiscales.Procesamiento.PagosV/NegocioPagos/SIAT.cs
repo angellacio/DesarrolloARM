@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using Ionic.Zip;
 
-namespace Sat.CreditosFiscales.Procesamiento.Pagos.NegocioPagos
+namespace Sat.CreditosFiscales.Procesamiento.PagosV.NegocioPagos
 {
     using Sat.CreditosFiscales.Comunes.Entidades.Pagos;
     using Sat.CreditosFiscales.Comunes.Herramientas;

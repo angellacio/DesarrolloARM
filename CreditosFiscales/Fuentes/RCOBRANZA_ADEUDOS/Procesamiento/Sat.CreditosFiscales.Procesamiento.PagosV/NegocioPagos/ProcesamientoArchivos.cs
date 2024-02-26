@@ -21,7 +21,7 @@ using Sat.CreditosFiscales.Procesamiento.LogicaNegocio.AccesoLogEventos;
 
 
 
-namespace Sat.CreditosFiscales.Procesamiento.Pagos.NegocioPagos
+namespace Sat.CreditosFiscales.Procesamiento.PagosV.NegocioPagos
 {
     /// <summary>
     /// Clase que contiene toda la información referente al manejo de archivos.
@@ -1119,8 +1119,6 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos.NegocioPagos
 
 
                 LogEventos.EscribirEntradaLog((int)EnumErroresPagos.ErrorAplicarValidacionDetalle, exception);
-                SIATDALPagos.ActualizaErrorProceso(ProcActual, IdArchiProcesa, (int)EnumErroresProceso.FechasOperacion);
-
                 return false;
             }
 

@@ -17,8 +17,8 @@ set nocount on
 	insert into tblControlPagosHead (IdProceso, NombreArchivo,IdBanco, FechaPago, NumRegistros, Importe, FechaRegistro, Idestado, IdError )
 	values(@pIdProceso, @pNombreArchivo, @pIdBanco, @pFechaPago, @pNumRegistros, @pimporte, GETDATE(), 1, 0)
 
-	select max(idArchivo) from tblControlPagosHead
-
+	--select max(idArchivo) from tblControlPagosHead
+	select SCOPE_IDENTITY()
 
 	if @@ERROR <> 0 begin
 		select @vMensaje = 'Error al registrar archivo '

@@ -58,9 +58,17 @@ set nocount on
 	end 
 
 
-
+	if @pNombreArchivo <> 'Virtual'
+	begin 
 		select @idArchivo = idArchivo from tblControlPagosHead where IdProceso = @pIdProceso and NombreArchivo = SUBSTRING(ltrim(rtrim(@pNombreArchivo)), 2, 12)
-		update tblControlPagosDet set IdEstado = 3, IdProcesamiento = @pIdProcesamiento  where IdArchivo = @idArchivo and LineaCaptura = @LineaCaptura
+				update tblControlPagosDet set IdEstado = 3, IdProcesamiento = @pIdProcesamiento  where IdArchivo = @idArchivo and LineaCaptura = @LineaCaptura
+	end
+	else
+	begin 
+		select @idArchivo = idArchivo from tblControlPagosHead where IdProceso = @pIdProceso and NombreArchivo = @pNombreArchivo
+		update tblControlPagosDet set IdEstado = 3where IdArchivo = @idArchivo and LineaCaptura = @LineaCaptura
+	end
+
 
 
 

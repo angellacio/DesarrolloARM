@@ -11,42 +11,47 @@ as
 set nocount on
 
 if (@tipoArchivo = 1)
-begin 
-		select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagos
-		where (IdProceso = @pIdProceso or reenviar = 1) and NombreArchivo <> 'Virtual' 
-		union all
-		select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagosSoloDyP
-		where IdProceso = @pIdProceso and NombreArchivo <> 'Virtual' 
+	begin 
+
+		WITH OrderedTable AS
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS row_number, *
+			FROM vw_ProcesaZip
+			where (IdProceso = @pIdProceso OR reenviar = 1) and NombreArchivo <> 'Virtual' 
+		)
+		SELECT NombreArchivo, Contenido
+		FROM OrderedTable
+		WHERE row_number BETWEEN (@pagina - 1) * @registros + 1 AND @pagina * @registros 
 		order by NombreArchivo
-	OFFSET @pagina ROWS
-	FETCH NEXT @registros ROWS ONLY;
 
-	update dbo.TblSIATDetalleProcesoPagos set reenviar = 0 where reenviar = 1 and NombreArchivo <> 'Virtual' 
+		update dbo.TblSIATDetalleProcesoPagos set reenviar = 0 where reenviar = 1 and NombreArchivo <> 'Virtual' 
 
-		-- Actualiza Estado a generando XML
-	update tblControlPagosDet set IdEstado = 4
-	WHERE IdArchivo in (select IdArchivo from tblControlPagosHead where IdProceso = @pIdProceso and NombreArchivo <> 'Virtual') and IdEstado = 3 and IdZip =  0
+			-- Actualiza Estado a generando XML
+		update tblControlPagosDet set IdEstado = 4
+		WHERE IdArchivo in (select IdArchivo from tblControlPagosHead where IdProceso = @pIdProceso and NombreArchivo <> 'Virtual') and IdEstado = 3 and IdZip =  0
 
-END
+	END
 ELSE
-BEGIN
-		select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagos
-		where (IdProceso = @pIdProceso or reenviar = 1) and NombreArchivo = 'Virtual' 
-		union all
-		select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagosSoloDyP
-		where IdProceso = @pIdProceso and NombreArchivo = 'Virtual' 
+	BEGIN
+		WITH OrderedTable AS
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS row_number, *
+			FROM vw_ProcesaZip
+			where (IdProceso = @pIdProceso OR reenviar = 1) and NombreArchivo <> 'Virtual' 
+		)
+		SELECT NombreArchivo, Contenido
+		FROM OrderedTable
+		WHERE row_number BETWEEN (@pagina - 1) * @registros + 1 AND @pagina * @registros 
 		order by NombreArchivo
-	OFFSET @pagina ROWS
-	FETCH NEXT @registros ROWS ONLY;
 
 
 		update dbo.TblSIATDetalleProcesoPagos set reenviar = 0 where reenviar = 1 and NombreArchivo = 'Virtual' 
 
-			-- Actualiza Estado a generando XML
-	update tblControlPagosDet set IdEstado = 4
-	WHERE IdArchivo in (select IdArchivo from tblControlPagosHead where IdProceso = @pIdProceso and NombreArchivo <> 'Virtual') and IdEstado = 3 and IdZip =  0
+				-- Actualiza Estado a generando XML
+		update tblControlPagosDet set IdEstado = 4
+		WHERE IdArchivo in (select IdArchivo from tblControlPagosHead where IdProceso = @pIdProceso and NombreArchivo = 'Virtual') and IdEstado = 3 and IdZip =  0
 
-END
+	END
 
 
 

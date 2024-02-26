@@ -2,14 +2,14 @@
 CREATE OR ALTER procedure pActualizaEstadoProceso
 (
 	@pidProceso bigint,
-	@pidArchivo char(12), 
+	@pidArchivo bigint, 
 	@pEstado tinyint
 )
 as
 
 set nocount on
 
-	update tblControlPagosHead set IdEstado = @pEstado where IdProceso = @pidProceso and NombreArchivo = @pidArchivo
+	update tblControlPagosHead set IdEstado = @pEstado where IdProceso = @pidProceso and idArchivo = @pidArchivo
 
 set nocount off
 return 0
