@@ -76,8 +76,10 @@
     <Compile Include="GeneraFormato\LineaCaptura.cs" />
     <Compile Include="Pagos\Agrupadores.cs" />
     <Compile Include="Pagos\ArchivoSalida.cs" />
+    <Compile Include="Pagos\ArchivosZip.cs" />											  
     <Compile Include="Pagos\ConceptoOriginal.cs" />
     <Compile Include="Pagos\ConceptoOriginalHijo.cs" />
+    <Compile Include="Pagos\EnumErroresProceso.cs" />													 
     <Compile Include="Pagos\EnumTipoAplicacion.cs" />
     <Compile Include="Pagos\EnumTipoPersona.cs" />
     <Compile Include="Pagos\InfoArchivoSIAT.cs" />
@@ -85,6 +87,9 @@
     <Compile Include="Pagos\ReporteDiferencias.cs" />
     <Compile Include="Pagos\RutaArchivos.cs" />
     <Compile Include="Pagos\SIATPagos.cs" />
+    <Compile Include="Pagos\TblArchivoZip.cs" />
+    <Compile Include="Pagos\TblControlPagosDet.cs" />
+    <Compile Include="Pagos\TblControlPagosHead.cs" />												
     <Compile Include="Pagos\TblLineaCaptura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneraFormato\DocumentoDeterminanteConcepto.cs" />
@@ -100,6 +105,12 @@
     <Compile Include="Servicios\Traductor\RespuestaLineasCapturaExistentes.cs" />
     <Compile Include="Servicios\Traductor\RespuestaResolucionesEnLineaCaptura.cs" />
     <Compile Include="Servicios\Traductor\TraductorBitacora.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorArchivoZIP.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorArchivoZIPBusqueda.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorPagoDetalle.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorPagoDetalleBusqueda.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorTareaProgramada.cs" />
+    <Compile Include="Servicios\Traductor\TraductorMonitorTareaProgramadaBusqueda.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

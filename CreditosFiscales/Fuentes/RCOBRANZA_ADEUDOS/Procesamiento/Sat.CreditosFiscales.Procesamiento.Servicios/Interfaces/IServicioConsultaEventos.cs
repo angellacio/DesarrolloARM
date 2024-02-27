@@ -64,6 +64,39 @@ namespace Sat.CreditosFiscales.Procesamiento.Servicios.Interfaces
         /// <returns><see cref="TraductorBitacora"/></returns>
         [OperationContract]
         List<TraductorBitacora> BuscarEnBitacora(int porIdAplicacion, int porIdTipoDocumento, DateTime porFechaInicio, DateTime porFechaFin, int conError, string porIdProcesamiento, string porRfc, int porIdPaso);
+        /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de pago detalle.
+        /// </summary>
+        /// <param name="cadenaDeConexion">Cadena de conexión</param>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porIdEstatus">Identificador estatus</param>
+        /// <param name="porIdBanco">Ientificar del tipo de banco</param>
+        /// <param name="porFechaInicio">Fecha inicio pago</param>
+        /// <param name="porFechaFin">Fecha fin pago</param>
+        /// <param name="porLineaCaptura">Identifcar la linea de captura</param>
+        /// <returns><see cref="TraductorMonitorPagoDetalleBusqueda"/></returns>
+        [OperationContract]
+        List<TraductorMonitorPagoDetalleBusqueda> BuscarEnMonitorPagoDetalle(int porIdTipoPago, int porIdEstatus, int porIdBanco, DateTime? porFechaInicio, DateTime? porFechaFin, string porLineaCaptura);
+        /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de pago detalle.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porIdEstatus">Identificador estatus</param>
+        /// <param name="porFechaInicio">Fecha inicio pago</param>
+        /// <param name="porFechaFin">Fecha fin pago</param>
+        /// <returns>Lista del tipo <see cref="TraductorMonitorArchivoZIPBusqueda"/></returns>
+        [OperationContract]
+        List<TraductorMonitorArchivoZIPBusqueda> BuscarEnMonitorArchivoZIP(int porIdTipoPago, string porArchivoZIP, DateTime? porFechaInicio, DateTime? porFechaFin);
+        /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de tareas programadas.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porIdEstatus">Identificador estatus</param>
+        /// <param name="porFechaInicio">Fecha inicio proceso</param>
+        /// <param name="porFechaFin">Fecha fin proceso</param>
+        /// <returns>Lista del tipo <see cref="TraductorMonitorTareaProgramadaBusqueda"/></returns>
+        [OperationContract]
+        List<TraductorMonitorTareaProgramadaBusqueda> BuscarEnMonitorTareaProgramada(int porIdTipoPago, int porIdEstatus, DateTime? porFechaInicio, DateTime? porFechaFin);
 
         /// <summary>
         /// Método para la obtención de catalogos
@@ -72,7 +105,7 @@ namespace Sat.CreditosFiscales.Procesamiento.Servicios.Interfaces
         /// <returns>Diccionario con valor y texto del catalogo</returns>
         [OperationContract]
         Dictionary<int, string> ObtenerCatalogo(int idCatalogo);
-       
+
 
     }
 }

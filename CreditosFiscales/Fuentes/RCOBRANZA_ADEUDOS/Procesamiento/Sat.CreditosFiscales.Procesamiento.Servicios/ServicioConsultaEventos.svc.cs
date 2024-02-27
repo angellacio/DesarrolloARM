@@ -72,6 +72,45 @@ namespace Sat.CreditosFiscales.Procesamiento.Servicios
             return LogEventos.BuscarEnBitacora(porIdAplicacion, porIdTipoDocumento, porFechaInicio, porFechaFin, conError, porIdProcesamiento, porRfc, porIdPaso);
         }
         /// <summary>
+        /// Método para la búsqueda en monitor pago detalle.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador de la aplicación</param>
+        /// <param name="porIdEstatus">Identificador del tipo de documento</param>
+        /// <param name="porIdBanco">Fecha inico</param>
+        /// <param name="porFechaInicio">Fecha fin</param>
+        /// <param name="porFechaFin">Acciones realizadas con error, exito o todas</param>
+        /// /// <param name="porLineaCaptura">Acciones realizadas con error, exito o todas</param>
+        /// <returns><see cref="TraductorMonitorPagoDetalleBusqueda"/></returns>
+        public List<TraductorMonitorPagoDetalleBusqueda> BuscarEnMonitorPagoDetalle(int porIdTipoPago, int porIdEstatus, int porIdBanco, DateTime? porFechaInicio, DateTime? porFechaFin, string porLineaCaptura)
+        {
+            return LogEventos.BuscarMonitorDetallePago(porIdTipoPago, porIdEstatus, porIdBanco, porFechaInicio, porFechaFin, porLineaCaptura);
+        }
+        /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de los archivos zip.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porIdEstatus">Identificador estatus</param>
+        /// <param name="porFechaInicio">Fecha inicio pago</param>
+        /// <param name="porFechaFin">Fecha fin pago</param>
+        /// <returns>Lista del tipo <see cref="TraductorMonitorArchivoZIPBusqueda"/></returns>
+        public List<TraductorMonitorArchivoZIPBusqueda> BuscarEnMonitorArchivoZIP(int porIdTipoPago, string porArchivoZIP, DateTime? porFechaInicio, DateTime? porFechaFin)
+        {
+            return LogEventos.BuscarMonitorArchivoZIP(porIdTipoPago, porArchivoZIP, porFechaInicio, porFechaFin);
+        }
+        /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de tareas programadas.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porIdEstatus">Identificador estatus</param>
+        /// <param name="porFechaInicio">Fecha inicio proceso</param>
+        /// <param name="porFechaFin">Fecha fin proceso</param>
+        /// <returns>Lista del tipo <see cref="TraductorMonitorTareaProgramadaBusqueda"/></returns>
+        public List<TraductorMonitorTareaProgramadaBusqueda> BuscarEnMonitorTareaProgramada(int porIdTipoPago, int porIdEstatus, DateTime? porFechaInicio, DateTime? porFechaFin)
+        {
+            return LogEventos.BuscarMonitorTareaProgramada(porIdTipoPago, porIdEstatus, porFechaInicio, porFechaFin);
+        }
+
+        /// <summary>
         /// Método para la obtención de catalogos
         /// </summary>
         /// <param name="idCatalogo">Identificador del catalogo</param>

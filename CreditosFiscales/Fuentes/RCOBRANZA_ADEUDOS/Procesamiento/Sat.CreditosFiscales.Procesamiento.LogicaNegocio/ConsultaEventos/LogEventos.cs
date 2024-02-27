@@ -91,6 +91,50 @@ namespace Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ConsultaEventos
         }
 
         /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de pago detalle.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porIdEstatus">Identificador estatus</param>
+        /// <param name="porIdBanco">Ientificar del tipo de banco</param>
+        /// <param name="porFechaInicio">Fecha inicio pago</param>
+        /// <param name="porFechaFin">Fecha fin pago</param>
+        /// <param name="porLineaCaptura">Identifcar la linea de captura</param>
+        /// <returns>Lista del tipo <see cref="TraductorMonitorPagoDetalleBusqueda"/></returns>
+        public static List<TraductorMonitorPagoDetalleBusqueda> BuscarMonitorDetallePago(int porIdTipoPago, int porIdEstatus, int porIdBanco, DateTime? porFechaInicio, DateTime? porFechaFin, string porLineaCaptura)
+        {
+            string cadenaDeConexion = (string)ApplicationSettings.ConsultaConfiguracion("Log:ConnStrMotorTraductor");
+            return new DalLogEventos().BuscarMonitorPagoDetalle(cadenaDeConexion, porIdTipoPago, porIdEstatus, porIdBanco, porFechaInicio, porFechaFin, porLineaCaptura);
+        }
+
+        /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de archivo ZIP.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porArchivoZIP">Nombre Archivo ZIP</param>
+        /// <param name="porFechaInicio">Fecha inicio creación ZIP</param>
+        /// <param name="porFechaFin">Fecha fin creación ZIP</param>
+        /// <returns>Lista del tipo <see cref="TraductorMonitorArchivoZIPBusqueda"/></returns>
+        public static List<TraductorMonitorArchivoZIPBusqueda> BuscarMonitorArchivoZIP(int porIdTipoPago, string porArchivoZIP, DateTime? porFechaInicio, DateTime? porFechaFin)
+        {
+            string cadenaDeConexion = (string)ApplicationSettings.ConsultaConfiguracion("Log:ConnStrMotorTraductor");
+            return new DalLogEventos().BuscarMonitorArchivoZIP(cadenaDeConexion, porIdTipoPago, porArchivoZIP, porFechaInicio, porFechaFin);
+        }
+
+        /// <summary>
+        /// Método para obtener los eventos registrados en el monitor de tareas programadas.
+        /// </summary>
+        /// <param name="porIdTipoPago">Identificador del tipo de pago</param>
+        /// <param name="porIdEstatus">Identificador estatus</param>
+        /// <param name="porFechaInicio">Fecha inicio proceso</param>
+        /// <param name="porFechaFin">Fecha fin proceso</param>
+        /// <returns>Lista del tipo <see cref="TraductorMonitorTareaProgramadaBusqueda"/></returns>
+        public static List<TraductorMonitorTareaProgramadaBusqueda> BuscarMonitorTareaProgramada(int porIdTipoPago, int porIdEstatus, DateTime? porFechaInicio, DateTime? porFechaFin)
+        {
+            string cadenaDeConexion = (string)ApplicationSettings.ConsultaConfiguracion("Log:ConnStrMotorTraductor");
+            return new DalLogEventos().BuscarMonitorTareaProgramada(cadenaDeConexion, porIdTipoPago, porIdEstatus, porFechaInicio, porFechaFin);
+        }
+
+        /// <summary>
         /// Ontiene los catalogos para mostrar los filtros de busqueda
         /// </summary>
         /// <param name="idCatalogo">Identificador del catálogo</param>

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34301.259
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.CreditosFiscales.Procesamiento.Servicios", "..\Procesamiento\Sat.CreditosFiscales.Procesamiento.Servicios\Sat.CreditosFiscales.Procesamiento.Servicios.csproj", "{A4578D1E-32A4-415C-BE7C-772E59332692}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.CreditosFiscales.Datos.AccesoDatos", "..\Datos\Sat.CreditosFiscales.Datos.AccesoDatos\Sat.CreditosFiscales.Datos.AccesoDatos.csproj", "{AAE4A451-6237-457F-B8C0-87CC67C5DC78}"
@@ -23,39 +25,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sat.CreditosFiscales.Presentacion.Temporales", "..\Presentacion\Sat.CreditosFiscales.Presentacion.Temporales\Sat.CreditosFiscales.Presentacion.Temporales.csproj", "{99F799C7-A0C8-4257-B834-2782E32D26D2}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://99.90.52.210:8080/tfs/sat
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Entidades\\Sat.CreditosFiscales.Comunes.Entidades.csproj
-		SccProjectName1 = ../Comunes/Sat.CreditosFiscales.Comunes.Entidades
-		SccLocalPath1 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Entidades
-		SccProjectUniqueName2 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Herramientas\\Sat.CreditosFiscales.Comunes.Herramientas.csproj
-		SccProjectName2 = ../Comunes/Sat.CreditosFiscales.Comunes.Herramientas
-		SccLocalPath2 = ..\\Comunes\\Sat.CreditosFiscales.Comunes.Herramientas
-		SccProjectUniqueName3 = ..\\Datos\\Sat.CreditosFiscales.Datos.AccesoDatos\\Sat.CreditosFiscales.Datos.AccesoDatos.csproj
-		SccProjectName3 = ../Datos/Sat.CreditosFiscales.Datos.AccesoDatos
-		SccLocalPath3 = ..\\Datos\\Sat.CreditosFiscales.Datos.AccesoDatos
-		SccProjectUniqueName4 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Herramientas\\Sat.CreditosFiscales.Presentacion.Herramientas.csproj
-		SccProjectName4 = ../Presentacion/Sat.CreditosFiscales.Presentacion.Herramientas
-		SccLocalPath4 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Herramientas
-		SccProjectUniqueName5 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.LogicaNegocio\\Sat.CreditosFiscales.Procesamiento.LogicaNegocio.csproj
-		SccProjectName5 = ../Procesamiento/Sat.CreditosFiscales.Procesamiento.LogicaNegocio
-		SccLocalPath5 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.LogicaNegocio
-		SccProjectUniqueName6 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.Servicios\\Sat.CreditosFiscales.Procesamiento.Servicios.csproj
-		SccProjectName6 = ../Procesamiento/Sat.CreditosFiscales.Procesamiento.Servicios
-		SccLocalPath6 = ..\\Procesamiento\\Sat.CreditosFiscales.Procesamiento.Servicios
-		SccProjectUniqueName7 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Portal\\Sat.CreditosFiscales.Presentacion.Portal.csproj
-		SccProjectName7 = ../Presentacion/Sat.CreditosFiscales.Presentacion.Portal
-		SccLocalPath7 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Portal
-		SccProjectUniqueName8 = ..\\Test\\ConsolaDePruebas\\ConsolaDePruebas.csproj
-		SccProjectName8 = ../Test/ConsolaDePruebas
-		SccLocalPath8 = ..\\Test\\ConsolaDePruebas
-		SccProjectUniqueName9 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Temporales\\Sat.CreditosFiscales.Presentacion.Temporales.csproj
-		SccProjectName9 = ../Presentacion/Sat.CreditosFiscales.Presentacion.Temporales
-		SccLocalPath9 = ..\\Presentacion\\Sat.CreditosFiscales.Presentacion.Temporales
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -101,5 +70,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93BE5485-2116-4F7D-9A7D-D6423D6ECE06}
+	EndGlobalSection
 EndGlobal
-
