@@ -6,7 +6,9 @@ drop procedure pActualizaEstadoProceso;
 drop procedure pRegistraArchivoZip;
 drop procedure pActualizaIdArchivoZip;
 drop procedure pActualizaEstadoErrorLC; 
-
+drop procedure pObtenerMonitorArchivoZIP;
+drop procedure pObtenerMonitorTProgramada;
+drop procedure pObtenerMonitorPagoDetalle;
 
 GO
 
@@ -124,6 +126,25 @@ Errores:
 GO
 
 
+ALTER PROC pBitacoraEventosCatalogo
+	@pIdCatalogo INT
+AS
+  BEGIN
+      IF ( @pIdCatalogo = 1 )
+        SELECT IdAplicacion AS valor,
+               Nombre       AS Descripcion
+        FROM   CatAplicacion
 
+      IF ( @pIdCatalogo = 2 )
+        SELECT IdTipoDocumento AS valor,
+               Nombre          AS Descripcion
+        FROM   CatTipoDocumento
+
+	  IF ( @pIdCatalogo = 3 )
+        SELECT [IdPasoProceso] AS valor,
+               [Descripcion] AS Descripcion
+        FROM   CatPasosProcesos
+
+  END
 
 
