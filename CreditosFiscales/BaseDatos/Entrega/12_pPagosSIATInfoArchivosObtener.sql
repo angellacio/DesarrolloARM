@@ -37,7 +37,7 @@ ELSE
 		(
 			SELECT ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS row_number, *
 			FROM vw_ProcesaZip
-			where (IdProceso = @pIdProceso OR reenviar = 1) and NombreArchivo <> 'Virtual' 
+			where (IdProceso = @pIdProceso OR reenviar = 1) and NombreArchivo = 'Virtual' 
 		)
 		SELECT NombreArchivo, Contenido
 		FROM OrderedTable
