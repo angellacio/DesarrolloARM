@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  
+
+  <configSections>
+    <section name="dataConfiguration" type="Microsoft.Practices.EnterpriseLibrary.Data.Configuration.DatabaseSettings, Microsoft.Practices.EnterpriseLibrary.Data" />
+  </configSections>
+  <system.diagnostics>
+    <trace autoflush="true" />
+    <sources>
+      <source name="System.ServiceModel" switchValue="Information, ActivityTracing" propagateActivity="true">
+        <listeners>
+          <add name="sdt" type="System.Diagnostics.XmlWriterTraceListener" initializeData="E:\SdrConfigExample.e2e" />
+        </listeners>
+      </source>
+    </sources>
+  </system.diagnostics>
+  <appSettings>
+    <add key="ApplicationName" value="Sat.CreditosFiscales.Procesamiento" />
+    <add key="LogLevel" value="3" />
+  </appSettings>
+  <system.web>
+    <compilation debug="false" targetFramework="4.0" />
+  </system.web>
+  <connectionStrings>
+    <add name="CreditosFiscalesConnectionString" connectionString="Data Source=TQGAFPROSQLV02\TQGAFPROSQLI02,1433;Initial Catalog=CreditosFiscales;Integrated Security = true" providerName="System.Data.SqlClient" />
+    
+  </connectionStrings>
+  <dataConfiguration defaultDatabase="CreditosFiscalesConnectionString" />
+  <system.serviceModel>
+    <bindings>      
+        <basicHttpBinding>
+          <binding name="BasicHttpBinding_IServicioArcaCreditosFiscales" closeTimeout="00:10:00" openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647" transferMode="Buffered" useDefaultWebProxy="true">
+            <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+		<security mode="Transport" />          
+	</binding>
+          <binding name="BasicHttpBinding_ICreditosFiscales" closeTimeout="00:10:00" openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647" transferMode="Buffered" useDefaultWebProxy="true">
+            <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+          </binding>
+          <binding name="IdCInternoSOAP">
+            <security mode="None" />
+          </binding>
+          <binding name="basicHttpBinding_IServicioGeneraFormato" closeTimeout="00:10:00" openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647" transferMode="Buffered" useDefaultWebProxy="true">
+        <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+        </binding>
+        <binding name="basicHttpBinding_IServicioReglasEquivalencia" closeTimeout="00:10:00"
+        openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00"
+        allowCookies="false" bypassProxyOnLocal="true" hostNameComparisonMode="StrongWildcard"
+        maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647"
+        transferMode="Buffered" useDefaultWebProxy="true">
+            <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647"
+                maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+        </binding>
+        <binding name="BasicHttpBinding_IServicioGeneraFormatoImpresion" closeTimeout="00:10:00" openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" allowCookies="false" bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard" maxBufferPoolSize="2147483647" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647" transferMode="Buffered" useDefaultWebProxy="true">
+          <readerQuotas maxDepth="2147483647" maxStringContentLength="2147483647" maxArrayLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647" />
+        </binding>
+        </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="https://10.56.48.73:444/WsCreditos/ServicioArcaCreditosFiscales.svc" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServicioArcaCreditosFiscales" contract="ServicioArcaCF.IServicioArcaCreditosFiscales" name="BasicHttpBinding_IServicioArcaCreditosFiscales" />
+      <!--<endpoint address="http://cubo837u497a001.dssat.sat.gob.mx/ServicioArcaCreditosFiscales.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServicioArcaCreditosFiscales"
+        contract="ServicioArcaCF.IServicioArcaCreditosFiscales" name="BasicHttpBinding_IServicioArcaCreditosFiscales"/>-->
+      <endpoint address="http://localhost:9402/WsTraductorProcesamiento/CreditosFiscales.svc" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ICreditosFiscales" contract="ServicioTraductorLC.ICreditosFiscales" name="BasicHttpBinding_ICreditosFiscales" />
+      <endpoint address="http://10.91.209.49:9080/axis2/services/IdCInterno" binding="basicHttpBinding" bindingConfiguration="IdCInternoSOAP" contract="WsIdcInterno.IdCInterno" name="IdCInternoSOAP" />
+      <endpoint address="http://localhost:9402/WsImpresionLC/ServicioGeneraFormatoImpresion.svc" binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServicioGeneraFormatoImpresion" contract="ServicioGeneraFormatoImpresion.IServicioGeneraFormatoImpresion" name="BasicHttpBinding_IServicioGeneraFormatoImpresion" />
+    </client>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <!-- To avoid disclosing metadata information, set the value below to false before deployment -->
+          <serviceMetadata httpGetEnabled="true" />
+          <!-- To receive exception details in faults for debugging purposes, set the value below to true.  Set to false before deployment to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="true" />
+        </behavior>
+        <behavior name="ServicioConDetallesError">
+          <!-- To avoid disclosing metadata information, set the value below to false before deployment -->
+          <serviceMetadata httpGetEnabled="true" />
+          <!-- To receive exception details in faults for debugging purposes, set the value below to true.  Set to false before deployment to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="true" />
+        </behavior>
+      </serviceBehaviors>
+      
+    </behaviors>
+    <serviceHostingEnvironment multipleSiteBindingsEnabled="true" />
+    <services>
+      <service name="Sat.CreditosFiscales.Procesamiento.Servicios.ServicioGeneraFormato" behaviorConfiguration="ServicioConDetallesError">
+        <endpoint name="Endpoint_IServicioGeneraFormato" contract="Sat.CreditosFiscales.Procesamiento.Servicios.Interfaces.IServicioGeneraFormato" binding="basicHttpBinding" bindingConfiguration="basicHttpBinding_IServicioGeneraFormato">          
+        </endpoint>        
+      </service>
+      <service name="Sat.CreditosFiscales.Procesamiento.Servicios.ServicioReglasEquivalencia" behaviorConfiguration="ServicioConDetallesError">
+        <endpoint name="Endpoint_IServicioReglasEquivalencia"
+                  contract="Sat.CreditosFiscales.Procesamiento.Servicios.Interfaces.IServicioReglasEquivalencia"
+        binding="basicHttpBinding" bindingConfiguration ="basicHttpBinding_IServicioReglasEquivalencia">
+        </endpoint>
+      </service>
+    </services>
+  </system.serviceModel>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true" />
+    <!--
+        To browse web app root directory during debugging, set the value below to true.
+        Set to false before deployment to avoid disclosing web app folder information.
+      -->
+    <directoryBrowse enabled="false" />
+        <handlers accessPolicy="Read, Script" />
+        <defaultDocument>
+            <files>
+                <clear />
+                <add value="Default.asp" />
+            </files>
+        </defaultDocument>
+        <httpErrors>
+            <clear />
+        </httpErrors>
+  </system.webServer>
+
+</configuration>

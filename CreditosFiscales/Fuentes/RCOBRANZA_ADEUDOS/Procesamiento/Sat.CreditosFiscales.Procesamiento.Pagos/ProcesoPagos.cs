@@ -11,6 +11,7 @@ using Sat.CreditosFiscales.Procesamiento.LogicaNegocio.AccesoLogEventos;
 using Sat.CreditosFiscales.Procesamiento.Pagos.NegocioPagos;
 
 using System.Configuration;
+using System.Diagnostics;
 
 namespace Sat.CreditosFiscales.Procesamiento.Pagos
 {
@@ -24,9 +25,12 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
         private long _idProceso;
 
 
+        string rutaArchivosSIR = ConfigurationManager.AppSettings["RutaArchivosParaSIR"];
+
+        bool bitacoriza = Convert.ToBoolean(ConfigurationManager.AppSettings["Bitacoriza"]);
 
 
-        bool bitacoriza = Boolean.Parse(ConfigurationManager.AppSettings["Bitacoriza"]);
+
 
         /// <summary>
         /// Método que implementa el dispose de la clase principal del proceso de pagos.
@@ -41,57 +45,62 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
         /// </summary>
         public void EjecutarProcesoPagos()
         {
-            ManejadorArchivos.WriteMessage("\n ->-> Inicia Proceso de Pagos.....");
+            ManejadorArchivos.WriteMessage("->-> Inicia Proceso de Pagos.....");
+
+            // POL-8241
+            if (InstanciaPrevia())
+                return;
+
             Console.WriteLine("Iniciando Proceso de pagos");
+
             var listaRepositorios = ObtenerRutasDeArchivosProcesar();
             _idProceso = ObtenerIdProceso(ref _esReproceso);
 
 
-
-            //AJGG
             if (bitacoriza)
                 ManejadorArchivos.WriteMessage("Proceso:" + _idProceso);
 
 
-            foreach (var repositorio in listaRepositorios)
-            {
-                var listaArchivos = ObtenerArchivosProcesar(repositorio.RutaRepositorio);
-                EjecutarProcesoArchivosPorRepositorio(_idProceso, repositorio.RutaRepositorio, listaArchivos, _esReproceso);
-                ManejadorArchivos.WriteMessage("Termina proceso repositorio "+ repositorio.RutaRepositorio);
+            bool fisicos = Boolean.Parse(ConfigurationManager.AppSettings["PagosFisicos"]);
 
+            if (fisicos)
+            {
+                foreach (var repositorio in listaRepositorios)
+                {
+
+   //                 repositorio.RutaRepositorio = @"C:\YK\ProcesoPagos\Generados_20000102";  // AJGG Quitar
+                    var listaArchivos = ObtenerArchivosProcesar(repositorio.RutaRepositorio);
+                    EjecutarProcesoArchivosPorRepositorio(_idProceso, repositorio.RutaRepositorio, listaArchivos, _esReproceso);
+                    ManejadorArchivos.WriteMessage("Termina proceso repositorio " + repositorio.RutaRepositorio);
+
+                }
             }
 
-
             bool virtuales = Boolean.Parse(ConfigurationManager.AppSettings["PagosVirtuales"]);
-
-            //AJGG
-            if (bitacoriza)
-                ManejadorArchivos.WriteMessage("Toma GeneracionLineasDePagoVirtuales: " + virtuales);
-
 
             if (virtuales)
                 InlcuirTransaccionesVirtuales(_idProceso, _esReproceso);
 
-            //AJGG
-            if (bitacoriza)
-                ManejadorArchivos.WriteMessage("Termina InlcuirTransaccionesVirtuales");
 
 
-            if (GenerarArchivos(_idProceso))
-                ActualizaFechaFin(_idProceso);
+            bool GenZip = Boolean.Parse(ConfigurationManager.AppSettings["GeneraZip"]);
+
+            if (GenZip)
+            {
+                if (GenerarArchivos(_idProceso))
+                    ActualizaFechaFin(_idProceso);
+            }
 
 
-            //AJGG
-            if (bitacoriza)
-                ManejadorArchivos.WriteMessage("Comienza ContribuyenteCumplido.CreaArchivoRFCs");
 
-            ContribuyenteCumplido.CreaArchivoRFCs();
+            bool rfcCumplidos = Boolean.Parse(ConfigurationManager.AppSettings["GeneraRFCCumplido"]);
+
+            if (rfcCumplidos)
+                ContribuyenteCumplido.CreaArchivoRFCs();
 
 
-            ManejadorArchivos.WriteMessage("\n Termina Proceso de Pagos->-> ");
+            ManejadorArchivos.WriteMessage("Termina Proceso de Pagos->-> ");
             Console.WriteLine("Termina Proceso de pagos");
-
-
 
 
         }
@@ -102,26 +111,28 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
             {
                 var procesamientoArchivos = new ProcesamientoArchivos();
                 var siat = new SIAT();
-                 var lineasApoyo= new List<TblLineaCaptura>();
+                var lineasApoyo = new List<TblLineaCaptura>();
 
-                //AJGG
                 if (bitacoriza)
                     ManejadorArchivos.WriteMessage("Entro al proceso InlcuirTransaccionesVirtuales:EjecutarProcesamientoVirtuales");
-
 
 
                 procesamientoArchivos.EjecutarProcesamientoVirtuales(idProceso, esReproceso, ref lineasApoyo);
 
 
-                //AJGG
                 if (bitacoriza)
                     ManejadorArchivos.WriteMessage("Concluye proceso InlcuirTransaccionesVirtuales:EjecutarProcesamientoVirtuales");
 
 
+                long idArchi =  siat.RegistraHeadVirutal(idProceso, lineasApoyo.Count());
+ //               siat.RegistraDetalleVirtual(idProceso, idArchi, lineasApoyo);
 
-                    siat.GeneracionLineasDePagoVirtuales(idProceso, esReproceso, lineasApoyo);
 
-                //AJGG
+
+
+
+                siat.GeneracionLineasDePagoVirtuales(idProceso, esReproceso, lineasApoyo, idArchi);
+
                 if (bitacoriza)
                     ManejadorArchivos.WriteMessage("Concluye InlcuirTransaccionesVirtuales:GeneracionLineasDePagoVirtuales");
 
@@ -132,7 +143,7 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
             }
             catch (Exception exception)
             {
-                LogEventos.EscribirEntradaLog((int) EnumErroresPagos.ErrorProcesarTransaccionesVirtuales, exception);
+                LogEventos.EscribirEntradaLog((int)EnumErroresPagos.ErrorProcesarTransaccionesVirtuales, exception);
             }
         }
 
@@ -141,7 +152,6 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
             try
             {
 
-                //AJGG
                 if (bitacoriza)
                     ManejadorArchivos.WriteMessage("ActualizaFechaFin" + idProceso);
 
@@ -153,33 +163,37 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
             }
         }
 
-        private bool GenerarArchivos(long idProceso)
+        public bool GenerarArchivos(long idProceso)
         {
             try
             {
 
-
-                //AJGG
                 if (bitacoriza)
-                    ManejadorArchivos.WriteMessage("Inicia GenerarArchivos: "+ idProceso);
+                    ManejadorArchivos.WriteMessage("Inicia GenerarArchivos: " + idProceso);
 
 
                 var procesamientoArchivos = new ProcesamientoArchivos();
                 var siat = new SIAT();
-                procesamientoArchivos.CrearArchivosSalida(idProceso);
+                //procesamientoArchivos.CrearArchivosSalida(idProceso);  //AJGG 8241 Se quita Generación de archivos SIR
 
 
-
-                //AJGG
                 if (bitacoriza)
                     ManejadorArchivos.WriteMessage("Comienza CrearArchivosSalida: " + idProceso);
 
 
+                int ArchivosxZip = int.Parse(ConfigurationManager.AppSettings["XMLxZIP"]);
 
-                siat.CrearArchivosSalida(idProceso);
+                bool regresa = true;
+                int pagina = 1;
+        //        int tomar = 0;
+                while (regresa)
+                {
+       //             tomar = pagina * ArchivosxZip;
+                    regresa = siat.CrearArchivosSalida(idProceso, pagina, ArchivosxZip);
+                    pagina++;
+                }
 
 
-                //AJGG
                 if (bitacoriza)
                     ManejadorArchivos.WriteMessage("Termina CrearArchivosSalida: " + idProceso);
 
@@ -206,22 +220,17 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
             return 0;
         }
 
-        private void EjecutarProcesoArchivosPorRepositorio(long idproceso, string rutaRepositorio, List<string> listaArchivos, bool esReproceso)
+        public void EjecutarProcesoArchivosPorRepositorio(long idproceso, string rutaRepositorio, List<string> listaArchivos, bool esReproceso)
         {
             try
             {
-
-                //AJGG
-                if (bitacoriza)
-                    ManejadorArchivos.WriteMessage("Leyendo archvios de la ruta: " + rutaRepositorio);
-
-
                 var procesamientoArchivos = new ProcesamientoArchivos();
                 procesamientoArchivos.EjecutarProcesamientoArchivos(idproceso, rutaRepositorio, listaArchivos, esReproceso);
             }
             catch (Exception exception)
             {
                 LogEventos.EscribirEntradaLog((int)EnumErroresPagos.ErrorProcesandoArchivos, exception);
+                SIATDALPagos.ActualizaErrorProceso(idproceso, -1, 98);
             }
         }
 
@@ -255,5 +264,31 @@ namespace Sat.CreditosFiscales.Procesamiento.Pagos
 
             return new List<RutaArchivos>();
         }
+
+
+
+        #region POL-8241
+
+        private static bool InstanciaPrevia()
+        {
+
+            Process[] processes = Process.GetProcessesByName("Sat.CreditosFiscales.Procesamiento.Pagos");
+
+
+            if (processes.Length > 1)
+            {
+                ManejadorArchivos.WriteMessage("Termina Proceso - Instancia previa ejecutandose");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        #endregion
+
+
     }
 }
