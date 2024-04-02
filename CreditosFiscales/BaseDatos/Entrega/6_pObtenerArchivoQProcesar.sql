@@ -1,5 +1,9 @@
+IF OBJECT_ID('pObtenerArchivoQProcesar', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerArchivoQProcesar;
+GO
 
-CREATE OR ALTER procedure pObtenerArchivoQProcesar
+
+CREATE procedure pObtenerArchivoQProcesar
 (
 	@pIdProceso bigint,
 	@NombreEquipo varchar(50)

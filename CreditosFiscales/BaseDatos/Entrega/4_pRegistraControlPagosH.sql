@@ -1,5 +1,10 @@
 
-CREATE OR ALTER procedure pRegistraControlPagosH
+IF OBJECT_ID('pRegistraControlPagosH', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraControlPagosH;
+GO
+
+
+CREATE procedure pRegistraControlPagosH
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(100),

@@ -1,5 +1,9 @@
+IF OBJECT_ID('pPagosSIATDetalleInsertarNoProcesados', 'P') IS NOT NULL
+DROP PROCEDURE pPagosSIATDetalleInsertarNoProcesados;
+GO
 
-CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
+
+CREATE procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),

@@ -1,5 +1,8 @@
-
-CREATE OR ALTER procedure [dbo].[pPagosSIATInfoArchivosObtener]
+IF OBJECT_ID('pPagosSIATInfoArchivosObtener', 'P') IS NOT NULL
+DROP PROCEDURE pPagosSIATInfoArchivosObtener;
+GO
+ 
+CREATE procedure [dbo].[pPagosSIATInfoArchivosObtener]
 (
 	@pIdProceso bigint, 
 	@pagina int, 

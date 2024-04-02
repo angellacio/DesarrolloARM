@@ -1,5 +1,8 @@
+IF OBJECT_ID('pRegistraArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraArchivoZip;
+GO
 
-CREATE OR ALTER procedure pRegistraArchivoZip
+CREATE procedure pRegistraArchivoZip
 (
 	@pNombreArchivo nvarchar(18)
 )

@@ -1,16 +1,49 @@
-drop procedure pRegistraControlPagosH; 
-drop procedure pRegistraControlPagosDet
-drop procedure pObtenerArchivoQProcesar;  
-drop procedure pActualizaEstadoError;
-drop procedure pActualizaEstadoProceso; 
-drop procedure pRegistraArchivoZip;
-drop procedure pActualizaIdArchivoZip;
-drop procedure pActualizaEstadoErrorLC; 
-drop procedure pObtenerMonitorArchivoZIP;
-drop procedure pObtenerMonitorTProgramada;
-drop procedure pObtenerMonitorPagoDetalle;
 
+IF OBJECT_ID('pRegistraControlPagosH', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraControlPagosH;
 GO
+
+IF OBJECT_ID('pRegistraControlPagosDet', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraControlPagosDet;
+GO
+
+IF OBJECT_ID('pObtenerArchivoQProcesar', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerArchivoQProcesar;
+GO
+IF OBJECT_ID('pActualizaEstadoError', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoError;
+GO
+
+IF OBJECT_ID('pActualizaEstadoProceso', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoProceso;
+GO
+
+IF OBJECT_ID('pRegistraArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraArchivoZip;
+GO
+
+IF OBJECT_ID('pActualizaIdArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaIdArchivoZip;
+GO
+
+IF OBJECT_ID('pActualizaEstadoErrorLC', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoErrorLC;
+GO
+
+IF OBJECT_ID('pObtenerMonitorArchivoZIP', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerMonitorArchivoZIP;
+GO
+
+IF OBJECT_ID('pObtenerMonitorTProgramada', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerMonitorTProgramada;
+GO
+
+
+
+IF OBJECT_ID('pObtenerMonitorPagoDetalle', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerMonitorPagoDetalle;
+GO
+
 
 alter procedure [dbo].[pPagosSIATInfoArchivosObtener]
 (
@@ -35,7 +68,7 @@ return 0
 GO
 
 
-CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
+ALTER procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),
@@ -64,7 +97,7 @@ Errores:
 GO
 
 
-CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertar]
+ALTER procedure [dbo].[pPagosSIATDetalleInsertar]
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),
@@ -148,3 +181,6 @@ AS
   END
 
 
+
+IF OBJECT_ID('vw_ProcesaZip', 'V') IS NOT NULL
+DROP VIEW vw_ProcesaZip

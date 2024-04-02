@@ -1,5 +1,9 @@
---Actualiza PagosSIATDetalleInsertar
-CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertar]
+IF OBJECT_ID('pPagosSIATDetalleInsertar', 'P') IS NOT NULL
+DROP PROCEDURE pPagosSIATDetalleInsertar;
+GO
+
+
+CREATE procedure [dbo].[pPagosSIATDetalleInsertar]
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),

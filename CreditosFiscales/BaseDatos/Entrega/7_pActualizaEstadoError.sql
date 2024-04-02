@@ -1,5 +1,9 @@
+IF OBJECT_ID('pActualizaEstadoError', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoError;
+GO
 
-CREATE OR ALTER   procedure [dbo].[pActualizaEstadoError]
+
+CREATE procedure [dbo].[pActualizaEstadoError]
 (
 	@pidArchivo int, 
 	@pEstado tinyint, 

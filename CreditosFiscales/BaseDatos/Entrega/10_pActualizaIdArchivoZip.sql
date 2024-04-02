@@ -1,5 +1,9 @@
+IF OBJECT_ID('pActualizaIdArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaIdArchivoZip;
+GO
 
-CREATE OR ALTER procedure pActualizaIdArchivoZip
+
+CREATE procedure pActualizaIdArchivoZip
 (
 	
 	@IdZip int,
