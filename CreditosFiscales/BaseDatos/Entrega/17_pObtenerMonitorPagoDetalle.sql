@@ -1,12 +1,6 @@
-
--- drop procedure pObtenerMonitorPagoDetalle 
-
-/****** Object:  StoredProcedure pObtenerMonitorPagoDetalle
-SYE Enero 2024 - AMA
-******/
-SET ANSI_NULLS ON
+USE MotorTraductor
 GO
-SET QUOTED_IDENTIFIER ON
+IF OBJECT_ID('pObtenerMonitorPagoDetalle') > 0 drop procedure pObtenerMonitorPagoDetalle 
 GO
 Create procedure pObtenerMonitorPagoDetalle 
 @pTipoPago int,

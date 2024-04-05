@@ -1,3 +1,5 @@
+USE MotorTraductor
+GO
 IF OBJECT_ID('pRegistraArchivoZip', 'P') IS NOT NULL
 DROP PROCEDURE pRegistraArchivoZip;
 GO

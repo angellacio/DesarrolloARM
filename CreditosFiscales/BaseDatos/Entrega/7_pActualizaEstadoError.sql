@@ -1,3 +1,5 @@
+USE MotorTraductor
+GO
 IF OBJECT_ID('pActualizaEstadoError', 'P') IS NOT NULL
 DROP PROCEDURE pActualizaEstadoError;
 GO

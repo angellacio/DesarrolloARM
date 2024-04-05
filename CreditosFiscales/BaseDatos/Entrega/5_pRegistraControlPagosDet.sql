@@ -1,4 +1,5 @@
-
+USE MotorTraductor
+GO
 IF OBJECT_ID('pRegistraControlPagosDet', 'P') IS NOT NULL
 DROP PROCEDURE pRegistraControlPagosDet;
 GO

@@ -1,3 +1,5 @@
+USE MotorTraductor
+GO
 IF OBJECT_ID('pActualizaIdArchivoZip', 'P') IS NOT NULL
 DROP PROCEDURE pActualizaIdArchivoZip;
 GO

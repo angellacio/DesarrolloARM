@@ -1,4 +1,5 @@
-
+USE MotorTraductor
+GO
 IF OBJECT_ID('vw_ProcesaZip', 'V') IS NOT NULL
 DROP VIEW vw_ProcesaZip
 GO

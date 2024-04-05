@@ -1,3 +1,5 @@
+USE MotorTraductor
+GO
 IF OBJECT_ID('pPagosSIATDetalleInsertar', 'P') IS NOT NULL
 DROP PROCEDURE pPagosSIATDetalleInsertar;
 GO

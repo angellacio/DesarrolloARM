@@ -1,3 +1,5 @@
+USE MotorTraductor
+GO
 IF OBJECT_ID('pPagosSIATInfoArchivosObtener', 'P') IS NOT NULL
 DROP PROCEDURE pPagosSIATInfoArchivosObtener;
 GO

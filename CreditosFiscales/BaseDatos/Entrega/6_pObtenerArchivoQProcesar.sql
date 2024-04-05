@@ -1,3 +1,5 @@
+USE MotorTraductor
+GO
 IF OBJECT_ID('pObtenerArchivoQProcesar', 'P') IS NOT NULL
 DROP PROCEDURE pObtenerArchivoQProcesar;
 GO

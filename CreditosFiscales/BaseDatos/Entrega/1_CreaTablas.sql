@@ -1,7 +1,6 @@
+USE MotorTraductor
+GO
 --- Creación de tablas
-
-
-
 CREATE TABLE [dbo].[tblControlPagosHead](
 	[idArchivo] [bigint] IDENTITY(1,1) NOT NULL,
 	[IdProceso] [bigint] NULL,
