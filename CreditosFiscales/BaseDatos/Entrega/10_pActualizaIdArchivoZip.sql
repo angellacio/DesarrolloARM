@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 
 CREATE OR ALTER procedure pActualizaIdArchivoZip
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pActualizaIdArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaIdArchivoZip;
+GO
+
+
+CREATE procedure pActualizaIdArchivoZip
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	
 	@IdZip int,

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 drop procedure pRegistraControlPagosH; 
 drop procedure pRegistraControlPagosDet
 drop procedure pObtenerArchivoQProcesar;  
@@ -12,6 +13,56 @@ drop procedure pObtenerMonitorPagoDetalle;
 
 GO
 
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pRegistraControlPagosH', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraControlPagosH;
+GO
+
+IF OBJECT_ID('pRegistraControlPagosDet', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraControlPagosDet;
+GO
+
+IF OBJECT_ID('pObtenerArchivoQProcesar', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerArchivoQProcesar;
+GO
+IF OBJECT_ID('pActualizaEstadoError', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoError;
+GO
+
+IF OBJECT_ID('pActualizaEstadoProceso', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoProceso;
+GO
+
+IF OBJECT_ID('pRegistraArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraArchivoZip;
+GO
+
+IF OBJECT_ID('pActualizaIdArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaIdArchivoZip;
+GO
+
+IF OBJECT_ID('pActualizaEstadoErrorLC', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoErrorLC;
+GO
+
+IF OBJECT_ID('pObtenerMonitorArchivoZIP', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerMonitorArchivoZIP;
+GO
+
+IF OBJECT_ID('pObtenerMonitorTProgramada', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerMonitorTProgramada;
+GO
+
+
+
+IF OBJECT_ID('pObtenerMonitorPagoDetalle', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerMonitorPagoDetalle;
+GO
+
+
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 alter procedure [dbo].[pPagosSIATInfoArchivosObtener]
 (
 	@pIdProceso bigint
@@ -20,13 +71,21 @@ as
 set nocount on
 
 	select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagos
+<<<<<<< HEAD
 	where IdProceso = @pIdProceso or reprocesar = 1
+=======
+	where IdProceso = @pIdProceso or reenviar = 1
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 	union all
 	select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagosSoloDyP
 	where IdProceso = @pIdProceso
 	order by NombreArchivo
 
+<<<<<<< HEAD
 	Update dbo.TblSIATDetalleProcesoPagos set reprocesar = 0 where reprocesar = 1 
+=======
+	Update dbo.TblSIATDetalleProcesoPagos set reenviar = 0 where reenviar = 1 
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 
 set nocount off
 return 0
@@ -35,7 +94,11 @@ return 0
 GO
 
 
+<<<<<<< HEAD
 CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
+=======
+ALTER procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),
@@ -64,7 +127,11 @@ Errores:
 GO
 
 
+<<<<<<< HEAD
 CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertar]
+=======
+ALTER procedure [dbo].[pPagosSIATDetalleInsertar]
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),
@@ -148,3 +215,9 @@ AS
   END
 
 
+<<<<<<< HEAD
+=======
+
+IF OBJECT_ID('vw_ProcesaZip', 'V') IS NOT NULL
+DROP VIEW vw_ProcesaZip
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b

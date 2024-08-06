@@ -14,6 +14,7 @@ using Sat.CreditosFiscales.Procesamiento.LogicaNegocio.Servicios;
 using System.Web.Security;
 using System.Globalization;
 using System.Threading;
+using Sat.CreditosFiscales.Comunes.Entidades.Servicios.Traductor;
 
 namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
 {
@@ -63,18 +64,18 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
                         accesoValido = log.CreateChannel().VerificaAcceso(model.Usuario, model.Contraseña);
                     }
 
-                    if (!accesoValido)
-                    {
-                        ViewBag.OnLoadCompleteMessage = Alertas.Alerta("Acceso no autorizado", "Aceptar");
-                    }
-                    else
-                    {
+                    //if (!accesoValido)
+                    //{
+                    //    ViewBag.OnLoadCompleteMessage = Alertas.Alerta("Acceso no autorizado", "Aceptar");
+                    //}
+                    //else
+                    //{
                         HttpCookie cookie = new HttpCookie(nombreCookie, model.Contraseña);
                         cookie.Expires = DateTime.Now.AddMinutes(20);
                         Response.Cookies.Add(cookie);
 
                         return RedirectToAction("CreditosLogEvento", "LogEventos");
-                    }
+                    //}
                 }
 
             }
@@ -361,7 +362,6 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
             }
             return View("TraductorBitacora", model);
         }
-
         public ActionResult TraductorBitacoraBuscar(GeneraTraductorBitacoraViewModel model)
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-MX");
@@ -410,12 +410,12 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
                     else
                     {
                         porFechaInicio = porFechaInicio.AddHours(model.Horario).AddMinutes(model.Minutos);
-                        porFechaFin = porFechaFin.AddHours(model.Horario).AddMinutes(model.Minutos+ 15);
+                        porFechaFin = porFechaFin.AddHours(model.Horario).AddMinutes(model.Minutos + 15);
                     }
-                    
-                    
 
-                    
+
+
+
                     int conError = model.conError;
                     string porIdProcesamiento = model.IdProcesamiento;
                     string porRfc = model.Rfc;
@@ -443,8 +443,185 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
             return View("TraductorBitacora", model);
         }
 
-        #endregion
+        public ActionResult TraductorMonitorPagos()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-MX");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-MX");
 
+            GeneraTraductorMonitorPagosViewMode model = new GeneraTraductorMonitorPagosViewMode();
+            try
+            {
+                model.MonitorPagoDetalle = new TraductorMonitorPagoDetalle();
+                if (!validaCookie()) return Redirect("Index");
+
+                model.MonitorPagoDetalle.FechaInicio = DateTime.Now.ToString("dd/MM/yyy");
+                model.MonitorPagoDetalle.FechaFin = DateTime.Now.ToString("dd/MM/yyy");
+
+                model.MonitorArchivoZIP.FechaInicio = DateTime.Now.ToString("dd/MM/yyy");
+                model.MonitorArchivoZIP.FechaFin = DateTime.Now.ToString("dd/MM/yyy");
+
+                model.MonitorTareaProgramada.FechaInicio = DateTime.Now.ToString("dd/MM/yyy");
+                model.MonitorTareaProgramada.FechaFin = DateTime.Now.ToString("dd/MM/yyy");
+
+                model.listaEstatus = MetodosComunesPortal.ObtieneCatalogoEstatus();
+                model.listaBanco = MetodosComunesPortal.ObtieneCatalogoBancos();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.OnLoadCompleteMessage = Alertas.Errror(ex.Message, "Aceptar");
+            }
+            return View("TraductorMonitorPagos", model);
+        }
+        public ActionResult TraductorMonitorPagos_DetPagos_Buscar(GeneraTraductorMonitorPagosViewMode model)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-MX");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-MX");
+            int porIdMonitor = -1, porIdTipoPago = -1, porIdEstatus = -1, porIdBanco = -1;
+            DateTime? porFechaInicio = null, porFechaFin = null;
+            string porLineaCaptura = string.Empty, porArchivoZIP = string.Empty;
+            Boolean bolBuscar = true;
+            try
+            {
+                porIdMonitor = model.IdMonitor;
+
+                model.listaEstatus = MetodosComunesPortal.ObtieneCatalogoEstatus();
+                model.listaBanco = MetodosComunesPortal.ObtieneCatalogoBancos();
+                if (model.IdMonitor == 1)
+                {
+                    if (string.IsNullOrEmpty(model.MonitorPagoDetalle.LineaCaptura))
+                    {
+                        if (!validaFechasMonitorPagos(model.MonitorPagoDetalle.FechaInicio, model.MonitorPagoDetalle.FechaFin, true, 14, "MonitorPagoDetalle.FechaInicio", "MonitorPagoDetalle.FechaFin"))
+                        {
+                            bolBuscar = false;
+                        }
+                    }
+                    else
+                    {
+                        if (model.MonitorPagoDetalle.LineaCaptura.Length < 20)
+                        {
+                            ModelState.AddModelError("MonitorPagoDetalle.LineaCaptura", "Favor de especificar una línea de captura correcta.");
+                            bolBuscar = false;
+                        }
+                    }
+                    if (bolBuscar)
+                    {
+                        if (model.MonitorPagoDetalle.IdTipoPago != -1) porIdTipoPago = model.MonitorPagoDetalle.IdTipoPago;
+                        if (model.MonitorPagoDetalle.IdEstatus != -1) porIdEstatus = model.MonitorPagoDetalle.IdEstatus;
+                        if (model.MonitorPagoDetalle.IdBanco != -1) porIdBanco = model.MonitorPagoDetalle.IdBanco;
+                        if (!string.IsNullOrEmpty(model.MonitorPagoDetalle.FechaInicio)) porFechaInicio = Convert.ToDateTime($"{model.MonitorPagoDetalle.FechaInicio} 00:00:00");
+                        if (!string.IsNullOrEmpty(model.MonitorPagoDetalle.FechaFin)) porFechaFin = Convert.ToDateTime($"{model.MonitorPagoDetalle.FechaFin} 23:59:59");
+                        if (!string.IsNullOrEmpty(model.MonitorPagoDetalle.LineaCaptura)) porLineaCaptura = model.MonitorPagoDetalle.LineaCaptura.ToString().Trim();
+
+                        if (!string.IsNullOrEmpty(model.MonitorPagoDetalle.LineaCaptura))
+                        {
+                            porIdTipoPago = -1;
+                            porIdEstatus = -1;
+                            porIdBanco = -1;
+                            porFechaInicio = null;
+                            porFechaFin = null;
+                        }
+                        using (ClienteServicioConsultaEventos log = new ClienteServicioConsultaEventos())
+                        {
+                            model.MonitorPagoDetalle.DatosBusqueda = log.CreateChannel().BuscarEnMonitorPagoDetalle(porIdTipoPago, porIdEstatus, porIdBanco, porFechaInicio, porFechaFin, porLineaCaptura);
+                        }
+
+                        if (model.MonitorPagoDetalle.DatosBusqueda.Count == 0)
+                        {
+                            ViewBag.OnLoadCompleteMessage = Alertas.Informacion("No hay información para este criterio de búsqueda.", "Aceptar");
+                        }
+                    }
+                }
+                else if (model.IdMonitor == 2)
+                {
+                    if (string.IsNullOrEmpty(model.MonitorArchivoZIP.ArchivoZIP))
+                    {
+                        if (!validaFechasMonitorPagos(model.MonitorArchivoZIP.FechaInicio, model.MonitorArchivoZIP.FechaFin, true, 14, "MonitorArchivoZIP.FechaInicio", "MonitorArchivoZIP.FechaFin"))
+                        {
+                            bolBuscar = false;
+                        }
+                    }
+
+                    if (bolBuscar)
+                    {
+                        if (model.MonitorArchivoZIP.IdTipoPago != -1) porIdTipoPago = model.MonitorArchivoZIP.IdTipoPago;
+                        if (!string.IsNullOrEmpty(model.MonitorArchivoZIP.ArchivoZIP)) porArchivoZIP = model.MonitorArchivoZIP.ArchivoZIP.ToString().Trim();
+                        if (!string.IsNullOrEmpty(model.MonitorArchivoZIP.FechaInicio)) porFechaInicio = Convert.ToDateTime($"{model.MonitorArchivoZIP.FechaInicio} 00:00:00");
+                        if (!string.IsNullOrEmpty(model.MonitorArchivoZIP.FechaFin)) porFechaFin = Convert.ToDateTime($"{model.MonitorArchivoZIP.FechaFin} 23:59:59");
+
+                        using (ClienteServicioConsultaEventos log = new ClienteServicioConsultaEventos())
+                        {
+                            model.MonitorArchivoZIP.DatosBusqueda = log.CreateChannel().BuscarEnMonitorArchivoZIP(porIdTipoPago, porArchivoZIP, porFechaInicio, porFechaFin);
+                        }
+
+                        if (model.MonitorPagoDetalle.DatosBusqueda.Count == 0)
+                        {
+                            ViewBag.OnLoadCompleteMessage = Alertas.Informacion("No hay información para este criterio de búsqueda.", "Aceptar");
+                        }
+                    }
+                }
+                else if (model.IdMonitor == 3)
+                {
+                    if (!validaFechasMonitorPagos(model.MonitorTareaProgramada.FechaInicio, model.MonitorTareaProgramada.FechaFin, true, 14, "MonitorTareaProgramada.FechaInicio", "MonitorTareaProgramada.FechaFin"))
+                    {
+                        bolBuscar = false;
+                    }
+                    if (bolBuscar)
+                    {
+                        if (model.MonitorTareaProgramada.IdTipoPago != -1) porIdTipoPago = model.MonitorTareaProgramada.IdTipoPago;
+                        if (model.MonitorTareaProgramada.IdEstatus != -1) porIdEstatus = model.MonitorTareaProgramada.IdEstatus;
+                        if (!string.IsNullOrEmpty(model.MonitorTareaProgramada.FechaInicio)) porFechaInicio = Convert.ToDateTime($"{model.MonitorTareaProgramada.FechaInicio} 00:00:00");
+                        if (!string.IsNullOrEmpty(model.MonitorTareaProgramada.FechaFin)) porFechaFin = Convert.ToDateTime($"{model.MonitorTareaProgramada.FechaFin} 23:59:59");
+
+                        using (ClienteServicioConsultaEventos log = new ClienteServicioConsultaEventos())
+                        {
+                            model.MonitorTareaProgramada.DatosBusqueda = log.CreateChannel().BuscarEnMonitorTareaProgramada(porIdTipoPago, porIdEstatus, porFechaInicio, porFechaFin);
+                        }
+
+                        if (model.MonitorTareaProgramada.DatosBusqueda.Count == 0)
+                        {
+                            ViewBag.OnLoadCompleteMessage = Alertas.Informacion("No hay información para este criterio de búsqueda.", "Aceptar");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.OnLoadCompleteMessage = Alertas.Errror(ex.Message, "Aceptar");
+            }
+
+
+            return View("TraductorMonitorPagos", model);
+        }
+        public ActionResult TraductorMonitorPagos_DetPagos_Limpiar(GeneraTraductorMonitorPagosViewMode model)
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-MX");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-MX");
+
+            GeneraTraductorMonitorPagosViewMode modelLimpio = new GeneraTraductorMonitorPagosViewMode();
+            try
+            {
+                modelLimpio.IdMonitor = model.IdMonitor;
+
+                modelLimpio.MonitorPagoDetalle.FechaInicio = DateTime.Now.ToString("dd/MM/yyy");
+                modelLimpio.MonitorPagoDetalle.FechaFin = DateTime.Now.ToString("dd/MM/yyy");
+
+                modelLimpio.MonitorArchivoZIP.FechaInicio = DateTime.Now.ToString("dd/MM/yyy");
+                modelLimpio.MonitorArchivoZIP.FechaFin = DateTime.Now.ToString("dd/MM/yyy");
+
+                modelLimpio.MonitorTareaProgramada.FechaInicio = DateTime.Now.ToString("dd/MM/yyy");
+                modelLimpio.MonitorTareaProgramada.FechaFin = DateTime.Now.ToString("dd/MM/yyy");
+
+                modelLimpio.listaEstatus = MetodosComunesPortal.ObtieneCatalogoEstatus();
+                modelLimpio.listaBanco = MetodosComunesPortal.ObtieneCatalogoBancos();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.OnLoadCompleteMessage = Alertas.Errror(ex.Message, "Aceptar");
+            }
+            return View("TraductorMonitorPagos", modelLimpio);
+        }
+
+        #endregion
 
         #region Logs de eventos template
         public ActionResult TemplateLogEvento()
@@ -511,6 +688,57 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.Controllers
             DateTime dtInicio = Convert.ToDateTime(fechaInicio);
             DateTime dtFin = Convert.ToDateTime(fechaFin);
             return dtFin.CompareTo(dtInicio) >= 0;
+        }
+        private Boolean validaFechasMonitorPagos(string fechaInicio, string fechaFin, Boolean ValidaTiempo, int nValidaTiempo, string ObjectFInicio, string ObjectFFin)
+        {
+            Boolean result = true;
+            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("es-MX");
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-MX");
+            DateTime dtInicio = DateTime.Now, dtFin = DateTime.Now;
+            try
+            {
+                if (string.IsNullOrEmpty(fechaInicio) || fechaInicio.Trim().Length < 6) throw new ApplicationException("(*) La fecha inicio no puede ser vacía o está mal conformada.");
+
+                dtInicio = Convert.ToDateTime(fechaInicio);
+            }
+            catch (ApplicationException ex)
+            {
+                ModelState.AddModelError(ObjectFInicio, ex.Message);
+                result = false;
+            }
+            catch
+            {
+                ModelState.AddModelError(ObjectFInicio, "(*) La fecha inicio está mal conformada.");
+                result = false;
+            }
+            try
+            {
+                if (string.IsNullOrEmpty(fechaFin) || fechaFin.Trim().Length < 6) throw new ApplicationException("(*) La fecha fin no puede ser vacía o está mal conformada.");
+
+                dtFin = Convert.ToDateTime(fechaFin);
+            }
+            catch (ApplicationException ex)
+            {
+                ModelState.AddModelError(ObjectFFin, ex.Message);
+                result = false;
+            }
+            catch
+            {
+                ModelState.AddModelError(ObjectFFin, "(*) La fecha fin está mal conformada.");
+                result = false;
+            }
+            if (!(dtFin.CompareTo(dtInicio) >= 0))
+            {
+                ModelState.AddModelError(ObjectFInicio, "(*) La fecha inicio no puede ser mayor a la fin.");
+                result = false;
+            }
+            else if (ValidaTiempo && (dtFin - dtInicio).Days > nValidaTiempo)
+            {
+                ModelState.AddModelError(ObjectFFin, "(*) La diferencia de fecha inicio y fecha fin no puede ser mayor a 2 semanas.");
+                result = false;
+            }
+
+            return result;
         }
         private bool IsGuid(string cadena)
         {

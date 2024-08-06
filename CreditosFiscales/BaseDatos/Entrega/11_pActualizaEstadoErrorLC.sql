@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 
 CREATE OR ALTER   procedure [dbo].[pActualizaEstadoErrorLC]
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pActualizaEstadoErrorLC', 'P') IS NOT NULL
+DROP PROCEDURE pActualizaEstadoErrorLC;
+GO
+
+CREATE procedure [dbo].[pActualizaEstadoErrorLC]
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pidProceso bigint,
 	@pidArchivo int, 

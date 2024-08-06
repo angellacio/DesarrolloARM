@@ -24,6 +24,8 @@ namespace Sat.CreditosFiscales.Presentacion.Herramientas
         private const string CacheCatAplicacion = "CacheCatAplicacion";
         private const string CacheCatTipoDocumento = "CacheCatTipoDocumento";
         private const string CacheCatPaso = "CacheCatPaso";
+        private const string CacheCatBanco = "CacheCatBanco";
+        private const string CacheCatEstatusPago = "CacheCatEstatusPago";
 
         public static void CargaCatalogos()
         {
@@ -180,6 +182,18 @@ namespace Sat.CreditosFiscales.Presentacion.Herramientas
                         c.Add(CacheCatPaso, listaPasos);
                         listaPasos.Add(-1, "Ver Todos");
                     }
+
+                    if (c[CacheCatBanco] == null)
+                    {
+                        var listaBancos = log.CreateChannel().ObtenerCatalogo(4);
+                        c.Add(CacheCatBanco, listaBancos);
+                    }
+
+                    if (c[CacheCatEstatusPago] == null)
+                    {
+                        var listaEstatusPago = log.CreateChannel().ObtenerCatalogo(5);
+                        c.Add(CacheCatEstatusPago, listaEstatusPago);
+                    }
                 }
 
             }
@@ -193,7 +207,7 @@ namespace Sat.CreditosFiscales.Presentacion.Herramientas
                 Dictionary<int, string> listaAplicacion = new Dictionary<int, string>();
                 if (c[CacheCatAplicacion] != null)
                 {
-                    listaAplicacion = (Dictionary<int,string>)c[CacheCatAplicacion];
+                    listaAplicacion = (Dictionary<int, string>)c[CacheCatAplicacion];
                 }
 
                 return listaAplicacion;
@@ -227,6 +241,40 @@ namespace Sat.CreditosFiscales.Presentacion.Herramientas
                 }
 
                 return listaPasos;
+            }
+        }
+
+        public static Dictionary<int, string> ObtieneCatalogoEstatus()
+        {
+            lock (_lock)
+            {
+                var c = CacheFactory.GetCacheManager("CreditosFiscalesCacheManager");
+                Dictionary<int, string> listaEstatusPagoBD = new Dictionary<int, string>();
+                Dictionary<int, string> listaEstatusPago = new Dictionary<int, string>() { { -1, "Todos" } };
+                if (c[CacheCatEstatusPago] != null)
+                {
+                    listaEstatusPagoBD = (Dictionary<int, string>)c[CacheCatEstatusPago];
+                    foreach (var item in listaEstatusPagoBD) { listaEstatusPago.Add(item.Key, item.Value); }
+                }
+
+                return listaEstatusPago;
+            }
+        }
+
+        public static Dictionary<int, string> ObtieneCatalogoBancos()
+        {
+            lock (_lock)
+            {
+                var c = CacheFactory.GetCacheManager("CreditosFiscalesCacheManager");
+                Dictionary<int, string> listaBancosBD = new Dictionary<int, string>();
+                Dictionary<int, string> listaBancos = new Dictionary<int, string> { { -1, "Todos" } };
+                if (c[CacheCatBanco] != null)
+                {
+                    listaBancosBD = (Dictionary<int, string>)c[CacheCatBanco];
+                    foreach (var itemBanco in listaBancosBD) { listaBancos.Add(itemBanco.Key, itemBanco.Value); }
+                }
+
+                return listaBancos;
             }
         }
 

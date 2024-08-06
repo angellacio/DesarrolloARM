@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 
 CREATE OR ALTER procedure pRegistraControlPagosH
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pRegistraControlPagosH', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraControlPagosH;
+GO
+
+
+CREATE procedure pRegistraControlPagosH
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(100),

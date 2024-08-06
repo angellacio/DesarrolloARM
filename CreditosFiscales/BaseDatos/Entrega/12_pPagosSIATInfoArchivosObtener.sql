@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 
 CREATE OR ALTER procedure [dbo].[pPagosSIATInfoArchivosObtener]
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pPagosSIATInfoArchivosObtener', 'P') IS NOT NULL
+DROP PROCEDURE pPagosSIATInfoArchivosObtener;
+GO
+ 
+CREATE procedure [dbo].[pPagosSIATInfoArchivosObtener]
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pIdProceso bigint, 
 	@pagina int, 

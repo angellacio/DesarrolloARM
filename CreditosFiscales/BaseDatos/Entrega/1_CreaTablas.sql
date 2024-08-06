@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 --- Creación de tablas
 
 
 
+=======
+USE MotorTraductor
+GO
+--- Creación de tablas
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 CREATE TABLE [dbo].[tblControlPagosHead](
 	[idArchivo] [bigint] IDENTITY(1,1) NOT NULL,
 	[IdProceso] [bigint] NULL,

@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 
 CREATE OR ALTER procedure pObtenerArchivoQProcesar
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pObtenerArchivoQProcesar', 'P') IS NOT NULL
+DROP PROCEDURE pObtenerArchivoQProcesar;
+GO
+
+
+CREATE procedure pObtenerArchivoQProcesar
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pIdProceso bigint,
 	@NombreEquipo varchar(50)

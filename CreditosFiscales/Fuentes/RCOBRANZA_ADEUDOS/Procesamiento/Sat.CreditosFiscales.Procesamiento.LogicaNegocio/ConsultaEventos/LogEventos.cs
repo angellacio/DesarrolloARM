@@ -115,11 +115,19 @@ namespace Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ConsultaEventos
         /// <param name="porFechaFin">Fecha fin creación ZIP</param>
         /// <returns>Lista del tipo <see cref="TraductorMonitorArchivoZIPBusqueda"/></returns>
         public static List<TraductorMonitorArchivoZIPBusqueda> BuscarMonitorArchivoZIP(int porIdTipoPago, string porArchivoZIP, DateTime? porFechaInicio, DateTime? porFechaFin)
+<<<<<<< HEAD
         {
             string cadenaDeConexion = (string)ApplicationSettings.ConsultaConfiguracion("Log:ConnStrMotorTraductor");
             return new DalLogEventos().BuscarMonitorArchivoZIP(cadenaDeConexion, porIdTipoPago, porArchivoZIP, porFechaInicio, porFechaFin);
         }
 
+=======
+        {
+            string cadenaDeConexion = (string)ApplicationSettings.ConsultaConfiguracion("Log:ConnStrMotorTraductor");
+            return new DalLogEventos().BuscarMonitorArchivoZIP(cadenaDeConexion, porIdTipoPago, porArchivoZIP, porFechaInicio, porFechaFin);
+        }
+
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
         /// <summary>
         /// Método para obtener los eventos registrados en el monitor de tareas programadas.
         /// </summary>
@@ -131,9 +139,15 @@ namespace Sat.CreditosFiscales.Procesamiento.LogicaNegocio.ConsultaEventos
         public static List<TraductorMonitorTareaProgramadaBusqueda> BuscarMonitorTareaProgramada(int porIdTipoPago, int porIdEstatus, DateTime? porFechaInicio, DateTime? porFechaFin)
         {
             string cadenaDeConexion = (string)ApplicationSettings.ConsultaConfiguracion("Log:ConnStrMotorTraductor");
+<<<<<<< HEAD
             return new DalLogEventos().BuscarMonitorTareaProgramada(cadenaDeConexion, porIdTipoPago, porIdEstatus, porFechaInicio, porFechaFin);
         }
 
+=======
+            return new DalLogEventos().BuscarMonitorTareaProgramada(cadenaDeConexion, porIdTipoPago, porIdEstatus, porFechaInicio, porFechaFin);
+        }
+
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
         /// <summary>
         /// Ontiene los catalogos para mostrar los filtros de busqueda
         /// </summary>

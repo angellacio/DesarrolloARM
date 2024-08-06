@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 
 CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pPagosSIATDetalleInsertarNoProcesados', 'P') IS NOT NULL
+DROP PROCEDURE pPagosSIATDetalleInsertarNoProcesados;
+GO
+
+
+CREATE procedure [dbo].[pPagosSIATDetalleInsertarNoProcesados]
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),

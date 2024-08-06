@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 CREATE OR ALTER procedure pRegistraControlPagosDet
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pRegistraControlPagosDet', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraControlPagosDet;
+GO
+
+
+CREATE procedure pRegistraControlPagosDet
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@IdArchivo	bigint,
 	@NumLinea	int,

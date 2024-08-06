@@ -1,5 +1,16 @@
+<<<<<<< HEAD
 --Actualiza PagosSIATDetalleInsertar
 CREATE OR ALTER procedure [dbo].[pPagosSIATDetalleInsertar]
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pPagosSIATDetalleInsertar', 'P') IS NOT NULL
+DROP PROCEDURE pPagosSIATDetalleInsertar;
+GO
+
+
+CREATE procedure [dbo].[pPagosSIATDetalleInsertar]
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pIdProceso bigint,
 	@pNombreArchivo nvarchar(50),

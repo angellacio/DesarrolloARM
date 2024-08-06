@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 -- drop procedure pObtenerMonitorPagoDetalle 
 
@@ -7,6 +8,11 @@ SYE Enero 2024 - AMA
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pObtenerMonitorPagoDetalle') > 0 drop procedure pObtenerMonitorPagoDetalle 
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 GO
 Create procedure pObtenerMonitorPagoDetalle 
 @pTipoPago int,

@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 
 CREATE OR ALTER procedure pRegistraArchivoZip
+=======
+USE MotorTraductor
+GO
+IF OBJECT_ID('pRegistraArchivoZip', 'P') IS NOT NULL
+DROP PROCEDURE pRegistraArchivoZip;
+GO
+
+CREATE procedure pRegistraArchivoZip
+>>>>>>> b654aaca5e4f06d59d4b780c42a90456eaefbb5b
 (
 	@pNombreArchivo nvarchar(18)
 )
