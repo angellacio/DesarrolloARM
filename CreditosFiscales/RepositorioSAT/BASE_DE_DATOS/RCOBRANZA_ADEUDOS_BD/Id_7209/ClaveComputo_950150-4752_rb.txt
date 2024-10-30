@@ -1,0 +1,3 @@
+
+update CatClaveComputo set Descripcion = 'CONDONACIÓN DE MULTAS (ART. 74 DEL CFF)'
+where ClaveComputo = '950150-4752'

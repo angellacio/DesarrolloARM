@@ -1,0 +1,19 @@
+
+alter procedure [dbo].[pPagosSIATInfoArchivosObtener]
+(
+	@pIdProceso bigint
+)
+as
+set nocount on
+
+	select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagos
+	where IdProceso = @pIdProceso 
+	union all
+	select NombreArchivo,Contenido from dbo.TblSIATDetalleProcesoPagosSoloDyP
+	where IdProceso = @pIdProceso
+	order by NombreArchivo
+
+set nocount off
+return 0
+
+

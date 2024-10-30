@@ -1,0 +1,136 @@
+
+use MotorTraductor
+go
+
+set nocount on
+
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '306182' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'S'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '306182' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'S'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '306182' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '306182' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '302123' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'S'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '302123' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'S'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '0162' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'M'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '0163' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'M'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '0311' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'M'
+delete CatConceptoPersonaPeriodicidad where conceptoDyP = '0311' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'M'
+
+
+
+
+---catconceptosoriginal   RN002
+
+DELETE catconceptosoriginal where clave = '400242' and idAplicacion = 1
+DELETE catconceptosoriginal where clave = '400242' and idAplicacion = 2
+DELETE catconceptosoriginal where clave = '400242' and idAplicacion = 3
+DELETE catconceptosoriginal where clave = '400242' and idAplicacion = 4
+DELETE catconceptosoriginal where clave = '400242' and idAplicacion = 5
+DELETE catconceptosoriginal where clave = '110078' and idAplicacion = 1
+DELETE catconceptosoriginal where clave = '110078' and idAplicacion = 2
+DELETE catconceptosoriginal where clave = '110078' and idAplicacion = 3
+DELETE catconceptosoriginal where clave = '110078' and idAplicacion = 4
+DELETE catconceptosoriginal where clave = '110078' and idAplicacion = 5
+DELETE catconceptosoriginal where clave = '110077' and idAplicacion = 1
+DELETE catconceptosoriginal where clave = '110077' and idAplicacion = 2
+DELETE catconceptosoriginal where clave = '110077' and idAplicacion = 3
+DELETE catconceptosoriginal where clave = '110077' and idAplicacion = 4
+DELETE catconceptosoriginal where clave = '110077' and idAplicacion = 5
+DELETE catconceptosoriginal where clave = '130019' and idAplicacion = 1
+DELETE catconceptosoriginal where clave = '130019' and idAplicacion = 2
+DELETE catconceptosoriginal where clave = '130019' and idAplicacion = 3
+DELETE catconceptosoriginal where clave = '130019' and idAplicacion = 4
+DELETE catconceptosoriginal where clave = '130019' and idAplicacion = 5
+DELETE catconceptosoriginal where clave = '110075' and idAplicacion = 1
+DELETE catconceptosoriginal where clave = '110075' and idAplicacion = 2
+DELETE catconceptosoriginal where clave = '110075' and idAplicacion = 3
+DELETE catconceptosoriginal where clave = '110075' and idAplicacion = 4
+DELETE catconceptosoriginal where clave = '110075' and idAplicacion = 5
+
+
+
+
+--- RN002 (update)
+
+update catconceptosoriginal set activo = 1 where clave = 110018 and idAplicacion = 1
+update catconceptosoriginal set activo = 1 where clave = 110018 and idAplicacion = 2
+update catconceptosoriginal set activo = 1 where clave = 110018 and idAplicacion = 3
+update catconceptosoriginal set activo = 1 where clave = 110018 and idAplicacion = 4
+update catconceptosoriginal set activo = 1 where clave = 110018 and idAplicacion = 5
+update catconceptosoriginal set activo = 1 where clave = 500077 and idAplicacion = 1
+update catconceptosoriginal set activo = 1 where clave = 500077 and idAplicacion = 2
+update catconceptosoriginal set activo = 1 where clave = 500077 and idAplicacion = 3
+update catconceptosoriginal set activo = 1 where clave = 500077 and idAplicacion = 4
+update catconceptosoriginal set activo = 1 where clave = 500077 and idAplicacion = 5
+
+--- RN003
+
+DELETE CatConceptoEquivalencia where IdAplicacion = 1 and ConceptoOrigen = '400242' and ConceptoDyP = '306182'
+DELETE CatConceptoEquivalencia where IdAplicacion = 2 and ConceptoOrigen = '400242' and ConceptoDyP = '306182'
+DELETE CatConceptoEquivalencia where IdAplicacion = 3 and ConceptoOrigen = '400242' and ConceptoDyP = '306182'
+DELETE CatConceptoEquivalencia where IdAplicacion = 4 and ConceptoOrigen = '400242' and ConceptoDyP = '306182'
+DELETE CatConceptoEquivalencia where IdAplicacion = 5 and ConceptoOrigen = '400242' and ConceptoDyP = '306182'
+
+
+DELETE CatConceptoEquivalencia where IdAplicacion = 1 and ConceptoOrigen = '110078' and ConceptoDyP = '0162'
+DELETE CatConceptoEquivalencia where IdAplicacion = 2 and ConceptoOrigen = '110078' and ConceptoDyP = '0162'
+DELETE CatConceptoEquivalencia where IdAplicacion = 3 and ConceptoOrigen = '110078' and ConceptoDyP = '0162'
+DELETE CatConceptoEquivalencia where IdAplicacion = 4 and ConceptoOrigen = '110078' and ConceptoDyP = '0162'
+DELETE CatConceptoEquivalencia where IdAplicacion = 5 and ConceptoOrigen = '110078' and ConceptoDyP = '0162'
+
+DELETE CatConceptoEquivalencia where IdAplicacion = 1 and ConceptoOrigen = '110077' and ConceptoDyP = '0163'
+DELETE CatConceptoEquivalencia where IdAplicacion = 2 and ConceptoOrigen = '110077' and ConceptoDyP = '0163'
+DELETE CatConceptoEquivalencia where IdAplicacion = 3 and ConceptoOrigen = '110077' and ConceptoDyP = '0163'
+DELETE CatConceptoEquivalencia where IdAplicacion = 4 and ConceptoOrigen = '110077' and ConceptoDyP = '0163'
+DELETE CatConceptoEquivalencia where IdAplicacion = 5 and ConceptoOrigen = '110077' and ConceptoDyP = '0163'
+
+DELETE CatConceptoEquivalencia where IdAplicacion = 1 and ConceptoOrigen = '130019' and ConceptoDyP = '0311'
+DELETE CatConceptoEquivalencia where IdAplicacion = 2 and ConceptoOrigen = '130019' and ConceptoDyP = '0311'
+DELETE CatConceptoEquivalencia where IdAplicacion = 3 and ConceptoOrigen = '130019' and ConceptoDyP = '0311'
+DELETE CatConceptoEquivalencia where IdAplicacion = 4 and ConceptoOrigen = '130019' and ConceptoDyP = '0311'
+DELETE CatConceptoEquivalencia where IdAplicacion = 5 and ConceptoOrigen = '130019' and ConceptoDyP = '0311'
+
+
+DELETE CatConceptoEquivalencia where IdAplicacion = 1 and ConceptoOrigen = '110075' and ConceptoDyP = '0113'
+DELETE CatConceptoEquivalencia where IdAplicacion = 2 and ConceptoOrigen = '110075' and ConceptoDyP = '0113'
+DELETE CatConceptoEquivalencia where IdAplicacion = 3 and ConceptoOrigen = '110075' and ConceptoDyP = '0113'
+DELETE CatConceptoEquivalencia where IdAplicacion = 4 and ConceptoOrigen = '110075' and ConceptoDyP = '0113'
+DELETE CatConceptoEquivalencia where IdAplicacion = 5 and ConceptoOrigen = '110075' and ConceptoDyP = '0113'
+
+
+DELETE CatConceptoEquivalencia where IdAplicacion = 1 and ConceptoOrigen = '110038' and ConceptoDyP = '0112'
+DELETE CatConceptoEquivalencia where IdAplicacion = 2 and ConceptoOrigen = '110038' and ConceptoDyP = '0112'
+DELETE CatConceptoEquivalencia where IdAplicacion = 3 and ConceptoOrigen = '110038' and ConceptoDyP = '0112'
+DELETE CatConceptoEquivalencia where IdAplicacion = 4 and ConceptoOrigen = '110038' and ConceptoDyP = '0112'
+DELETE CatConceptoEquivalencia where IdAplicacion = 5 and ConceptoOrigen = '110038' and ConceptoDyP = '0112'
+
+
+--- RN003 (update)
+
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 1 and ConceptoOrigen = '500007' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 2 and ConceptoOrigen = '500007' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 3 and ConceptoOrigen = '500007' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 4 and ConceptoOrigen = '500007' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 5 and ConceptoOrigen = '500007' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 1 and ConceptoOrigen = '110018' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 2 and ConceptoOrigen = '110018' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 3 and ConceptoOrigen = '110018' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 4 and ConceptoOrigen = '110018' and ConceptoDyP = '0112'
+update CatConceptoEquivalencia set Activo = 1 where IdAplicacion = 5 and ConceptoOrigen = '110018' and ConceptoDyP = '0112'
+
+
+
+
+
+
+
+
+
+
+delete CatConceptoDyP where ConceptoDyP in ('306182')
+delete CatConceptoDyP where ConceptoDyP in ('0162')
+delete CatConceptoDyP where ConceptoDyP in ('0163')
+delete CatConceptoDyP where ConceptoDyP in ('0311')
+
+
+
+

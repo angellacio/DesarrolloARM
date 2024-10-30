@@ -1,0 +1,453 @@
+﻿@using Sat.CreditosFiscales.Presentacion.Herramientas.ExtensionsMethods
+@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraFormatoPagoViewModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".linkDetalleConcepto").click(function () {
+            var x = $(this).attr('idDetalleConcepto');
+            $(".detalleConcepto").hide();
+            $("#" + x).show("fast");
+            var posicion = $("#" + x).position();
+            jQuery('body,html').animate({ scrollTop: posicion.top }, 800);
+            $("#numeroDetalle").text($(this).text());
+        });
+
+        $("#selector").change(function () {
+            $("input:checkbox").prop('checked', $(this).is(":checked"));
+
+        });
+
+        $(".selector").change(function () {
+            verificaCheckGeneral();
+        });
+    });
+
+
+    function verificaCheckGeneral() {
+        if ($(".selector").length == $(".selector:checked").length) {
+            $("#selector").prop('checked', true);
+        }
+        else {
+            $("#selector").prop('checked', false);
+        }
+    }
+
+    function resetPantalla() {
+        $("[grupo='confirma']").hide();
+        var docNoSeleccionado = $(".selector:not(:checked)").parent().parent().parent();
+        docNoSeleccionado.show();
+        $("[grupo='soloPago']").show();
+        $("#txtAccionPantalla").val('0');
+        $("#tblTotal").remove();
+    }
+
+    function muestraConfirma() {
+        $("[grupo='confirma']").show();
+        var docNoSeleccionado = $(".selector:not(:checked)").parent().parent().parent();
+        docNoSeleccionado.hide();
+        $(".detalleConcepto").hide();
+        $("#tblGrid").append('<tr grupo="confirma" id="tblTotal" ><td id="tdEspacio" style="text-align:right; border:none;display: table-cell;" colspan="6">&nbsp;</td><td><b>Total</b></td><td><b><span id="totalSeleccion"></span></b></td></tr>')
+    }
+
+    function setAccionConsulta() {
+        $("[grupo='soloPago']").css("display", "none");
+    }
+
+    function muestraDatosEstado(rutaInternet, entidad, telefonos, prefijo) {
+        $("#entidadFederativa").text(entidad);
+        $("#telefonos").text(telefonos);        
+        $("#ligaEntidad").text(rutaInternet);
+        $("#ligaEntidad").attr('href', rutaInternet);
+
+        $("#modalEntidad").dialog(
+            {
+                modal: true,
+                buttons:
+                    {
+                        Ok: function () { $(this).dialog("close"); }
+                    }
+            });
+
+    }
+
+    function ocultaDetalle(id) {
+        $("#" + id).hide("fast");
+    }
+
+    var totalPagarSeleccion = 0;
+    function aplicaAccion(accion) {
+
+
+        $("#txtAccionPantalla").val(accion);
+
+        if ((accion == 2 && $(".selector:checked").length > 0)) {
+            totalPagarSeleccion = 0;
+            muestraConfirma();
+            $.each($(".selector:checked"), function () {
+                totalPagarSeleccion += parseInt($(this).parent().parent().parent().find("#saldoActualizado").text().replace("$", "").replace("-","0").split(",").join(""));
+                //console.log(totalPagarSeleccion);
+                $("#totalSeleccion").text(accounting.formatMoney(totalPagarSeleccion).replace(".00", ""));
+                setAccionConsulta();
+            });
+        }
+        else if ((accion == 3 && $(".selector:checked").length > 0) || accion == 1 || accion == -1) {
+           
+            reloj();
+            $("form:first").submit();
+        }
+        else {
+            $("#modalNoSeleccionados").dialog(
+                   {
+                       modal: true,
+                       buttons:
+                           {
+                               Ok: function () { $(this).dialog("close"); }
+                           }
+                   });
+
+        }
+
+    }
+</script>
+@Html.HiddenFor(m => m.AccionPantalla, new { id = "txtAccionPantalla" })
+<div id="grid">
+    @if (Model != null)
+        {
+            if (Model.Determinantes != null && Model.Determinantes.Count > 0)
+            {
+                string marcaImporte = string.Empty;
+                string idDetalle = string.Empty;
+        <table class="tabla" id="tblGrid">
+            <tr>
+                <th grupo="soloPago">
+                    <input type="checkbox" id="selector" /></th>
+                <th style="color: #006FBF; cursor: pointer" title="Al dar clic al número de la resolución, se desplegará los conceptos que componen su adeudo.">Núm. resolución determinante</th>
+                <th>Fecha de resolución determinante</th>
+                <th>Unidad administrativa determinante</th>
+                <th style="color: #006FBF; cursor: pointer" title="Saldo calculado a la fecha del último pago o abono efectuado.">Saldo histórico</th>
+                <th>Actualización</th>
+                <th>Recargos</th>
+                <th>Descuentos o reducciones</th>
+                <th>Saldo actualizado</th>
+                <th>Observaciones</th>
+            </tr>
+
+            @for (int i = 0; i < Model.Determinantes.Count(); i++)
+                {
+                    //historico + actualizacion + recargos - descuentos
+                    var determinante = Model.Determinantes[i];
+                    decimal saldoActualizado = determinante.ImporteHistorico + determinante.ImporteActualizacion + determinante.ImporteRecargos - determinante.ImporteDescuentos;
+                
+                @Html.HiddenFor(m => m.Determinantes[i].NumeroConceptos)                
+                @Html.HiddenFor(m => m.Determinantes[i].IdAutoridad)
+                @Html.HiddenFor(m => m.Determinantes[i].IdALR)
+                @Html.HiddenFor(m => m.Determinantes[i].ImporteActualizacion)
+                @Html.HiddenFor(m => m.Determinantes[i].ImporteDescuentos)
+                @Html.HiddenFor(m => m.Determinantes[i].ImporteHistorico)
+                @Html.HiddenFor(m => m.Determinantes[i].NumDocumento)
+                @Html.HiddenFor(m => m.Determinantes[i].Rfc)
+                @Html.HiddenFor(m => m.Determinantes[i].FechaDocumento)
+
+                    marcaImporte = Model.Determinantes[i].MostrarImportes ? "ConImporte" : "SinImporte";
+                    idDetalle = "detalleConcepto" + i; 
+                <tr>
+                    <td grupo="soloPago">
+                        <div style="width: 50px">@Html.CheckBoxFor(m => m.Determinantes[i].Seleccionado, new { @class = "selector" })</div>
+                    </td>
+                    <td><span class="linkDetalleConcepto" idDetalleConcepto="@idDetalle">@Model.Determinantes[i].NumDocumento</span></td>
+                    <td>
+                        <div style="width: 65px">@Model.Determinantes[i].FechaDocumento.ToStringCustom()</td>
+                    <td>
+                        <div style="width: 150px">@Model.Determinantes[i].DescripcionAutoridad</td>
+                    <td>
+                        <div class="ConImporte">@Model.Determinantes[i].ImporteHistorico.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" >@Model.Determinantes[i].ImporteActualizacion.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" >@Model.Determinantes[i].ImporteRecargos.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" >@Model.Determinantes[i].ImporteDescuentos.ToCurrency()</div>
+                    </td>
+                    <td>
+                        <div class="@marcaImporte" id="saldoActualizado" >@saldoActualizado.ToCurrency()</div>
+                    </td>
+                    <td>
+                        @if (Model.Determinantes[i].MarcasModel != null)
+                            {
+                                foreach (var marca in Model.Determinantes[i].MarcasModel)
+                                {
+                                    if (marca.CveMarca.Equals(1))
+                                    {
+                            <span class="linkObservaciones" onClick="muestraDatosEstado('@marca.Portal', '@marca.Entidad', '@marca.Telefonos', '@marca.Prefijo')" >@marca.Observacion</span>
+                            <br />
+                            <br />
+                                    }
+                                    else
+                                    {
+                            <span>@marca.Observacion</span>
+                            <br />
+                            <br />
+                                    }
+                                }
+                            }
+                    </td>
+
+                </tr>
+                }
+
+        </table>
+        <p>Además de los adeudos mostrados, pueden existir resoluciones en proceso de ser notificadas por las autoridades.</p>
+        
+                for (int i = 0; i < Model.Determinantes.Count(); i++)
+                {
+                    if (Model.Determinantes[i].ConceptosPadre != null)
+                    {
+                        marcaImporte = Model.Determinantes[i].MostrarImportes ? "ConImporte" : "SinImporte";
+                        idDetalle = "detalleConcepto" + i;
+                        
+        <div id="@idDetalle" style="display: none;" class="detalleConcepto">
+            <div style="background-color: silver; width: 900px; text-align: right; margin-bottom: 3px; margin-top: 10px">
+                <span style="text-align: left; float: left">Detalle - Conceptos -  Resolución <b id="numeroDetalle">@Model.Determinantes[i].NumDocumento</b></span>
+                <span style="text-align: right; color: blue; text-decoration: underline; cursor: pointer" onclick="ocultaDetalle('@idDetalle');">Cerrar</span>
+            </div>
+            <div id="ventanaTabla">
+                <div class="ventanaGrid">
+                    <table class="tabla">
+                        <tr>
+                            <th style="display: none;">
+                                <div style="width: 50px;">Crédito</div>
+                            </th>
+                            <th>
+                                <div style="width: 300px;">Concepto</div>
+                            </th>
+                            <th>
+                                <div style="width: 50px;">Periodo</div>
+                            </th>
+                            <th>
+                                <div style="width: 50px;">Ejercicio</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Saldo histórico</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Actualización</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Recargos</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Descuentos o reducciones</div>
+                            </th>
+                            <th>
+                                <div style="width: 75px;">Saldo actualizado</div>
+                            </th>
+                        </tr>
+                        @for (int indice = 0; indice < Model.Determinantes[i].ConceptosPadre.Count; indice++)
+                            {
+                                var concepto = Model.Determinantes[i].ConceptosPadre[indice];
+                                bool mostrarComoHijo = false;
+                                if (indice > 0)
+                                {
+                                    string creditoArcaAnterior = string.Format("{0}-", Model.Determinantes[i].ConceptosPadre[indice - 1].CreditoARCA);
+                                    mostrarComoHijo = concepto.CreditoARCA.ToLowerInvariant().Contains(creditoArcaAnterior);
+                                }
+                                
+                                    
+                                
+                            <tr>
+                                <td style="display: none;">
+                                    <div style="width: 70px;">@concepto.CreditoSIR</div>
+                                </td>
+                                <td>
+                                    @if (mostrarComoHijo)
+                                        {
+                                        <div style="width: 308px; text-align: left; padding-left: 20px">@concepto.Descripcion</div>
+                                        }
+                                        else
+                                        {
+                                        <div style="width: 328px; text-align: left;">@concepto.Descripcion</div>
+                                        }
+
+
+                                </td>
+                                <td>
+                                    @if (mostrarComoHijo) { concepto.Descripcion = "sin periodo"; }
+                                    @{string descripcion = concepto.DescripcionPerido.ToLower() != "sin periodo" ? concepto.DescripcionPerido : string.Empty; }
+                                    <div style="width: 50px;">@descripcion</div>
+                                </td>
+                                <td>
+                                    @if (mostrarComoHijo) { concepto.Ejercicio = 0; }
+                                    @{string ejercicio = concepto.Ejercicio > 0 ? concepto.Ejercicio.ToString() : string.Empty;}
+                                    <div style="width: 50px;">@ejercicio</div>
+                                </td>
+                                <td>
+                                    <div class="ConImporte">@concepto.ImporteHistorico.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    <div class="@marcaImporte">@concepto.ImporteParteActualizada.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    <div class="@marcaImporte">@concepto.ImporteRecargos.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    <div class="@marcaImporte">@concepto.ImporteDescuentos.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    @{decimal saldoactualizado = concepto.ImporteHistorico + concepto.ImporteParteActualizada + concepto.ImporteRecargos - concepto.ImporteDescuentos;}
+                                    <div class="@marcaImporte">@saldoactualizado.ToCurrency()</div>
+                                </td>
+                            </tr>
+                                          foreach (var conceptoHijo in concepto.ConceptosHijo)
+                                          {
+                                              if (!Model.IdsRecargos.Contains(conceptoHijo.IdConcepto.ToString()))
+                                              {
+                            <tr>
+                                <td>
+                                    <div style="width: 70px;">@conceptoHijo.CreditoSIR</div>
+                                </td>
+                                <td>
+                                    <div style="width: 308px; text-align: left; padding-left: 20px">@conceptoHijo.Descripcion</div>
+                                </td>
+                                <td>
+                                    <div style="width: 50px;">&nbsp;</div>
+                                </td>
+                                <td>
+                                    <div style="width: 50px;">&nbsp;</div>
+                                </td>
+                                <td>
+                                    <div class="ConImporte">@conceptoHijo.ImporteHistorico.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    <div class="@marcaImporte">@conceptoHijo.ImporteParteActualizada.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    <div class="@marcaImporte">@conceptoHijo.ImporteRecargos.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    <div class="@marcaImporte">@conceptoHijo.ImporteDescuentos.ToCurrency()</div>
+                                </td>
+                                <td>
+                                    @{decimal saldoactualizadohijo = conceptoHijo.ImporteHistorico + conceptoHijo.ImporteParteActualizada + conceptoHijo.ImporteRecargos - conceptoHijo.ImporteDescuentos;}
+                                    <div class="@marcaImporte">@saldoactualizadohijo.ToCurrency()</div>
+                                </td>
+                            </tr>
+                                              }
+
+                                          }
+
+                            }
+                    </table>
+                </div>
+                <table class="tabla" style="position: relative; top: -300px; left: 0px">
+                    <tr>
+                        <th style="display: none;">
+                            <div style="width: 70px;">Crédito</div>
+                        </th>
+                        <th>
+                            <div style="width: 328px;">Concepto</div>
+                        </th>
+                        <th>
+                            <div style="width: 50px;">Periodo</div>
+                        </th>
+                        <th>
+                            <div style="width: 50px;">Ejercicio</div>
+                        </th>
+                        <th>
+                            <div style="width: 75px">Saldo histórico</div>
+                        </th>
+                        <th>
+                            <div style="width: 75px">Actualización</div>
+                        </th>
+                        <th>
+                            <div style="width: 75px">Recargos</div>
+                        </th>
+                        <th>
+                            <div style="width: 75px">Descuentos o reducciones</div>
+                        </th>
+                        <th>
+                            <div style="width: 75px">Saldo actualizado</div>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+                    }
+                }
+            }
+            else if (Model.Determinantes != null && Model.Determinantes.Count.Equals(0))
+            {
+                
+
+        <h2>No hay adeudos registrados a su nombre; sin embargo, pueden existir resoluciones que se encuentren en proceso de ser notificadas por las autoridades competentes.</h2>
+
+            }
+
+        }
+</div>
+<div id="modalEntidad" title="Entidad Federativa" style="display: none">
+    <p>
+        <span id="entidadFederativa"></span>
+    </p>
+    <p>
+        Teléfonos de atención: <span id="telefonos"></span>
+    </p>
+    <p>
+        Página de internet:<br />
+        <a id="ligaEntidad" target="_blank"></a>
+    </p>
+</div>
+
+<div id="modalNoSeleccionados" title="No existe selección" style="display: none">
+    <p>
+        Seleccione por lo menos un adeudo para generar el formato de pago.
+    </p>
+</div>
+<script>
+    verificaCheckGeneral();
+    $(".SinImporte").text('-');
+</script>
+
+@if (this.ViewBag.Accion == Sat.CreditosFiscales.Comunes.Entidades.AccionesPantalla.EnumAccionGeneraFormato.Consulta)
+        {
+    
+    <script>
+        $(document).ready(function () {
+            setAccionConsulta();
+        });
+    </script>        
+        }
+<div id="botonera">
+    @if (this.ViewBag.ModoProduccion != null && (!(bool)this.ViewBag.ModoProduccion))
+    {
+        <input type="button" value="Regresar al menú" onclick="aplicaAccion('1')" />
+    }
+    <input type="button" value="Siguiente" grupo="soloPago" onclick="aplicaAccion('2')" />
+    <input type="button" value="Generar formato para pago" grupo="confirma" style="display: none" onclick="aplicaAccion('3')" />
+    <input type="button" value="Cancelar" grupo="confirma" style="display: none" onclick="resetPantalla();" />
+</div>
+
+@if( Model != null && Model.AccionPantalla.Equals(3))
+{
+    <script type="text/javascript">
+        reloj();
+        window.location.href = '@Url.Action("Index", "LineaCaptura", new { idSolicitud = this.ViewBag.IdSolicitud })';
+    </script>
+}
+else if (Model != null && Model.AccionPantalla.Equals(1))
+{
+    
+    <script type="text/javascript">
+        reloj();
+        window.location.href = '@Url.Action("Index", "Home")';
+    </script>
+}
+
+@if (this.ViewBag.Error != null)
+{              
+    <script>$("#txtAccionPantalla").val('0');</script>
+    }
+	
+	

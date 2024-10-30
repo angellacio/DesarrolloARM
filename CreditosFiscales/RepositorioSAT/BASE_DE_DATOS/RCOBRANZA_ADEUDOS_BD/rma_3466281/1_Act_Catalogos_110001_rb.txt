@@ -1,0 +1,16 @@
+use MotorTraductor
+GO
+
+PRINT 'CatConceptoEquivalencia'
+GO
+
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (2, '110001', 'ISR OPCION DE ACUMULACION DE INGRESOS POR PERSONAS MORALES', '0145', 1);
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (3, '110001', 'ISR OPCION DE ACUMULACION DE INGRESOS POR PERSONAS MORALES', '0145', 1);
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (4, '110001', 'ISR OPCION DE ACUMULACION DE INGRESOS POR PERSONAS MORALES', '0145', 1);
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (5, '110001', 'ISR OPCION DE ACUMULACION DE INGRESOS POR PERSONAS MORALES', '0145', 1);
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (2, '110001', 'ISR/ ISR PERSONAS MORALES REGION FRONTERIZA NORTE (RFN)', '0159', 1);
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (3, '110001', 'ISR/ ISR PERSONAS MORALES REGION FRONTERIZA NORTE (RFN)', '0159', 1);
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (4, '110001', 'ISR/ ISR PERSONAS MORALES REGION FRONTERIZA NORTE (RFN)', '0159', 1);
+INSERT INTO CatConceptoEquivalencia (IdAplicacion, ConceptoOrigen, DescripcionOrigen, ConceptoDyP, Activo) VALUES (5, '110001', 'ISR/ ISR PERSONAS MORALES REGION FRONTERIZA NORTE (RFN)', '0159', 1);
+
+GO

@@ -1,0 +1,626 @@
+﻿@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraTraductorMonitorPagosViewMode
+@{
+    ViewBag.Title = "MonitorPagos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/jquerydt")
+@Scripts.Render("~/Scripts/Creditos/jsEventos.js")
+
+@section encabezado
+{
+    <h1>Búsqueda en monitor pagos</h1>
+    <div style="text-align: right">
+        Créditos Fiscales:
+        &nbsp;@Html.ActionLink("Log de eventos", "CreditosLogEvento")
+        &nbsp;@Html.ActionLink("Peticiones", "CreditosPeticion")
+        &nbsp;|&nbsp;Traductor:
+        &nbsp;@Html.ActionLink("Log de eventos", "TraductorLogEvento")
+        &nbsp;@Html.ActionLink("Bitácora", "TraductorBitacora")
+        &nbsp;|&nbsp;Template:
+        &nbsp;@Html.ActionLink("Log de eventos", "TemplateLogEvento")
+        &nbsp;|&nbsp;
+        @Html.ActionLink("Salir", "LogOff")
+    </div>
+}
+
+<style>
+    .tablePrincipal {
+        text-align: left;
+        width: 95%;
+        margin-inline-start: 30px;
+    }
+
+        .tablePrincipal tr {
+            vertical-align: central;
+            text-align: left;
+            align-content: center;
+        }
+
+        .tablePrincipal td {
+            padding-left: 3px;
+            padding-top: 2px;
+            padding-right: 3px;
+            padding-bottom: 1px;
+        }
+
+        .tablePrincipal input, select {
+            font-size: 8pt;
+            font-family: Arial;
+        }
+</style>
+
+@using (Ajax.BeginForm("TraductorMonitorPagos_DetPagos_Buscar", "LogEventos", new AjaxOptions { UpdateTargetId = "tblRes_DetPago" }))
+{
+    <table class="tablePrincipal">
+        <tr>
+            <td>
+                Monitorear:&nbsp;
+                @Html.DropDownListFor(m => m.IdMonitor, new SelectList(Model.listaMonitoreo, "key", "value"))
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="tablaDetPago" name="tablaDetPago" style="width: 100%;display: none;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="text-align:center;">
+                                <h2>CRITERIOS DE BÚSQUEDA MONITOREAR DETALLE DE PAGOS</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                Tipo de Pago:&nbsp;
+                                                @Html.DropDownListFor(m => m.MonitorPagoDetalle.IdTipoPago, new SelectList(Model.listaTipoPago, "key", "value"))
+                                            </td>
+                                            <td>
+                                                Estatus:&nbsp;
+                                                @Html.DropDownListFor(m => m.MonitorPagoDetalle.IdEstatus, new SelectList(Model.listaEstatus, "key", "value"))
+                                            </td>
+                                            <td>
+                                                Línea de Captura:&nbsp;
+                                                @Html.TextBoxFor(m => m.MonitorPagoDetalle.LineaCaptura, new { tabindex = 1, maxlength = 20 })
+                                            </td>
+                                            <td>
+                                                @Html.ValidationMessageFor(m => m.MonitorPagoDetalle.LineaCaptura, "")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td colspan="2">
+                                                Banco:&nbsp;
+                                                @Html.DropDownListFor(m => m.MonitorPagoDetalle.IdBanco, new SelectList(Model.listaBanco, "key", "value"))
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <table style="width: 700px;">
+                                        <tr>
+                                            <td>
+                                                <fieldset style="margin-bottom: 0px;">
+                                                    <legend style="text-align:left;">Fecha pago</legend>
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td>
+                                                                Fecha Inicio:&nbsp;
+                                                                @Html.TextBoxFor(m => m.MonitorPagoDetalle.FechaInicio, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.ValidationMessageFor(m => m.MonitorPagoDetalle.FechaInicio, "")
+                                                            </td>
+                                                            <td>
+                                                                Fecha Fin:&nbsp;
+                                                                @Html.TextBoxFor(m => m.MonitorPagoDetalle.FechaFin, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.ValidationMessageFor(m => m.MonitorPagoDetalle.FechaFin, "")
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                * Fecha de pago o Línea de captura son requeridos <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;align-content:center;vertical-align:middle;">
+                                <input type="submit" value="Buscar" />
+                                <input type="submit" name="btnLimpiarDetPago" id="btnLimpiarDetPago" value="Limpiar" formaction="/LogEventos/TraductorMonitorPagos_DetPagos_Limpiar" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="tablaArchZIP" name="tablaArchZIP" style="display: none;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="text-align:center;">
+                                <h2>CRITERIOS DE BÚSQUEDA MONITOREAR ARCHIVOS ZIP</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                Tipo de Pago:&nbsp;
+                                                @Html.DropDownListFor(m => m.MonitorArchivoZIP.IdTipoPago, new SelectList(Model.listaTipoPago, "key", "value"))
+                                            </td>
+                                            <td>
+                                                Nombre Archivo ZIP:&nbsp;
+                                                @Html.TextBoxFor(m => m.MonitorArchivoZIP.ArchivoZIP, new { tabindex = 1, maxlength = 20 })
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <table style="width: 700px;">
+                                        <tr>
+                                            <td>
+                                                <fieldset style="margin-bottom: 0px;">
+                                                    <legend style="text-align:left;">Fecha creación del archivo ZIP</legend>
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td>
+                                                                Fecha Inicio:&nbsp;
+                                                                @Html.TextBoxFor(m => m.MonitorArchivoZIP.FechaInicio, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.ValidationMessageFor(m => m.MonitorArchivoZIP.FechaInicio, "")
+                                                            </td>
+                                                            <td>
+                                                                Fecha Fin:&nbsp;
+                                                                @Html.TextBoxFor(m => m.MonitorArchivoZIP.FechaFin, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.ValidationMessageFor(m => m.MonitorArchivoZIP.FechaFin, "")
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;align-content:center;vertical-align:middle;">
+                                <input type="submit" value="Buscar" />
+                                <input type="submit" name="btnLimpiarArchZIP" id="btnLimpiarArchZIP" value="Limpiar" formaction="/LogEventos/TraductorMonitorPagos_DetPagos_Limpiar" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="tablaTaProgama" name="tablaTaProgama" style="display: none;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="text-align:center;">
+                                <h2>CRITERIOS DE BÚSQUEDA MONITOREAR TAREA PROGRAMADA</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                Tipo de Pago:&nbsp;
+                                                @Html.DropDownListFor(m => m.MonitorTareaProgramada.IdTipoPago, new SelectList(Model.listaTipoPago, "key", "value"))
+                                            </td>
+                                            <td>
+                                                Estatus archivo procesado:&nbsp;
+                                                @Html.DropDownListFor(m => m.MonitorTareaProgramada.IdEstatus, new SelectList(Model.listaEstatus, "key", "value"))
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>
+                                    <table style="width: 700px;">
+                                        <tr>
+                                            <td>
+                                                <fieldset style="margin-bottom: 0px;">
+                                                    <legend style="text-align:left;">Fecha proceso</legend>
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td>
+                                                                Fecha Inicio:&nbsp;
+                                                                @Html.TextBoxFor(m => m.MonitorTareaProgramada.FechaInicio, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.ValidationMessageFor(m => m.MonitorTareaProgramada.FechaInicio, "")
+                                                            </td>
+                                                            <td>
+                                                                Fecha Fin:&nbsp;
+                                                                @Html.TextBoxFor(m => m.MonitorTareaProgramada.FechaFin, new { tabindex = 2, maxlength = 10, @class = "tcal", onKeyPress = "return valFecha(event);", onpaste = "return false;" })
+                                                            </td>
+                                                            <td>
+                                                                @Html.ValidationMessageFor(m => m.MonitorTareaProgramada.FechaFin, "")
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:center;align-content:center;vertical-align:middle;">
+                                <input type="submit" value="Buscar" />
+                                <input type="submit" name="btnLimpiarTaProgama" id="btnLimpiarTaProgama" value="Limpiar" formaction="/LogEventos/TraductorMonitorPagos_DetPagos_Limpiar" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+
+@if (Model != null && Model.MonitorPagoDetalle.DatosBusqueda != null)
+{
+    if (Model.MonitorPagoDetalle.DatosBusqueda.Count > 0)
+    {
+        <div id="divRes_DetPago" style="overflow-x: scroll;">
+            <table id="tblRes_DetPago" class="tabla">
+                <thead>
+                    <tr>
+                        <th>Tipo de Pago</th>
+                        <th>Fecha pago</th>
+                        <th>Hora pago</th>
+                        <th>Importe</th>
+                        <th>Número de operación</th>
+                        <th>Línea de captura</th>
+                        <th>Medio de recepción</th>
+                        <th>Estatus del pago</th>
+                        <th>Fecha de proceso</th>
+                        <th>XML</th>
+                        <th>ZIP</th>
+                        <th>Descripción error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.MonitorPagoDetalle.DatosBusqueda.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].TipoPago</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].FechaPago</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].HoraPago</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].Importe</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].NumeroOperaciones</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].LineaCaptura</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].MedioRecepcion</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].EstatusPago</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].FechaProceso</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].XML</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].ZIP</td>
+                            <td>@Model.MonitorPagoDetalle.DatosBusqueda[i].Error</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+@if (Model != null && Model.MonitorArchivoZIP.DatosBusqueda != null)
+{
+    if (Model.MonitorArchivoZIP.DatosBusqueda.Count > 0)
+    {
+        <div id="divRes_ArchZIP" style="overflow-x: scroll;">
+            <table id="tblRes_ArchZIP" class="tabla">
+                <thead>
+                    <tr>
+                        <th>Tipo de Pago</th>
+                        <th>Fecha creación archivo ZIP</th>
+                        <th>Nombre archivo ZIP</th>
+                        <th>Importe total en el ZIP</th>
+                        <th>Número de pagos en el ZIP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.MonitorArchivoZIP.DatosBusqueda.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model.MonitorArchivoZIP.DatosBusqueda[i].TipoPago</td>
+                            <td>@Model.MonitorArchivoZIP.DatosBusqueda[i].FechaCreacion</td>
+                            <td>@Model.MonitorArchivoZIP.DatosBusqueda[i].Nombre</td>
+                            <td>@Model.MonitorArchivoZIP.DatosBusqueda[i].Importe</td>
+                            <td>@Model.MonitorArchivoZIP.DatosBusqueda[i].NumeroPagos</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+@if (Model != null && Model.MonitorTareaProgramada.DatosBusqueda != null)
+{
+    if (Model.MonitorTareaProgramada.DatosBusqueda.Count > 0)
+    {
+        <div id="divRes_TaPrograma" style="overflow-x: scroll;">
+            <table id="tblRes_TaPrograma" class="tabla">
+                <thead>
+                    <tr>
+                        <th>Tipo de Pago</th>
+                        <th>Id Proceso</th>
+                        <th>Nombre archivo</th>
+                        <th>Estatus archivo procesado</th>
+                        <th>Fecha presentación del pago</th>
+                        <th>Fecha proceso</th>
+                        <th>Nombe archivo ZIP</th>
+                        <th>Importe total en ZIP</th>
+                        <th>Número de pagos en ZIP</th>
+                        <th>Descripción error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.MonitorTareaProgramada.DatosBusqueda.Count; i++)
+                    {
+                        <tr>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].TipoPago</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].IdProceso</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].NombreArchivo</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].Estatus</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].FechaPresentacion</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].FechaProceso</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].NombreArchivoZIP</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].Importe</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].NumeroPagos</td>
+                            <td>@Model.MonitorTareaProgramada.DatosBusqueda[i].Error</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+
+<script>
+    $(document).ready(function () {
+        SeleccionaMonitoreo();
+        ValidaLineaCaptura(false);
+
+        $("#IdMonitor").change(function () {
+            SeleccionaMonitoreo();
+        });
+
+        $("#btnLimpiarDetPago").click(function () {
+            LimpiarFormulario();
+        });
+
+        $("#btnLimpiarArchZIP").click(function () {
+            LimpiarFormulario();
+        });
+
+        $("#btnLimpiarTaProgama").click(function () {
+            LimpiarFormulario();
+        });
+
+        $("#MonitorPagoDetalle_LineaCaptura").change(function () {
+            ValidaLineaCaptura(true);
+        });
+
+        $("#MonitorArchivoZIP_ArchivoZIP").change(function () {
+            ValidaLineaCaptura(true);
+        });
+    });
+    function SeleccionaMonitoreo() {
+        var nIdSelect = $("#IdMonitor").val();
+        $("#tablaDetPago").css("display", "none");
+        $("#divRes_DetPago").css("display", "none");
+        $("#tablaArchZIP").css("display", "none");
+        $("#divRes_ArchZIP").css("display", "none");
+        $("#tablaTaProgama").css("display", "none");
+        $("#divRes_TaPrograma").css("display", "none");
+
+        if (nIdSelect == '1') {
+            $("#tablaDetPago").css("display", "block");
+            $("#divRes_DetPago").css("display", "block");
+        }
+        if (nIdSelect == '2') {
+            $("#tablaArchZIP").css("display", "block");
+            $("#divRes_ArchZIP").css("display", "block");
+        }
+        if (nIdSelect == '3') {
+            $("#tablaTaProgama").css("display", "block");
+            $("#divRes_TaPrograma").css("display", "block");
+        }
+    }
+
+    function LimpiarFormulario() {
+        var fechaActual = $.datepicker.formatDate('dd/mm/yy', new Date());
+
+        $("#MonitorPagoDetalle_IdTipoPago option:first").attr('selected', 'selected');
+        $("#MonitorPagoDetalle_IdEstatus option:first").attr('selected', 'selected');
+        $("#MonitorPagoDetalle_LineaCaptura").val("");
+        $("#MonitorPagoDetalle_IdBanco option:first").attr('selected', 'selected');
+        $("#MonitorPagoDetalle_FechaInicio").val(fechaActual);
+        $("#MonitorPagoDetalle_FechaFin").val(fechaActual);
+
+        $("#MonitorArchivoZIP_IdTipoPago option:first").attr('selected', 'selected');
+        $("#MonitorArchivoZIP_ArchivoZIP").val("");
+        $("#MonitorArchivoZIP_FechaInicio").val(fechaActual);
+        $("#MonitorArchivoZIP_FechaFin").val(fechaActual);
+
+        $("#MonitorTareaProgramada_IdTipoPago option:first").attr('selected', 'selected');
+        $("#MonitorTareaProgramada_IdEstatus option:first").attr('selected', 'selected');
+        $("#MonitorTareaProgramada_FechaInicio").val(fechaActual);
+        $("#MonitorTareaProgramada_FechaFin").val(fechaActual);
+    }
+
+    function ValidaLineaCaptura(limpiar) {
+        var nIdSelect = $("#IdMonitor").val();
+        var fechaActual = $.datepicker.formatDate('dd/mm/yy', new Date());
+        if (nIdSelect == '1') {
+            $('#MonitorPagoDetalle_IdTipoPago').prop('disabled', 'disabled');
+            $('#MonitorPagoDetalle_IdEstatus').prop('disabled', 'disabled');
+            $('#MonitorPagoDetalle_IdBanco').prop('disabled', 'disabled');
+            $("#MonitorPagoDetalle_FechaInicio").prop('disabled', 'disabled');
+            $("#MonitorPagoDetalle_FechaFin").prop('disabled', 'disabled');
+            if ($("#MonitorPagoDetalle_LineaCaptura").val().length <= 0) {
+                $('#MonitorPagoDetalle_IdTipoPago').prop('disabled', false);
+                $('#MonitorPagoDetalle_IdEstatus').prop('disabled', false);
+                $('#MonitorPagoDetalle_IdBanco').prop('disabled', false);
+                $("#MonitorPagoDetalle_FechaInicio").prop('disabled', false);
+                $("#MonitorPagoDetalle_FechaFin").prop('disabled', false);
+                if (limpiar) {
+                    $("#MonitorPagoDetalle_FechaInicio").val(fechaActual);
+                    $("#MonitorPagoDetalle_FechaFin").val(fechaActual);
+                }
+            }
+            else {
+                $("#MonitorPagoDetalle_IdTipoPago option:first").attr('selected', 'selected');
+                $("#MonitorPagoDetalle_IdEstatus option:first").attr('selected', 'selected');
+                $("#MonitorPagoDetalle_IdBanco option:first").attr('selected', 'selected');
+                $("#MonitorPagoDetalle_FechaInicio").val("");
+                $("#MonitorPagoDetalle_FechaFin").val("");
+            }
+        }
+        else if (nIdSelect == '2') {
+            $('#MonitorArchivoZIP_IdTipoPago').prop('disabled', 'disabled');
+            $("#MonitorArchivoZIP_FechaInicio").prop('disabled', 'disabled');
+            $("#MonitorArchivoZIP_FechaFin").prop('disabled', 'disabled');
+            if ($("#MonitorArchivoZIP_ArchivoZIP").val().length <= 0) {
+                $('#MonitorArchivoZIP_IdTipoPago').prop('disabled', false);
+                $("#MonitorArchivoZIP_FechaInicio").prop('disabled', false);
+                $("#MonitorArchivoZIP_FechaFin").prop('disabled', false);
+                if (limpiar) {
+                    $("#MonitorArchivoZIP_FechaInicio").val(fechaActual);
+                    $("#MonitorArchivoZIP_FechaFin").val(fechaActual);
+                }
+            }
+            else {
+                $("#MonitorArchivoZIP_IdTipoPago option:first").attr('selected', 'selected');
+                $("#MonitorArchivoZIP_FechaInicio").val("");
+                $("#MonitorArchivoZIP_FechaFin").val("");
+            }
+        }
+    }
+
+    $(function () {
+        $('#tblRes_DetPago').dataTable({
+            "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+            "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+            "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+            "oLanguage": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
+
+        $('#tblRes_ArchZIP').dataTable({
+            "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+            "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+            "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+            "oLanguage": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
+
+        $('#tblRes_TaPrograma').dataTable({
+            "iDisplayLength": 5, "bFilter": false, "bSort": false, "bPaginate": true,
+            "bLengthChange": true, "bJQueryUI": false, "sPaginationType": "full_numbers",
+            "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]],
+            "oLanguage": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            }
+        });
+    });
+
+</script>

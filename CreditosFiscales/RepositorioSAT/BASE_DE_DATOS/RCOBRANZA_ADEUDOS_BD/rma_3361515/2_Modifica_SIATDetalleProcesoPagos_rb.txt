@@ -1,0 +1,10 @@
+
+--- Eliminar el campo creado
+-- Ejecutuar el script y si marca error, favor descomentar la linea de eliminar constraint y reemplazar  
+-- <<Nombre del Constraint>> por el nombre creado (el cual es mostrado en el error) y despues ejecutar nuevamente 
+
+ --ALTER TABLE TblSIATDetalleProcesoPagos DROP <<Nombre del Constraint>>;
+
+go
+ALTER TABLE TblSIATDetalleProcesoPagos DROP COLUMN reenviar;
+go

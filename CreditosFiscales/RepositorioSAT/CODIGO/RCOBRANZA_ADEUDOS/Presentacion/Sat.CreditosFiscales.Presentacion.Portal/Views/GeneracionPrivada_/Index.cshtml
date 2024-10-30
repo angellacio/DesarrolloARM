@@ -1,0 +1,22 @@
+﻿@using Sat.CreditosFiscales.Presentacion.Herramientas.ExtensionsMethods
+@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraFormatoPagoViewModel
+
+@{
+    ViewBag.Title = "Solicitud de generación de formatos de pag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(this.ViewBag.Ruta != null)
+{
+    <h1>Consultando Información</h1>
+    string scritpAcceso = string.Format(@"<script>                                            
+                                            setTimeout('reloj();window.location.href=""{0}"",1000');
+                                          </script>", this.ViewBag.Ruta);
+    @Html.Raw(scritpAcceso)
+    
+}
+
+
+
+
+

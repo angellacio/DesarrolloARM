@@ -1,0 +1,123 @@
+Use MotorTraductor
+GO
+
+print 'CatConceptosOriginal'
+GO
+
+DELETE CatConceptosOriginal where clave = '110076' and IdAplicacion = 2
+DELETE CatConceptosOriginal where clave = '110076' and IdAplicacion = 3
+DELETE CatConceptosOriginal where clave = '110076' and IdAplicacion = 4
+DELETE CatConceptosOriginal where clave = '110076' and IdAplicacion = 5
+DELETE CatConceptosOriginal where clave = '110063' and IdAplicacion = 2
+DELETE CatConceptosOriginal where clave = '110063' and IdAplicacion = 3
+DELETE CatConceptosOriginal where clave = '110063' and IdAplicacion = 4
+DELETE CatConceptosOriginal where clave = '110063' and IdAplicacion = 5
+DELETE CatConceptosOriginal where clave = '110064' and IdAplicacion = 2
+DELETE CatConceptosOriginal where clave = '110064' and IdAplicacion = 3
+DELETE CatConceptosOriginal where clave = '110064' and IdAplicacion = 4
+DELETE CatConceptosOriginal where clave = '110064' and IdAplicacion = 5
+DELETE CatConceptosOriginal where clave = '110073' and IdAplicacion = 2
+DELETE CatConceptosOriginal where clave = '110073' and IdAplicacion = 3
+DELETE CatConceptosOriginal where clave = '110073' and IdAplicacion = 4
+DELETE CatConceptosOriginal where clave = '110073' and IdAplicacion = 5
+DELETE CatConceptosOriginal where clave = '110074' and IdAplicacion = 2
+DELETE CatConceptosOriginal where clave = '110074' and IdAplicacion = 3
+DELETE CatConceptosOriginal where clave = '110074' and IdAplicacion = 4
+DELETE CatConceptosOriginal where clave = '110074' and IdAplicacion = 5
+
+GO
+
+print 'CatConceptoEquivalencia'
+GO
+
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110076' and ConceptoDyP ='0113' and IdAplicacion =2
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110076' and ConceptoDyP ='0113' and IdAplicacion =3
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110076' and ConceptoDyP ='0113' and IdAplicacion =4
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110076' and ConceptoDyP ='0113' and IdAplicacion =5
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110063' and ConceptoDyP ='0139' and IdAplicacion =2
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110063' and ConceptoDyP ='0139' and IdAplicacion =3
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110063' and ConceptoDyP ='0139' and IdAplicacion =4
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110063' and ConceptoDyP ='0139' and IdAplicacion =5
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110064' and ConceptoDyP ='0131' and IdAplicacion =2
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110064' and ConceptoDyP ='0131' and IdAplicacion =3
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110064' and ConceptoDyP ='0131' and IdAplicacion =4
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110064' and ConceptoDyP ='0131' and IdAplicacion =5
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110073' and ConceptoDyP ='0147' and IdAplicacion =2
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110073' and ConceptoDyP ='0147' and IdAplicacion =3
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110073' and ConceptoDyP ='0147' and IdAplicacion =4
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110073' and ConceptoDyP ='0147' and IdAplicacion =5
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110074' and ConceptoDyP ='0148' and IdAplicacion =2
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110074' and ConceptoDyP ='0148' and IdAplicacion =3
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110074' and ConceptoDyP ='0148' and IdAplicacion =4
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110074' and ConceptoDyP ='0148' and IdAplicacion =5
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0145' and IdAplicacion =2
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0145' and IdAplicacion =3
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0145' and IdAplicacion =4
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0145' and IdAplicacion =5
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0159' and IdAplicacion =2
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0159' and IdAplicacion =3
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0159' and IdAplicacion =4
+DELETE CatConceptoEquivalencia WHERE ConceptoOrigen = '110001' and ConceptoDyP ='0159' and IdAplicacion =5
+
+GO
+
+print 'CatConceptoPersonaPeriodicidad'
+GO
+
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0113' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'Q'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0113' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'Q'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '303147' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '303147' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308126' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308126' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308127' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308127' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308128' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308128' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308129' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308129' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308130' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308130' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308131' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308131' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308132' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308132' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308133' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308133' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308134' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '308134' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0101' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'S'
+
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '167' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '168' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0139' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'Y'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0131' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'Y'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0145' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'M'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0145' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'Y'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0147' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'M'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0147' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'T'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0147' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'S'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0147' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0147' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'Y'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0148' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'M'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0148' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'T'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0148' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'S'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0148' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'N'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0148' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'Y'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0159' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'M'
+DELETE CatConceptoPersonaPeriodicidad WHERE ConceptoDyP = '0159' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'Y'
+
+go
+
+--- *****  CatConceptoDyP  *****
+
+
+print 'CatConceptoDyP'
+GO
+
+DELETE CatConceptoDyP WHERE ConceptoDyP = '0139'
+DELETE CatConceptoDyP WHERE ConceptoDyP = '0145'
+DELETE CatConceptoDyP WHERE ConceptoDyP = '0147'
+DELETE CatConceptoDyP WHERE ConceptoDyP = '0148'
+DELETE CatConceptoDyP WHERE ConceptoDyP = '0159'

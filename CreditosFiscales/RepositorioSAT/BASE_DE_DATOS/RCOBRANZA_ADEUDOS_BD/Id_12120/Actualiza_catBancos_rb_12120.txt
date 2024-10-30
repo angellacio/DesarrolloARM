@@ -1,0 +1,8 @@
+use MotorTraductor
+go
+
+delete catBanco where idBanco in (37166, 40147)
+
+ALTER TABLE	catBanco alter column Descripcion nvarchar(50)
+go
+

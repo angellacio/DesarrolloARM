@@ -1,0 +1,17 @@
+use MotorTraductor
+
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '802' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'M'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '802' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'T'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '802' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'B'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '802' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'S'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '802' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'Q'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '138' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'Y'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '138' and IdTipoPersona = 4 and IdPeriodicidadDyP = 'Y'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '318' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'M'
+DELETE CatConceptoPersonaPeriodicidad where conceptoDyP = '318' and IdTipoPersona = 2 and IdPeriodicidadDyP = 'Y'
+GO
+
+DELETE CatConceptoDyP where ConceptoDyP = '138' and activo = 1
+DELETE CatConceptoDyP where ConceptoDyP = '802' and activo = 1
+
+GO

@@ -1,0 +1,6 @@
+use MotorTraductor
+go
+
+delete catBanco where idBanco in (40003, 40025, 40090, 40107, 40113, 40116, 40127, 40128, 40133, 40136, 40145, 40152, 40161)
+go
+

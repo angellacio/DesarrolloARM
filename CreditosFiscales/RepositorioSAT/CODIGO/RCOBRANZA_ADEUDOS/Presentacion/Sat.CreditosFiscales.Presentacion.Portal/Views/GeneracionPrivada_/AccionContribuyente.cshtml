@@ -1,0 +1,75 @@
+﻿@using Sat.CreditosFiscales.Presentacion.Herramientas.ExtensionsMethods
+@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.GeneraFormatoPagoViewModel
+
+@{
+    ViewBag.Title = "Solicitud de generación de formatos de pag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+
+@{string titulo = "Consulta";}
+@if (this.ViewBag.Accion != Sat.CreditosFiscales.Comunes.Entidades.AccionesPantalla.EnumAccionGeneraFormato.Consulta)
+{
+    titulo = "Pago Total";
+}
+
+@section encabezado
+{
+    <h1>@titulo</h1>
+}
+
+@using (Ajax.BeginForm("AccionContribuyente","GeneracionPrivada", new { accion = this.ViewBag.Accion}, new AjaxOptions
+{
+    UpdateTargetId = "c",
+    HttpMethod = "POST",
+    OnFailure = "OnFailure",
+    OnSuccess = "OnSuccess",
+}))
+{
+    
+    <div id="c">
+        @{ Html.RenderPartial("_GeneracionPrivada", Model); }
+    </div>
+   
+}
+
+<script type="text/javascript">
+
+
+    function OnFailure() {
+        ocultarReloj();
+    }
+
+    function OnSuccess() {
+
+        if ($("#txtAccionPantalla").val() != 0) {
+            reloj();
+        }
+        else {
+            ocultarReloj();
+        }
+    }
+
+
+
+</script>
+@section mensajeContribuyente
+{   
+    @if (this.ViewBag.Error != null)
+    {
+       
+        @Html.Raw(this.ViewBag.Error);
+        <script>            
+            ocultarReloj();
+        </script>
+    }
+
+    @if (this.ViewBag.CambioOrigen != null)
+    {
+        
+        @Html.Raw(this.ViewBag.CambioOrigen)
+    }
+}
+
+

@@ -1,0 +1,72 @@
+﻿@using Sat.CreditosFiscales.Presentacion.Herramientas.ExtensionsMethods
+@model Sat.CreditosFiscales.Presentacion.Portal.ViewModels.DeudoresPurosViewModel
+@{
+    ViewBag.Title = "Solicitud de generación de formatos de pag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+@section encabezado
+{
+    <h1>Para obtener el formato para el pago de una resolución a su cargo, llene los campos tal y como aparecen en los documentos proporcionados por el SAT al momento de su notificación o por alguna gestión de cobro. </h1>
+
+}
+
+@using (Ajax.BeginForm("DeudoresPuros", "GeneracionPrivada", new AjaxOptions
+{
+    UpdateTargetId = "c",
+    HttpMethod = "POST",
+    OnFailure = "OnFailure",
+    OnSuccess = "OnSuccess",
+    LoadingElementId = "loading"
+}))
+{    
+    <div id="c">
+        @{ Html.RenderPartial("_Deudores", Model); }
+    </div>
+  
+    
+}
+
+<script type="text/javascript">
+
+
+    function OnFailure() {
+        ocultarReloj();
+    }
+
+    function OnSuccess() {
+        if ($("#mAccion").val() != "-1") {
+            ocultarReloj();
+        }
+        else {
+            reloj();
+        }
+
+    }
+
+
+
+</script>
+@section mensajeContribuyente
+{
+    @if (!string.IsNullOrEmpty(Model.MensajeError))
+    {
+        @Html.Raw(Model.MensajeError)
+    }
+
+    @if (this.ViewBag.CambioOrigen != null)
+    {
+        @Html.Raw(this.ViewBag.CambioOrigen)
+    }
+}
+
+
+
+
+
+
+
+
