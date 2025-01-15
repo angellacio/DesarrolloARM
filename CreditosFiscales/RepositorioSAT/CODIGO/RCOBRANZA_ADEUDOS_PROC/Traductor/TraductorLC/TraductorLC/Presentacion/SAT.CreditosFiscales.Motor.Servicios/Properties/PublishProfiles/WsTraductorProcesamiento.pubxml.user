@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+		<LastUsedPlatform>Any CPU</LastUsedPlatform>
+		<TimeStampOfAssociatedLegacyPublishXmlFile />
+	</PropertyGroup>
+	<ItemGroup>
+		<File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+			<publishTime>04/09/2019 23:50:14</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+			<publishTime>04/09/2019 23:50:14</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+			<publishTime>04/09/2019 23:50:15</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.Unity.dll">
+			<publishTime>04/09/2019 23:50:15</publishTime>
+		</File>
+		<File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+			<publishTime>04/09/2019 23:50:15</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.AccesoDatos.dll">
+			<publishTime>05/12/2019 19:42:40</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.AccesoDatos.pdb">
+			<publishTime>08/22/2013 18:32:21</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.Entidades.dll">
+			<publishTime>05/12/2019 19:42:39</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.Entidades.pdb">
+			<publishTime>08/22/2013 18:32:21</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.Negocio.dll">
+			<publishTime>05/12/2019 19:42:41</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.Negocio.pdb">
+			<publishTime>08/22/2013 18:32:22</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.Servicios.dll">
+			<publishTime>05/12/2019 19:50:12</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.Servicios.pdb">
+			<publishTime>08/22/2013 18:32:22</publishTime>
+		</File>
+		<File Include="bin/SAT.CreditosFiscales.Motor.Utilidades.dll">
+			<publishTime>05/12/2019 19:42:39</publishTime>
+		</File>
+		<File Include="CreditosFiscales.svc">
+			<publishTime>04/09/2019 23:49:54</publishTime>
+		</File>
+		<File Include="Global.asax">
+			<publishTime>04/09/2019 23:49:54</publishTime>
+		</File>
+		<File Include="Web.config">
+			<publishTime>05/12/2019 19:50:13</publishTime>
+		</File>
+	</ItemGroup>
+</Project>

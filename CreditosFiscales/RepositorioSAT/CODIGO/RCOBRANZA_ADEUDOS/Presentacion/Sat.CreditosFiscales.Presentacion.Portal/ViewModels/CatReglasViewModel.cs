@@ -24,7 +24,7 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.ViewModels
         public string Regla { set; get; }
         public bool EsValidacion { set; get; }
         [Required]
-        public int Accion { set; get; }
+        public int? Accion { set; get; }
     }
 
 }

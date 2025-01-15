@@ -18,10 +18,10 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.ViewModels
         public string DocumentoDeterminante { set; get; }
 
         [Required]
-        public int IdAutoridad { set; get; }
+        public int? IdAutoridad { set; get; }
 
         [Required]
-        public int IdALR { set; get; }
+        public int? IdALR { set; get; }
 
         [Required]
         public string FechaDocumento { set; get; }
