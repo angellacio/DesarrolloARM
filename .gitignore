@@ -20,6 +20,7 @@ MonitorRMA/Codigo/WinAplicacion/WA_Formas/bin/*
 MonitorRMA/Codigo/WinAplicacion/WA_Formas/obj/*
 MonitorRMA/Codigo/WinAplicacion/WA_RN/bin/*
 MonitorRMA/Codigo/WinAplicacion/WA_RN/obj/*
+<<<<<<< HEAD
 CreditosFiscales/Fuentes/RCOBRANZA_ADEUDOS/Soluciones/.vs/*
 CreditosFiscales/Fuentes/RCOBRANZA_ADEUDOS/Comunes/Sat.CreditosFiscales.Comunes.Entidades/bin/*
 CreditosFiscales/Fuentes/RCOBRANZA_ADEUDOS/Comunes/Sat.CreditosFiscales.Comunes.Entidades/obj/*
@@ -50,3 +51,31 @@ ProyectosPersonales/Personal.Entidades/obj/Debug/*
 ProyectosPersonales/Personal.ReglaNegocio/bin/Debug/*
 ProyectosPersonales/TagClass/bin/Debug/*
 ProyectosPersonales/TagClass/obj/Debug/*
+=======
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Soluciones/.vs/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Comunes/Sat.CreditosFiscales.Comunes.Entidades/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Comunes/Sat.CreditosFiscales.Comunes.Entidades/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Comunes/Sat.CreditosFiscales.Comunes.Entidades/obj/Debug/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Comunes/Sat.CreditosFiscales.Comunes.Herramientas/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Comunes/Sat.CreditosFiscales.Comunes.Herramientas/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Datos/Sat.CreditosFiscales.Datos.AccesoDatos/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Datos/Sat.CreditosFiscales.Datos.AccesoDatos/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Presentacion/Sat.CreditosFiscales.Presentacion.Herramientas/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Presentacion/Sat.CreditosFiscales.Presentacion.Herramientas/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Presentacion/Sat.CreditosFiscales.Presentacion.Portal/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Presentacion/Sat.CreditosFiscales.Presentacion.Portal/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Presentacion/Sat.CreditosFiscales.Presentacion.Temporales/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Presentacion/Sat.CreditosFiscales.Presentacion.Temporales/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Procesamiento/Sat.CreditosFiscales.Procesamiento.LogicaNegocio/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Procesamiento/Sat.CreditosFiscales.Procesamiento.LogicaNegocio/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Procesamiento/Sat.CreditosFiscales.Procesamiento.Pagos/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Procesamiento/Sat.CreditosFiscales.Procesamiento.Pagos/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Procesamiento/Sat.CreditosFiscales.Procesamiento.Servicios/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Procesamiento/Sat.CreditosFiscales.Procesamiento.Servicios/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Test/ConsolaDePruebas/bin/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Test/ConsolaDePruebas/obj/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Servicios/Release/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Servicios/Debug/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Portal/Release/*
+CreditosFiscales/RepositorioSAT/CODIGO/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Portal/Debug/*
+>>>>>>> c55c718cc53dbe1df95e37c120547017cf55945f

@@ -19,6 +19,6 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.ViewModels
         [Required]
         public string Descripcion { set; get; }
         [Required]
-        public int Accion { set; get; }
+        public int? Accion { set; get; }
     }
 }
