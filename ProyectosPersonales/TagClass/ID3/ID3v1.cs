@@ -192,27 +192,42 @@ namespace TagClass.ID3.ID3v2F
         /// </summary>
         public void Load()
         {
-            TagStream FS = new TagStream(_FilePath, FileMode.Open);
-            if (!FS.HaveID3v1()) // HaveID3v1 go to beginning of ID3v1 if exist
+            TagStream FS = null;
+            try
             {
-                FS.Close();
-                _HaveTag = false;
-                return;
+                FS = new TagStream(_FilePath, FileMode.Open);
+                if (!FS.HaveID3v1()) // HaveID3v1 go to beginning of ID3v1 if exist
+                {
+                    throw new Exception("Archivo no existe");
+                }
+                _Title = FS.ReadText(30, TextEncodings.Ascii);
+                FS.Seek(-95, SeekOrigin.End);
+                _Artist = FS.ReadText(30, TextEncodings.Ascii);
+                FS.Seek(-65, SeekOrigin.End);
+                _Album = FS.ReadText(30, TextEncodings.Ascii);
+                FS.Seek(-35, SeekOrigin.End);
+                _Year = FS.ReadText(4, TextEncodings.Ascii);
+                FS.Seek(-31, SeekOrigin.End);
+                _Comment = FS.ReadText(28, TextEncodings.Ascii);
+                FS.Seek(-2, SeekOrigin.End);
+                _TrackNumber = FS.ReadByte();
+                _Genre = FS.ReadByte();
+                
+                _HaveTag = true;
             }
-            _Title = FS.ReadText(30, TextEncodings.Ascii);
-            FS.Seek(-95, SeekOrigin.End);
-            _Artist = FS.ReadText(30, TextEncodings.Ascii);
-            FS.Seek(-65, SeekOrigin.End);
-            _Album = FS.ReadText(30, TextEncodings.Ascii);
-            FS.Seek(-35, SeekOrigin.End);
-            _Year = FS.ReadText(4, TextEncodings.Ascii);
-            FS.Seek(-31, SeekOrigin.End);
-            _Comment = FS.ReadText(28, TextEncodings.Ascii);
-            FS.Seek(-2, SeekOrigin.End);
-            _TrackNumber = FS.ReadByte();
-            _Genre = FS.ReadByte();
-            FS.Close();
-            _HaveTag = true;
+            catch (Exception ex)
+            {
+                _HaveTag = false;
+            }
+            finally
+            {
+                if (FS != null)
+                {
+                    FS.Close();
+                    FS.Dispose();
+                }
+            }
+            
         }
 
         /// <summary>

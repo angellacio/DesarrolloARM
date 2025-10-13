@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ManejoCanciones">
+      <HintPath>obj\Debug\ManejoCanciones.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -58,6 +61,12 @@
     <Compile Include="uControl\cDatoCancion.Designer.cs">
       <DependentUpon>cDatoCancion.cs</DependentUpon>
     </Compile>
+    <Compile Include="uControl\frmBusquedaCanciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uControl\frmBusquedaCanciones.Designer.cs">
+      <DependentUpon>frmBusquedaCanciones.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmCanciones.resx">
       <DependentUpon>FrmCanciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -73,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="uControl\cDatoCancion.resx">
       <DependentUpon>cDatoCancion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uControl\frmBusquedaCanciones.resx">
+      <DependentUpon>frmBusquedaCanciones.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

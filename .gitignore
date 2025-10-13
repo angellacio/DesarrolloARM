@@ -45,3 +45,8 @@ CreditosFiscales/Fuentes/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Servicio
 CreditosFiscales/Fuentes/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Servicios/Debug/*
 CreditosFiscales/Fuentes/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Portal/Release/*
 CreditosFiscales/Fuentes/RCOBRANZA_ADEUDOS/Setup/SAT.Setup.Presentacion.Portal/Debug/*
+ProyectosPersonales/Personal.Entidades/bin/Debug/*
+ProyectosPersonales/Personal.Entidades/obj/Debug/*
+ProyectosPersonales/Personal.ReglaNegocio/bin/Debug/*
+ProyectosPersonales/TagClass/bin/Debug/*
+ProyectosPersonales/TagClass/obj/Debug/*

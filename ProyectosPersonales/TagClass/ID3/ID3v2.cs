@@ -459,20 +459,33 @@ namespace TagClass.ID3.ID3v2F
         /// <exception cref="FileNotFoundException">File Not Found</exception>
         public void Load()
         {
-            Errors.Clear();
-            ClearAll();
-
-            TagStream ID3File = new TagStream(_FilePath, FileMode.Open);
-            ReadHeader(ID3File);
-
-            if (!HaveTag) // If file don't contain ID3v2 exit function
+            TagStream ID3File = null;
+            try
             {
-                ID3File.Close();
-                return;
-            }
+                Errors.Clear();
+                ClearAll();
 
-            ReadFrames(ID3File, _OriginID3Length);
-            ID3File.Close();
+                ID3File = new TagStream(_FilePath, FileMode.Open);
+                ReadHeader(ID3File);
+
+                if (!HaveTag) // If file don't contain ID3v2 exit function
+                {
+                    throw new Exception("Archivo no existe");
+                }
+
+                ReadFrames(ID3File, _OriginID3Length);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (ID3File != null)
+                {
+                    ID3File.Close();
+                    ID3File.Dispose();
+                }
+            }
         }
 
         /// <summary>
@@ -714,50 +727,61 @@ namespace TagClass.ID3.ID3v2F
             int FrameLength;
             FrameFlags Flags = new FrameFlags();
             byte Buf;
-            // If ID3v2 is ID3v2.2 FrameID, FrameLength of Frames is 3 byte
-            // otherwise it's 4 character
+            // If ID3v2 is ID3v2.2 FrameID, FrameLength of Frames is 3 byte otherwise it's 4 character
             int FrameIDLen = Version.Minor == 2 ? 3 : 4;
 
-            // Minimum frame size is 10 because frame header is 10 byte
-            while (Length > 10)
+            try
             {
-                // check for padding( 00 bytes )
-                Buf = Data.ReadByte();
-                if (Buf == 0)
+                while (Length > 10) // Minimum frame size is 10 because frame header is 10 byte
                 {
-                    Length--;
-                    continue;
+                    Buf = Data.ReadByte(); // check for padding( 00 bytes )
+                    if (Buf == 0)
+                    {
+                        Length--;
+                        continue;
+                    }
+
+                    // if readed byte is not zero. it must read as FrameID
+                    Data.Seek(-1, SeekOrigin.Current);
+
+                    // ---------- Read Frame Header -----------------------
+                    FrameID = Data.ReadText(FrameIDLen, TextEncodings.Ascii);
+                    if (FrameIDLen == 3)
+                        FrameID = FramesInfo.Get4CharID(FrameID);
+
+                    FrameLength = Convert.ToInt32(Data.ReadUInt(FrameIDLen));
+
+                    if (FrameID != null && 
+                        FrameID.ToUpper().Trim() != "SYLT" && FrameID.ToUpper().Trim() != "USER")
+                    {    
+                        if (FrameIDLen == 4)
+                            Flags = (FrameFlags)Data.ReadUInt(2);
+                        else
+                            Flags = 0; // must set to default flag
+
+                        long Position = Data.Position;
+
+                        if (Length > 0x10000000)
+                            throw (new FileLoadException("This file contain frame that have more than 256MB data. This is not valid for ID3."));
+
+                        bool Added = false;
+                        if (IsAddable(FrameID)) // Check if frame is not filter
+                            Added = AddFrame(Data, FrameID, FrameLength, Flags);
+
+                        if (!Added)
+                            // if don't read this frame
+                            // we must go forward to read next frame
+                            Data.Position = Position + FrameLength;
+                    }
+                    Length -= FrameLength + 10;
+                    // 10 for Frame Header header
                 }
-
-                // if readed byte is not zero. it must read as FrameID
-                Data.Seek(-1, SeekOrigin.Current);
-
-                // ---------- Read Frame Header -----------------------
-                FrameID = Data.ReadText(FrameIDLen, TextEncodings.Ascii);
-                if (FrameIDLen == 3)
-                    FrameID = FramesInfo.Get4CharID(FrameID);
-                FrameLength = Convert.ToInt32(Data.ReadUInt(FrameIDLen));
-                if (FrameIDLen == 4)
-                    Flags = (FrameFlags)Data.ReadUInt(2);
-                else
-                    Flags = 0; // must set to default flag
-
-                long Position = Data.Position;
-
-                if (Length > 0x10000000)
-                    throw (new FileLoadException("This file contain frame that have more than 256MB data. This is not valid for ID3."));
-
-                bool Added = false;
-                if (IsAddable(FrameID)) // Check if frame is not filter
-                    Added = AddFrame(Data, FrameID, FrameLength, Flags);
-
-                if (!Added)
-                    // if don't read this frame
-                    // we must go forward to read next frame
-                    Data.Position = Position + FrameLength;
-
-                Length -= FrameLength + 10;
-                // 10 for Frame Header header
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
             }
         }
 

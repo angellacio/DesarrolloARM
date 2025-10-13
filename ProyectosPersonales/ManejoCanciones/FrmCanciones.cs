@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Personal.Entidades;
+using Personal.Entidades.Canciones;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,14 +17,19 @@ namespace ManejoCanciones
 {
     public partial class FrmCanciones : Form
     {
-        private List<entC.entCancion> LstMusica { get; set; }
-        private List<entC.entCancion> LstCanSinFiltros { get; set; }
-        List<entC.entFolder> LstFolder { get; set; }
+        public List<entC.entCancion> lstCancionesAll { get; set; }
+        public List<entC.entCancion> lstCancionesFill { get; set; }
+        List<entC.entFolder> lstFolderAll { get; set; }
+        //private entC.datFolder DatFolder { get; set; }
         private Thread hiloObtenCanciones;
+        //private Thread hiloListMusicTree;
         private string SRutaOriginal { get; set; }
         public FrmCanciones()
         {
             InitializeComponent();
+            lstCancionesAll = new List<entCancion>();
+            lstFolderAll = new List<entFolder>();
+            dtgMusica.AutoGenerateColumns = false;
         }
 
         private void btnRuta_Click(object sender, EventArgs e)
@@ -34,17 +42,11 @@ namespace ManejoCanciones
 
             if (drOrigen == DialogResult.OK)
             {
-                LstMusica = new List<entC.entCancion>();
-                LstCanSinFiltros = new List<entC.entCancion>();
-
                 SRutaOriginal = fbdUbicacion.SelectedPath.Trim();
-
 
                 ThreadStart delegadoPS = new ThreadStart(ObtenCanciones);
                 hiloObtenCanciones = new Thread(delegadoPS);
-
                 hiloObtenCanciones.Start();
-
             }
             txtRutaOrigen.Text = SRutaOriginal;
 
@@ -53,7 +55,23 @@ namespace ManejoCanciones
             //dtgMusica.DataSource = lstCanciones;
         }
 
+        private delegate void SetTextDelegate(string prValue);
         private delegate void SetValueDelegate(double prValue);
+        private delegate void SetVisibleDelegate(Boolean bolEstado);
+        private delegate void SetDataSourceDelegate(List<entC.entCancion> lstLlenar);
+
+        private void SetText_gbListaCanciones(string sValor)
+        {
+            if (gbListaCanciones.InvokeRequired)
+            {
+                SetTextDelegate delegado = new SetTextDelegate(SetText_gbListaCanciones);
+                gbListaCanciones.Invoke(delegado, new object[] { sValor });
+            }
+            else
+            {
+                gbListaCanciones.Text = sValor;
+            }
+        }
         private void SetValue_bgProgreso(double hecho)
         {
             if (pgbCargando.InvokeRequired)
@@ -66,74 +84,115 @@ namespace ManejoCanciones
                 pgbCargando.Value = (int)hecho;
             }
         }
+        private void SetVisible_bgProgreso(Boolean bolEstado)
+        {
+            if (pgbCargando.InvokeRequired)
+            {
+                SetVisibleDelegate delegado = new SetVisibleDelegate(SetVisible_bgProgreso);
+                pgbCargando.Invoke(delegado, new object[] { bolEstado });
+            }
+            else
+            {
+                pgbCargando.Visible = bolEstado;
+            }
+        }
+        private void SetVisible_btnBuscar(Boolean bolEstado)
+        {
+            if (btnBuscar.InvokeRequired)
+            {
+                SetVisibleDelegate delegado = new SetVisibleDelegate(SetVisible_btnBuscar);
+                btnBuscar.Invoke(delegado, new object[] { bolEstado });
+            }
+            else
+            {
+                btnBuscar.Visible = bolEstado;
+            }
+        }
+        private void SetDatSource_dtgMusica(List<entC.entCancion> lstLlenar)
+        {
+            if (dtgMusica.InvokeRequired)
+            {
+                SetDataSourceDelegate delegado = new SetDataSourceDelegate(SetDatSource_dtgMusica);
+                dtgMusica.Invoke(delegado, new object[] { lstLlenar });
+            }
+            else
+            {
+                dtgMusica.DataSource = lstLlenar;
+            }
+        }
 
         private void ObtenCanciones()
         {
             rnC.ManejoCancion manejoCancion = null;
-            List<string> listString = null;
+            List<entC.entCancion> lstCancionesExiste = null;
             double dbPorcentaje = 1.0, dbPorcenIncrementa = 0.0;
-            int nRRuta = 0;
             try
             {
                 SetValue_bgProgreso(dbPorcentaje);
 
-                manejoCancion = new rnC.ManejoCancion();
-                listString = manejoCancion.BuscarCanciones(SRutaOriginal);
+                manejoCancion = new rnC.ManejoCancion(rnC.ManejoCancion.ConsultaCatalogo());
 
-                dbPorcentaje = 3.0;
-                SetValue_bgProgreso(dbPorcentaje);
+                lstCancionesExiste = manejoCancion.CargaDatosCarpeta(SRutaOriginal);
 
-                listString.ForEach(itemRutaArch =>
+                if (lstCancionesExiste == null)
                 {
-                    string sRutCom = itemRutaArch.Trim();
+                    lstCancionesAll = manejoCancion.BuscarCanciones(SRutaOriginal);
 
-                    LstCanSinFiltros.Add(new entC.entCancion(sRutCom));
-                });
-
-                dbPorcentaje = 7.0;
-                SetValue_bgProgreso(dbPorcentaje);
-
-                LstCanSinFiltros.Select(itemS => itemS.Ruta).Distinct().ToList().OrderBy(itemO => itemO).ToList().ForEach(itemF =>
-                {
-                    if (LstMusica.FindAll(itemC => itemC.Ruta == itemF).ToList().Count == 0) nRRuta += 1;
-
-                    LstCanSinFiltros.FindAll(itemFRuta => itemFRuta.Ruta.Contains(itemF)).ForEach(itemFF =>
-                    {
-                        itemFF.RutaID = nRRuta;
-                        LstMusica.Add(new entC.entCancion(itemFF));
-                    });
-                });
-
-                dbPorcentaje = 10.0;
-                SetValue_bgProgreso(dbPorcentaje);
-
-                dbPorcenIncrementa = 90.0 / LstMusica.Count;
-
-                LstMusica.ForEach(itemCancion =>
-                {
-                    entC.entCancion itemMod = manejoCancion.completaInformacion(itemCancion);
-
-                    itemCancion.sMusica_iTag = itemMod.sMusica_iTag;
-                    itemCancion.sMusica_NumPista = itemMod.sMusica_NumPista;
-                    itemCancion.sMusica_Nombre = itemMod.sMusica_Nombre;
-                    itemCancion.sMusica_Artista = itemMod.sMusica_Artista;
-                    itemCancion.sMusica_ArtistaC = itemMod.sMusica_ArtistaC;
-                    itemCancion.sMusica_Album = itemMod.sMusica_Album;
-                    itemCancion.sMusica_Año = itemMod.sMusica_Año;
-                    itemCancion.sMusica_IdGenero = itemMod.sMusica_IdGenero;
-                    itemCancion.sMusica_Genero = itemMod.sMusica_Genero;
-                    itemCancion.sMusica_Comentario = itemMod.sMusica_Comentario;
-
-                    dbPorcentaje += dbPorcenIncrementa;
+                    dbPorcentaje = 3.0;
                     SetValue_bgProgreso(dbPorcentaje);
+
+                    for (int nR = 0; nR < lstCancionesAll.Count; nR++)
+                    {
+                        lstCancionesAll[nR].RutaID = nR + 1;
+                    }
+
+                    dbPorcentaje = 10.0;
+                    SetValue_bgProgreso(dbPorcentaje);
+
+                    MethodInvoker delegado;
+                    delegado = new MethodInvoker(setValor_Arbol);
+                    tvCanciones.Invoke(delegado);
+
+                    dbPorcenIncrementa = 90.0 / lstCancionesAll.Count;
+
+                    lstCancionesAll.ForEach(itemCancion =>
+                    {
+                        entC.entCancion itemMod = manejoCancion.completaInformacion(itemCancion);
+
+                        itemCancion.bEstadoID3v1 = itemMod.bEstadoID3v1;
+                        itemCancion.bEstadoID3v2 = itemMod.bEstadoID3v2;
+
+                        itemCancion.ID3v1 = new entPropiedadesCancion(itemMod.ID3v1);
+                        itemCancion.ID3v2 = new entPropiedadesCancion(itemMod.ID3v2);
+
+                        dbPorcentaje += dbPorcenIncrementa;
+                        SetValue_bgProgreso(dbPorcentaje);
+                    });
+
+                    manejoCancion.GuardarDatosCarpeta(SRutaOriginal, lstCancionesAll);
+                }
+                else
+                {
+                    //DatFolder = DatFolderExist;
+                    lstCancionesAll = lstCancionesExiste;
+                    dbPorcentaje = 10.0;
+                    SetValue_bgProgreso(dbPorcentaje);
+
+                    MethodInvoker delegado;
+                    delegado = new MethodInvoker(setValor_Arbol);
+                    tvCanciones.Invoke(delegado);
+
+                }
+                SetValue_bgProgreso(100);
+
+                lstCancionesFill = new List<entCancion>();
+
+                lstCancionesAll.ForEach(entCancion =>
+                {
+                    lstCancionesFill.Add(new entCancion(entCancion));
                 });
 
-                //lstMusica = lstCan.OrderBy(itemOrden => itemOrden.Ruta).ToList();
-
-                MethodInvoker delegado;
-
-                delegado = new MethodInvoker(setValor_Arbol);
-                tvCanciones.Invoke(delegado);
+                LlenaGridCanciones();
             }
             catch (ApplicationException)
             {
@@ -151,183 +210,85 @@ namespace ManejoCanciones
 
         private void setValor_Arbol()
         {
-            LstFolder = new List<entC.entFolder>();
-            List<entC.entFolder> lstFolderRep = new List<entC.entFolder>();
-            int nRT = 0;
-            List<string> lstRutaAgrupar = LstMusica.Select(item => item.Ruta.Trim()).Distinct().ToList();
+            setValor_ArbolLista(lstCancionesAll);
+        }
+        private void setValor_ArbolLista(List<entCancion> lstCancionesFolder)
+        {
+            int numCarpetaMax = 0;
+            List<entC.entFolder> LstFolder = new List<entC.entFolder>();
+            List<entCatSensillo> lstFolders = new List<entCatSensillo>();
+            lstCancionesFolder.Select(item => string.Format("{0}", item.Ruta.Replace(string.Format(@"{0}\", SRutaOriginal), "")).Trim())
+                .Distinct().OrderBy(itemOB => itemOB.Trim()).ToList().ForEach(item =>
+                {
+                    string[] sArrayCarp = item.Split('\\');
+                    string sRutaFin = "", sRutaAnt = "";
+                    int nNivel = 0;
 
-            lstRutaAgrupar.ForEach(itemR =>
+                    nNivel = sArrayCarp.Length;
+                    sRutaFin = sArrayCarp[sArrayCarp.Length - 1];
+
+                    if (nNivel > 1)
+                    {
+                        foreach (string sCarpeta in sArrayCarp)
+                        {
+                            if (sRutaAnt != "") sRutaAnt = string.Format("{0}\\{1}", sRutaAnt, sCarpeta);
+                            else sRutaAnt = string.Format("{0}", sCarpeta);
+                        }
+
+                        sRutaAnt = sRutaAnt.Replace(string.Format("\\{0}", sRutaFin), "");
+                    }
+                    lstFolders.Add(new entCatSensillo() { nId = nNivel, sAcronimo = sRutaAnt, sDescripcion = sRutaFin });
+                });
+
+            numCarpetaMax = lstFolders.Max(itemMaxCarp => itemMaxCarp.nId);
+
+            foreach (entCatSensillo item in lstFolders)
             {
-                string sRutaTV = string.Format("{0}", itemR.Replace(string.Format(@"{0}", SRutaOriginal), ""));
-                if (sRutaTV.Length > 0) sRutaTV = sRutaTV.Substring(1, sRutaTV.Length - 1);
+                string[] sAraySC = item.sAcronimo.Split('\\');
 
-                entC.entFolder itemEstructura = consEstructuraRep(sRutaTV, nRT);
+                List<entFolder> lstFolderRecorre = lstFolderAll;
 
-                lstFolderRep.Add(itemEstructura);
-
-
-
-
-                //for (nNivelFolder = 0; nNivelFolder < nNivelMax; nNivelFolder++)
-                //{
-                //    int nCarpetasEF = 0;
-                //    string sFolder = lstRutaSepadado[nNivelFolder].Trim();
-                //    switch (nNivelFolder)
-                //    {
-                //        case 0:
-                //            nCarpetasEF = lstFolder.FindAll(itemFF => 
-                //            itemFF.sFolder.Trim() == lstRutaSepadado[nNivelFolder].Trim() && itemFF.nNivel == nNivelFolder).Count;
-
-                //            if (nCarpetasEF == 0)
-                //            {
-                //                lstFolder.Add(new entC.entFolder(nNivelFolder, nRT, sFolder, sSubRuta));
-                //            }
-
-                //            sSubRuta = sFolder;
-                //            break;
-                //        case 1:
-                //            nCarpetasEF = lstFolder.Find(itemFBS =>
-                //            itemFBS.sFolder == sSubRuta && itemFBS.nNivel == (nNivelFolder - 1)
-                //            ).lstSubFolder.FindAll(itemFF =>
-                //            itemFF.sFolder.Trim() == lstRutaSepadado[nNivelFolder].Trim() && itemFF.nNivel == nNivelFolder).Count;
-
-                //            if (nCarpetasEF == 0)
-                //            {
-                //                lstFolder.Find(itemFF =>
-                //                itemFF.sFolder == sSubRuta && itemFF.nNivel == (nNivelFolder - 1)
-                //                ).lstSubFolder.Add(new entC.entFolder(nNivelFolder, nRT, sFolder, sSubRuta));
-                //            }
-
-                //            sSubRuta = string.Format(@"{0}\{1}", sSubRuta, sFolder);
-                //            break;
-                //        case 2:
-                //            string[] sRRecortada = sSubRuta.Split('\\');
-                //            nCarpetasEF = lstFolder.Find(itemFBS => 
-                //            itemFBS.sFolder == sRRecortada[0] && itemFBS.nNivel == (nNivelFolder - 2)).lstSubFolder.Find(itemFBS1 => 
-                //            itemFBS1.sFolder == sRRecortada[1] && itemFBS1.nNivel == (nNivelFolder - 1)).lstSubFolder.FindAll(itemFF =>
-                //            itemFF.sFolder.Trim() == lstRutaSepadado[nNivelFolder].Trim() && itemFF.nNivel == nNivelFolder).Count;
-
-                //            if (nCarpetasEF == 0)
-                //            {
-                //                lstFolder.Find(itemFF =>
-                //                itemFF.sFolder == sRRecortada[0] && itemFF.nNivel == (nNivelFolder - 2)).lstSubFolder.Find(itemFBS1 =>
-                //                itemFBS1.sFolder == sRRecortada[1] && itemFBS1.nNivel == (nNivelFolder - 1)).lstSubFolder
-                //                .Add(new entC.entFolder(nNivelFolder, nRT, sFolder, sSubRuta));
-                //            }
-
-                //            sSubRuta = string.Format(@"{0}\{1}", sSubRuta, sFolder);
-                //            break;
-                //        case 3:
-                //            break;
-                //    }
-                //}
-
-                nRT += 1;
-            });
-
-
-
-            lstFolderRep.ForEach(itemFRep =>
-            {
-                Boolean bolExistePadre = false;
-                entC.entFolder itemFolder = null;
-                entC.entFolder itemSubFolder = null;
-
-                if (LstFolder != null && LstFolder.FindAll(itemFolderBusqueda => itemFolderBusqueda.sFolder == itemFRep.sFolder).Count > 0)
+                for (int nR = 0; nR < sAraySC.Length; nR++)
                 {
-                    bolExistePadre = true;
+                    if (sAraySC[nR] != string.Empty)
+                    {
+                        ValidaCarpeta(lstFolderRecorre, sAraySC[nR], nR);
+
+                        entFolder itemFolderRecorre = lstFolderRecorre.Find(itemFRB => itemFRB.sFolder == sAraySC[nR]);
+                        if (itemFolderRecorre != null)
+                        {
+                            lstFolderRecorre = lstFolderRecorre.Find(itemFRB => itemFRB.sFolder == sAraySC[nR]).lstSubFolder;
+                        }
+                    }
                 }
 
-                if (bolExistePadre)
-                {
-                    itemSubFolder = LstFolder.Find(itemFolderBusqueda => itemFolderBusqueda.sFolder == itemFRep.sFolder);
-                }
-
-                itemFolder = consCreaItemFolder(itemFRep, itemSubFolder);
-
-                if (bolExistePadre)
-                {
-                    LstFolder.Find(itemFolderBusqueda => itemFolderBusqueda.sFolder == itemFRep.sFolder).lstSubFolder = itemFolder.lstSubFolder;
-                }
-                else
-                {
-                    LstFolder.Add(itemFolder);
-                }
-            });
-
-
+                ValidaCarpeta(lstFolderRecorre, item.sDescripcion, sAraySC.Length + 1);
+            }
             tvCanciones.Nodes.Clear();
 
-            LstFolder.ForEach(itemF =>
+            lstFolderAll.ForEach(itemF =>
             {
                 TreeNode[] tViewSubF1 = AgregarRamasTreeView(itemF);
                 if (tViewSubF1 == null) tvCanciones.Nodes.Add(new TreeNode(itemF.sFolder));
                 else tvCanciones.Nodes.Add(new TreeNode(itemF.sFolder, tViewSubF1));
             });
 
-            //lstRutaAgrupar.ForEach(itemR =>
+            //for (int nR = 0; nR < tvCanciones.Nodes.Count; nR++)
             //{
-            //    string sRutaTV = string.Format("{0}", itemR.Replace(string.Format(@"{0}", sRutaOriginal), ""));
-            //    if (sRutaTV == "")
-            //    {
-            //        tvCanciones.Nodes.Add(new TreeNode("¡ ¡ ¡  Todos  ! ! !"));
-            //    }
-            //    else
-            //    {
-            //        tvCanciones.Nodes.Add(new TreeNode(sRutaTV));
-            //    }
-
-            //    //uControl.cDatoCancion itemCanciones = new uControl.cDatoCancion
-            //    //{
-            //    //    Location = new Point(5, nRT),
-            //    //    Size = new Size(770, 90),
-            //    //    //Anchor = (AnchorStyles)(AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right),
-            //    //    //Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right))),
-            //    //    AutoSize = true
-            //    //};
-
-            //    ////itemCanciones.Name = string.Format("{0}", itemR.Replace(sRutaOriginal, ""));
-            //    //itemCanciones.Name = string.Format("nR_{0}", nR);
-            //    //itemCanciones.rutaCancion = string.Format("{0}", itemR.Replace(string.Format(@"{0}\", sRutaOriginal), ""));
-
-            //    ////pnlCanciones.Controls.Add(itemCanciones);
-
-            //    //nRT += 130;
-            //    nR++;
-            //});
+            //    TreeNode tnAgregar = tvCanciones.Nodes[nR];
+            //    AgregarCancionesTreeView("", tnAgregar);
+            //}
         }
 
-        public entC.entFolder consEstructuraRep(string sRutaCrear, int nRenglon)
+        public void ValidaCarpeta(List<entFolder> lstBusqueda, string sCarpetaNueva, int nNivel)
         {
-            entC.entFolder result = null;
-            List<string> lstRutaSepadado = null;
-            string sSubCarpeta = "";
-
-            lstRutaSepadado = sRutaCrear.Split('\\').ToList();
-            int nNivelFolder = 0, nNivelMax = lstRutaSepadado.Count;
-            entC.entFolder consEstruHijo = null;
-
-            for (nNivelFolder = (nNivelMax - 1); nNivelFolder >= 0; nNivelFolder--)
+            if (nNivel != 0)
             {
-                entC.entFolder consEstruPadre = null;
-                if (nNivelFolder == 0)
-                    result = new entC.entFolder(nNivelFolder, nRenglon, lstRutaSepadado[nNivelFolder], sSubCarpeta);
-                else
-                    consEstruPadre = new entC.entFolder(nNivelFolder, nRenglon, lstRutaSepadado[nNivelFolder], sSubCarpeta);
-
-                if (result != null && consEstruHijo != null)
-                    result.lstSubFolder.Add(consEstruHijo);
-                if (consEstruPadre != null)
+                if (lstBusqueda.FindAll(itemB => itemB.sFolder == sCarpetaNueva).Count <= 0)
                 {
-                    if (consEstruHijo != null)
-                    {
-                        consEstruPadre.lstSubFolder.Add(consEstruHijo);
-                    }
-                    consEstruHijo = consEstruPadre;
+                    lstBusqueda.Add(new entFolder(sCarpetaNueva, nNivel));
                 }
             }
-
-            return result;
         }
 
         public entC.entFolder consCreaItemFolder(entC.entFolder itemFolder, entC.entFolder itemFolderPadre)
@@ -396,6 +357,7 @@ namespace ManejoCanciones
 
                 itemFolder.lstSubFolder.ForEach(itemSF1 =>
                 {
+                    datSubFolder = null;
                     if (itemSF1.lstSubFolder.Count > 0) datSubFolder = AgregarRamasTreeView(itemSF1);
 
                     if (datSubFolder == null) result[nR] = new TreeNode(itemSF1.sFolder);
@@ -406,6 +368,106 @@ namespace ManejoCanciones
             }
 
             return result;
+        }
+
+        public void LlenaGridCanciones()
+        {
+            SetText_gbListaCanciones(SRutaOriginal);
+            //SetDatSource_dtgMusica(lstCanc);
+            SetDatSource_dtgMusica(lstCancionesFill);
+            SetVisible_bgProgreso(false);
+            SetVisible_btnBuscar(true);
+        }
+
+        private void btnEtiquetas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tvCanciones_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            List<entC.entCancion> lstCancionesBusqueda = null;
+            string DatosRuta = "";
+
+            DatosRuta = string.Format(@"{0}\{1}", SRutaOriginal, e.Node.FullPath);
+
+            lstCancionesBusqueda = new List<entCancion>();
+
+            lstCancionesFill.ForEach(entCan =>
+            {
+                if (entCan.Ruta.Contains(DatosRuta))
+                {
+                    lstCancionesBusqueda.Add(new entCancion(entCan));
+                }
+            });
+
+            dtgMusica.DataSource = lstCancionesBusqueda;
+            gbListaCanciones.Text = DatosRuta;
+        }
+
+        private void dtgMusica_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //// Obtener el nombre de la columna clicada
+            //string columnName = dtgMusica.Columns[e.ColumnIndex].Name;
+
+            //// Determinar la dirección de ordenación
+            //if (sortColumn == columnName)
+            //{
+            //    // Cambiar la dirección de ordenación si se hace clic en la misma columna
+            //    sortOrder = sortOrder == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
+            //}
+            //else
+            //{
+            //    // Si se hace clic en una columna diferente, ordenar ascendente por defecto
+            //    sortColumn = columnName;
+            //    sortOrder = SortOrder.Ascending;
+            //}
+
+            //// Llamar al método Sort del GridView
+            //SortGridView(columnName, sortOrder);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            uControl.frmBusquedaCanciones frmBusca = new uControl.frmBusquedaCanciones();
+
+            frmBusca.lstCancionesAll = this.lstCancionesAll;
+
+            frmBusca.ShowDialog();
+
+            if (frmBusca.lstCancionesBusqueda != null && frmBusca.lstCancionesBusqueda.Count > 0)
+            {
+                lstCancionesFill.Clear();
+                frmBusca.lstCancionesBusqueda.ForEach(itemCF =>
+                {
+                    lstCancionesFill.Add(itemCF);
+                });
+            }
+
+            LlenaGridCanciones();
+            setValor_ArbolLista(lstCancionesFill);
+        }
+
+        private void dtgMusica_SelectionChanged(object sender, EventArgs e)
+        {
+            List<entC.entCancion> lstSeleccionC = null;
+            uControl.cDatoCancion cDatoCancion1 = null;
+
+
+            lstSeleccionC = new List<entCancion>();
+
+            for (int nR = 0; nR < ((System.Windows.Forms.DataGridView)sender).SelectedRows.Count; nR++)
+            {
+                lstSeleccionC.Add(new entCancion(((DataGridViewRow)((System.Windows.Forms.DataGridView)sender).SelectedRows[nR]).DataBoundItem as entCancion));
+            }
+            
+            scCanciones.Panel2.Controls.Clear();
+            cDatoCancion1 = new uControl.cDatoCancion();
+            cDatoCancion1.Dock = System.Windows.Forms.DockStyle.Fill;
+            cDatoCancion1.AutoSize = true;
+            cDatoCancion1.LlenaDatosMusica(lstSeleccionC);
+            scCanciones.Panel2.Controls.Add(cDatoCancion1);
+
         }
     }
 }

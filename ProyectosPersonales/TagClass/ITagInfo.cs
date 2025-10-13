@@ -13,14 +13,12 @@ namespace TagClass
         /// <summary>
         /// Gets file path for reading and writing data
         /// </summary>
-        string FilePath
-        { get; }
+        string FilePath { get; }
 
         /// <summary>
         /// Gets file name part of file path
         /// </summary>
-        string FileName
-        { get; }
+        string FileName { get; }
 
         /// <summary>
         /// Saves Tag information to file
@@ -37,8 +35,7 @@ namespace TagClass
         /// <summary>
         /// Indicate if file contained exception while loading
         /// </summary>
-        bool HaveException
-        { get; }
+        bool HaveException { get; }
 
         /// <summary>
         /// Save file with specific formula

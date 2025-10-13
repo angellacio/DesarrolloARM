@@ -40,8 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Canciones\datCatalogos.cs" />
     <Compile Include="Canciones\entCancion.cs" />
     <Compile Include="Canciones\entFolder.cs" />
+    <Compile Include="Canciones\entGenero.cs" />
+    <Compile Include="Canciones\entPropiedadesCancion.cs" />
+    <Compile Include="Canciones\ManejoTextos.cs" />
+    <Compile Include="entCatSensillo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

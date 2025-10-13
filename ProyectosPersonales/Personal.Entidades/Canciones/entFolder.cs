@@ -10,36 +10,40 @@ namespace Personal.Entidades.Canciones
         public entFolder()
         {
             nNivel = -1;
-            nFolder = -1;
+            //nFolder = -1;
             sFolder = "";
-            sDescripcion = "";
+            //ArrayFolder = null;
+            //sDescripcion = "";
             lstSubFolder = new List<entFolder>();
         }
-        public entFolder(int Nivel, int Folder, string DesFolder, string Descripcion)
+        public entFolder(string Folder, int Nivel)
         {
             nNivel = Nivel;
-            nFolder = Folder;
-            sFolder = DesFolder;
-            sDescripcion = Descripcion;
+            //nFolder = Folder;
+            sFolder = Folder;
+            //ArrayFolder = ArrayF;
+            //sDescripcion = Descripcion;
             lstSubFolder = new List<entFolder>();
         }
         public entFolder(entFolder itemFolder)
         {
             nNivel = itemFolder.nNivel;
-            nFolder = itemFolder.nFolder;
+            //nFolder = itemFolder.nFolder;
             sFolder = itemFolder.sFolder;
-            sDescripcion = itemFolder.sDescripcion;
+            //ArrayFolder = itemFolder.ArrayFolder;
+            //sDescripcion = itemFolder.sDescripcion;
             lstSubFolder = itemFolder.lstSubFolder;
         }
 
         public override string ToString()
         {
-            return string.Format("{0} :: {1} :: {2}", nNivel, lstSubFolder.Count, sFolder);
+            //return string.Format("{0} :: {1} :: {2}", nNivel, lstSubFolder.Count, sFolder);
+            return string.Format("{0} :: {1}", nNivel, sFolder);
         }
-        public int nNivel { get; set; }
-        public int nFolder { get; set; }
+
         public string sFolder { get; set; }
-        public string sDescripcion { get; set; }
+        //public string[] ArrayFolder { get; set; }
+        public int nNivel { get;set; }
 
         public List<entFolder> lstSubFolder { get; set; }
     }
