@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="65ec9d9a-eed5-4c4f-84c3-b14d443816f1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://99.90.41.65:9095/ConsultaCatalogos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ConsultaCatalogos.xsd" MetadataType="Schema" ID="784ac5b5-62a1-42e7-9dca-b7473de4fdef" SourceId="1" SourceUrl="http://99.90.41.65:9095/ConsultaCatalogos.svc?xsd=xsd0" />
+    <MetadataFile FileName="ConsultaCatalogos1.xsd" MetadataType="Schema" ID="963e74a5-23ce-4e1e-bf3a-e572b9c9072d" SourceId="1" SourceUrl="http://99.90.41.65:9095/ConsultaCatalogos.svc?xsd=xsd3" />
+    <MetadataFile FileName="ConsultaCatalogos2.xsd" MetadataType="Schema" ID="3dfb0f75-15a5-4f40-bc81-1676fdb149dc" SourceId="1" SourceUrl="http://99.90.41.65:9095/ConsultaCatalogos.svc?xsd=xsd2" />
+    <MetadataFile FileName="ConsultaCatalogos.disco" MetadataType="Disco" ID="23c7d25c-5ae8-49de-81d7-573d2c72e62a" SourceId="1" SourceUrl="http://99.90.41.65:9095/ConsultaCatalogos.svc?disco" />
+    <MetadataFile FileName="ConsultaCatalogos3.xsd" MetadataType="Schema" ID="062ae783-e642-4092-a585-2cef8fddc8cd" SourceId="1" SourceUrl="http://99.90.41.65:9095/ConsultaCatalogos.svc?xsd=xsd4" />
+    <MetadataFile FileName="ConsultaCatalogos.wsdl" MetadataType="Wsdl" ID="0d037c37-eb64-4bed-b1d4-5573396da4d8" SourceId="1" SourceUrl="http://99.90.41.65:9095/ConsultaCatalogos.svc?wsdl" />
+    <MetadataFile FileName="ConsultaCatalogos4.xsd" MetadataType="Schema" ID="b2bcfc46-59bf-45e2-94dc-ba0ec7247365" SourceId="1" SourceUrl="http://99.90.41.65:9095/ConsultaCatalogos.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

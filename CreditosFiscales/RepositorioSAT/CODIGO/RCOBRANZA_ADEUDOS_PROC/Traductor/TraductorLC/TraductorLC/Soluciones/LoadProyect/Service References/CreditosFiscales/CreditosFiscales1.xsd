@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ObtieneLineaCaptura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAplicacion" type="xs:short" />
+        <xs:element minOccurs="0" name="idTipoDoc" type="xs:short" />
+        <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneLineaCapturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtieneLineaCapturaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneLineaCapturaConPDF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAplicacion" type="xs:short" />
+        <xs:element minOccurs="0" name="idTipoDoc" type="xs:short" />
+        <xs:element minOccurs="0" name="documento" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneLineaCapturaConPDFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtieneLineaCapturaConPDFResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaLineasCapturaXDocumento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="documentos" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaLineasCapturaXDocumentoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultaLineasCapturaXDocumentoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneDocumentosEnLineaCaptura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineaCaptura" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtieneDocumentosEnLineaCapturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtieneDocumentosEnLineaCapturaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

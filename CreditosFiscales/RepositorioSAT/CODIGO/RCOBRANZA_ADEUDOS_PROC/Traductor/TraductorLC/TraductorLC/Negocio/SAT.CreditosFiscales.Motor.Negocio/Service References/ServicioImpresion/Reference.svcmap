@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4d77712f-1c48-46aa-a4bf-74b6d2a653fa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:34071/ServicioGeneraFormatoImpresion.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion1.disco" MetadataType="Disco" ID="cf9c4859-0458-4a0d-a03e-8aace5ff8fc1" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormatoImpresion.svc?disco" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion1.wsdl" MetadataType="Wsdl" ID="57873a13-572b-451e-a119-bc9a3b86c357" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormatoImpresion.svc?wsdl" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion4.xsd" MetadataType="Schema" ID="8de22275-26d7-4b62-8e8b-c4502b3a50e6" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormatoImpresion.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion41.xsd" MetadataType="Schema" ID="013d87a8-af8c-40af-8396-e7471fd3b85b" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormatoImpresion.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion42.xsd" MetadataType="Schema" ID="76e286d0-7bf1-4d9b-bd4d-5d3f85ee1486" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormatoImpresion.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioGeneraFormatoImpresion43.xsd" MetadataType="Schema" ID="16913779-5253-4b24-9b97-3bfcf4d0c0dd" SourceId="1" SourceUrl="http://localhost:34071/ServicioGeneraFormatoImpresion.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

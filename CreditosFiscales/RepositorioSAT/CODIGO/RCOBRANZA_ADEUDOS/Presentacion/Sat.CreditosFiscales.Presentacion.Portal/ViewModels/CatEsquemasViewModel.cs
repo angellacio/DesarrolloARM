@@ -24,7 +24,7 @@ namespace Sat.CreditosFiscales.Presentacion.Portal.ViewModels
         public string Esquema { set; get; }
         public string TargetNamespace { set; get; }
         [Required]
-        public int Accion { set; get; }
+        public int? Accion { set; get; }
     }
 
 }

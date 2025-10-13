@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Alr">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdAlr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alr" nillable="true" type="tns:Alr" />
+  <xs:complexType name="ConceptoPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdConceptoPago" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConceptoPago" nillable="true" type="tns:ConceptoPago" />
+  <xs:complexType name="Periodicidad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdPeriodicidad" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Periodicidad" nillable="true" type="tns:Periodicidad" />
+  <xs:complexType name="TipoDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTipoDocumento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoDocumento" nillable="true" type="tns:TipoDocumento" />
+  <xs:complexType name="Transaccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTransaccion" type="xs:short" />
+      <xs:element minOccurs="0" name="TipoTransaccion" nillable="true" type="tns:TipoTransaccion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Transaccion" nillable="true" type="tns:Transaccion" />
+  <xs:complexType name="TipoTransaccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdTipoTransaccion" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoTransaccion" nillable="true" type="tns:TipoTransaccion" />
+  <xs:complexType name="ArrayOfPeriodo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Periodo" nillable="true" type="tns:Periodo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeriodo" nillable="true" type="tns:ArrayOfPeriodo" />
+  <xs:complexType name="Periodo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdMesFinal" type="xs:short" />
+      <xs:element minOccurs="0" name="IdMesInicial" type="xs:short" />
+      <xs:element minOccurs="0" name="IdPeriodo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MesFinal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MesInicial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Periodicidad" nillable="true" type="tns:Periodicidad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Periodo" nillable="true" type="tns:Periodo" />
+  <xs:complexType name="ArrayOfPeriodicidad">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Periodicidad" nillable="true" type="tns:Periodicidad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeriodicidad" nillable="true" type="tns:ArrayOfPeriodicidad" />
+  <xs:complexType name="ArrayOfTipoDocumento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoDocumento" nillable="true" type="tns:TipoDocumento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoDocumento" nillable="true" type="tns:ArrayOfTipoDocumento" />
+  <xs:complexType name="ArrayOfTransaccion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Transaccion" nillable="true" type="tns:Transaccion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransaccion" nillable="true" type="tns:ArrayOfTransaccion" />
+  <xs:complexType name="ArrayOfConceptoPago">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConceptoPago" nillable="true" type="tns:ConceptoPago" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConceptoPago" nillable="true" type="tns:ArrayOfConceptoPago" />
+  <xs:complexType name="ArrayOfAlr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alr" nillable="true" type="tns:Alr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlr" nillable="true" type="tns:ArrayOfAlr" />
+</xs:schema>

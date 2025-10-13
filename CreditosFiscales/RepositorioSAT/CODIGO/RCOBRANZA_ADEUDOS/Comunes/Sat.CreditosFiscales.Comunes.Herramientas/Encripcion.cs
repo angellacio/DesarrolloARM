@@ -43,11 +43,14 @@ namespace Sat.CreditosFiscales.Comunes.Herramientas
         {
             ////Obtiene los bytes de los parámetros a encriptar
             byte[] cadena = Encoding.UTF8.GetBytes(cadenaOriginal);
+            SymmetricAlgorithm algoritmoCifrado = null;
 
             try
             {
                 int usarLlave = new Random().Next(1, 4);
-                SymmetricAlgorithm algoritmoCifrado = this.DefineAlgoritmo(usarLlave.ToString());
+
+
+                algoritmoCifrado = this.DefineAlgoritmo(usarLlave.ToString());
 
                 using (var codificador = algoritmoCifrado.CreateEncryptor())
                 {
@@ -74,6 +77,13 @@ namespace Sat.CreditosFiscales.Comunes.Herramientas
             catch (Exception)
             {
                 return string.Empty;
+            }
+            finally 
+            {
+                if (algoritmoCifrado != null)
+                {
+                    algoritmoCifrado.Clear();
+                }
             }
         }
 
@@ -222,7 +232,8 @@ namespace Sat.CreditosFiscales.Comunes.Herramientas
                     break;
             }
 
-            SymmetricAlgorithm algoritmoCifrado = new RijndaelManaged { Key = llave, Mode = CipherMode.CBC };
+            //POL-8424
+            SymmetricAlgorithm algoritmoCifrado = new RijndaelManaged { Key = llave, Mode = CipherMode.CBC, Padding = PaddingMode.PKCS7 };
             return algoritmoCifrado;
         }
         #endregion

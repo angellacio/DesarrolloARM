@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsultaCatalogos" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://99.90.41.101:9095/ConsultaCatalogos.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://99.90.41.101:9095/ConsultaCatalogos.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" />
+      <xsd:import schemaLocation="http://99.90.41.101:9095/ConsultaCatalogos.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://99.90.41.101:9095/ConsultaCatalogos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Filtros" />
+      <xsd:import schemaLocation="http://99.90.41.101:9095/ConsultaCatalogos.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Entidades" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IConsultaCatalogos_ConsultarPeriodos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPeriodos" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarPeriodos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPeriodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarPeriodos_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q1:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarPeriodicidades_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPeriodicidades" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarPeriodicidades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarPeriodicidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarPeriodicidades_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q2:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTiposDocumentos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarTiposDocumentos" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTiposDocumentos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarTiposDocumentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTiposDocumentos_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q3:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTransacciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarTransacciones" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTransacciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarTransaccionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTransacciones_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q4:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTransaccionesXTipoDocumento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarTransaccionesXTipoDocumento" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTransaccionesXTipoDocumento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarTransaccionesXTipoDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarTransaccionesXTipoDocumento_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q5:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarConceptosPagos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarConceptosPagos" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarConceptosPagos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarConceptosPagosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarConceptosPagos_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q6:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarAlrs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarAlrs" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarAlrs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarAlrsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarAlrs_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q7:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarOrigen_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarOrigen" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarOrigen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarOrigenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConsultaCatalogos_ConsultarOrigen_CatalogoErrorNegocioFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Sat.Scade.Sispr.Servicios.CatalogosOrigen.Interfaces.Excepciones" name="detail" element="q8:CatalogoErrorNegocio" />
+  </wsdl:message>
+  <wsdl:portType name="IConsultaCatalogos">
+    <wsdl:operation name="ConsultarPeriodos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodos" message="tns:IConsultaCatalogos_ConsultarPeriodos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodosResponse" message="tns:IConsultaCatalogos_ConsultarPeriodos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodosCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarPeriodos_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPeriodicidades">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodicidades" message="tns:IConsultaCatalogos_ConsultarPeriodicidades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodicidadesResponse" message="tns:IConsultaCatalogos_ConsultarPeriodicidades_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodicidadesCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarPeriodicidades_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTiposDocumentos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTiposDocumentos" message="tns:IConsultaCatalogos_ConsultarTiposDocumentos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTiposDocumentosResponse" message="tns:IConsultaCatalogos_ConsultarTiposDocumentos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTiposDocumentosCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarTiposDocumentos_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTransacciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTransacciones" message="tns:IConsultaCatalogos_ConsultarTransacciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTransaccionesResponse" message="tns:IConsultaCatalogos_ConsultarTransacciones_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTransaccionesCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarTransacciones_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTransaccionesXTipoDocumento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTransaccionesXTipoDocumento" message="tns:IConsultaCatalogos_ConsultarTransaccionesXTipoDocumento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTransaccionesXTipoDocumentoResponse" message="tns:IConsultaCatalogos_ConsultarTransaccionesXTipoDocumento_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarTransaccionesXTipoDocumentoCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarTransaccionesXTipoDocumento_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarConceptosPagos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarConceptosPagos" message="tns:IConsultaCatalogos_ConsultarConceptosPagos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarConceptosPagosResponse" message="tns:IConsultaCatalogos_ConsultarConceptosPagos_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarConceptosPagosCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarConceptosPagos_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAlrs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarAlrs" message="tns:IConsultaCatalogos_ConsultarAlrs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarAlrsResponse" message="tns:IConsultaCatalogos_ConsultarAlrs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarAlrsCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarAlrs_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarOrigen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarOrigen" message="tns:IConsultaCatalogos_ConsultarOrigen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarOrigenResponse" message="tns:IConsultaCatalogos_ConsultarOrigen_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IConsultaCatalogos/ConsultarOrigenCatalogoErrorNegocioFault" name="CatalogoErrorNegocioFault" message="tns:IConsultaCatalogos_ConsultarOrigen_CatalogoErrorNegocioFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IConsultaCatalogos" type="tns:IConsultaCatalogos">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarPeriodos">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarPeriodicidades">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarPeriodicidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTiposDocumentos">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarTiposDocumentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTransacciones">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarTransacciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTransaccionesXTipoDocumento">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarTransaccionesXTipoDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarConceptosPagos">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarConceptosPagos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAlrs">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarAlrs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarOrigen">
+      <soap:operation soapAction="http://tempuri.org/IConsultaCatalogos/ConsultarOrigen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CatalogoErrorNegocioFault">
+        <soap:fault use="literal" name="CatalogoErrorNegocioFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaCatalogos">
+    <wsdl:port name="BasicHttpBinding_IConsultaCatalogos" binding="tns:BasicHttpBinding_IConsultaCatalogos">
+      <soap:address location="http://99.90.41.101:9095/ConsultaCatalogos.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
