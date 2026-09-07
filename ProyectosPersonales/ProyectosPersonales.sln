@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.35026.282
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ManejoCanciones", "ManejoCanciones", "{5C30C08F-4B44-4140-8C43-7E26A2C22666}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManejoCanciones", "ManejoCanciones\ManejoCanciones.csproj", "{3C2ED7C9-A3AF-4AD4-91D9-0D98947F1280}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagClass", "TagClass\TagClass.csproj", "{39C17124-49E8-4E51-9E07-F26E6CE127E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "consolaFunciones", "consolaFunciones\consolaFunciones.csproj", "{D56144A5-585D-4D0F-8AE3-023A27FC612A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{39C17124-49E8-4E51-9E07-F26E6CE127E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39C17124-49E8-4E51-9E07-F26E6CE127E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39C17124-49E8-4E51-9E07-F26E6CE127E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56144A5-585D-4D0F-8AE3-023A27FC612A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56144A5-585D-4D0F-8AE3-023A27FC612A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56144A5-585D-4D0F-8AE3-023A27FC612A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56144A5-585D-4D0F-8AE3-023A27FC612A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3C2ED7C9-A3AF-4AD4-91D9-0D98947F1280} = {5C30C08F-4B44-4140-8C43-7E26A2C22666}
 		{39C17124-49E8-4E51-9E07-F26E6CE127E3} = {5C30C08F-4B44-4140-8C43-7E26A2C22666}
+		{D56144A5-585D-4D0F-8AE3-023A27FC612A} = {5C30C08F-4B44-4140-8C43-7E26A2C22666}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AD407C8C-4052-4EFA-90D7-17299B043CCF}

@@ -31,7 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LogoAplicacion.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MACTrackBarLib, Version=1.0.5896.38740, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MACTrackBarLib.dll.1.0.2\lib\net40\MACTrackBarLib.dll</HintPath>
+    </Reference>
     <Reference Include="ManejoCanciones">
       <HintPath>obj\Debug\ManejoCanciones.exe</HintPath>
     </Reference>
@@ -67,6 +76,12 @@
     <Compile Include="uControl\frmBusquedaCanciones.Designer.cs">
       <DependentUpon>frmBusquedaCanciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="uControl\frmReproducirCancion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uControl\frmReproducirCancion.Designer.cs">
+      <DependentUpon>frmReproducirCancion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmCanciones.resx">
       <DependentUpon>FrmCanciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,7 +101,14 @@
     <EmbeddedResource Include="uControl\frmBusquedaCanciones.resx">
       <DependentUpon>frmBusquedaCanciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="uControl\frmReproducirCancion.resx">
+      <DependentUpon>frmReproducirCancion.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AplicaAdministra.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -119,6 +141,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FCerrado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LogoAplicacion.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

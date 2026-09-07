@@ -65,6 +65,7 @@ namespace ManejoCanciones
             this.tcEstadoCancion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.ckbSubTotal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.scFolders)).BeginInit();
             this.scFolders.Panel1.SuspendLayout();
             this.scFolders.Panel2.SuspendLayout();
@@ -129,8 +130,8 @@ namespace ManejoCanciones
             // scFolders.Panel2
             // 
             this.scFolders.Panel2.Controls.Add(this.scCanciones);
-            this.scFolders.Size = new System.Drawing.Size(783, 399);
-            this.scFolders.SplitterDistance = 215;
+            this.scFolders.Size = new System.Drawing.Size(873, 450);
+            this.scFolders.SplitterDistance = 239;
             this.scFolders.TabIndex = 8;
             // 
             // tvCanciones
@@ -155,7 +156,7 @@ namespace ManejoCanciones
             this.tvCanciones.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode2});
             this.tvCanciones.SelectedImageIndex = 1;
-            this.tvCanciones.Size = new System.Drawing.Size(209, 393);
+            this.tvCanciones.Size = new System.Drawing.Size(233, 444);
             this.tvCanciones.StateImageList = this.imlTreeVew;
             this.tvCanciones.TabIndex = 0;
             this.tvCanciones.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvCanciones_NodeMouseClick);
@@ -178,8 +179,8 @@ namespace ManejoCanciones
             // scCanciones.Panel1
             // 
             this.scCanciones.Panel1.Controls.Add(this.gbListaCanciones);
-            this.scCanciones.Size = new System.Drawing.Size(564, 399);
-            this.scCanciones.SplitterDistance = 126;
+            this.scCanciones.Size = new System.Drawing.Size(630, 450);
+            this.scCanciones.SplitterDistance = 141;
             this.scCanciones.TabIndex = 1;
             // 
             // gbListaCanciones
@@ -188,7 +189,7 @@ namespace ManejoCanciones
             this.gbListaCanciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbListaCanciones.Location = new System.Drawing.Point(0, 0);
             this.gbListaCanciones.Name = "gbListaCanciones";
-            this.gbListaCanciones.Size = new System.Drawing.Size(564, 126);
+            this.gbListaCanciones.Size = new System.Drawing.Size(630, 141);
             this.gbListaCanciones.TabIndex = 1;
             this.gbListaCanciones.TabStop = false;
             this.gbListaCanciones.Text = "groupBox1";
@@ -226,9 +227,11 @@ namespace ManejoCanciones
             this.dtgMusica.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgMusica.ShowEditingIcon = false;
             this.dtgMusica.ShowRowErrors = false;
-            this.dtgMusica.Size = new System.Drawing.Size(558, 107);
+            this.dtgMusica.Size = new System.Drawing.Size(624, 122);
             this.dtgMusica.TabIndex = 0;
+            this.dtgMusica.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMusica_CellDoubleClick);
             this.dtgMusica.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgMusica_ColumnHeaderMouseClick);
+            this.dtgMusica.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dtgMusica_RowStateChanged);
             this.dtgMusica.SelectionChanged += new System.EventHandler(this.dtgMusica_SelectionChanged);
             // 
             // tcID
@@ -375,7 +378,7 @@ namespace ManejoCanciones
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(712, 11);
+            this.btnBuscar.Location = new System.Drawing.Point(746, 10);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 9;
@@ -384,11 +387,25 @@ namespace ManejoCanciones
             this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // ckbSubTotal
+            // 
+            this.ckbSubTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbSubTotal.AutoSize = true;
+            this.ckbSubTotal.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ckbSubTotal.Location = new System.Drawing.Point(780, 35);
+            this.ckbSubTotal.Name = "ckbSubTotal";
+            this.ckbSubTotal.Size = new System.Drawing.Size(87, 17);
+            this.ckbSubTotal.TabIndex = 10;
+            this.ckbSubTotal.Text = "SubCarpetas";
+            this.ckbSubTotal.UseVisualStyleBackColor = true;
+            this.ckbSubTotal.CheckedChanged += new System.EventHandler(this.ckbSubTotal_CheckedChanged);
+            // 
             // FrmCanciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(881, 494);
+            this.Controls.Add(this.ckbSubTotal);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.scFolders);
             this.Controls.Add(this.pgbCargando);
@@ -444,6 +461,7 @@ namespace ManejoCanciones
         private System.Windows.Forms.DataGridViewTextBoxColumn cGenero;
         private System.Windows.Forms.DataGridViewTextBoxColumn cComentario;
         private System.Windows.Forms.DataGridViewTextBoxColumn tcEstadoCancion;
+        private System.Windows.Forms.CheckBox ckbSubTotal;
     }
 }
 

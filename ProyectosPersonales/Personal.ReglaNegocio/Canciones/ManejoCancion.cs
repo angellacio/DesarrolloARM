@@ -4,40 +4,42 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using System.Configuration;
 using TagClass;
 using TagClass.ASF;
 using TagClass.ID3.ID3v2F;
 using entC = Personal.Entidades.Canciones;
 using EntCancion = Personal.Entidades.Canciones;
+using Personal.Entidades;
 
 namespace Personal.ReglaNegocio.Canciones
 {
     public class ManejoCancion
     {
-        entC.datCatalogos datCat = null;
+        //configAplicacion datCat { get; set; }
 
-        public static entC.datCatalogos ConsultaCatalogo()
-        {
-            entC.datCatalogos result = null;
-            string fileAll = string.Format(@"{0}\{1}", AppDomain.CurrentDomain.BaseDirectory, "datCatalogos.lam"), jsonString = "";
-            try
-            {
-                result = new entC.datCatalogos();
-                if (File.Exists(fileAll))
-                {
-                    jsonString = File.ReadAllText(fileAll);
-                    result = JsonConvert.DeserializeObject<entC.datCatalogos>(jsonString);
-                }
-            }
-            catch (Exception ex) { }
-            finally { }
-            return result;
-        }
+        //public static entC.datCatalogos ConsultaCatalogo()
+        //{
+        //    entC.datCatalogos result = null;
+        //    string fileAll = string.Format(@"{0}\{1}", AppDomain.CurrentDomain.BaseDirectory, "datCatalogos.lam"), jsonString = "";
+        //    try
+        //    {
+        //        result = new entC.datCatalogos();
+        //        if (File.Exists(fileAll))
+        //        {
+        //            jsonString = File.ReadAllText(fileAll);
+        //            result = JsonConvert.DeserializeObject<entC.datCatalogos>(jsonString);
+        //        }
+        //    }
+        //    catch (Exception ex) { }
+        //    finally { }
+        //    return result;
+        //}
 
-        public ManejoCancion(entC.datCatalogos Catalogos)
-        {
-            datCat = Catalogos;
-        }
+        //public ManejoCancion(configAplicacion Catalogos)
+        //{
+        //    datCat = Catalogos;
+        //}
 
         public List<EntCancion.entCancion> BuscarCanciones(string sRutaOrigen)
         {
@@ -82,9 +84,13 @@ namespace Personal.ReglaNegocio.Canciones
             ID3Info iTID3 = null;
             string NombreCompleto = "";
             int? nTrackID = null, nAño = null, nGenero = null;
+            string sGenero = "";
+            Entidades.configAplicacion datConfig = null;
             try
             {
                 NombreCompleto = string.Format(@"{0}\{1}", itemCancion.Ruta, itemCancion.NombreArchivo);
+
+                datConfig = CargaDatosConfiguracion(AppDomain.CurrentDomain.BaseDirectory);
 
                 if (itemCancion.Extencion == ".mp3") sMusica_iTag = new ID3Info(NombreCompleto, true);
                 else if (itemCancion.Extencion == ".wma") sMusica_iTag = new ASFTagInfo(NombreCompleto, true);
@@ -93,10 +99,14 @@ namespace Personal.ReglaNegocio.Canciones
 
                 if (iTID3.ID3v1Info.HaveTag)
                 {
+                    nGenero = int.Parse(iTID3.ID3v1Info.Genre.ToString().Trim());
+                    sGenero = BuscaGenero(1, datConfig.lstGeneros, nGenero.Value, "");
                     itemCancion.bEstadoID3v1 = true;
 
                     if (iTID3.ID3v1Info.TrackNumber != 0) nTrackID = int.Parse(iTID3.ID3v1Info.TrackNumber.ToString().Trim());
-                    nAño = int.Parse(iTID3.ID3v1Info.Year.Trim());
+                    //int nAñoFile;
+                    //int.TryParse(iTID3.ID3v1Info.Year, out nAñoFile);
+                    if (iTID3.ID3v1Info.Year.Trim() != "") nAño = int.Parse(iTID3.ID3v1Info.Year.Trim());
 
                     itemCancion.ID3v1.sMusica_NumPista = nTrackID;
                     itemCancion.ID3v1.sMusica_Nombre = iTID3.ID3v1Info.Title.Trim();
@@ -104,12 +114,15 @@ namespace Personal.ReglaNegocio.Canciones
                     itemCancion.ID3v1.sMusica_Album = iTID3.ID3v1Info.Album.Trim();
                     itemCancion.ID3v1.sMusica_Año = nAño;
                     itemCancion.ID3v1.sMusica_IdGenero = nGenero;
-                    itemCancion.ID3v1.sMusica_Genero = iTID3.ID3v1Info.Genre.ToString().Trim();
+                    itemCancion.ID3v1.sMusica_Genero = $"{nGenero} - {sGenero}";
                     itemCancion.ID3v1.sMusica_Comentario = iTID3.ID3v1Info.Comment.Trim();
                 }
 
                 if (iTID3.ID3v2Info.HaveTag)
                 {
+                    nGenero = 0;
+                    sGenero = iTID3.ID3v2Info.GetTextFrame("TCON").Trim();
+                    nGenero = int.Parse(BuscaGenero(2, datConfig.lstGeneros, 0, sGenero));
                     itemCancion.bEstadoID3v2 = true;
                     if (iTID3.ID3v2Info.GetTextFrame("TRCK").Trim().Length > 0)
                         nTrackID = int.Parse(iTID3.ID3v2Info.GetTextFrame("TRCK").Trim());
@@ -123,7 +136,7 @@ namespace Personal.ReglaNegocio.Canciones
                     itemCancion.ID3v2.sMusica_Album = iTID3.ID3v2Info.GetTextFrame("TALB").Trim();
                     itemCancion.ID3v2.sMusica_Año = nAño;
                     itemCancion.ID3v2.sMusica_IdGenero = nGenero;
-                    itemCancion.ID3v2.sMusica_Genero = iTID3.ID3v2Info.GetTextFrame("TCON").Trim();
+                    itemCancion.ID3v2.sMusica_Genero = $"{nGenero} - {sGenero}";
                     itemCancion.ID3v2.sMusica_Comentario = iTID3.ID3v2Info.GetTextFrame("TENC").Trim();
                 }
             }
@@ -134,18 +147,11 @@ namespace Personal.ReglaNegocio.Canciones
 
         public void GuardarDatosCarpeta(string sRutaOrigen, List<entC.entCancion> lstCanciones)
         {
-            string fileName = "datEncript.lam", fileAll = "", jsonString = "";
-
+            string fileAll = "", jsonString = "";
             try
             {
-                fileAll = string.Format(@"{0}\{1}", sRutaOrigen, fileName);
+                fileAll = string.Format(@"{0}\{1}", sRutaOrigen, ConfigurationManager.AppSettings["datCancion"]);
 
-                //datFolder.listCanciones.ForEach(itemC =>
-                //{
-                //    itemC.sMusica_iTag = null;
-                //});
-
-                //jsonString = JsonConvert.SerializeObject(datFolder.listCanciones, Formatting.Indented, new MemoryStreamJsonConverter());
                 jsonString = JsonConvert.SerializeObject(lstCanciones);
 
                 if (File.Exists(fileAll)) File.Delete(fileAll);
@@ -176,6 +182,42 @@ namespace Personal.ReglaNegocio.Canciones
             catch { }
             finally { }
             return datOrigen;
+        }
+
+        public static Entidades.configAplicacion CargaDatosConfiguracion(string sRutaOrigen)
+        {
+            string fileAll = "", jsonString = "";
+            Entidades.configAplicacion datResult = null;
+            try
+            {
+                fileAll = string.Format(@"{0}\{1}", sRutaOrigen, ConfigurationManager.AppSettings["ArchConfig"]);
+                if (File.Exists(fileAll))
+                {
+                    jsonString = File.ReadAllText(fileAll);
+                    datResult = JsonConvert.DeserializeObject<Entidades.configAplicacion>(jsonString);
+                }
+            }
+            catch { }
+            finally { }
+            return datResult;
+        }
+
+        public static string BuscaGenero(int TipoBusqueda, List<entCatSensillo> lstGeneros, int nIdGenero, string sGenero)
+        {
+            string sResult = "";
+
+            if (TipoBusqueda == 1)
+            {
+                if (lstGeneros.Find(item => item.nId == nIdGenero) != null)
+                sResult = lstGeneros.Find(item=> item.nId == nIdGenero).sDescripcion;
+            }
+            else if (TipoBusqueda == 2)
+            {
+                if (lstGeneros.Find(item => item.sAcronimo == sGenero) != null)
+                    sResult = lstGeneros.Find(item => item.sAcronimo == sGenero).nId.ToString();
+            }
+
+            return sResult;
         }
     }
 }

@@ -47,9 +47,11 @@ namespace ManejoCanciones.uControl
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.gbModificado = new System.Windows.Forms.GroupBox();
             this.scDetalleCancion = new System.Windows.Forms.SplitContainer();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.scDatosArchivo = new System.Windows.Forms.SplitContainer();
             this.gbID3v1 = new System.Windows.Forms.GroupBox();
+            this.txtID3v1_Genero = new System.Windows.Forms.TextBox();
             this.txtID3v1_Comentario = new System.Windows.Forms.TextBox();
             this.txtID3v1_Album = new System.Windows.Forms.TextBox();
             this.lblID3v1_NumPista = new System.Windows.Forms.Label();
@@ -60,11 +62,11 @@ namespace ManejoCanciones.uControl
             this.txtID3v1_Año = new System.Windows.Forms.TextBox();
             this.lblID3v1_Album = new System.Windows.Forms.Label();
             this.lblID3v1_Año = new System.Windows.Forms.Label();
-            this.cmbID3v1_Genero = new System.Windows.Forms.ComboBox();
             this.lblID3v1_Comentario = new System.Windows.Forms.Label();
             this.lblID3v1_Genero = new System.Windows.Forms.Label();
             this.txtID3v1_NumPista = new System.Windows.Forms.TextBox();
             this.gbID3v2 = new System.Windows.Forms.GroupBox();
+            this.txtID3v2_Genero = new System.Windows.Forms.TextBox();
             this.txtID3v2_Comentario = new System.Windows.Forms.TextBox();
             this.txtID3v2_Album = new System.Windows.Forms.TextBox();
             this.lblID3v2_NumPista = new System.Windows.Forms.Label();
@@ -75,7 +77,6 @@ namespace ManejoCanciones.uControl
             this.txtID3v2_Año = new System.Windows.Forms.TextBox();
             this.lblID3v2_Album = new System.Windows.Forms.Label();
             this.lblID3v2_Año = new System.Windows.Forms.Label();
-            this.cmbID3v2_Genero = new System.Windows.Forms.ComboBox();
             this.lblID3v2_Comentario = new System.Windows.Forms.Label();
             this.lblID3v2_Genero = new System.Windows.Forms.Label();
             this.txtID3v2_NumPista = new System.Windows.Forms.TextBox();
@@ -140,7 +141,7 @@ namespace ManejoCanciones.uControl
             // lblArtista
             // 
             this.lblArtista.AutoSize = true;
-            this.lblArtista.Location = new System.Drawing.Point(6, 100);
+            this.lblArtista.Location = new System.Drawing.Point(392, 74);
             this.lblArtista.Name = "lblArtista";
             this.lblArtista.Size = new System.Drawing.Size(39, 13);
             this.lblArtista.TabIndex = 5;
@@ -149,7 +150,7 @@ namespace ManejoCanciones.uControl
             // lblAlbum
             // 
             this.lblAlbum.AutoSize = true;
-            this.lblAlbum.Location = new System.Drawing.Point(6, 126);
+            this.lblAlbum.Location = new System.Drawing.Point(6, 100);
             this.lblAlbum.Name = "lblAlbum";
             this.lblAlbum.Size = new System.Drawing.Size(39, 13);
             this.lblAlbum.TabIndex = 6;
@@ -176,7 +177,7 @@ namespace ManejoCanciones.uControl
             // lblComentario
             // 
             this.lblComentario.AutoSize = true;
-            this.lblComentario.Location = new System.Drawing.Point(6, 152);
+            this.lblComentario.Location = new System.Drawing.Point(6, 133);
             this.lblComentario.Name = "lblComentario";
             this.lblComentario.Size = new System.Drawing.Size(63, 13);
             this.lblComentario.TabIndex = 9;
@@ -202,39 +203,31 @@ namespace ManejoCanciones.uControl
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Location = new System.Drawing.Point(69, 71);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(723, 20);
+            this.txtNombre.Size = new System.Drawing.Size(317, 20);
             this.txtNombre.TabIndex = 12;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // txtArtista
             // 
-            this.txtArtista.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtArtista.Location = new System.Drawing.Point(69, 97);
+            this.txtArtista.Location = new System.Drawing.Point(437, 71);
             this.txtArtista.Name = "txtArtista";
-            this.txtArtista.Size = new System.Drawing.Size(723, 20);
+            this.txtArtista.Size = new System.Drawing.Size(353, 20);
             this.txtArtista.TabIndex = 13;
             this.txtArtista.TextChanged += new System.EventHandler(this.txtArtista_TextChanged);
             // 
             // txtAlbum
             // 
-            this.txtAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAlbum.Location = new System.Drawing.Point(69, 123);
+            this.txtAlbum.Location = new System.Drawing.Point(70, 97);
             this.txtAlbum.Name = "txtAlbum";
-            this.txtAlbum.Size = new System.Drawing.Size(723, 20);
+            this.txtAlbum.Size = new System.Drawing.Size(316, 20);
             this.txtAlbum.TabIndex = 14;
             this.txtAlbum.TextChanged += new System.EventHandler(this.txtAlbum_TextChanged);
             // 
             // txtComentario
             // 
-            this.txtComentario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtComentario.Location = new System.Drawing.Point(69, 149);
+            this.txtComentario.Location = new System.Drawing.Point(70, 123);
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(723, 33);
@@ -264,7 +257,7 @@ namespace ManejoCanciones.uControl
             this.gbModificado.Controls.Add(this.txtPista);
             this.gbModificado.Location = new System.Drawing.Point(3, 4);
             this.gbModificado.Name = "gbModificado";
-            this.gbModificado.Size = new System.Drawing.Size(798, 186);
+            this.gbModificado.Size = new System.Drawing.Size(798, 162);
             this.gbModificado.TabIndex = 16;
             this.gbModificado.TabStop = false;
             this.gbModificado.Text = "groupBox1";
@@ -278,6 +271,7 @@ namespace ManejoCanciones.uControl
             // 
             // scDetalleCancion.Panel1
             // 
+            this.scDetalleCancion.Panel1.Controls.Add(this.btnActualizar);
             this.scDetalleCancion.Panel1.Controls.Add(this.btnLimpiar);
             this.scDetalleCancion.Panel1.Controls.Add(this.gbModificado);
             this.scDetalleCancion.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -287,13 +281,24 @@ namespace ManejoCanciones.uControl
             this.scDetalleCancion.Panel2.Controls.Add(this.scDatosArchivo);
             this.scDetalleCancion.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.scDetalleCancion.Size = new System.Drawing.Size(885, 381);
-            this.scDetalleCancion.SplitterDistance = 193;
+            this.scDetalleCancion.SplitterDistance = 169;
             this.scDetalleCancion.TabIndex = 17;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Location = new System.Drawing.Point(807, 4);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 18;
+            this.btnActualizar.Text = "Act. Lista";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpiar.Location = new System.Drawing.Point(807, 3);
+            this.btnLimpiar.Location = new System.Drawing.Point(807, 33);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 17;
@@ -314,12 +319,13 @@ namespace ManejoCanciones.uControl
             // scDatosArchivo.Panel2
             // 
             this.scDatosArchivo.Panel2.Controls.Add(this.gbID3v2);
-            this.scDatosArchivo.Size = new System.Drawing.Size(885, 184);
-            this.scDatosArchivo.SplitterDistance = 416;
+            this.scDatosArchivo.Size = new System.Drawing.Size(885, 208);
+            this.scDatosArchivo.SplitterDistance = 418;
             this.scDatosArchivo.TabIndex = 17;
             // 
             // gbID3v1
             // 
+            this.gbID3v1.Controls.Add(this.txtID3v1_Genero);
             this.gbID3v1.Controls.Add(this.txtID3v1_Comentario);
             this.gbID3v1.Controls.Add(this.txtID3v1_Album);
             this.gbID3v1.Controls.Add(this.lblID3v1_NumPista);
@@ -330,17 +336,24 @@ namespace ManejoCanciones.uControl
             this.gbID3v1.Controls.Add(this.txtID3v1_Año);
             this.gbID3v1.Controls.Add(this.lblID3v1_Album);
             this.gbID3v1.Controls.Add(this.lblID3v1_Año);
-            this.gbID3v1.Controls.Add(this.cmbID3v1_Genero);
             this.gbID3v1.Controls.Add(this.lblID3v1_Comentario);
             this.gbID3v1.Controls.Add(this.lblID3v1_Genero);
             this.gbID3v1.Controls.Add(this.txtID3v1_NumPista);
             this.gbID3v1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbID3v1.Location = new System.Drawing.Point(0, 0);
             this.gbID3v1.Name = "gbID3v1";
-            this.gbID3v1.Size = new System.Drawing.Size(416, 184);
+            this.gbID3v1.Size = new System.Drawing.Size(418, 208);
             this.gbID3v1.TabIndex = 16;
             this.gbID3v1.TabStop = false;
             this.gbID3v1.Text = "ID3v1";
+            // 
+            // txtID3v1_Genero
+            // 
+            this.txtID3v1_Genero.Location = new System.Drawing.Point(284, 13);
+            this.txtID3v1_Genero.Name = "txtID3v1_Genero";
+            this.txtID3v1_Genero.ReadOnly = true;
+            this.txtID3v1_Genero.Size = new System.Drawing.Size(128, 20);
+            this.txtID3v1_Genero.TabIndex = 16;
             // 
             // txtID3v1_Comentario
             // 
@@ -350,7 +363,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v1_Comentario.Multiline = true;
             this.txtID3v1_Comentario.Name = "txtID3v1_Comentario";
             this.txtID3v1_Comentario.ReadOnly = true;
-            this.txtID3v1_Comentario.Size = new System.Drawing.Size(342, 33);
+            this.txtID3v1_Comentario.Size = new System.Drawing.Size(344, 33);
             this.txtID3v1_Comentario.TabIndex = 15;
             // 
             // txtID3v1_Album
@@ -360,7 +373,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v1_Album.Location = new System.Drawing.Point(69, 91);
             this.txtID3v1_Album.Name = "txtID3v1_Album";
             this.txtID3v1_Album.ReadOnly = true;
-            this.txtID3v1_Album.Size = new System.Drawing.Size(342, 20);
+            this.txtID3v1_Album.Size = new System.Drawing.Size(344, 20);
             this.txtID3v1_Album.TabIndex = 14;
             // 
             // lblID3v1_NumPista
@@ -379,7 +392,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v1_Artista.Location = new System.Drawing.Point(69, 65);
             this.txtID3v1_Artista.Name = "txtID3v1_Artista";
             this.txtID3v1_Artista.ReadOnly = true;
-            this.txtID3v1_Artista.Size = new System.Drawing.Size(342, 20);
+            this.txtID3v1_Artista.Size = new System.Drawing.Size(344, 20);
             this.txtID3v1_Artista.TabIndex = 13;
             // 
             // lblID3v1_Nombre
@@ -398,7 +411,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v1_Nombre.Location = new System.Drawing.Point(69, 39);
             this.txtID3v1_Nombre.Name = "txtID3v1_Nombre";
             this.txtID3v1_Nombre.ReadOnly = true;
-            this.txtID3v1_Nombre.Size = new System.Drawing.Size(342, 20);
+            this.txtID3v1_Nombre.Size = new System.Drawing.Size(344, 20);
             this.txtID3v1_Nombre.TabIndex = 12;
             // 
             // lblID3v1_Artista
@@ -437,15 +450,6 @@ namespace ManejoCanciones.uControl
             this.lblID3v1_Año.TabIndex = 10;
             this.lblID3v1_Año.Text = "Año:";
             // 
-            // cmbID3v1_Genero
-            // 
-            this.cmbID3v1_Genero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbID3v1_Genero.FormattingEnabled = true;
-            this.cmbID3v1_Genero.Location = new System.Drawing.Point(294, 13);
-            this.cmbID3v1_Genero.Name = "cmbID3v1_Genero";
-            this.cmbID3v1_Genero.Size = new System.Drawing.Size(116, 21);
-            this.cmbID3v1_Genero.TabIndex = 8;
-            // 
             // lblID3v1_Comentario
             // 
             this.lblID3v1_Comentario.AutoSize = true;
@@ -475,6 +479,7 @@ namespace ManejoCanciones.uControl
             // 
             // gbID3v2
             // 
+            this.gbID3v2.Controls.Add(this.txtID3v2_Genero);
             this.gbID3v2.Controls.Add(this.txtID3v2_Comentario);
             this.gbID3v2.Controls.Add(this.txtID3v2_Album);
             this.gbID3v2.Controls.Add(this.lblID3v2_NumPista);
@@ -485,17 +490,24 @@ namespace ManejoCanciones.uControl
             this.gbID3v2.Controls.Add(this.txtID3v2_Año);
             this.gbID3v2.Controls.Add(this.lblID3v2_Album);
             this.gbID3v2.Controls.Add(this.lblID3v2_Año);
-            this.gbID3v2.Controls.Add(this.cmbID3v2_Genero);
             this.gbID3v2.Controls.Add(this.lblID3v2_Comentario);
             this.gbID3v2.Controls.Add(this.lblID3v2_Genero);
             this.gbID3v2.Controls.Add(this.txtID3v2_NumPista);
             this.gbID3v2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbID3v2.Location = new System.Drawing.Point(0, 0);
             this.gbID3v2.Name = "gbID3v2";
-            this.gbID3v2.Size = new System.Drawing.Size(465, 184);
+            this.gbID3v2.Size = new System.Drawing.Size(463, 208);
             this.gbID3v2.TabIndex = 17;
             this.gbID3v2.TabStop = false;
             this.gbID3v2.Text = "ID3v2";
+            // 
+            // txtID3v2_Genero
+            // 
+            this.txtID3v2_Genero.Location = new System.Drawing.Point(285, 13);
+            this.txtID3v2_Genero.Name = "txtID3v2_Genero";
+            this.txtID3v2_Genero.ReadOnly = true;
+            this.txtID3v2_Genero.Size = new System.Drawing.Size(128, 20);
+            this.txtID3v2_Genero.TabIndex = 17;
             // 
             // txtID3v2_Comentario
             // 
@@ -505,7 +517,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v2_Comentario.Multiline = true;
             this.txtID3v2_Comentario.Name = "txtID3v2_Comentario";
             this.txtID3v2_Comentario.ReadOnly = true;
-            this.txtID3v2_Comentario.Size = new System.Drawing.Size(389, 33);
+            this.txtID3v2_Comentario.Size = new System.Drawing.Size(387, 33);
             this.txtID3v2_Comentario.TabIndex = 15;
             // 
             // txtID3v2_Album
@@ -515,7 +527,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v2_Album.Location = new System.Drawing.Point(69, 91);
             this.txtID3v2_Album.Name = "txtID3v2_Album";
             this.txtID3v2_Album.ReadOnly = true;
-            this.txtID3v2_Album.Size = new System.Drawing.Size(389, 20);
+            this.txtID3v2_Album.Size = new System.Drawing.Size(387, 20);
             this.txtID3v2_Album.TabIndex = 14;
             // 
             // lblID3v2_NumPista
@@ -534,7 +546,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v2_Artista.Location = new System.Drawing.Point(69, 65);
             this.txtID3v2_Artista.Name = "txtID3v2_Artista";
             this.txtID3v2_Artista.ReadOnly = true;
-            this.txtID3v2_Artista.Size = new System.Drawing.Size(389, 20);
+            this.txtID3v2_Artista.Size = new System.Drawing.Size(387, 20);
             this.txtID3v2_Artista.TabIndex = 13;
             // 
             // lblID3v2_Nombre
@@ -553,7 +565,7 @@ namespace ManejoCanciones.uControl
             this.txtID3v2_Nombre.Location = new System.Drawing.Point(69, 39);
             this.txtID3v2_Nombre.Name = "txtID3v2_Nombre";
             this.txtID3v2_Nombre.ReadOnly = true;
-            this.txtID3v2_Nombre.Size = new System.Drawing.Size(389, 20);
+            this.txtID3v2_Nombre.Size = new System.Drawing.Size(387, 20);
             this.txtID3v2_Nombre.TabIndex = 12;
             // 
             // lblID3v2_Artista
@@ -591,14 +603,6 @@ namespace ManejoCanciones.uControl
             this.lblID3v2_Año.Size = new System.Drawing.Size(29, 13);
             this.lblID3v2_Año.TabIndex = 10;
             this.lblID3v2_Año.Text = "Año:";
-            // 
-            // cmbID3v2_Genero
-            // 
-            this.cmbID3v2_Genero.FormattingEnabled = true;
-            this.cmbID3v2_Genero.Location = new System.Drawing.Point(294, 13);
-            this.cmbID3v2_Genero.Name = "cmbID3v2_Genero";
-            this.cmbID3v2_Genero.Size = new System.Drawing.Size(118, 21);
-            this.cmbID3v2_Genero.TabIndex = 8;
             // 
             // lblID3v2_Comentario
             // 
@@ -686,7 +690,6 @@ namespace ManejoCanciones.uControl
         private System.Windows.Forms.TextBox txtID3v1_Año;
         private System.Windows.Forms.Label lblID3v1_Album;
         private System.Windows.Forms.Label lblID3v1_Año;
-        private System.Windows.Forms.ComboBox cmbID3v1_Genero;
         private System.Windows.Forms.Label lblID3v1_Comentario;
         private System.Windows.Forms.Label lblID3v1_Genero;
         private System.Windows.Forms.TextBox txtID3v1_NumPista;
@@ -702,10 +705,12 @@ namespace ManejoCanciones.uControl
         private System.Windows.Forms.TextBox txtID3v2_Año;
         private System.Windows.Forms.Label lblID3v2_Album;
         private System.Windows.Forms.Label lblID3v2_Año;
-        private System.Windows.Forms.ComboBox cmbID3v2_Genero;
         private System.Windows.Forms.Label lblID3v2_Comentario;
         private System.Windows.Forms.Label lblID3v2_Genero;
         private System.Windows.Forms.TextBox txtID3v2_NumPista;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.TextBox txtID3v2_Genero;
+        private System.Windows.Forms.TextBox txtID3v1_Genero;
     }
 }
